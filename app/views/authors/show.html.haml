@@ -2,8 +2,9 @@
   .meta.row
     .large-12.columns
       %h3= @author.name.html_safe
-      - if !@author.email.nil?
-        %p= @author.email.html_safe
+      = image_tag(@author.gravatar_url(:rating => 'R', :secure => true, :size => 80))
+      / - if !@author.email.nil?
+      /   %p= @author.email.html_safe
   .articles.row.wrap
     .large-12.columns
       %ul.large-block-grid-4

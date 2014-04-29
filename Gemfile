@@ -18,7 +18,7 @@ gem 'haml-rails'
 gem 'truncate_html', '0.3.2'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
-
+gem 'gravtastic'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

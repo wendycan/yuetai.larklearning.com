@@ -1,13 +1,31 @@
 .article{
-  .article-meta{
+  .meta{
     p{
-      margin-bottom: 5px;
+      margin-bottom: 10px;
     }
+    small{
+      vertical-align: bottom;
+    }
+    a:hover{
+      img{
+        opacity: 0.8;
+      }
+    }
+    margin-bottom: 30px;
+    margin-top: 20px;
   }
   .body p{
     text-indent: 2rem;
   }
   p.remove-indent{
     text-indent: 0;
+  }
+}
+.articles{
+  p{
+    margin-bottom: 0.8rem;
+  }
+  hr:last-child{
+    display: none;
   }
 }

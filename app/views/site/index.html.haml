@@ -1,4 +1,4 @@
-.row
+.row.articles
   .large-9.columns
     - @articles.each do |article|
       .row.wrap
@@ -10,5 +10,6 @@
             = link_to author_path(article.author.id), :class => 'label' do
               = article.author.name.html_safe
           = truncate(article.body, length: 200, escape: false)
+      %hr
   .large-3.columns
     = render :partial => 'layouts/sidebar'
