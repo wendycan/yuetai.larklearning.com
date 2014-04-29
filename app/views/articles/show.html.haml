@@ -6,4 +6,7 @@
         %p
           = link_to author_path(@article.author.id), :class => 'label' do
             = @article.author.name
+      .article-body
         %p= @article.body
+      .article-music
+        = @article.music_script
