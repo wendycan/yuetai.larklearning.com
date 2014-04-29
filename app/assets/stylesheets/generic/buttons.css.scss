@@ -1,0 +1,32 @@
+.button.primary{
+  background-color: $primary;
+  color: white;
+  &:hover{
+    background-color: $primary-hover !important;
+  }
+}
+.button.default{
+  background-color: white !important;
+  border: solid 1px $gray-border;
+  color: $gray-text;
+  &:hover{
+    border-color: $gray-bg;
+    color: black;
+  }
+}
+.button.alert {
+  background-color: $gray-bg;
+  border: solid 1px $gray-border;
+  color: #9e6a5e;
+  font-weight: bold;
+  &:hover {
+    background-color: $alert-color;
+    color: white;
+  }
+  &.tiny {
+    font-size: $button-font-sml;
+  }
+  &.small {
+    font-size: $button-font-med;
+  }
+}

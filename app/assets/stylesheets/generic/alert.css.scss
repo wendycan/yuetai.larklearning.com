@@ -1,0 +1,22 @@
+.alert-box {
+  &.success {
+    background-color: #f4fbe5;
+    color: #718453;
+    border-color: #c6e0a3;
+  }
+  &.alert {
+    background-color: #fdece6;
+    color: #9e6a5e;
+    border-color: #faa592;
+  }
+  &.info {
+    background-color: #ecf8fd;
+    color: #5d7481;
+    border-color: #87badb;
+  }
+  &.warning {
+    background-color: #fbf7e5;
+    color: #998649;
+    border-color: #f6e58d;
+  }
+}

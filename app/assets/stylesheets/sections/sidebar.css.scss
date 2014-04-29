@@ -1,0 +1,56 @@
+.sidebar{
+  position: fixed;
+  top: 60px;
+  h5{
+    margin: 20px;
+    font-weight: bold;
+    color: black;
+  }
+  .sidebar-db{
+    left: -120px;
+    position: fixed;
+    background-color: $gray-dark3-bg;
+    ul{
+      width: 150px;
+      overflow: hidden;
+      margin-bottom: 5px;
+      max-height: 510px;
+    }
+    li{
+      font-size: 13px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-color: $gray-dark-border;
+      i{
+        padding-right: 5px;
+        font-size: 12px;
+      }
+      a{
+        color: black;
+        display: block;
+        &:hover{
+          color: black;
+        }
+      }
+      &:hover{
+        background-color: $gray-dark2-bg;
+      }
+    }
+    a.button{
+      font-size: 12px;
+      margin-bottom: 10px;
+      margin-left: 18px;
+    }
+  }
+  .sidebar-btn{
+    position: absolute;
+    left: 150px;
+    padding: 10px;
+    background-color: $gray-dark3-bg;
+    width: 40px;
+    .fa{
+      font-size: 25px;
+      font-weight: bolder;
+    }
+  }
+}

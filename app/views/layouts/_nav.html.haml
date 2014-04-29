@@ -1,0 +1,16 @@
+.show-for-medium-up
+  %nav.top-bar{:'data-topbar' => true}
+    %ul.title-area
+      %li.name
+        %h1
+          = link_to '/' do
+            = image_tag("logo.png")
+    %section.top-bar-section
+      %ul.right
+        %li
+          %a.default.tip-left{:href => "http://www.wendycan.org", :'data-tooltip' => true, title: "WendyCan"}
+            %i.fa.fa-home
+      %ul.left
+        %li
+          %a.default{:href => "/"}
+            阅台

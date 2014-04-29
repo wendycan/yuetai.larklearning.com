@@ -1,0 +1,86 @@
+body{
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !important;
+}
+a{
+  color: $primary;
+  &:hover{
+    color: $primary-hover;
+  }
+}
+hr{
+  margin: 0;
+}
+.default{
+  color: white;
+  font-weight: normal;
+  &:hover{
+    color: $primary;
+  }
+}
+.reverse{
+  color: $primary-hover;
+  &:hover{
+    color: $primary;
+  }
+}
+.code{
+  font-family: monospace;
+  background-color: $gray-bg;
+  overflow: auto;
+}
+ul.list{
+  list-style: none;
+  margin-left: 0;
+  li{
+    padding: 5px 10px 5px 10px;
+    border-bottom: solid 1px $gray-border;
+    text-indent: 1em;
+    &:last-child{
+      border-bottom: none;
+    }
+  }
+}
+.label.primary{
+  background-color: $primary;
+}
+.limit-width{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+.clipboard-group {
+  .js-zeroclipboard {
+    cursor: pointer;
+    display: none;
+    color: $primary-hover;
+    &.zeroclipboard-is-hover{
+      color: black;
+    }
+    &.zeroclipboard-is-active{
+      color: black;
+    }
+  }
+  &.hover .js-zeroclipboard{
+    display: inline-block;
+  }
+}
+td.clipboard-group .js-zeroclipboard {
+  position: absolute;
+  right: 0;
+}
+.brown-color{
+  color: $brown;
+}
+.green-color{
+  color: $green;
+}
+.blue-color{
+  color: $blue;
+}
+.orange-color{
+  color: $orange;
+}
+.gray-dark-bg{
+  background-color: $gray-darkest;
+}

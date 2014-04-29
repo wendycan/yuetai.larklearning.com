@@ -1,0 +1,21 @@
+%nav.tab-bar.show-for-small-only
+  %section.left-small.text-center
+    %a.left-off-canvas-toggle
+      %span
+        %i.fa.fa-bars.defaultg
+  %section.middle.tab-bar-section
+    %h1.title 阅台
+%aside.left-off-canvas-menu
+  %ul.off-canvas-list
+    %li
+      %a.default{:href => "http://blog.wendycan.org"}
+        %i.fa.fa-bookmark
+        阅台
+    %li
+      = link_to 'htttp://www.wendycan.org/profile', :class => "default" do
+        %i.fa.fa-user
+        简历
+    %li
+      %a.default{:href => "htttp://www.wendycan.org"}
+        %i.fa.fa-home
+        WendyCan

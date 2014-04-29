@@ -1,0 +1,13 @@
+.article{
+  .article-meta{
+    p{
+      margin-bottom: 5px;
+    }
+  }
+  .content p{
+    text-indent: 2rem;
+  }
+  p.remove-indent{
+    text-indent: 0;
+  }
+}

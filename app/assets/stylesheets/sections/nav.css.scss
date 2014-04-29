@@ -1,0 +1,39 @@
+.top-bar{
+  a{
+    font-weight: bold !important;
+  }
+  .title-area{
+    a{
+      img{
+        height: 40px;
+        width: auto;
+        margin-left: 5px;
+      }
+      &:hover{
+        opacity: 0.8;
+      }
+      line-height: 60px;
+    }
+  }
+  ul.right{
+    a{
+      font-size: 1.7rem;
+    }
+  }
+  ul.left{
+    a{
+      font-weight: bold;
+      font-size: 1.3rem;
+      padding-left: 0 !important;
+    }
+  }
+}
+.tab-bar img{
+  height: 50px;
+  width: auto;
+}
+.off-canvas-list{
+  li i{
+    padding-right: 15px;
+  }
+}
