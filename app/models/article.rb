@@ -4,7 +4,7 @@ class Article < ActiveRecord::Base
   belongs_to :author
 
   before_save :set_node
-
+  scope :recent, ->(num) { order('created_at DESC').limit(num) }
   def set_node
     tag = Node.find_by_name(self.utag)
     if tag.nil?
