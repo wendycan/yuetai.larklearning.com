@@ -1,7 +1,18 @@
 ActiveAdmin.register Article do
   controller do
     def permitted_params
-      params.permit article: [ :name, :body, :author, :node_id, :author_id, :music_script]
+      params.permit article: [ :name, :body, :node_id, :author_id, :music_script]
     end
+  end
+
+  index do
+    selectable_column
+    id_column
+    column :name
+    column :author
+    column :utag
+    column :created_at
+    column :updated_at
+    default_actions
   end
 end
