@@ -1,4 +1,12 @@
 .node
-  .row.wrap
+  .meta.row.wrap
     .large-12.columns
       %h3= @node.name
+  .articles.row.wrap
+    .large-12.columns
+      %ul.large-block-grid-4
+        - @node.articles.each do |article|
+          %li
+            = link_to article_path(article.id) do
+              %h5= article.name
+              %p= truncate(article.body, :length => 100)

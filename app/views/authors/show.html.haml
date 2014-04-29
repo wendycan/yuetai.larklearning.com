@@ -1,4 +1,13 @@
 .author
-  .row.wrap
+  .meta.row.wrap
     .large-12.columns
       %h3= @author.name
+      %p= @author.email
+  .articles.row.wrap
+    .large-12.columns
+      %ul.large-block-grid-4
+        - @author.articles.each do |article|
+          %li
+            = link_to article_path(article.id) do
+              %h5= article.name
+              %p= truncate(article.body, :length => 100)
