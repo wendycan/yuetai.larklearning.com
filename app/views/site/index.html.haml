@@ -9,6 +9,6 @@
           %p
             = link_to author_path(article.author.id), :class => 'label' do
               = article.author.name.html_safe
-          %p= article.body.html_safe
+          = truncate(article.body, length: 200, escape: false)
   .large-3.columns
     = render :partial => 'layouts/sidebar'
