@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Node.create([{name: 'music'},{name: 'life'},{name: 'others'},{name: 'book'}])
+Author.create([{name: 'wendywang'},{name: 'spacevsitor'},{name: 'unknow'}])
