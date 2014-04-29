@@ -1,0 +1,12 @@
+.sidebar
+  .wrap.tags
+    %h4 标签
+    - @tags.each do |tag|
+      = link_to '#', :class => 'label' do
+        = tag.name
+  .wrap.authors
+    %h4 作者
+    - @authors.each do |author|
+      = link_to '#', :class => 'label' do
+        = author.name
+
