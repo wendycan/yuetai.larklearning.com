@@ -1,12 +1,12 @@
 .article
   .row.wrap
     .large-12.columns
-      %h3= @article.name
-      .article-meta
+      %h3= @article.name.html_safe
+      .meta
         %p
           = link_to author_path(@article.author.id), :class => 'label' do
-            = @article.author.name
-      .article-body
-        %p= @article.body
-      .article-music
-        = @article.music_script
+            = @article.author.name.html_safe
+      .body
+        = @article.body.html_safe
+      .music
+        = @article.music_script.html_safe

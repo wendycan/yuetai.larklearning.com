@@ -5,10 +5,10 @@
         .large-12.columns
           %h3
             = link_to article_path(article.id) do
-              = article.name
+              = article.name.html_safe
           %p
             = link_to author_path(article.author.id), :class => 'label' do
-              = article.author.name
-          %p= article.body
+              = article.author.name.html_safe
+          %p= article.body.html_safe
   .large-3.columns
     = render :partial => 'layouts/sidebar'
