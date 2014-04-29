@@ -3,9 +3,11 @@
     - @articles.each do |article|
       .row.wrap
         .large-12.columns
-          %h3= article.name
+          %h3
+            = link_to article_path(article.id) do
+              = article.name
           %p
-            = link_to '#', :class => 'label' do
+            = link_to author_path(article.author.id), :class => 'label' do
               = article.author.name
           %p= article.body
   .large-3.columns

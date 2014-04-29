@@ -1,1 +1,9 @@
-%h3 Hello
+.article
+  .row.wrap
+    .large-12.columns
+      %h3= @article.name
+      .article-meta
+        %p
+          = link_to author_path(@article.author.id), :class => 'label' do
+            = @article.author.name
+        %p= @article.body
