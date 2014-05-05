@@ -3,10 +3,24 @@
     .large-12.columns
       %h3= @author.name.html_safe
       = image_tag(@author.gravatar_url(:rating => 'R', :secure => true, :size => 80))
-      / - if !@author.email.nil?
-      /   %p= @author.email.html_safe
+      %p
+        %span.label.secondary 邮箱
+        %small= @author.email
+      %p
+        %span.label.secondary 创建于
+        %small= @author.created_at
+      %p
+        %span.label.secondary 上次更新于
+        %small= @author.updated_at
   .articles.row.wrap
     .large-12.columns
+      %h3
+        = '发表的文章'
+        %small= '共'
+        %small= @author.articles.count
+        %small= '篇'
+
+      %hr
       %ul.large-block-grid-4
         - @author.articles.each do |article|
           %li
