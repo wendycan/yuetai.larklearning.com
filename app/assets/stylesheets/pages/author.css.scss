@@ -1,7 +1,18 @@
 .author{
   .articles{
+    margin-bottom: 20px;
     ul{
       margin-top: 20px;
+      li{
+        padding: 20px 5px 20px 5px;
+        background-color: $gray-bg;
+        &:hover{
+          opacity: 0.8;
+        }
+      }
+      a:hover{
+        color: $primary;
+      }
     }
   }
   .meta{

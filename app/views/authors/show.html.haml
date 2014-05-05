@@ -28,6 +28,7 @@
               %h5= article.name.html_safe
               .body
                 = truncate(article.body, length: 100, escape: false)
+  .comment.row
     .large-12.columns
       .ds-thread{:'data-thread-key' => '', :'data-title' => '', :'data-url' => ''}
 
