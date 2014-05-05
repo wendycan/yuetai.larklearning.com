@@ -11,7 +11,7 @@
         %p
           = link_to node_path(@article.node.id) do
             %span.label.secondary.radius= @article.node.name
-          %small= @article.updated_at
+          %small= @article.updated_at.getlocal.strftime("于 %y-%m-%d %H:%M 更新")
         %hr
       .body
         = @article.body.html_safe

@@ -9,6 +9,8 @@
           %p
             = link_to author_path(article.author.id), :class => 'label' do
               = article.author.name.html_safe
+            %small
+              = article.created_at.getlocal.strftime("于 %y-%m-%d %H:%M")
           = truncate(article.body, length: 200, escape: false)
       %hr
   .large-3.columns

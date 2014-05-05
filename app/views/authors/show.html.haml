@@ -8,10 +8,10 @@
         %small= @author.email
       %p
         %span.label.secondary 创建于
-        %small= @author.created_at
+        %small= @author.created_at.getlocal.strftime("%y-%m-%d %H:%M")
       %p
         %span.label.secondary 上次更新于
-        %small= @author.updated_at
+        %small= @author.updated_at.getlocal.strftime("%y-%m-%d %H:%M")
   .articles.row.wrap
     .large-12.columns
       %h3
