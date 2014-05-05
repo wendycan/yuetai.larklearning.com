@@ -22,7 +22,7 @@
 
       %hr
       %ul.large-block-grid-4
-        - @author.articles.each do |article|
+        - @author.articles.order("created_at DESC").each do |article|
           %li
             = link_to article_path(article.id) do
               %h5= article.name.html_safe
