@@ -10,7 +10,8 @@ YuetaiWendycanOrg::Application.routes.draw do
   resources :articles, only: [:index, :show]
   resources :nodes, only: [:index, :show]
   resources :authors, only: [:index, :show]
-
+  resources :books, only: [:index, :show]
+  resources :chaps, only: [:index, :show]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

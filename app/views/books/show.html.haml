@@ -1,0 +1,7 @@
+.wrap.row
+  .large-12.columns
+    %ul
+      - @book.chaps.each do |chap|
+        %li
+          = link_to chap_path(chap.id) do
+            = chap.name
