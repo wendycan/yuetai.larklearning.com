@@ -8,6 +8,9 @@
     %section.top-bar-section
       %ul.right
         %li
+          %form
+            %input.st-search-input{type: 'text', id: 'st-search-input'}
+        %li
           %a.default.tip-left{:href => "http://www.wendycan.org", :'data-tooltip' => true, title: "WendyCan"}
             %i.fa.fa-home
       %ul.left
@@ -17,3 +20,14 @@
         %li
           = link_to books_path do
             = "书籍"
+:javascript
+  var Swiftype = window.Swiftype || {};
+  (function() {
+    Swiftype.key = '4-1kQC3Ly9j4isC9vDwd';
+
+    /** DO NOT EDIT BELOW THIS LINE **/
+    var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+    script.src = "//s.swiftypecdn.com/embed.js";
+    var entry = document.getElementsByTagName('script')[0];
+    entry.parentNode.insertBefore(script, entry);
+  }());
