@@ -11,7 +11,7 @@
  *= require vendor
  *= require_self
  */
-
+@import "autocomplete";
 @import "main/variables";
 @import "main/framework";
 @import "main/mixins";

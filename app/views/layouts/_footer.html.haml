@@ -37,7 +37,9 @@
         var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000396615'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1000396615%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
 
         //Add searchbox
-        var resultTemplate = Hogan.compile('<div class="st-result"><h3 class="title"><a href="{{url}}" class="st-search-result-link">{{title}}</a></h3><div class="st-metadata"><span class="st-snippet">{{{body}}}</span></div></div>');
+        var resultTemplate = Hogan.compile('<div class="st-result"><h3 class="title"><a href="{{url}}" class="st-search-result-link">{{title}}</a></h3><div class="st-metadata"><span class="st-snippet">{{{body}}}</span></div></div>')
+
+      :javascript
         var customRenderer = function(documentType, item) {
           var data = {
             title: item['title'],
@@ -47,6 +49,9 @@
           return resultTemplate.render(data);
         };
         $(document).ready(function(){
+          $('#st-search-input').swiftypeComplete({
+              engineKey: '4-1kQC3Ly9j4isC9vDwd'
+            });
           $('#st-search-input').swiftypeSearch({
             resultContainingElement: '#st-results-container',
             engineKey: '4-1kQC3Ly9j4isC9vDwd',
