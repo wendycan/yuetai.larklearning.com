@@ -19,14 +19,11 @@ TinySou.loadStylesheet = function(url) {
   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(link);
 };
 
-TinySou.loadSupportingFiles = function(callback) {
-  TinySou.loadScript("http://yuetai.wendycan.org/hogan-3.0.1.js", callback);
-  TinySou.loadScript("http://yuetai.wendycan.org/tinysou.js", callback);
-  TinySou.loadScript("http://yuetai.wendycan.org/hashchange.js", callback);
+TinySou.loadSupportingFiles = function() {
+  TinySou.loadScript("http://yuetai.wendycan.org/hogan-3.0.1.js");
+  TinySou.loadScript("http://yuetai.wendycan.org/tinysou.js");
+  TinySou.loadScript("http://yuetai.wendycan.org/hashchange.js");
   TinySou.loadStylesheet("http://yuetai.wendycan.org/tinysou.css");
 };
 
-var TinySou = (function(window, undefined) {
-   TinySou.loadSupportingFiles(function(){});
-   return TinySou;
-})(window);
+TinySou.loadSupportingFiles(function(){});
