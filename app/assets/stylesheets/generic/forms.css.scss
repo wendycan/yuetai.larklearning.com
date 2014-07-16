@@ -4,6 +4,12 @@ form{
   font-weight: bolder;
   }
 }
+.top-bar{
+  form input.st-search-input{
+    height: 30px !important;
+    margin-top: 8px;
+  }
+}
 .has-hint{
   input{
     margin-bottom: 0;
