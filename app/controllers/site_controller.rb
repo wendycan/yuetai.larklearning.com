@@ -4,4 +4,7 @@ class SiteController < ApplicationController
     @authors = Author.order("updated_at DESC").all
     @articles = Article.order("updated_at DESC").all
   end
+
+  def search
+  end
 end

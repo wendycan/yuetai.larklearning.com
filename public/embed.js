@@ -9,6 +9,8 @@ TinySou.loadScript = function(url, callback) {
 
   var entry = document.getElementsByTagName('script')[0];
   entry.parentNode.insertBefore(script, entry);
+
+  script.addEventListener('load', callback, false);
 };
 
 TinySou.loadStylesheet = function(url) {

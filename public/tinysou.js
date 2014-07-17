@@ -91,13 +91,10 @@
       $this.data('swiftype-config-search', config);
       $this.selectedCallback = function (data) {
         return function (e) {
-          console.log('selectedCallback');
           var $el = $(this);
           e.preventDefault();
           Swiftype.pingSearchResultClick(config.engineKey, data['id'], function() {
             window.location = $el.attr('href');
-            console.log('location');
-            console.log(window.location);
           });
         };
       };
@@ -205,7 +202,7 @@
       if (config.renderStyle == 'inline') {
         $resultContainer = $(config.resultContainingElement);
       } else if (config.renderStyle == 'new_page') {
-
+        $resultContainer = $(config.resultContainingElement);
       } else{
         $('body').append("<div id='st-results-container' style='display: none;'></div>");
         $resultContainer = $('#st-results-container');
@@ -219,7 +216,6 @@
         };
 
       var submitSearch = function (query, options) {
-          console.log('submitSearch');
           options = $.extend({
             page: 1
           }, options);
@@ -262,11 +258,7 @@
         };
 
       $(window).hashchange(function () {
-        console.log('hashchange');
-        console.log($(window));
         var params = $.hashParams();
-        console.log('params');
-        console.log(params);
         if (params.stq) {
           submitSearch(params.stq, {
             page: params.stp
@@ -302,13 +294,9 @@
       });
 
       var renderSearchResults = function (data) {
-        console.log('config');
-        console.log(config);
         if (typeof config.preRenderFunction === 'function') {
           config.preRenderFunction.call($this, data);
         }
-        console.log($this.getContext());
-        console.log(data);
 
         config.renderResultsFunction($this.getContext(), data);
 
@@ -570,6 +558,9 @@
     renderPagination(ctx, data.info);
     if (!config.renderStyle) {
       $('#st-results-container').appendTo('body').modal();
+    } else if (config.renderStyle == 'new_page') {
+      console.log('hash');
+      console.log(window.location.hash);
     }
   };
 
