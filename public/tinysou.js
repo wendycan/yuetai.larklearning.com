@@ -200,8 +200,17 @@
         return $('#' + contentCacheId);
       };
 
-      var $resultContainer = $(config.resultContainingElement),
-        initialContentOfResultContainer = $resultContainer.html(),
+      var $resultContainer;
+      // $(config.resultContainingElement)
+      if (config.renderStyle == 'inline') {
+        $resultContainer = $(config.resultContainingElement);
+      } else if (config.renderStyle == 'new_page') {
+
+      } else{
+        $('body').append("<div id='st-results-container' style='display: none;'></div>");
+        $resultContainer = $('#st-results-container');
+      }
+      var initialContentOfResultContainer = $resultContainer.html(),
         contentCacheId = 'st-content-cache',
         $contentCache = $this.getContentCache();
 
@@ -559,6 +568,9 @@
     });
 
     renderPagination(ctx, data.info);
+    if (!config.renderStyle) {
+      $('#st-results-container').appendTo('body').modal();
+    }
   };
 
   var defaultRenderFunction = function (document_type, item) {
@@ -762,6 +774,9 @@
     sortField: undefined,
     sortDirection: undefined,
     fetchFields: undefined,
+    renderStyle: undefined,
+    resultPageURL: undefined,
+    resultContainingElement: undefined,
     preRenderFunction: undefined,
     postRenderFunction: defaultPostRenderFunction,
     loadingFunction: defaultLoadingFunction,
@@ -770,9 +785,7 @@
     renderPaginationForType: defaultRenderPaginationForType,
     perPage: 10,
     spelling: 'strict',
-    renderStyle: undefined,
-    resultPageURL: undefined,
-    resultContainingElement: undefined,
+    //autocomplete
     activeItemClass: 'active',
     noResultsClass: 'noResults',
     noResultsMessage: undefined,

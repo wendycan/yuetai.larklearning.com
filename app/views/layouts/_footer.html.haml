@@ -53,10 +53,11 @@
             return out;
           };
           $('#st-search-input').swiftypeSearch({
-            resultContainingElement: '#st-results-container',
+            // resultContainingElement: '#st-results-container',
             engineKey: '4-1kQC3Ly9j4isC9vDwd',
             renderFunction: customRenderer,
-            perPage: 3,
+            perPage: 4,
+            // renderStyle: 'inline',
             renderActFunction: customRenderActFunction,
             sortField: function() {
               return {page: $('#st-sort-field').val()};

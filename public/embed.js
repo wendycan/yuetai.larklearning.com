@@ -23,6 +23,7 @@ TinySou.loadSupportingFiles = function() {
   TinySou.loadScript("http://localhost:3000/hogan-3.0.1.js");
   TinySou.loadScript("http://localhost:3000/hashchange.js");
   TinySou.loadScript("http://localhost:3000/tinysou.js");
+  TinySou.loadScript("http://localhost:3000/jquery.modal.js");
   TinySou.loadStylesheet("http://localhost:3000/tinysou.css");
 };
 
