@@ -25,6 +25,6 @@ TinySou.loadSupportingFiles = function() {
   TinySou.loadScript("http://localhost:3000/tinysou.js");
   TinySou.loadScript("http://localhost:3000/jquery.modal.js");
   TinySou.loadStylesheet("http://localhost:3000/tinysou.css");
-};
+  };
 
 TinySou.loadSupportingFiles(function(){});
