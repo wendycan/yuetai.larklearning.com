@@ -46,11 +46,18 @@
             };
             return resultTemplate.render(data);
           };
+          var customRenderActFunction = function(document_type, item) {
+            console.log(item);
+            var out = '<p class="title">' + item['title'] + '</p>';
+            out = out.concat('<p class="url">' + item['sections'][0] + '</p>');
+            return out;
+          };
           $('#st-search-input').swiftypeSearch({
             resultContainingElement: '#st-results-container',
             engineKey: '4-1kQC3Ly9j4isC9vDwd',
             renderFunction: customRenderer,
             perPage: 3,
+            renderActFunction: customRenderActFunction,
             sortField: function() {
               return {page: $('#st-sort-field').val()};
             }
