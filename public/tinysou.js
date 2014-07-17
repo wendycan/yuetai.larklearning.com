@@ -198,12 +198,16 @@
       };
 
       var $resultContainer;
-      // $(config.resultContainingElement)
+
       if (config.renderStyle == 'inline') {
         $resultContainer = $(config.resultContainingElement);
       } else if (config.renderStyle == 'new_page') {
         $resultContainer = $(config.resultContainingElement);
-      } else{
+        var url = window.location.toString().split('#')[0];
+        if (url == config.resultPageURL) {
+          config.renderStyle = 'inline';
+        }
+      } else {
         $('body').append("<div id='st-results-container' style='display: none;'></div>");
         $resultContainer = $('#st-results-container');
       }
@@ -559,8 +563,10 @@
     if (!config.renderStyle) {
       $('#st-results-container').appendTo('body').modal();
     } else if (config.renderStyle == 'new_page') {
-      console.log('hash');
-      console.log(window.location.hash);
+      var url = config.resultPageURL + window.location.hash;
+      window.location.replace(url);
+      config.renderStyle = 'inline';
+      config.resultContainingElement = '#st-results-container';
     }
   };
 
