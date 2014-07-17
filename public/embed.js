@@ -20,10 +20,10 @@ TinySou.loadStylesheet = function(url) {
 };
 
 TinySou.loadSupportingFiles = function() {
-  TinySou.loadScript("http://yuetai.wendycan.org/hogan-3.0.1.js");
-  TinySou.loadScript("http://yuetai.wendycan.org/tinysou.js");
-  TinySou.loadScript("http://yuetai.wendycan.org/hashchange.js");
-  TinySou.loadStylesheet("http://yuetai.wendycan.org/tinysou.css");
+  TinySou.loadScript("http://localhost:3000/hogan-3.0.1.js");
+  TinySou.loadScript("http://localhost:3000/hashchange.js");
+  TinySou.loadScript("http://localhost:3000/tinysou.js");
+  TinySou.loadStylesheet("http://localhost:3000/tinysou.css");
 };
 
 TinySou.loadSupportingFiles(function(){});
