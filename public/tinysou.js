@@ -190,7 +190,7 @@
         $this.styleDropdown();
       });
       $this.isEmpty = function(query) {
-        return $.inArray(normalize(query), this.emptyQueries) >= 0
+        return $.inArray(normalize(query), this.emptyQueries) >= 0;
       };
 
       $this.addEmpty = function(query) {
@@ -770,7 +770,9 @@
     renderPaginationForType: defaultRenderPaginationForType,
     perPage: 10,
     spelling: 'strict',
-
+    renderStyle: undefined,
+    resultPageURL: undefined,
+    resultContainingElement: undefined,
     activeItemClass: 'active',
     noResultsClass: 'noResults',
     noResultsMessage: undefined,
