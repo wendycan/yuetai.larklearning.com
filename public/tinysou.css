@@ -124,3 +124,8 @@ div.st-result .st-date {
   border-radius: 8px;
 }
 
+span.st-snippet em {
+  font-style: normal;
+  font-weight: bold;
+  background: yellow;
+}
