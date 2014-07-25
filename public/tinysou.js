@@ -22,9 +22,9 @@
 
   var ident = 0;
 
-  window.Swiftype = window.Swiftype || {};
-  Swiftype.root_url = Swiftype.root_url || 'https://api.swiftype.com';
-  Swiftype.pingUrl = function(endpoint, callback) {
+  window.TinySou = window.TinySou || {};
+  TinySou.root_url = TinySou.root_url || 'https://api.swiftype.com';
+  TinySou.pingUrl = function(endpoint, callback) {
     var to = setTimeout(callback, 350);
     var img = new Image();
     img.onload = img.onerror = function() {
@@ -34,29 +34,29 @@
     img.src = endpoint;
     return false;
   };
-  Swiftype.pingSearchResultClick = function (engineKey, docId, callback) {
+  TinySou.pingSearchResultClick = function (engineKey, docId, callback) {
     var params = {
       t: new Date().getTime(),
       engine_key: engineKey,
       doc_id: docId,
-      q: Swiftype.currentQuery
+      q: TinySou.currentQuery
     };
-    var url = Swiftype.root_url + '/api/v1/public/analytics/pc?' + $.param(params);
-    Swiftype.pingUrl(url, callback);
+    var url = TinySou.root_url + '/api/v1/public/analytics/pc?' + $.param(params);
+    TinySou.pingUrl(url, callback);
   };
 
-  Swiftype.pingAutoSelection = function(engineKey, docId, value, callback) {
+  TinySou.pingAutoSelection = function(engineKey, docId, value, callback) {
     var params = {
       t: new Date().getTime(),
       engine_key: engineKey,
       doc_id: docId,
       prefix: value
     };
-    var url = Swiftype.root_url + '/api/v1/public/analytics/pas?' + $.param(params);
-    Swiftype.pingUrl(url, callback);
+    var url = TinySou.root_url + '/api/v1/public/analytics/pas?' + $.param(params);
+    TinySou.pingUrl(url, callback);
   };
 
-  Swiftype.findSelectedSection = function() {
+  TinySou.findSelectedSection = function() {
     var sectionText = $.hashParams().sts;
     if (!sectionText) { return; }
 
@@ -77,23 +77,23 @@
     });
   };
 
-  Swiftype.htmlEscape = Swiftype.htmlEscape || function htmlEscape(str) {
+  TinySou.htmlEscape = TinySou.htmlEscape || function htmlEscape(str) {
     return String(str).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   };
 
-  $.fn.swiftypeSearch = function (options) {
-    var options = $.extend({}, $.fn.swiftypeSearch.defaults, options);
+  $.fn.tinysouSearch = function (options) {
+    var options = $.extend({}, $.fn.tinysouSearch.defaults, options);
 
     return this.each(function () {
       var $this = $(this);
       var config = $.meta ? $.extend({}, options, $this.data()) : options;
 
-      $this.data('swiftype-config-search', config);
+      $this.data('tinysou-config-search', config);
       $this.selectedCallback = function (data) {
         return function (e) {
           var $el = $(this);
           e.preventDefault();
-          Swiftype.pingSearchResultClick(config.engineKey, data['id'], function() {
+          TinySou.pingSearchResultClick(config.engineKey, data['id'], function() {
             window.location = $el.attr('href');
           });
         };
@@ -105,17 +105,17 @@
             callback = function() {
               config.onComplete(data, value);
             };
-          Swiftype.pingAutoSelection(config.engineKey, data['id'], value, callback);
+          TinySou.pingAutoSelection(config.engineKey, data['id'], value, callback);
         };
       };
 
       $this.registerResult = function ($element, data) {
-        $element.data('swiftype-item', data);
+        $element.data('tinysou-item', data);
         $('a', $element).click($this.selectedCallback(data));
       };
 
       $this.registerActResult = function($element, data) {
-        $element.data('swiftype-item', data);
+        $element.data('tinysou-item', data);
         $element.click($this.selectedAtcCallback(data)).mouseover(function () {
           $this.listResults().removeClass(config.activeItemClass);
           $element.addClass(config.activeItemClass);
@@ -231,7 +231,7 @@
           }
           config.loadingFunction(query, $resultContainer);
 
-          Swiftype.currentQuery = query;
+          TinySou.currentQuery = query;
           params['q'] = query;
           params['engine_key'] = config.engineKey;
           params['page'] = options.page;
@@ -258,7 +258,7 @@
           params['sort_direction'] = handleFunctionParam(config.sortDirection);
           params['spelling'] = handleFunctionParam(config.spelling);
 
-          $.getJSON(Swiftype.root_url + "/api/v1/public/engines/search.json?callback=?", params).success(renderSearchResults);
+          $.getJSON(TinySou.root_url + "/api/v1/public/engines/search.json?callback=?", params).success(renderSearchResults);
         };
 
       $(window).hashchange(function () {
@@ -325,18 +325,18 @@
         };
       };
       $this.attr('autocomplete', 'off');
-      $this.data('swiftype-config-autocomplete', config);
+      $this.data('tinysou-config-autocomplete', config);
       $this.submitted = false;
       $this.cache = new LRUCache(10);
       $this.emptyQueries = [];
 
       var styles = config.dropdownStylesFunction($this);
-      var $swiftypeWidget = $('<div class="swiftype-widget" />');
-      var $listContainer = $('<div />').addClass(config.suggestionListClass).appendTo($swiftypeWidget).css(styles).hide();
-      $swiftypeWidget.appendTo(config.autocompleteContainingElement);
+      var $tinysouWidget = $('<div class="tinysou-widget" />');
+      var $listContainer = $('<div />').addClass(config.suggestionListClass).appendTo($tinysouWidget).css(styles).hide();
+      $tinysouWidget.appendTo(config.autocompleteContainingElement);
       var $list = $('<' + config.suggestionListType + ' />').appendTo($listContainer);
 
-      $this.data('swiftype-list', $list);
+      $this.data('tinysou-list', $list);
       var typingDelayPointer;
       var suppressKey = false;
       $this.lastValue = '';
@@ -367,7 +367,7 @@
         case 13:
           if (($active.length !== 0) && ($list.is(':visible'))) {
             event.preventDefault();
-            $this.selectedAtcCallback($active.data('swiftype-item'))();
+            $this.selectedAtcCallback($active.data('tinysou-item'))();
           } else if ($this.currentRequest) {
             $this.submitting();
           }
@@ -409,10 +409,10 @@
       // stupid hack to get around loss of focus on mousedown
       var mouseDown = false;
       var blurWait = false;
-      $(document).bind('mousedown.swiftype' + ++ident, function () {
+      $(document).bind('mousedown.tinysou' + ++ident, function () {
         mouseDown = true;
       });
-      $(document).bind('mouseup.swiftype' + ident, function () {
+      $(document).bind('mouseup.tinysou' + ident, function () {
         mouseDown = false;
         if (blurWait) {
           blurWait = false;
@@ -432,7 +432,7 @@
           $this.showList();
         }
       });
-      $(window).hashchange(); // if the swiftype query hash is present onload (maybe the user is pressing the back button), submit a query onload
+      $(window).hashchange(); // if the tinysou query hash is present onload (maybe the user is pressing the back button), submit a query onload
     });
   };
 
@@ -464,7 +464,7 @@
     $this.abortCurrent();
 
     var params = {},
-      config = $this.data('swiftype-config-autocomplete');
+      config = $this.data('tinysou-config-autocomplete');
 
     params['q'] = term;
     params['engine_key'] = config.engineKey;
@@ -477,7 +477,7 @@
     params['sort_direction'] = handleFunctionParam(config.sortDirection);
     params['per_page'] = config.resultLimit;
 
-    var endpoint = Swiftype.root_url + '/api/v1/public/engines/suggest.json';
+    var endpoint = TinySou.root_url + '/api/v1/public/engines/suggest.json';
     $this.currentRequest = $.ajax({
       type: 'GET',
       dataType: 'jsonp',
@@ -489,7 +489,7 @@
         $this.cache.put(norm, data.records);
       } else {
         $this.addEmpty(norm);
-        $this.data('swiftype-list').empty();
+        $this.data('tinysou-list').empty();
         $this.hideList();
         return;
       }
@@ -500,7 +500,7 @@
   var getResults = function($this, term) {
     var norm = normalize(term);
     if ($this.isEmpty(norm)) {
-      $this.data('swiftype-list').empty();
+      $this.data('tinysou-list').empty();
       $this.hideList();
       return;
     }
@@ -519,18 +519,18 @@
       }
       $this.lastValue = term;
       if ($.trim(term) === '') {
-        $this.data('swiftype-list').empty();
+        $this.data('tinysou-list').empty();
         $this.hideList();
         return;
       }
-      if (typeof $this.data('swiftype-config-autocomplete').engineKey !== 'undefined') {
+      if (typeof $this.data('tinysou-config-autocomplete').engineKey !== 'undefined') {
         getResults($this, term);
       }
     };
 
   var processData = function ($this, data, term) {
-    var $list = $this.data('swiftype-list'),
-      config = $this.data('swiftype-config-autocomplete');
+    var $list = $this.data('tinysou-list'),
+      config = $this.data('tinysou-config-autocomplete');
 
     $list.empty();
     $this.hideList(true);
@@ -629,7 +629,7 @@
   };
 
   var defaultRenderActFunction = function(document_type, item) {
-    return '<p class="title">' + Swiftype.htmlEscape(item['title']) + '</p>';
+    return '<p class="title">' + TinySou.htmlEscape(item['title']) + '</p>';
   };
 
   var defaultOnComplete = function(item, prefix) {
@@ -637,7 +637,7 @@
   };
 
   var defaultDropdownStylesFunction = function($this) {
-    var config = $this.data('swiftype-config-autocomplete');
+    var config = $this.data('tinysou-config-autocomplete');
     var $attachEl = config.attachTo ? $(config.attachTo) : $this;
     var offset = $attachEl.offset();
     var styles = {
@@ -760,7 +760,7 @@
       return keys;
     };
   }
-  $.fn.swiftypeSearch.defaults = {
+  $.fn.tinysouSearch.defaults = {
     attachTo: undefined,
     documentTypes: undefined,
     facets: undefined,
