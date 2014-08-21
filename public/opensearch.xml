@@ -3,5 +3,4 @@
   <Description>Search Yuetai</Description>
   <InputEncoding>UTF-8</InputEncoding>
   <Url type="text/html" method="get" template="http://yuetai.wendycan.org/site/search#tsq={searchTerms}&amp;tsp=0"/>
-  <moz:SearchForm>https://github.com/search</moz:SearchForm>
 </OpenSearchDescription>
