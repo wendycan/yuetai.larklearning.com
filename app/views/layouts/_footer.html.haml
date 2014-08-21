@@ -37,27 +37,11 @@
         var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000396615'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1000396615%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
         //Add searchbox
         $(document).ready(function(){
-          var resultTemplate = Hogan.compile('<div class="st-result"><h3 class="title"><a href="{{url}}" class="st-search-result-link">{{title}}</a></h3><div class="st-metadata"><span class="st-snippet">{{{body}}}</span></div></div>')
-          var customRenderer = function(documentType, item) {
-            var data = {
-              title: item['title'],
-              url: item['url'],
-              body: item.highlight['body'] || item['body'].substring(0, 300)
-            };
-            return resultTemplate.render(data);
-          };
-          var customRenderActFunction = function(document_type, item) {
-            var out = '<p class="title">' + item['title'] + '</p>';
-            out = out.concat('<p class="url">' + item['sections'][0] + '</p>');
-            return out;
-          };
           $('#st-search-input').tinysouSearch({
-            // resultContainingElement: '#st-results-container',
-            engineKey: '4-1kQC3Ly9j4isC9vDwd',
-            renderFunction: customRenderer,
+            resultContainingElement: '#st-results-container',
+            engineKey: '7d5f1328cf2823e0dac6',
             perPage: 4,
-            // renderStyle: 'new_page',
-            // resultPageURL: '/site/search',
-            renderActFunction: customRenderActFunction
+            renderStyle: 'new_page',
+            resultPageURL: '/site/search'
           });
         })
