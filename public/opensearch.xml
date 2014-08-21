@@ -2,6 +2,6 @@
   <ShortName>Yuetai</ShortName>
   <Description>Search Yuetai</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Url type="text/html" method="get" template="https://yuetai.wendycan.org/search?q={searchTerms}&amp;ref=opensearch"/>
+  <Url type="text/html" method="get" template="https://yuetai.wendycan.org/search?#={searchTerms}&amp;ref=opensearch"/>
   <moz:SearchForm>https://github.com/search</moz:SearchForm>
 </OpenSearchDescription>
