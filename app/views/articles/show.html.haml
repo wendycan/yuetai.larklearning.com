@@ -3,22 +3,25 @@
     .large-12.columns
       %h3
         = @article.name.html_safe
-      .meta
-        %p
-          = link_to author_path(@article.author.id) do
-            = image_tag(@article.author.gravatar_url(:rating => 'R', :secure => true, :size => 40))
-            %small= @article.author.name.html_safe
-        %p
-          = link_to node_path(@article.node.id) do
-            %span.label.secondary.radius= @article.node.name
-          %small= @article.updated_at.getlocal.strftime("于 %y-%m-%d %H:%M 更新")
-        %hr
+      .row
+        .meta.large-6.columns
+          %p
+            = link_to author_path(@article.author.id) do
+              = image_tag(@article.author.gravatar_url(:rating => 'R', :secure => true, :size => 40))
+              %small= @article.author.name.html_safe
+          %p
+            = link_to node_path(@article.node.id) do
+              %span.label.secondary.radius= @article.node.name
+            %small= @article.updated_at.getlocal.strftime("于 %y-%m-%d %H:%M 更新")
+        .large-6.columns
+          .music
+            %br
+            = @article.music_script.html_safe
+      %hr
       .body
         = @article.body.html_safe
-      .music
-        = @article.music_script.html_safe
     .large-12.columns.wrap
-      .ds-thread{:'data-thread-key' => '', :'data-title' => '', :'data-url' => ''}
+      .ds-thread{:'data-thread-key' => "#{@article.id}", :'data-title' => "#{@article.name}", :'data-url' => ''}
 
 :javascript
   var duoshuoQuery = {short_name:"wendycan"};
