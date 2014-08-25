@@ -4,7 +4,7 @@
       %h3
         = @article.name.html_safe
       .row
-        .meta.large-6.columns
+        .meta.large-8.columns
           %p
             = link_to author_path(@article.author.id) do
               = image_tag(@article.author.gravatar_url(:rating => 'R', :secure => true, :size => 40))
@@ -13,7 +13,7 @@
             = link_to node_path(@article.node.id) do
               %span.label.secondary.radius= @article.node.name
             %small= @article.updated_at.getlocal.strftime("于 %y-%m-%d %H:%M 更新")
-        .large-6.columns
+        .large-4.columns
           .music
             %br
             = @article.music_script.html_safe
