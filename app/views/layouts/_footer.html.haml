@@ -35,13 +35,22 @@
       :javascript
         //cnzz
         var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000396615'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1000396615%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
-        //Add searchbox
-        $(document).ready(function(){
-          $('#st-search-input').tinysouSearch({
-            resultContainingElement: '#st-results-container',
-            engineKey: '7d5f1328cf2823e0dac6',
-            perPage: 4,
-            renderStyle: 'new_page',
-            resultPageURL: '/site/search'
-          });
-        })
+:javascript
+  //google analytics
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-53302990-1', 'auto');
+  ga('send', 'pageview');
+
+  //Add searchbox
+  $(document).ready(function(){
+    $('#st-search-input').tinysouSearch({
+      resultContainingElement: '#st-results-container',
+      engineKey: '7d5f1328cf2823e0dac6',
+      perPage: 4,
+      renderStyle: 'new_page',
+      resultPageURL: '/site/search'
+    });
+  })
