@@ -1,10 +1,10 @@
 .wrap.row
   .large-12.columns
     %ul
-      - @book.chaps.each do |chap|
+      - @book.excerpts.each do |excerpt|
         %li
-          = link_to chap_path(chap.id) do
-            = chap.name
+          = link_to excerpt_path(excerpt.id) do
+            = excerpt.body
 
 - content_for :title do
   = @book.name

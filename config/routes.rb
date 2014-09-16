@@ -1,6 +1,4 @@
 YuetaiWendycanOrg::Application.routes.draw do
-  get "excerpts/index"
-  get "excerpts/show"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.
@@ -13,7 +11,7 @@ YuetaiWendycanOrg::Application.routes.draw do
   resources :nodes, only: [:index, :show]
   resources :authors, only: [:index, :show]
   resources :books, only: [:index, :show]
-  resources :chaps, only: [:index, :show]
+  resources :excerpts, only: [:index, :show]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
