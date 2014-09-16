@@ -7,7 +7,7 @@ ActiveAdmin.register Excerpt do
 
   controller do
     def permitted_params
-      params.permit article: [:name, :body, :author_id, :book_id]
+      params.permit excerpt: [:name, :body, :author_id, :book_id]
     end
   end
 

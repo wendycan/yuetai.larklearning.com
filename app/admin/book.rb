@@ -7,7 +7,7 @@ ActiveAdmin.register Book do
 
   controller do
     def permitted_params
-      params.permit article: [ :name, :desc]
+      params.permit book: [ :name, :desc]
     end
   end
 
