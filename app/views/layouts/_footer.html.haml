@@ -37,12 +37,22 @@
 / var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000396615'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1000396615%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
 :javascript
   //Add searchbox
-  $(document).ready(function(){
-    $('#st-search-input').tinysouSearch({
-      resultContainingElement: '#st-results-container',
-      engineKey: '7d5f1328cf2823e0dac6',
-      perPage: 4,
-      renderStyle: 'new_page',
-      resultPageURL: '/site/search'
-    });
-  })
+  var option = {
+    engineKey: '7d5f1328cf2823e0dac6',
+    resultContainingElement: '#st-results-container',
+    engineKey: '7d5f1328cf2823e0dac6',
+    perPage: 6,
+    renderStyle: 'new_page',
+    resultPageURL: '/site/search'
+  };
+  (function(w,d,t,u,n,s,e){
+    s = d.createElement(t);
+    s.src = u;
+    s.async = 1;
+    w[n] = function(r){
+      w[n].opts = r;
+    };
+    e = d.getElementsByTagName(t)[0];
+    e.parentNode.insertBefore(s, e);
+  })(window,document,'script','//tinysou-cdn.b0.upaiyun.com/ts.js','_ts');
+  _ts(option);
