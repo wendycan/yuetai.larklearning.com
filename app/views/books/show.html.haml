@@ -5,3 +5,6 @@
         %li
           = link_to chap_path(chap.id) do
             = chap.name
+
+- content_for :title do
+  = @book.name

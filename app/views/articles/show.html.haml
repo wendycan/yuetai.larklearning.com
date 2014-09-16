@@ -20,6 +20,9 @@
     .large-12.columns.wrap
       .ds-thread{:'data-thread-key' => '', :'data-title' => '', :'data-url' => ''}
 
+- content_for :title do
+  = @article.name
+
 :javascript
   var duoshuoQuery = {short_name:"wendycan"};
       (function() {
