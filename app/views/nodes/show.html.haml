@@ -11,3 +11,6 @@
               %h5= article.name.html_safe
               .body
                 = truncate(article.body, length: 50, escape: false)
+
+- content_for :title do
+  = @node.name
