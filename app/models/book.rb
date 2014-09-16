@@ -1,3 +1,3 @@
 class Book < ActiveRecord::Base
-  has_many :chaps
+  has_many :excerpts
 end
