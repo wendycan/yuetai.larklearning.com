@@ -2,7 +2,7 @@
 # encoding: utf-8
 
 ActiveAdmin.register Node do
-  menu priority: 4, label: '标签'
+  menu priority: 5, label: '标签'
 
   controller do
     def permitted_params
