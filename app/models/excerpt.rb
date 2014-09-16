@@ -1,3 +1,4 @@
 class Excerpt < ActiveRecord::Base
-  belongs_to :chap
+  belongs_to :book
+  belongs_to :author
 end

@@ -1,13 +1,13 @@
 #!/bin/env ruby
 # encoding: utf-8
 
-ActiveAdmin.register Article do
+ActiveAdmin.register Book do
 
-  menu priority: 2, label: '文章'
+  menu priority: 3, label: '书籍'
 
   controller do
     def permitted_params
-      params.permit article: [ :name, :body, :node_id, :author_id, :music_script]
+      params.permit article: [ :name, :desc]
     end
   end
 
@@ -15,10 +15,10 @@ ActiveAdmin.register Article do
     selectable_column
     id_column
     column :name
-    column :author
-    column :utag
+    column :desc
     column :created_at
     column :updated_at
     default_actions
   end
+
 end
