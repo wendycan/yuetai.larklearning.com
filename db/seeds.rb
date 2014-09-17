@@ -17,7 +17,7 @@
 #   会发现什么，留下什么。<br/>即使在这似水年华中，个人渺小如浪潮中的一粒沙子，我们也可以发现更精彩的世界和自己，用生命刻下一些痕迹。
 #   <br/>在这里，我们记下些思绪，分享些知识。</p>", music_script: "<embed src='http://www.xiami.com/widget/13261581_20526/singlePlayer.swf' type='application/x-shockwave-flash' width='257' height='33' wmode='transparent'></embed>
       # "}])
-Book.create([{name: '人生',desc: '天闷热得像一口大蒸笼，黑沉沉的乌云正从西边的老牛山那边铺过来。
-  地平线上，已经有一些零碎而短促的闪电。但还没有打雷。只听见那低沉的、连续不断的嗡嗡声从远方的天空传来，带给人一种恐怖的信息——一场大雷雨就要到来了'},
-  {name: '冬牧场'},{name: '平凡的世界'},{name: '我读'}])
-# Chap.create([{name: '第一章',book_id: 1},{name: '第二章', book_id: 1},{name: '第三章', book_id: 1},{name: '第四章', book_id: 1}])
+#Book.create([{name: '人生',desc: '天闷热得像一口大蒸笼，黑沉沉的乌云正从西边的老牛山那边铺过来。
+#   地平线上，已经有一些零碎而短促的闪电。但还没有打雷。只听见那低沉的、连续不断的嗡嗡声从远方的天空传来，带给人一种恐怖的信息——一场大雷雨就要到来了'},
+#   {name: '冬牧场'},{name: '平凡的世界'},{name: '我读'}])
+#Chap.create([{name: '第一章',book_id: 1},{name: '第二章', book_id: 1},{name: '第三章', book_id: 1},{name: '第四章', book_id: 1}])
