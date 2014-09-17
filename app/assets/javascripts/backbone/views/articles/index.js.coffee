@@ -7,7 +7,7 @@ class Yuetai.Views.Articles.IndexView extends Yuetai.Views.Base
     # @rm_nav()
     # @clearMsg()
     @$el.html(_.template($('#t-articles-index').html())())
-    @articles.each(@renderArticls, @)
+    @articles.each(@renderArticles, @)
 
-  renderArticls: (articls)->
-    $('#articls-items').append(_.template($('#t-articls-item').html())(articls: articls.toJSON()))
+  renderArticles: (articles)->
+    $('#articles-items').append(_.template($('#t-articles-item').html())(articles: articles.toJSON()))

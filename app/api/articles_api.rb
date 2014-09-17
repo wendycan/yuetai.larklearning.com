@@ -3,19 +3,14 @@ module Yuetai
     resource :articles do
       desc 'Get all articles'
       get do
-        author = Author.find_by_email(params[:author_name])
-        if !author.nil?
-          articles = user.articles
-        else
-          articles = Article.all
-        end
-        {articles: articles}
+        articles = Article.all
+        articles
       end
 
       route_param :id, requirements: /[^\/]+/ do
         get do
           article = Article.find(params[:id])
-          {article: article}
+          article
         end
       end
 

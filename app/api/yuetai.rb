@@ -13,6 +13,7 @@ module Yuetai
 
     mount Books
     mount Articles
-
+    mount Tags
+    mount Authors
   end
 end
