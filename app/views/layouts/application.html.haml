@@ -14,8 +14,4 @@
       = yield
       = render :partial => 'layouts/footer'
       %a.exit-off-canvas
-
-  :javascript
-    //baidu
-    // var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-    // document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fa9f96df7583216ce1fe2a85e0cf24293' type='text/javascript'%3E%3C/script%3E"));
+  = content_for?(:js) ? yield(:js) : render('layouts/js')
