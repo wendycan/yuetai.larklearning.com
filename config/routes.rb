@@ -1,5 +1,3 @@
-Dir["#{Rails.root}/app/api/*.rb"].each { |file| require file }
-
 YuetaiWendycanOrg::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
