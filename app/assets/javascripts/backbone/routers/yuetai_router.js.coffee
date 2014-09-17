@@ -20,7 +20,6 @@ class Yuetai.Routers.Engines extends Backbone.Router
     @authors = new Yuetai.Collections.Authors()
 
   index : ->
-    console.log 'index'
 
   index_books: ->
     opts =
