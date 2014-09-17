@@ -3,8 +3,17 @@ class Yuetai.Views.Base extends Backbone.View
   initialize: (router, @opts = {})->
     @router = router
     @books = router.books
+    @articles = router.articles
+    @tags = router.tags
+    @authors = router.authors
+
     @opts = opts
+
     @initBooks()
+    @initArticles()
+    @initAuthors()
+    @initTags()
+
     # if @account.get('unsync')
     #   @account.fetch_account(
     #     success: (data)=>
@@ -48,6 +57,45 @@ class Yuetai.Views.Base extends Backbone.View
       #     @alertMsg('warning', 'Engine Not Found')
       #     return
       @render() if @opts.calevel is 'books'
+
+  initArticles: ->
+    if @articles.unsync
+      @articles.fetch(
+        headers:
+          'Authorization' : "token #{@auth_token}"
+        success: (articles)=>
+          @render() if @opts.calevel is 'articles'
+        error: (articles, resp)=>
+          @alertMsg('warning', resp.responseText)
+      )
+    else
+      @render() if @opts.calevel is 'articles'
+
+  initTags: ->
+    if @tags.unsync
+      @tags.fetch(
+        headers:
+          'Authorization' : "token #{@auth_token}"
+        success: (tags)=>
+          @render() if @opts.calevel is 'tags'
+        error: (tags, resp)=>
+          @alertMsg('warning', resp.responseText)
+      )
+    else
+      @render() if @opts.calevel is 'tags'
+
+  initAuthors: ->
+    if @authors.unsync
+      @authors.fetch(
+        headers:
+          'Authorization' : "token #{@auth_token}"
+        success: (authors)=>
+          @render() if @opts.calevel is 'authors'
+        error: (authors, resp)=>
+          @alertMsg('warning', resp.responseText)
+      )
+    else
+      @render() if @opts.calevel is 'authors'
 
   initDomains: ->
     @domains = @engine.domains()

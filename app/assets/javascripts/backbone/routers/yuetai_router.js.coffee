@@ -5,11 +5,19 @@ class Yuetai.Routers.Engines extends Backbone.Router
     'books/:id' : 'show_book'
 
     'articles' : 'index_articles'
+    'articles/:id' : 'show_article'
+
     'authors' : 'index_authors'
-    'tags' : 'index_nodes'
+    'authors/:id' : 'show_author'
+
+    'tags' : 'index_tags'
+    'tags/:id' : 'show_tag'
 
   initialize: ->
     @books = new Yuetai.Collections.Books()
+    @articles = new Yuetai.Collections.Articles()
+    @tags = new Yuetai.Collections.Tags()
+    @authors = new Yuetai.Collections.Authors()
 
   index : ->
     console.log 'index'
@@ -28,6 +36,51 @@ class Yuetai.Routers.Engines extends Backbone.Router
       book_id: book_id
     @book_view.undelegateEvents() if @book_view
     @book_view = new Yuetai.Views.Books.ShowView(@, opts)
+
+  index_articles: ->
+    opts =
+      section: 'articles'
+      calevel: 'articles'
+    @articles_view.undelegateEvents() if @articles_view
+    @articles_view = new Yuetai.Views.Articles.IndexView(@, opts)
+
+  show_article: (article_id)->
+    opts =
+      section: 'articles'
+      calevel: 'articles'
+      article_id: article_id
+    @article_view.undelegateEvents() if @article_view
+    @article_view = new Yuetai.Views.Articles.ShowView(@, opts)
+
+  index_tags: ->
+    opts =
+      section: 'tags'
+      calevel: 'tags'
+    @tags_view.undelegateEvents() if @tags_view
+    @tags_view = new Yuetai.Views.Tags.IndexView(@, opts)
+
+  show_tag: (tag_id)->
+    opts =
+      section: 'tags'
+      calevel: 'tags'
+      tag_id: tag_id
+    @tag_view.undelegateEvents() if @tag_view
+    @tag_view = new Yuetai.Views.Tags.ShowView(@, opts)
+
+  index_authors: ->
+    opts =
+      section: 'authors'
+      calevel: 'authors'
+    @authors_view.undelegateEvents() if @authors_view
+    @authors_view = new Yuetai.Views.Authors.IndexView(@, opts)
+
+  show_author: (author_id)->
+    opts =
+      section: 'authors'
+      calevel: 'authors'
+      author_id: author_id
+    @author_view.undelegateEvents() if @author_view
+    @author_view = new Yuetai.Views.Authors.ShowView(@, opts)
 
   # engine_install: (engine_name)->
   #   opts =
