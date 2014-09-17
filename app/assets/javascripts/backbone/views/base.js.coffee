@@ -129,9 +129,8 @@ class Yuetai.Views.Base extends Backbone.View
       @render() if @opts.calevel is 'documents'
 
   render_nav: (current_section)->
-    $('#main-nav').html(_.template($('#t-subnav').html())({engine: @engine.toJSON()}))
-    $('.sub-nav dd').removeClass('active')
-    $(".sub-nav .#{current_section}").addClass('active')
+    $('.sidebar li').removeClass('active')
+    $(".sidebar .#{current_section}").addClass('active')
 
   rm_nav: ->
     $('.alert-container').empty()
@@ -169,41 +168,3 @@ class Yuetai.Views.Base extends Backbone.View
     e.preventDefault()
     e.stopPropagation()
     window.history.back()
-
-  fetchData: (url_pst, fun, range, callback)->
-    if !range
-      range = 'day'
-    url = "#{@engine.url()}/#{url_pst}"
-    end = new Date()
-    start = new Date()
-    interval = 'hour'
-    switch range
-      when 'day'
-        interval = 'hour'
-        start = start.setDate(end.getDate() - 1)
-      when 'week'
-        interval = 'day'
-        start = start.setDate(end.getDay() - 7)
-      when 'month'
-        interval = 'week'
-        start = start.setMonth(end.getMonth() - 1)
-      when 'quarter'
-        start = start.setMonth(end.getMonth() - 3)
-        interval = 'month'
-      when 'year'
-        start = start.setFullYear(end.getFullYear() - 1)
-        interval = 'quarter'
-    if fun == 'top'
-      interval = 0
-    Yuetai.ajax(
-      url: url
-      type: 'GET'
-      data:
-        start: start
-        end: end.getTime()
-        function: fun
-        interval: interval
-      headers:
-        'Authorization' : "token #{@auth_token}"
-      success: callback
-    )

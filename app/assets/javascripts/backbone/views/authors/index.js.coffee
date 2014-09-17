@@ -6,6 +6,7 @@ class Yuetai.Views.Authors.IndexView extends Yuetai.Views.Base
   render: ->
     # @rm_nav()
     # @clearMsg()
+    @render_nav(@opts.section)
     @$el.html(_.template($('#t-authors-index').html())())
     @authors.each(@renderAuthor, @)
 

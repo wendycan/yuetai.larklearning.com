@@ -10,7 +10,7 @@ class Yuetai.Views.Site.IndexView extends Yuetai.Views.Base
     @books.each(@renderBook, @)
 
   renderBook: (book)->
-    $('#book-items').append(_.template($('#t-book-item').html())(book: book.toJSON()))
+    $('#items').append(_.template($('#t-book-item').html())(book: book.toJSON()))
 
   renderArticle: (article)->
-    $('#article-items').append(_.template($('#t-article-item').html())(article: article.toJSON()))
+    $('#items').append(_.template($('#t-article-item').html())(article: article.toJSON()))
