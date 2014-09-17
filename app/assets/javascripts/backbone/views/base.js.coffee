@@ -168,3 +168,8 @@ class Yuetai.Views.Base extends Backbone.View
     e.preventDefault()
     e.stopPropagation()
     window.history.back()
+
+  strip: (html)->
+    tmp = document.createElement("DIV")
+    tmp.innerHTML = html
+    tmp.textContent || tmp.innerText || ""

@@ -1,15 +1,3 @@
 %script{type: 'text/template', id: 't-index'}
   %h4 最新
   %ul#items
-
-%script{type: 'text/template', id: 't-articles-item'}
-  %li
-    %h4
-      %a{:href => "#articles/{{- articles.id }}"} {{- articles.name }}
-    %p {{- articles.body}}
-
-%script{type: 'text/template', id: 't-book-item'}
-  %li
-    %h4
-      %a{:href => "#books/{{- book.id }}"} {{- book.name }}
-    %p {{- book.desc}}

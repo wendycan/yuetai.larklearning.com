@@ -2,8 +2,8 @@
   %h4 最新
   %ul#articles-items
 
-%script{type: 'text/template', id: 't-articles-item'}
+%script{type: 'text/template', id: 't-article-item'}
   %li
     %h4
-      %a{:href => "#articles/{{- articles.id }}"} {{- articles.name }}
-    %p {{- articles.desc}}
+      %a{:href => "#articles/{{- article.id }}"} {{- article.name }}
+    %p {{- article_snip}}
