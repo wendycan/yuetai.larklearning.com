@@ -18,7 +18,14 @@
           %a{:href => '#search'}
             搜索
     .large-11.columns
-      body
+      #main-content
+= content_for :js_ext do
+  :javascript
+    // var engines_view = new TinySou.Views.Engines.EnginesView()
+    $(document).ready(function () {
+      var router = new Yuetai.Routers.Engines();
+      Backbone.history.start();
+    })
 
   = render 'books/index'
   = render 'books/show'

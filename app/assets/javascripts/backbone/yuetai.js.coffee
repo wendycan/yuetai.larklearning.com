@@ -10,6 +10,7 @@ window.Yuetai =
   Collections: {}
   Routers: {}
   Views: {}
+  ApiPrefix: "/apis/v1/"
   ajax: (settings = {})->
     opts =
       crossDomain: true

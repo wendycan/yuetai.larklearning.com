@@ -2,52 +2,52 @@ class Yuetai.Views.Base extends Backbone.View
 
   initialize: (router, @opts = {})->
     @router = router
-    @engines = router.engines
-    @account = router.account
+    @books = router.books
     @opts = opts
-    if @account.get('unsync')
-      @account.fetch_account(
-        success: (data)=>
-          @auth_token = @account.get('token')
-          $('.top-bar a.user-section').html(@account.get('email'))
-          @render() if @opts.calevel is 'account'
-          @initEngines()
-        error: ->
-          window.location.href = '/login'
-      )
-    else
-      @auth_token = @account.get('token')
-      @render() if @opts.calevel is 'account'
-      @initEngines()
+    @initBooks()
+    # if @account.get('unsync')
+    #   @account.fetch_account(
+    #     success: (data)=>
+    #       @auth_token = @account.get('token')
+    #       $('.top-bar a.user-section').html(@account.get('email'))
+    #       @render() if @opts.calevel is 'account'
+    #       @initEngines()
+    #     error: ->
+    #       window.location.href = '/login'
+    #   )
+    # else
+    #   @auth_token = @account.get('token')
+    #   @render() if @opts.calevel is 'account'
+    #   @initEngines()
 
-  initEngines: ->
-    if @engines.unsync
-      @engines.fetch(
+  initBooks: ->
+    if @books.unsync
+      @books.fetch(
         headers:
           'Authorization' : "token #{@auth_token}"
-        success: (engines)=>
-          if @opts.engine_name
-            @engine = @engines.get(@opts.engine_name)
-            if !!@engine
-              @initDomains()
-              @initDocuments()
-            else
-              @alertMsg('warning', 'Engine Not Found')
-              return
-          @render() if @opts.calevel is 'engines'
-        error: (engines, resp)=>
+        success: (books)=>
+          # if @opts.engine_name
+          #   @engine = @books.get(@opts.engine_name)
+          #   if !!@engine
+          #     @initDomains()
+          #     @initDocuments()
+          #   else
+          #     @alertMsg('warning', 'Engine Not Found')
+          #     return
+          @render() if @opts.calevel is 'books'
+        error: (books, resp)=>
           @alertMsg('warning', resp.responseText)
       )
     else
-      if @opts.engine_name
-        @engine = @engines.get(@opts.engine_name)
-        if !!@engine
-          @initDomains()
-          @initDocuments()
-        else
-          @alertMsg('warning', 'Engine Not Found')
-          return
-      @render() if @opts.calevel is 'engines'
+      # if @opts.engine_name
+      #   @engine = @engines.get(@opts.engine_name)
+      #   if !!@engine
+      #     @initDomains()
+      #     @initDocuments()
+      #   else
+      #     @alertMsg('warning', 'Engine Not Found')
+      #     return
+      @render() if @opts.calevel is 'books'
 
   initDomains: ->
     @domains = @engine.domains()

@@ -2,26 +2,35 @@ class Yuetai.Routers.Engines extends Backbone.Router
   routes:
     '' : 'index'
     'books' : 'index_books'
+    'books/:id' : 'show_book'
+
     'articles' : 'index_articles'
     'authors' : 'index_authors'
     'tags' : 'index_nodes'
 
   initialize: ->
-    alert 'books'
     @books = new Yuetai.Collections.Books()
 
   index : ->
+    console.log 'index'
 
   index_books: ->
     opts =
       section: 'books'
-    @books_view.undelegateEvents() if @engines_view
+      calevel: 'books'
+    @books_view.undelegateEvents() if @books_view
     @books_view = new Yuetai.Views.Books.IndexView(@, opts)
 
+  show_book: (book_id)->
+    opts =
+      section: 'books'
+      calevel: 'books'
+      book_id: book_id
+    @book_view.undelegateEvents() if @book_view
+    @book_view = new Yuetai.Views.Books.ShowView(@, opts)
 
   # engine_install: (engine_name)->
   #   opts =
-  #     calevel: 'engines'
   #     engine_name: engine_name
   #     section: 'install'
   #   @install_view.undelegateEvents() if @install_view

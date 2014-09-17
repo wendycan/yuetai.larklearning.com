@@ -4,13 +4,13 @@ module Yuetai
       desc 'Get all books'
       get do
         books = Book.all
-        {books: books}
+        books
       end
 
       route_param :id, requirements: /[^\/]+/ do
         get do
           book = Book.find(params[:id])
-          {book: book}
+          book
         end
       end
 
