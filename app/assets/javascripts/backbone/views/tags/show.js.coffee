@@ -1,6 +1,6 @@
-TinySou.Views.Tags ||= {}
+Yuetai.Views.Tags ||= {}
 
-class TinySou.Views.Tags.ShowView extends TinySou.Views.Base
+class Yuetai.Views.Tags.ShowView extends Yuetai.Views.Base
   el: $('#main-content')
 
   render: ->

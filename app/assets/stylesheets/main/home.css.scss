@@ -1,0 +1,21 @@
+.home {
+  > .row {
+    max-width: none;
+    .large-1 {
+      width: 10%;
+      position: fixed;
+      height: 100vh;
+      background-color: black;
+      ul {
+        height: 100%;
+        li {
+          height: 20%;
+          text-align: center;
+        }
+      }
+    }
+    .large-11 {
+      width: 90%;
+    }
+  }
+}

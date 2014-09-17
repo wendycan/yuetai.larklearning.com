@@ -7,7 +7,7 @@ YuetaiWendycanOrg::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'site#index'
   get 'site/search'
-
+  get 'site/home'
   resources :articles, only: [:index, :show]
   resources :nodes, only: [:index, :show]
   resources :authors, only: [:index, :show]
