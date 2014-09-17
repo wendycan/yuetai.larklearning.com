@@ -1,4 +1,5 @@
 #= require_self
+#= require ./views/base
 #= require_tree ./common
 #= require_tree ./models
 #= require_tree ./views
