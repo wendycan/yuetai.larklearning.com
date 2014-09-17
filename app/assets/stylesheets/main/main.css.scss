@@ -1,4 +1,4 @@
-.home {
+body {
   > .row {
     max-width: none;
     .large-1 {
@@ -16,6 +16,11 @@
     }
     .large-11 {
       width: 90%;
+      padding-left: 2rem;
+      padding-right: 2rem;
     }
   }
+}
+.not-footer {
+  min-height: 70vh;
 }

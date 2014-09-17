@@ -2,30 +2,31 @@
 %head
   = render :partial => 'layouts/head'
 %body
-  .home
-    .row
-      .large-1.columns.sidebar
-        %ul.side-nav
-          %li
-            %a{:href => '/site/home'}
-              阅台
-          %li
-            %a{:href => '#articles'}
-              博客
-          %li
-            %a{:href => '#books'}
-              书摘
-          %li
-            %a{:href => '#authors'}
-              作者
-          %li
-            %a{:href => '#search'}
-              搜索
-      .large-11.columns
-        = if !notice.nil?
-          %p.notice= notice
-        = if !alert.nil?
-          %p.alert= alert
+  .row
+    .large-1.columns.sidebar
+      %ul.side-nav
+        %li
+          %a{:href => '/site/home'}
+            阅台
+        %li
+          %a{:href => '#articles'}
+            博客
+        %li
+          %a{:href => '#books'}
+            书摘
+        %li
+          %a{:href => '#authors'}
+            作者
+        %li
+          %a{:href => '#search'}
+            搜索
+    .large-11.columns
+      = if !notice.nil?
+        %p.notice= notice
+      = if !alert.nil?
+        %p.alert= alert
+      .not-footer
         = yield
+      .footer
         = render :partial => 'layouts/footer'
   = content_for?(:js) ? yield(:js) : render('layouts/js')
