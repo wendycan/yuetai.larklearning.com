@@ -1,17 +1,17 @@
-.row.articles
-  .large-9.columns
-    - @articles.each do |article|
-      .row.wrap
-        .large-12.columns
-          %h3
-            = link_to article_path(article.id) do
-              = article.name.html_safe
-          %p
-            = link_to author_path(article.author.id), :class => 'label' do
-              = article.author.name.html_safe
-            %small
-              = article.created_at.getlocal.strftime("于 %y-%m-%d %H:%M 发表")
-          = truncate(article.body, length: 200, escape: false)
-      %hr
-  .large-3.columns
-    = render :partial => 'layouts/sidebar'
+#main-content
+  = content_for :js_ext do
+    :javascript
+      // var engines_view = new TinySou.Views.Engines.EnginesView()
+      $(document).ready(function () {
+        var router = new Yuetai.Routers.Engines();
+        Backbone.history.start();
+      })
+
+    = render 'books/index'
+    = render 'books/show'
+    = render 'nodes/index'
+    = render 'nodes/show'
+    = render 'articles/index'
+    = render 'articles/show'
+    = render 'authors/index'
+    = render 'authors/show'
