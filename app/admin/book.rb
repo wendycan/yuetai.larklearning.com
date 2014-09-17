@@ -7,7 +7,7 @@ ActiveAdmin.register Book do
 
   controller do
     def permitted_params
-      params.permit book: [ :name, :desc]
+      params.permit book: [ :name, :desc, :author_name]
     end
   end
 
@@ -16,6 +16,7 @@ ActiveAdmin.register Book do
     id_column
     column :name
     column :desc
+    column :author_name
     column :created_at
     column :updated_at
     default_actions
