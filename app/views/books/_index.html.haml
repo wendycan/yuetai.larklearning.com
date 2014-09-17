@@ -1,0 +1,9 @@
+%script{type: 'text/template', id: 't-books-index'}
+  %h4 最新
+  %ul.small-block-grid-4#book-items
+
+%script{type: 'text/template', id: 't-book-item'}
+  %li
+    %h4
+      %a{:href => "#books/{{- book.id }}"} {{- book.name }}
+    %p {{- book.desc}}

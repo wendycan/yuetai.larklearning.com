@@ -1,0 +1,69 @@
+body {
+  > .row {
+    max-width: none;
+    .large-1 {
+      width: 10%;
+      position: fixed;
+      height: 100vh;
+      padding: 0;
+      background-color: #222;
+      ul {
+        height: 100%;
+        padding: 0;
+        li {
+          height: 22%;
+          position: relative;
+          margin: 0;
+          &:hover {
+            background-color: #111;
+          }
+          a {
+            position: absolute;
+            left: 30%;
+            top: 30%;
+          }
+        }
+        li.active {
+          background-color: black;
+        }
+        li.index {
+          height: 10%;
+          background-color: $primary;
+          a{
+            top:10%;
+            left: 10%;
+            color: white;
+            span {
+              padding-left: 5px;
+              font-size: 16px;
+            }
+          }
+        }
+        li.search:hover {
+          background-color: #222;
+        }
+        li.search a {
+          left: 5%;
+          right: 5%;
+        }
+        h5 {
+          color: white;
+          padding-top: 5px;
+        }
+      }
+    }
+    .large-11 {
+      width: 90%;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+  form input.ts-search-input{
+    height: 30px !important;
+    margin: auto;
+    width: 95%;
+  }
+}
+.not-footer {
+  min-height: 70vh;
+}
