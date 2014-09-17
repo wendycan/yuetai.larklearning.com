@@ -20,6 +20,11 @@ class Yuetai.Routers.Engines extends Backbone.Router
     @authors = new Yuetai.Collections.Authors()
 
   index : ->
+    opts =
+      section: 'home'
+      calevel: 'books'
+    @index_view.undelegateEvents() if @index_view
+    @index_view = new Yuetai.Views.Site.IndexView(@, opts)
 
   index_books: ->
     opts =
