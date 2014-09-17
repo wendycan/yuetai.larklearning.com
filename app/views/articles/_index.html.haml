@@ -1,0 +1,9 @@
+%script{type: 'text/template', id: 't-articless-index'}
+  %h4 最新
+  %ul.small-block-grid-3#articles-items
+
+%script{type: 'text/template', id: 't-articles-item'}
+  %li
+    %h4
+      %a{:href => "#articless/{{- articles.id }}"} {{- articles.name }}
+    %p {{- articles.desc}}
