@@ -77,14 +77,36 @@ body {
     }
     .large-11 {
       width: 90%;
-      padding-left: 2rem;
-      padding-right: 2rem;
+      padding: .5rem 2rem 0 2rem;
     }
+    @media #{$small-only} {
+      .small-12 {
+        width: 100%;
+        padding: 0;
+      }
+     }
   }
   form input.ts-search-input{
     height: 30px !important;
     margin: auto;
     width: 95%;
+  }
+}
+nav.tab-bar{
+  margin-bottom: 10px;
+}
+ul.small-nav {
+  li {
+    text-align: center;
+  }
+  li.about a {
+    display: inline;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  img {
+    width: 30px;
+    padding-right: 10px;
   }
 }
 .not-footer {

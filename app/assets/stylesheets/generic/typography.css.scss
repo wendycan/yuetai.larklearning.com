@@ -49,25 +49,8 @@ ul.list{
   text-overflow: ellipsis;
   cursor: pointer;
 }
-.clipboard-group {
-  .js-zeroclipboard {
-    cursor: pointer;
-    display: none;
-    color: $primary-hover;
-    &.zeroclipboard-is-hover{
-      color: black;
-    }
-    &.zeroclipboard-is-active{
-      color: black;
-    }
-  }
-  &.hover .js-zeroclipboard{
-    display: inline-block;
-  }
-}
-td.clipboard-group .js-zeroclipboard {
-  position: absolute;
-  right: 0;
+.lists {
+  list-style-type: none;
 }
 .brown-color{
   color: $brown;
