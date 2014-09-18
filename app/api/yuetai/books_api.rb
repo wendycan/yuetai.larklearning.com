@@ -2,11 +2,20 @@ module Yuetai
   class Books < Grape::API
     resource :books do
       desc 'Get all books'
-      get do
+      get  do
         books = Book.order("updated_at DESC").all
         books
       end
 
+      route_param :id do
+        resource :excerpts do
+          get do
+            book = Book.find(params[:id])
+            excerpts = book.excerpts
+            excerpts
+          end
+        end
+      end
       route_param :id, requirements: /[^\/]+/ do
         get do
           book = Book.find(params[:id])
@@ -14,6 +23,7 @@ module Yuetai
         end
       end
 
+      route_param :id
       post do
         user = authenticate_user_from_token!
         if user

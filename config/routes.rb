@@ -13,7 +13,7 @@ YuetaiWendycanOrg::Application.routes.draw do
   resources :books, only: [:index, :show]
   resources :excerpts, only: [:index, :show]
 
-  mount Yuetai::Api => '/apis/'
+  mount Api => '/apis/'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
