@@ -21,10 +21,20 @@
           %a{:href => '#authors'}
             = image_tag 'author-white.png'
             %h5 作者
-        %li.search
-          %a{:href => '#search'}
-            %form
-              %input.ts-search-input{type: 'text', id: 'ts-search-input'}
+        %li.about
+          %ul
+            %li
+              %a.reverse{:href => "http://weibo.com/u/3260368113/home?wvr=5"}
+                %i.fa.fa-weibo
+            %li
+              %a.reverse{:href => "https://github.com/wendycan"}
+                %i.fa.fa-github
+            %li
+              %a.reverse{:href => "https://bitbucket.org/wendycan"}
+                %i.fa.fa-bitbucket
+            %li
+              %a.reverse{:href => "mailto:wendy@wendycan.org"}
+                %i.fa.fa-envelope
     .large-11.columns
       = if !notice.nil?
         %p.notice= notice

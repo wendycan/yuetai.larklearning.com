@@ -7,17 +7,23 @@ body {
       height: 100vh;
       padding: 0;
       background-color: #222;
-      ul {
+      .reverse {
+        color: $gray-light-text;
+      }
+      .reverse:hover {
+        color: $primary;
+      }
+      > ul {
         height: 100%;
         padding: 0;
-        li {
+        > li {
           height: 22%;
           position: relative;
           margin: 0;
           &:hover {
             background-color: #111;
           }
-          a {
+         > a {
             position: absolute;
             left: 30%;
             top: 30%;
@@ -33,10 +39,27 @@ body {
             top:10%;
             left: 10%;
             color: white;
+            border-radius: 0;
             span {
               padding-left: 5px;
               font-size: 16px;
             }
+          }
+        }
+        li.about {
+          &:hover {
+            background: #222;
+          }
+          ul {
+            margin: 0;
+            text-align: center;
+            position: absolute;
+            bottom: 0;
+          }
+          li {
+            display: inline-block;
+            font-size: 1.5rem;
+            padding-left: 6px
           }
         }
         li.search:hover {
@@ -65,5 +88,6 @@ body {
   }
 }
 .not-footer {
-  min-height: 70vh;
+  min-height: 85vh;
 }
+
