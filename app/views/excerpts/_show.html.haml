@@ -1,5 +1,9 @@
 %script{type: 'text/templalte', id: 't-excerpt-show'}
   .row
     .large-12.columns
-      %h1 name
-      %p body
+      %h4 {{- book.name }}
+      %p
+        %a{:href => "#authors/{{- author.id }}"}
+          {{- author.name }}
+      %p {{- excerpt.updated_at }}
+      %p {{= excerpt.body }}

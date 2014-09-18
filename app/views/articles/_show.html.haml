@@ -1,3 +1,7 @@
 %script{type: 'text/template', id: 't-article-show'}
-  %h4 {{- article.name}}
+  %h3 {{- article.name}}
+  %p
+    %a{:href => "#authors/{{- author.id }}"}
+      {{- author.name }}
+  %p {{- article.updated_at }}
   .content {{= article.body}}

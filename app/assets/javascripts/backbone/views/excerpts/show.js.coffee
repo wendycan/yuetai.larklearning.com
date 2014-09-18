@@ -11,6 +11,10 @@ class Yuetai.Views.Excerpts.ShowView extends Yuetai.Views.Base
     @render_nav(@opts.section)
     if excerpts.length > 0
       excerpt = excerpts.get(@opts.excerpt_id)
-      @$el.html(_.template($('#t-excerpt-show').html())(excerpt: excerpt.toJSON()))
+      @$el.html(_.template($('#t-excerpt-show').html())({
+        excerpt: excerpt.toJSON(),
+        book: book.toJSON(),
+        author: @authors.get(excerpt.get('author_id')).toJSON()
+      }))
     else
       @$el.html('<h3>empty</h3>')

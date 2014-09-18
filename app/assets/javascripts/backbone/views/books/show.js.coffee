@@ -14,5 +14,4 @@ class Yuetai.Views.Books.ShowView extends Yuetai.Views.Base
 
    renderExcerpt: (excerpt)->
     snip = @limit(@strip(excerpt.get('body')), 300)
-    console.log snip
-    $('#book-excerpts').append(_.template($('#t-book-excerpt').html())(excerpt: excerpt.toJSON(), excerpt_snip: snip))
+    $('#book-excerpts').append(_.template($('#t-book-excerpt').html())(excerpt: excerpt.toJSON(), excerpt_snip: snip, book_id: @book.id))

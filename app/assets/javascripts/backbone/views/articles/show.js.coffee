@@ -8,4 +8,7 @@ class Yuetai.Views.Articles.ShowView extends Yuetai.Views.Base
     # @clearMsg()
     @render_nav(@opts.section)
     @article = @articles.get(@opts.article_id)
-    @$el.html(_.template($('#t-article-show').html())(article: @article.toJSON()))
+    @$el.html(_.template($('#t-article-show').html())({
+      article: @article.toJSON()
+      author: @authors.get(@article.get('author_id')).toJSON()
+    }))
