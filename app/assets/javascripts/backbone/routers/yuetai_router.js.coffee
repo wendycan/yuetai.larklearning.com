@@ -21,8 +21,7 @@ class Yuetai.Routers.Engines extends Backbone.Router
 
   index : ->
     opts =
-      section: 'home'
-      calevel: 'books'
+      calevel: 'articles'
     @index_view.undelegateEvents() if @index_view
     @index_view = new Yuetai.Views.Site.IndexView(@, opts)
 
