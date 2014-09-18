@@ -189,4 +189,4 @@ class Yuetai.Views.Base extends Backbone.View
       snip = snip.concat('...')
     else
       snip = text
-    text
+    snip
