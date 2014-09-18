@@ -12,9 +12,7 @@ class Yuetai.Views.Articles.IndexView extends Yuetai.Views.Base
 
   renderArticle: (article)->
     snip = @strip(article.get('body'))
-    if article.get('body').length >= 300
-      snip = @strip(article.get('body')).substr(0,300)
-      snip = snip.concat('...')
+    snip = @limit(snip, 300)
     $('#articles-items').append(_.template($('#t-article-item').html())(
       {
         article: article.toJSON(), article_snip: snip

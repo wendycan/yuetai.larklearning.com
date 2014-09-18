@@ -1,3 +1,9 @@
 %script{type: 'text/template', id: 't-book-show'}
   %h4 {{- book.name}}
   %p {{= book.desc}}
+
+  %ul#book-excerpts
+
+%script{type: 'text/template', id: 't-book-excerpt'}
+  %li
+    %p {{- excerpt_snip }}

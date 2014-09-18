@@ -4,20 +4,12 @@ class Yuetai.Models.Book extends Backbone.Model
     desc: ""
     id : ""
   idAttribute: "id"
-  # isNew: ->
-  #   !!@get('neweg')
 
-  # excerpts: ->
-  #   return @_domains if !!@_domains
-  #   @_domains = new Yuetai.Collections.Domains
-  #   @_domains.url = "#{Yuetai.ApiPrefix}/engines/#{@id}/domains"
-  #   return @_domains
-
-  # documents: ->
-  #   return @_documents if !!@_documents
-  #   @_documents = new Yuetai.Collections.Documents
-  #   @_documents.url = "#{Yuetai.ApiPrefix}/engines/#{@id}/collections/page/documents"
-  #   return @_documents
+  excerpts: ->
+    return @_excerpts if !!@_excerpts
+    @_excerpts = new Yuetai.Collections.Excerpts
+    @_excerpts.url = "#{@url()}/excerpts"
+    return @_excerpts
 
 class Yuetai.Collections.Books extends Backbone.Collection
   model: Yuetai.Models.Book

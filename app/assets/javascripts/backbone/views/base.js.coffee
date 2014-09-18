@@ -35,14 +35,9 @@ class Yuetai.Views.Base extends Backbone.View
         headers:
           'Authorization' : "token #{@auth_token}"
         success: (books)=>
-          # if @opts.engine_name
-          #   @engine = @books.get(@opts.engine_name)
-          #   if !!@engine
-          #     @initDomains()
-          #     @initDocuments()
-          #   else
-          #     @alertMsg('warning', 'Engine Not Found')
-          #     return
+          for book in @books.models
+            excerpts = book.excerpts()
+            @initExcerpts(excerpts)
           @render() if @opts.calevel is 'books'
         error: (books, resp)=>
           @alertMsg('warning', resp.responseText)
@@ -57,6 +52,20 @@ class Yuetai.Views.Base extends Backbone.View
       #     @alertMsg('warning', 'Engine Not Found')
       #     return
       @render() if @opts.calevel is 'books'
+      @render() if @opts.calevel is 'excerpts'
+
+  initExcerpts: (excerpts)->
+    if excerpts.unsync
+      excerpts.fetch(
+        headers:
+          'Authorization' : "token #{@auth_token}"
+        success: (excerpts)=>
+          @render() if @opts.calevel is 'excerpts'
+        error: (excerpts, resp)=>
+          @alertMsg('warning', resp.responseText)
+      )
+    else
+      @render() if @opts.calevel is 'excerpts'
 
   initArticles: ->
     if @articles.unsync
@@ -173,3 +182,11 @@ class Yuetai.Views.Base extends Backbone.View
     tmp = document.createElement("DIV")
     tmp.innerHTML = html
     tmp.textContent || tmp.innerText || ""
+
+  limit: (text, num)->
+    if text.length >= num
+      snip = text.substr(0,num)
+      snip = snip.concat('...')
+    else
+      snip = text
+    text
