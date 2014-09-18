@@ -8,4 +8,6 @@ class Yuetai.Views.Authors.ShowView extends Yuetai.Views.Base
     # @clearMsg()
     @render_nav(@opts.section)
     @author = @authors.get(@opts.author_id)
-    @$el.html(_.template($('#t-author-show').html())(author: @author.toJSON()))
+    if !@author
+      @author = ''
+    @$el.html(_.template($('#t-author-show').html())(author: @author))
