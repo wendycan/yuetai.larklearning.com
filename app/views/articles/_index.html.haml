@@ -1,5 +1,5 @@
 %script{type: 'text/template', id: 't-articles-index'}
-  %ul#articles-items.lists
+  %ul#articles-items.lists.has-division
 
 %script{type: 'text/template', id: 't-article-item'}
   %li
@@ -7,7 +7,7 @@
       %a{:href => "#articles/{{- article.id }}"} {{- article.name }}
     %p
       {{- article_snip}}
-      %br
+      ——
       %a{:href => "#authors/{{- author.id }}"} {{- author.name }}
 
       %span {{- article.created_at }}
