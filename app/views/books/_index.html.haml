@@ -1,8 +1,11 @@
 %script{type: 'text/template', id: 't-books-index'}
-  %ul.small-block-grid-4#book-items
+  %ul.medium-block-grid-4.small-block-grid-1#book-items.blocks
 
 %script{type: 'text/template', id: 't-book-item'}
   %li
-    %h4
-      %a{:href => "#books/{{- book.id }}"} {{- book.name }}
-    %p {{- book.desc}}
+    .image-bg{style: "background-image: url({{- book.image.url }})"}
+    %a{:href => "#books/{{- book.id }}"}
+      .text
+        %h4 {{- book.name }}
+        %h6 {{- book.author_name }}
+        %p {{- book.desc}}
