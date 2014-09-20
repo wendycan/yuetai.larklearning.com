@@ -4,11 +4,11 @@ class Yuetai.Views.Tags.IndexView extends Yuetai.Views.Base
   el: $('#main-content')
 
   render: ->
-    @rm_nav()
-    @clearMsg()
+    # @rm_nav()
+    # @clearMsg()
     @render_nav(@opts.section)
-    @$el.html(_.template($('#t-engines').html())())
-    @engines.each(@renderEngine, @)
+    @$el.html(_.template($('#t-tags-index').html())())
+    @tags.each(@renderEngine, @)
 
-  renderEngine: (engine)->
-    $('.engines-list').append(_.template($('#t-engine').html())({engine: engine.toJSON()}))
+  renderEngine: (tag)->
+    $('#tag-items').append(_.template($('#t-tag-item').html())({tag: tag.toJSON()}))

@@ -3,7 +3,7 @@ class Yuetai.Models.Article extends Backbone.Model
     name: ""
     body: ""
     id : ""
-    tag_id: ""
+    node_id: ""
     author_id: ""
 
   idAttribute: "id"

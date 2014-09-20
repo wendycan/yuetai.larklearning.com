@@ -9,25 +9,7 @@ class Yuetai.Views.Base extends Backbone.View
 
     @opts = opts
 
-    @initBooks()
-    @initArticles()
     @initAuthors()
-    @initTags()
-
-    # if @account.get('unsync')
-    #   @account.fetch_account(
-    #     success: (data)=>
-    #       @auth_token = @account.get('token')
-    #       $('.top-bar a.user-section').html(@account.get('email'))
-    #       @render() if @opts.calevel is 'account'
-    #       @initEngines()
-    #     error: ->
-    #       window.location.href = '/login'
-    #   )
-    # else
-    #   @auth_token = @account.get('token')
-    #   @render() if @opts.calevel is 'account'
-    #   @initEngines()
 
   initBooks: ->
     if @books.unsync
@@ -43,14 +25,6 @@ class Yuetai.Views.Base extends Backbone.View
           @alertMsg('warning', resp.responseText)
       )
     else
-      # if @opts.engine_name
-      #   @engine = @engines.get(@opts.engine_name)
-      #   if !!@engine
-      #     @initDomains()
-      #     @initDocuments()
-      #   else
-      #     @alertMsg('warning', 'Engine Not Found')
-      #     return
       @render() if @opts.calevel is 'books'
       @render() if @opts.calevel is 'excerpts'
 
@@ -66,6 +40,19 @@ class Yuetai.Views.Base extends Backbone.View
       )
     else
       @render() if @opts.calevel is 'excerpts'
+
+  initTagArticles: (articles)->
+    if articles.unsync
+      articles.fetch(
+        headers:
+          'Authorization' : "token #{@auth_token}"
+        success: (articles)=>
+          @render() if @opts.calevel is 'articles'
+        error: (articles, resp)=>
+          @alertMsg('warning', resp.responseText)
+      )
+    else
+      @render() if @opts.calevel is 'articles'
 
   initArticles: ->
     if @articles.unsync
@@ -87,11 +74,16 @@ class Yuetai.Views.Base extends Backbone.View
           'Authorization' : "token #{@auth_token}"
         success: (tags)=>
           @render() if @opts.calevel is 'tags'
+          for tag in @tags.models
+            articles = tag.articles()
+            @initTagArticles(articles)
+          @initArticles()
         error: (tags, resp)=>
           @alertMsg('warning', resp.responseText)
       )
     else
       @render() if @opts.calevel is 'tags'
+      @initArticles()
 
   initAuthors: ->
     if @authors.unsync
@@ -100,11 +92,16 @@ class Yuetai.Views.Base extends Backbone.View
           'Authorization' : "token #{@auth_token}"
         success: (authors)=>
           @render() if @opts.calevel is 'authors'
+          @initBooks()
+          @initTags()
         error: (authors, resp)=>
           @alertMsg('warning', resp.responseText)
       )
     else
       @render() if @opts.calevel is 'authors'
+      @initArticles()
+      @initBooks()
+      @initTags()
 
   initDomains: ->
     @domains = @engine.domains()

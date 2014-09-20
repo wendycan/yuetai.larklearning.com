@@ -1,5 +1,5 @@
 %script{type: 'text/template', id: 't-book-show'}
-  .row
+  .row.book
     .large-10.columns
       %h3 {{- book.name }}
       %h5 {{- book.author_name }}
@@ -7,7 +7,7 @@
       %p {{= book.desc }}
     .large-2.columns
       %image{src: "{{- book.image.url }}"}
-  .row
+  .row.book-excerpts
     .large-12.columns
       %h4 书摘
     .larg-12.columns
@@ -16,4 +16,11 @@
 %script{type: 'text/template', id: 't-book-excerpt'}
   %li
     %a{:href => "#books/{{- book_id }}/excerpts/{{- excerpt.id }}"}
-      %p {{- excerpt_snip }}
+      %p
+        “
+        {{- excerpt.quote }}
+        ”
+        %small ——
+        {{- author.name}}
+        {{- excerpt.created_at }}
+

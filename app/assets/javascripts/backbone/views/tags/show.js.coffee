@@ -4,11 +4,18 @@ class Yuetai.Views.Tags.ShowView extends Yuetai.Views.Base
   el: $('#main-content')
 
   render: ->
+    # @rm_nav()
+    # @clearMsg()
     @render_nav(@opts.section)
-    @rm_nav()
-    @clearMsg()
-    @$el.html(_.template($('#t-engines').html())())
-    @engines.each(@renderEngine, @)
+    tag = @tags.get(@opts.tag_id)
+    @$el.html(_.template($('#t-tag-show').html())(tag: tag.toJSON()))
+    articles = tag.articles()
+    articles.each(@renderArticle, @)
 
-  renderEngine: (engine)->
-    $('.engines-list').append(_.template($('#t-engine').html())({engine: engine.toJSON()}))
+  renderArticle: (article)->
+    snip = @strip(article.get('body'))
+    snip = @limit(snip, 300)
+    $('#tag-articles').append(_.template($('#t-tag-article').html())({
+      article: article.toJSON()
+      article_snip: snip
+    }))

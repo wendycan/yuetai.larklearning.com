@@ -5,6 +5,12 @@ class Yuetai.Models.Tag extends Backbone.Model
     id : ""
   idAttribute: "id"
 
+  articles: ->
+    return @_articles if !!@_articles
+    @_articles = new Yuetai.Collections.Articles
+    @_articles.url = "#{@url()}/articles"
+    return @_articles
+
 class Yuetai.Collections.Tags extends Backbone.Collection
   model: Yuetai.Models.Tag
   url: "#{Yuetai.ApiPrefix}/tags"

@@ -16,6 +16,7 @@ module Yuetai
           end
         end
       end
+
       route_param :id, requirements: /[^\/]+/ do
         get do
           book = Book.find(params[:id])

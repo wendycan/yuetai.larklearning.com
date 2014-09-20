@@ -84,7 +84,7 @@ class Yuetai.Routers.Engines extends Backbone.Router
   show_tag: (tag_id)->
     opts =
       section: 'tags'
-      calevel: 'tags'
+      calevel: 'articles'
       tag_id: tag_id
     @tag_view.undelegateEvents() if @tag_view
     @tag_view = new Yuetai.Views.Tags.ShowView(@, opts)

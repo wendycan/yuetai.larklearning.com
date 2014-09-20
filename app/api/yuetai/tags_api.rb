@@ -7,6 +7,15 @@ module Yuetai
         tags
       end
 
+      route_param :id do
+        resource :articles do
+          get do
+            articles = Node.find(params[:id]).articles
+            articles
+          end
+        end
+      end
+
       route_param :id, requirements: /[^\/]+/ do
         get do
           tag = Node.find(params[:id])

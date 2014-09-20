@@ -9,11 +9,10 @@ class Yuetai.Views.Articles.ShowView extends Yuetai.Views.Base
     @render_nav(@opts.section)
     @article = @articles.get(@opts.article_id)
     author = @authors.get(@article.get('author_id'))
-    if author
-      author = author.toJSON
-    else
-      author = ''
+    tag = @tags.get(@article.get('node_id'))
+    console.log @tags
     @$el.html(_.template($('#t-article-show').html())({
       article: @article.toJSON()
-      author: author
+      author: author.toJSON()
+      tag: tag.toJSON()
     }))

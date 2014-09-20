@@ -1,7 +1,15 @@
 %script{type: 'text/template', id: 't-article-show'}
   %h3 {{- article.name}}
   %p
+    作者
     %a{:href => "#authors/{{- author.id }}"}
       {{- author.name }}
-  %p {{- article.updated_at }}
-  .content {{= article.body}}
+    %br
+    标签
+    %a{:href => "#tags/{{- tag.id }}"}
+      {{- tag.name }}
+    %br
+    创作：
+    {{- article.created_at }}
+  .article-body
+    {{= article.body}}

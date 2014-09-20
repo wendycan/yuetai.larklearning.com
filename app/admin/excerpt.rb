@@ -7,7 +7,7 @@ ActiveAdmin.register Excerpt do
 
   controller do
     def permitted_params
-      params.permit excerpt: [:name, :body, :author_id, :book_id]
+      params.permit excerpt: [:name, :body, :author_id, :book_id, :quote]
     end
   end
 
@@ -16,6 +16,7 @@ ActiveAdmin.register Excerpt do
     id_column
     column :name
     column :body
+    column :quote
     column :author_id
     column :book_id
     column :created_at
