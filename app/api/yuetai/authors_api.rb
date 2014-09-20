@@ -3,7 +3,7 @@ module Yuetai
     resource :authors do
       desc 'Get all authors'
       get do
-        authors = Author.order("updated_at DESC").all
+        authors = Author.order("created_at DESC").all
         authors
       end
 

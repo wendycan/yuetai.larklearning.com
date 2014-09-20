@@ -3,7 +3,7 @@ module Yuetai
     resource :tags do
       desc 'Get all tags'
       get do
-        tags = Node.order("updated_at DESC").all
+        tags = Node.order("created_at DESC").all
         tags
       end
 

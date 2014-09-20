@@ -3,7 +3,7 @@ module Yuetai
     resource :books do
       desc 'Get all books'
       get  do
-        books = Book.order("updated_at DESC").all
+        books = Book.order("created_at DESC").all
         books
       end
 

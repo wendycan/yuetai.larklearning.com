@@ -3,7 +3,7 @@ module Yuetai
     resource :articles do
       desc 'Get all articles'
       get do
-        articles = Article.order("updated_at DESC").all
+        articles = Article.order("created_at DESC").all
         articles
       end
 

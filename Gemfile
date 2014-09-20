@@ -21,6 +21,7 @@ gem 'truncate_html', '0.3.2'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'gravtastic'
+gem 'carrierwave'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
