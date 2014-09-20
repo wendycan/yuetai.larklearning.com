@@ -50,3 +50,14 @@
     }
   }
 }
+.no-margin {
+  margin: 0 !important;
+}
+ul.has-division {
+  li {
+    border-bottom: solid 1px $gray-border;
+    &:last-child{
+      border-bottom: none;
+    }
+  }
+}

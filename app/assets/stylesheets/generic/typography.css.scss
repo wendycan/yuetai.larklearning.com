@@ -33,11 +33,7 @@ ul.list{
   margin-left: 0;
   li{
     padding: 5px 10px 5px 10px;
-    border-bottom: solid 1px $gray-border;
     text-indent: 1em;
-    &:last-child{
-      border-bottom: none;
-    }
   }
 }
 .blocks {

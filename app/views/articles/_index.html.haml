@@ -5,4 +5,9 @@
   %li
     %h4
       %a{:href => "#articles/{{- article.id }}"} {{- article.name }}
-    %p {{- article_snip}}
+    %p
+      {{- article_snip}}
+      %br
+      %a{:href => "#authors/{{- author.id }}"} {{- author.name }}
+
+      %span {{- article.created_at }}
