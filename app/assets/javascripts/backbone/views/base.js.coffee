@@ -28,7 +28,7 @@ class Yuetai.Views.Base extends Backbone.View
       )
     else
       @render() if @opts.calevel is 'books'
-      @render() if @opts.calevel is 'excerpts'
+      @render() if @opts.calevel is 'book-excerpts'
       @initExcerpts()
 
   initBookExcerpts: (excerpts)->
@@ -37,12 +37,14 @@ class Yuetai.Views.Base extends Backbone.View
         headers:
           'Authorization' : "token #{@auth_token}"
         success: (excerpts)=>
-          @render() if @opts.calevel is 'excerpts'
+          for excerpt in excerpts.models
+            excerpt.set('created_at', @handleDate(excerpt.get('created_at')))
+          @render() if @opts.calevel is 'book-excerpts'
         error: (excerpts, resp)=>
           @alertMsg('warning', resp.responseText)
       )
     else
-      @render() if @opts.calevel is 'excerpts'
+      @render() if @opts.calevel is 'book-excerpts'
 
   initTagArticles: (articles)->
     if articles.unsync
@@ -50,12 +52,14 @@ class Yuetai.Views.Base extends Backbone.View
         headers:
           'Authorization' : "token #{@auth_token}"
         success: (articles)=>
-          @render() if @opts.calevel is 'articles'
+          for article in articles.models
+            article.set('created_at', @handleDate(article.get('created_at')))
+          @render() if @opts.calevel is 'tag-articles'
         error: (articles, resp)=>
           @alertMsg('warning', resp.responseText)
       )
     else
-      @render() if @opts.calevel is 'articles'
+      @render() if @opts.calevel is 'tag-articles'
 
   initArticles: ->
     if @articles.unsync
@@ -63,6 +67,8 @@ class Yuetai.Views.Base extends Backbone.View
         headers:
           'Authorization' : "token #{@auth_token}"
         success: (articles)=>
+          for article in @articles.models
+            article.set('created_at', @handleDate(article.get('created_at')))
           @render() if @opts.calevel is 'articles'
         error: (articles, resp)=>
           @alertMsg('warning', resp.responseText)
@@ -76,12 +82,15 @@ class Yuetai.Views.Base extends Backbone.View
         headers:
           'Authorization' : "token #{@auth_token}"
         success: (excerpts)=>
+          for excerpt in excerpts.models
+            excerpt.set('created_at', @handleDate(excerpt.get('created_at')))
           @render() if @opts.calevel is 'excerpts'
         error: (excerpts, resp)=>
           @alertMsg('warning', resp.responseText)
       )
     else
       @render() if @opts.calevel is 'excerpts'
+
   initTags: ->
     if @tags.unsync
       @tags.fetch(
@@ -98,6 +107,7 @@ class Yuetai.Views.Base extends Backbone.View
       )
     else
       @render() if @opts.calevel is 'tags'
+      @render() if @opts.calevel is 'tag-articles'
       @initArticles()
 
   initAuthors: ->
@@ -106,6 +116,8 @@ class Yuetai.Views.Base extends Backbone.View
         headers:
           'Authorization' : "token #{@auth_token}"
         success: (authors)=>
+          for author in authors.models
+            author.set('created_at', @handleDate(author.get('created_at')))
           @render() if @opts.calevel is 'authors'
           @initBooks()
           @initTags()
@@ -171,6 +183,11 @@ class Yuetai.Views.Base extends Backbone.View
             form.find(".attr-#{k} small").addClass('error')
             form.find(".attr-#{k} small").text(msg)
           )
+
+  handleDate: (date)->
+    d = new Date(date)
+    d_s = "#{d.getHours()}:#{d.getMinutes()} #{d.getMonth()}月#{d.getDate()}日 #{d.getFullYear()}年"
+    d_s
 
   decodeArray: (arr_str)->
     _arr = arr_str.split(',')

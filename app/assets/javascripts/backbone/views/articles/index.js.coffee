@@ -14,6 +14,7 @@ class Yuetai.Views.Articles.IndexView extends Yuetai.Views.Base
     snip = @strip(article.get('body'))
     snip = @limit(snip, 300)
     author = @authors.get(article.get('author_id'))
+    # article.set('created_at', @handleDate(article.get('created_at')))
     $('#articles-items').append(_.template($('#t-article-item').html())(
       {
         article: article.toJSON(),

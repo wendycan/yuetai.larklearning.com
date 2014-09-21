@@ -39,7 +39,7 @@ class Yuetai.Routers.Engines extends Backbone.Router
   show_book: (book_id)->
     opts =
       section: 'books'
-      calevel: 'excerpts'
+      calevel: 'book-excerpts'
       book_id: book_id
     @book_view.undelegateEvents() if @book_view
     @book_view = new Yuetai.Views.Books.ShowView(@, opts)
@@ -54,7 +54,7 @@ class Yuetai.Routers.Engines extends Backbone.Router
   show_excerpt: (book_id, excerpt_id)->
     opts =
       section: 'books'
-      calevel: 'excerpts'
+      calevel: 'book-excerpts'
       book_id: book_id
       excerpt_id: excerpt_id
     @excerpt_view.undelegateEvents() if @excerpt_view
@@ -85,7 +85,7 @@ class Yuetai.Routers.Engines extends Backbone.Router
   show_tag: (tag_id)->
     opts =
       section: 'tags'
-      calevel: 'articles'
+      calevel: 'tag-articles'
       tag_id: tag_id
     @tag_view.undelegateEvents() if @tag_view
     @tag_view = new Yuetai.Views.Tags.ShowView(@, opts)
