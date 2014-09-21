@@ -1,2 +1,27 @@
 %script{type: 'text/template', id: 't-index'}
-  %ul#items.lists.has-division
+  %ul.inline-list
+    %li#last-articles
+      最新博客
+    %li#last-excerpts
+      最新书评
+    %li#all-tags
+      所有标签
+
+  %ul#items.lists.has-division.no-margin
+  %ul#tag-items.inline-list
+
+
+%script{type: 'text/template', id: 't-excerpt-item'}
+  %li
+    %a{:href => "#books/{{- book.id }}/excerpts/{{- excerpt.id }}"}
+      %p
+        “
+        {{- excerpt.quote }}
+        ”
+      %p
+        出自{{- book.author_name }}《{{- book.name }}》
+        %small
+          ——
+        {{- author.name}}
+        {{- excerpt.created_at }}
+

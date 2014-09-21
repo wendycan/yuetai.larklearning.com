@@ -14,4 +14,6 @@ class Api < Grape::API
   mount Yuetai::Articles
   mount Yuetai::Tags
   mount Yuetai::Authors
+  mount Yuetai::Excerpts
+
 end

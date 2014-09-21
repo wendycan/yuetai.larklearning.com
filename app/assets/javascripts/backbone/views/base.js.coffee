@@ -4,6 +4,7 @@ class Yuetai.Views.Base extends Backbone.View
     @router = router
     @books = router.books
     @articles = router.articles
+    @excerpts = router.excerpts
     @tags = router.tags
     @authors = router.authors
 
@@ -19,16 +20,18 @@ class Yuetai.Views.Base extends Backbone.View
         success: (books)=>
           for book in @books.models
             excerpts = book.excerpts()
-            @initExcerpts(excerpts)
+            @initBookExcerpts(excerpts)
           @render() if @opts.calevel is 'books'
+          @initExcerpts()
         error: (books, resp)=>
           @alertMsg('warning', resp.responseText)
       )
     else
       @render() if @opts.calevel is 'books'
       @render() if @opts.calevel is 'excerpts'
+      @initExcerpts()
 
-  initExcerpts: (excerpts)->
+  initBookExcerpts: (excerpts)->
     if excerpts.unsync
       excerpts.fetch(
         headers:
@@ -67,6 +70,18 @@ class Yuetai.Views.Base extends Backbone.View
     else
       @render() if @opts.calevel is 'articles'
 
+  initExcerpts: ->
+    if @excerpts.unsync
+      @excerpts.fetch(
+        headers:
+          'Authorization' : "token #{@auth_token}"
+        success: (excerpts)=>
+          @render() if @opts.calevel is 'excerpts'
+        error: (excerpts, resp)=>
+          @alertMsg('warning', resp.responseText)
+      )
+    else
+      @render() if @opts.calevel is 'excerpts'
   initTags: ->
     if @tags.unsync
       @tags.fetch(

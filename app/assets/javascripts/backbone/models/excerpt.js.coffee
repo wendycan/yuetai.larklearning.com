@@ -11,6 +11,7 @@ class Yuetai.Models.Excerpt extends Backbone.Model
 
 class Yuetai.Collections.Excerpts extends Backbone.Collection
   model: Yuetai.Models.Excerpt
+  url: "#{Yuetai.ApiPrefix}/excerpts"
 
   sync: Yuetai.Common.api_sync
 

@@ -21,6 +21,7 @@ class Yuetai.Routers.Engines extends Backbone.Router
     @articles = new Yuetai.Collections.Articles()
     @tags = new Yuetai.Collections.Tags()
     @authors = new Yuetai.Collections.Authors()
+    @excerpts = new Yuetai.Collections.Excerpts()
 
   index : ->
     opts =
