@@ -21,3 +21,6 @@
 
   ga('create', 'UA-54778589-1', 'auto');
   ga('send', 'pageview');
+  ga('send', 'pageview', {
+   'page': location.pathname + location.search  + location.hash
+  });
