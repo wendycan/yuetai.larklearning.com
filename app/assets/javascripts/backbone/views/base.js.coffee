@@ -186,7 +186,7 @@ class Yuetai.Views.Base extends Backbone.View
 
   handleDate: (date)->
     d = new Date(date)
-    d_s = "#{d.getHours()}:#{d.getMinutes()} #{d.getMonth()}月#{d.getDate()}日 #{d.getFullYear()}年"
+    d_s = "#{d.getHours()}:#{d.getMinutes()}-#{d.getMonth()}月#{d.getDate()}日-#{d.getFullYear()}年"
     d_s
 
   decodeArray: (arr_str)->
