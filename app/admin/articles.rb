@@ -1,5 +1,6 @@
 #!/bin/env ruby
 # encoding: utf-8
+
 ActiveAdmin.register Article do
 
   menu priority: 2, label: '文章'

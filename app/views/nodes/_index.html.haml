@@ -1,0 +1,7 @@
+%script{type: 'text/template', id: 't-tags-index'}
+  %ul.small-block-grid-3#tag-items
+
+%script{type: 'text/template', id: 't-tag-item'}
+  %li
+    %h4
+      %a{:href => "#!tags/{{- tag.id }}"} {{- tag.name }}
