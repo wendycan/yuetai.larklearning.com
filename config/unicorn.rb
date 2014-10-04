@@ -20,11 +20,6 @@ preload_app true
 
 GC.copy_on_write_friendly = true if GC.respond_to?(:copy_on_write_friendly=)
 
-#if gid && Process.egid != gid
-#   Process.initgroups(user, gid)
-#  Process::GID.change_privilege(gid)
-#end
-
 before_fork do |server, worker|
   old_pid = "#{rails_root}/tmp/pids/unicorn.pid.oldbin"
   if File.exists?(old_pid) && server.pid != old_pid
