@@ -9,7 +9,7 @@
 %script{type: 'text/template', id: 't-tag-article'}
   %li
     %h5
-      %a{:href => "#articles/{{- article.id}}"}
+      %a{:href => "#!articles/{{- article.id}}"}
         {{- article.name }}
-    %span 创作：{{- article.created_at }}
+    %span 时间 {{- article.created_at }}
     %p {{- article_snip }}

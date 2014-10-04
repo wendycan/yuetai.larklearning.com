@@ -4,7 +4,7 @@
 %script{type: 'text/template', id: 't-book-item'}
   %li
     .image-bg{style: "background-image: url({{- book.image.url }})"}
-    %a{:href => "#books/{{- book.id }}"}
+    %a{:href => "#!/books/{{- book.id }}"}
       .text
         %h4 {{- book.name }}
         %h6 {{- book.author_name }}
