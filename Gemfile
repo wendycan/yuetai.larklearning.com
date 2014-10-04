@@ -34,6 +34,7 @@ gem 'foundation-rails'
 # Icons
 gem 'font-awesome-sass'
 
+gem 'prerender_rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 

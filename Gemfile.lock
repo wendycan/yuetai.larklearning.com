@@ -146,6 +146,9 @@ GEM
     polyamorous (1.0.0)
       activerecord (>= 3.0)
     polyglot (0.3.4)
+    prerender_rails (1.1.0)
+      activesupport
+      rack
     rack (1.5.2)
     rack-accept (0.4.5)
       rack (>= 0.4)
@@ -238,6 +241,7 @@ DEPENDENCIES
   haml-rails
   jbuilder (~> 1.2)
   jquery-rails
+  prerender_rails
   rails (= 4.0.3)
   sass-rails (~> 4.0.0)
   sdoc

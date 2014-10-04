@@ -4,10 +4,10 @@
 %script{type: 'text/template', id: 't-article-item'}
   %li
     %h4
-      %a{:href => "#articles/{{- article.id }}"} {{- article.name }}
+      %a{:href => "#!/articles/{{- article.id }}"} {{- article.name }}
       %small
         ——
-        %a{:href => "#authors/{{- author.id }}"} {{- author.name }}
+        %a{:href => "#!/authors/{{- author.id }}"} {{- author.name }}
         %span {{- article.created_at }}
     %p
       {{- article_snip}}

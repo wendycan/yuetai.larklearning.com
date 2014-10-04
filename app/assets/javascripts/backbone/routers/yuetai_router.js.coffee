@@ -1,20 +1,20 @@
 class Yuetai.Routers.Engines extends Backbone.Router
   routes:
     '' : 'index'
-    'books' : 'index_books'
-    'books/:id' : 'show_book'
+    '!/books' : 'index_books'
+    '!/books/:id' : 'show_book'
 
     # 'books/:id/excerpts' : 'index_excerpts'
-    'books/:id/excerpts/:excerpt_id' : 'show_excerpt'
+    '!/books/:id/excerpts/:excerpt_id' : 'show_excerpt'
 
-    'articles' : 'index_articles'
-    'articles/:id' : 'show_article'
+    '!/articles' : 'index_articles'
+    '!/articles/:id' : 'show_article'
 
-    'authors' : 'index_authors'
-    'authors/:id' : 'show_author'
+    '!/authors' : 'index_authors'
+    '!/authors/:id' : 'show_author'
 
-    'tags' : 'index_tags'
-    'tags/:id' : 'show_tag'
+    '!/tags' : 'index_tags'
+    '!/tags/:id' : 'show_tag'
 
   initialize: ->
     @books = new Yuetai.Collections.Books()
