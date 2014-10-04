@@ -1,5 +1,7 @@
 %script{type: 'text/template', id: 't-author-show'}
-  %h4 {{- author.name}}
-  %p {{- author.email }}
-  %p {{- author.created_at }}
-  %p {{- author.desc}}
+  %h4
+    {{- author.name}}
+    %small 创建于 {{- author.created_at }}
+  %hr
+
+  {{= author.desc}}

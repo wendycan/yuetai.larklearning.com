@@ -6,7 +6,7 @@ ActiveAdmin.register Author do
 
   controller do
     def permitted_params
-      params.permit author: [ :name, :email]
+      params.permit author: [ :name, :email, :desc]
     end
   end
 end

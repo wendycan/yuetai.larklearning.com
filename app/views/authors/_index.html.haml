@@ -1,8 +1,11 @@
 %script{type: 'text/template', id: 't-authors-index'}
-  %ul.small-block-grid-3#author-items
+  %h4 所有作者
+  %ul.small-block-grid-3#author-items.has-division
 
 %script{type: 'text/template', id: 't-author-item'}
   %li
-    %h4
-      %a{:href => "#!/authors/{{- author.id }}"} {{- author.name }}
-    %p {{- author.desc}}
+    %a{:href => "#!/authors/{{- author.id }}"}
+      %h5
+        %span.primary-color {{- author.name }}
+        %small 创建于 {{- author.created_at }}
+      %p {{- author_snip}}

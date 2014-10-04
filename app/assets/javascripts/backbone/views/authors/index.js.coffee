@@ -11,4 +11,10 @@ class Yuetai.Views.Authors.IndexView extends Yuetai.Views.Base
     @authors.each(@renderAuthor, @)
 
   renderAuthor: (author)->
-    $('#author-items').append(_.template($('#t-author-item').html())(author: author.toJSON()))
+    snip = @strip(author.get('desc'))
+    snip = @limit(snip, 300)
+
+    $('#author-items').append(_.template($('#t-author-item').html())({
+      author: author.toJSON(),
+      author_snip: snip
+    }))
