@@ -1,6 +1,6 @@
 YueTai [![Stories in Ready](https://badge.waffle.io/wendycan/yuetai.wendycan.org.svg?label=ready&title=Ready)](http://waffle.io/wendycan/yuetai.wendycan.org)
 ===========================
-[阅台](http://yuetai.wendycan.org)是一个静态站点，二三好友一起发表博客的地方。
+[阅台](http://yuetai.wendycan.org)是一个单页应用，二三好友一起发表博客的地方。
 
 * 如果你想参与开发，可以从 [fork](https://github.com/wendycan/yuetai.wendycan.org/fork) 这个项目开始。
 * 如果你只想发表博客，可以发送博客到 yuetai@wendycan.org，格式随意，如果你对样式真的很挑剔，也可以发送 PS 图，但请另附文字部分。
