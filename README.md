@@ -19,7 +19,7 @@ Requirements
 * [Bower](https://github.com/bower/bower)
 
 Run
-
+---------
 ~~~ sh
 $ cd YUETAI
 $ bower install
