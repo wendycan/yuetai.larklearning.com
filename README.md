@@ -21,7 +21,7 @@ Requirements
 Run
 ---------
 ~~~ sh
-$ cd YUETAI
+$ cd YUETAI_PROJECT
 $ bower install
 $ rails s
 ~~~
