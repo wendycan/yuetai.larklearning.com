@@ -1,21 +1,35 @@
 %nav.tab-bar.show-for-small-only
   %section.left-small.text-center
-    %a.left-off-canvas-toggle
+    %a.left-off-canvas-toggle.menu-icon
       %span
-        %i.fa.fa-bars.defaultg
   %section.middle.tab-bar-section
     %h1.title 阅台
+
 %aside.left-off-canvas-menu
-  %ul.off-canvas-list
-    %li
-      %a.default{:href => "http://blog.wendycan.org"}
-        %i.fa.fa-bookmark
-        阅台
-    %li
-      = link_to 'htttp://www.wendycan.org/profile', :class => "default" do
-        %i.fa.fa-user
-        简历
-    %li
-      %a.default{:href => "htttp://www.wendycan.org"}
-        %i.fa.fa-home
-        WendyCan
+  %ul.off-canvas-list.small-nav
+    %li.index
+      %a{:href => '#'}
+        = image_tag 'logo-white.png'
+        %span 阅台
+    %li.articles
+      %a{:href => '#articles'}
+        = image_tag 'blog-white.png'
+        %span 博客
+    %li.books
+      %a{:href => '#books'}
+        = image_tag 'book-white.png'
+        %span 书摘
+    %li.authors
+      %a{:href => '#authors'}
+        = image_tag 'author-white.png'
+        %span 作者
+    / %li.about
+    /   %a.reverse{:href => "http://weibo.com/u/3260368113/home?wvr=5"}
+    /     %i.fa.fa-weibo
+    /   %a.reverse{:href => "https://github.com/wendycan"}
+    /     %i.fa.fa-github
+    /   %a.reverse{:href => "https://bitbucket.org/wendycan"}
+    /     %i.fa.fa-bitbucket
+    /   %a.reverse{:href => "mailto:wendy@wendycan.org"}
+    /     %i.fa.fa-envelope
+

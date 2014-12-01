@@ -6,10 +6,14 @@ YuetaiWendycanOrg::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'site#index'
-
+  get 'site/search'
   resources :articles, only: [:index, :show]
   resources :nodes, only: [:index, :show]
   resources :authors, only: [:index, :show]
+  resources :books, only: [:index, :show]
+  resources :excerpts, only: [:index, :show]
+
+  mount Api => '/apis/'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

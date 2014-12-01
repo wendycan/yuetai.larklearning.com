@@ -8,9 +8,15 @@
     %section.top-bar-section
       %ul.right
         %li
-          %a.default.tip-left{:href => "http://www.wendycan.org", :'data-tooltip' => true, title: "WendyCan"}
+          %form
+            %input.ts-search-input{type: 'text', id: 'ts-search-input'}
+        %li
+          %a.default.tip-left{:href => "http://wendycan.org", :'data-tooltip' => true, title: "WendyCan"}
             %i.fa.fa-home
       %ul.left
         %li
           %a.default{:href => "/"}
-            阅台
+            文章
+        %li
+          = link_to books_path do
+            = "书籍"

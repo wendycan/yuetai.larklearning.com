@@ -11,13 +11,14 @@
  *= require vendor
  *= require_self
  */
-
 @import "main/variables";
 @import "main/framework";
 @import "main/mixins";
 @import "main/fonts";
 @import "main/layout";
 @import "main/account";
+@import "main/main";
+@import "main/books";
 
 /**
  * Generic css (forms, nav etc):

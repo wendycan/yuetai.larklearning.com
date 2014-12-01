@@ -1,4 +1,9 @@
+#!/bin/env ruby
+# encoding: utf-8
+
 ActiveAdmin.register AdminUser do
+  menu priority: 7, label: '管理员'
+
   permit_params :email, :password, :password_confirmation
 
   index do

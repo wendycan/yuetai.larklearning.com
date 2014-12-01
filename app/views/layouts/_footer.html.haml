@@ -1,37 +1,13 @@
-.footer.wrap.gray-dark-bg
-  .row.text-center
-    .large-3.columns.large-offset-3
+.row.text-center
+  .row
+    .large-12.columns.small-8.small-centered
+      %hr
       .row
         .large-12.columns
           %h5
             = '欢迎大家投稿至'
             %a{:href => "mailto:yuetai@wendycan.org"}
               %small.reverse yuetai@wendycan.org
-      %hr
-      .row
-        .large-12.columns.small-8.small-centered
-          %h5
-            %small by
-            = link_to "WendyCan", 'http://wendycan.org', :class => "reverse"
-          %ul.inline-list
-            %li
-              %a.reverse{:href => "http://weibo.com/u/3260368113/home?wvr=5"}
-                %i.fa.fa-weibo
-            %li
-              %a.reverse{:href => "https://github.com/wendycan"}
-                %i.fa.fa-github
-            %li
-              %a.reverse{:href => "https://bitbucket.org/wendycan"}
-                %i.fa.fa-bitbucket
-            %li
-              %a.reverse{:href => "mailto:wendy@wendycan.org"}
-                %i.fa.fa-envelope
-    .large-3.columns
-      = image_tag('qrcode.png')
-    .large-3.columns
-  .row.static
-    .large-12.columns.text-center
-      %br
-      :javascript
-        //cnzz
-        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000396615'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1000396615%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+      %h5
+        %small by
+        = link_to "WendyCan", 'http://wendycan.org', :class => "reverse"

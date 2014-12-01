@@ -1,0 +1,15 @@
+%script{type: 'text/template', id: 't-tag-show'}
+  %h3 {{- tag.name}}
+  %p
+    创建
+    {{- tag.created_at }}
+  %p {{- tag.desc}}
+  %ul#tag-articles.lists.no-margin.has-division
+
+%script{type: 'text/template', id: 't-tag-article'}
+  %li
+    %h5
+      %a{:href => "#!articles/{{- article.id}}"}
+        {{- article.name }}
+    %span 时间 {{- article.created_at }}
+    %p {{- article_snip }}

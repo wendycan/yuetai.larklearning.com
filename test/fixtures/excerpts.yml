@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  body: MyText
+  likes_count: 1
+  unlikes_count: 1
+  normals_count: 1
+  chap_id: 1
+
+two:
+  body: MyText
+  likes_count: 1
+  unlikes_count: 1
+  normals_count: 1
+  chap_id: 1

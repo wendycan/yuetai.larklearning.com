@@ -1,0 +1,6 @@
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <ShortName>Yuetai</ShortName>
+  <Description>Search Yuetai</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Url type="text/html" method="get" template="http://yuetai.wendycan.org/site/search#tsq={searchTerms}&amp;tsp=0"/>
+</OpenSearchDescription>

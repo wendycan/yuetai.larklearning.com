@@ -3,6 +3,11 @@ class Article < ActiveRecord::Base
   belongs_to :node
   belongs_to :author
 
+  validates :name, presence: true
+  validates :body, presence: true
+  validates :author_id, presence: true
+  validates :node_id, presence: true
+
   before_save :set_node
   scope :recent, ->(num) { order('created_at DESC').limit(num) }
   def set_node

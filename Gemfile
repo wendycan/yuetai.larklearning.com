@@ -6,6 +6,8 @@ gem 'rails', '4.0.3'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
+gem 'grape'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -19,6 +21,7 @@ gem 'truncate_html', '0.3.2'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'gravtastic'
+gem 'carrierwave'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -31,6 +34,7 @@ gem 'foundation-rails'
 # Icons
 gem 'font-awesome-sass'
 
+gem 'prerender_rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
