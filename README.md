@@ -22,6 +22,7 @@ Run
 ---------
 ~~~ sh
 $ cd YUETAI_PROJECT
+$ bundle install
 $ bower install
 $ rails s
 ~~~
