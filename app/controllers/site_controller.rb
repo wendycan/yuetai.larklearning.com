@@ -1,10 +1,8 @@
 class SiteController < ApplicationController
   def index
-    @tags = Tag.order("updated_at DESC").all
-    # @authors = Author.order("updated_at DESC").all
-    @articles = Article.order("updated_at DESC").all
+    @blogs = Article.order("updated_at DESC").where(template, "blog")
   end
 
-  def search
+  def show
   end
 end
