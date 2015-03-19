@@ -3,41 +3,10 @@
   = render :partial => 'layouts/head'
 %body
   .row
-    .large-1.medium-1.columns.sidebar.show-for-medium-up
-      %ul.side-nav
-        %li.index
-          %a{:href => '#'}
-            = image_tag 'logo-white.png'
-            %span 阅台
-        %li.articles
-          %a{:href => '#!/articles'}
-            = image_tag 'blog-white.png'
-            %h5 博客
-        %li.books
-          %a{:href => '#!/books'}
-            = image_tag 'book-white.png'
-            %h5 书摘
-        %li.authors
-          %a{:href => '#!/authors'}
-            = image_tag 'author-white.png'
-            %h5 作者
-        %li.about
-          %ul
-            %li
-              %a.reverse{:href => "http://weibo.com/u/3260368113/home?wvr=5"}
-                %i.fa.fa-weibo
-            %li
-              %a.reverse{:href => "https://github.com/wendycan"}
-                %i.fa.fa-github
-            %li
-              %a.reverse{:href => "https://bitbucket.org/wendycan"}
-                %i.fa.fa-bitbucket
-            %li
-              %a.reverse{:href => "mailto:wendy@wendycan.org"}
-                %i.fa.fa-envelope
-    .large-11.medium-11.small-12.columns
-      .off-canvas-wrap{:'data-offcanvas' => true}
-        .inner-wrap
+    .off-canvas-wrap{:'data-offcanvas' => true}
+      .inner-wrap
+        = render :partial => 'layouts/nav'
+        .large-12.columns
           = render :partial => 'layouts/small_nav'
           = if !notice.nil?
             %p.notice= notice

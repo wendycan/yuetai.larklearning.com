@@ -10,6 +10,11 @@ YuetaiWendycanOrg::Application.routes.draw do
   resources :articles, only: [:index, :show]
   resources :tags, only: [:index, :show]
 
+  get 'presentation/index'
+  get 'presentation/show'
+  get 'series/index'
+  get 'series/show'
+
   mount Api => '/apis/'
 
   # Example of regular route:
