@@ -5,7 +5,7 @@
   .row
     .off-canvas-wrap{:'data-offcanvas' => true}
       .inner-wrap
-        = render :partial => 'layouts/nav'
+        = render :partial => 'layouts/dash_nav'
         .large-12.columns
           = render :partial => 'layouts/small_nav'
           = if !notice.nil?
@@ -18,4 +18,7 @@
             = render :partial => 'layouts/footer'
           .exit-off-canvas
 
-  = render 'layouts/js'
+  = javascript_include_tag "app-dash"
+  = yield(:js_ext)
+
+

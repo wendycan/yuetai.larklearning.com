@@ -1,0 +1,8 @@
+#main-content
+
+  = content_for :js_ext do
+    :javascript
+      $(document).ready(function () {
+        var router = new Yuetai.Routers.Engines();
+        Backbone.history.start();
+      })

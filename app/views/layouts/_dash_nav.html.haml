@@ -1,0 +1,38 @@
+.show-for-medium-up
+  %nav.top-bar{:'data-topbar' => true}
+    %ul.title-area
+      %li.name
+        %h1
+          = link_to '/' do
+            = image_tag("logo.png")
+    %section.top-bar-section
+      %ul.right
+        %li
+          = link_to articles_path do
+            = "博客"
+        %li
+          = link_to series_index_path do
+            = "系列"
+        %li
+          = link_to presentation_index_path do
+            = "演示"
+        %li.has-dropdown
+          = link_to new_user_session_path do
+            - if @current_user
+              = @current_user.email
+            - else
+              登录
+          %ul.dropdown
+            - if @current_user
+              %li
+                %a{:href => "#"} 管理
+              %li
+                %a{:href => "#"} 设置
+              %li
+                = link_to '登出', destroy_user_session_path, :method => 'delete', data: { confirm: '确定登出？'}
+            - else
+              %li
+                = link_to '注册', new_user_registration_path
+              %li
+                = link_to '#' do
+                  关于
