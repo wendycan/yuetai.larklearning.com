@@ -6,6 +6,7 @@ class Article < ActiveRecord::Base
   validates :title, presence: true
   validates :body, presence: true
   validates :tag_id, presence: true
+  validates :template, presence: true, inclusion: { in: ['blog', 'series', 'presentation'] }
 
   # before_save :set_node
   scope :recent, ->(num) { order('created_at DESC').limit(num) }

@@ -1,15 +1,8 @@
-%h4 blogs
-
-/ %script{type: 'text/template', id: 't-articles-index'}
-/   %ul#articles-items.lists.has-division
-
-/ %script{type: 'text/template', id: 't-article-item'}
-/   %li
-/     %h4
-/       %a{:href => "#!/articles/{{- article.id }}"} {{- article.name }}
-/       %small
-/         ——
-/         %a{:href => "#!/authors/{{- author.id }}"} {{- author.name }}
-/         %span {{- article.created_at }}
-/     %p
-/       {{- article_snip}}
+.row.wrap
+  .large-12.columns
+    %ul
+      - @blogs.each do |blog|
+        %li
+          = link_to article_path(blog.id) do
+            %h5= blog.title
+          %p= blog.body

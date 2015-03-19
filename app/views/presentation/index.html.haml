@@ -1,1 +1,8 @@
-#h4 演示
+.row.wrap
+  .large-12.columns
+    %ul
+      - @presentations.each do |p|
+        %li
+          = link_to article_path(p.id) do
+            %h5= p.title
+          %p= p.body

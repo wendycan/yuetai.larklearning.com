@@ -1,1 +1,8 @@
-%h4 系列
+.row.wrap
+  .large-12.columns
+    %ul
+      - @series.each do |s|
+        %li
+          = link_to article_path(s.id) do
+            %h5= s.title
+          %p= s.body
