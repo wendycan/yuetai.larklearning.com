@@ -15,11 +15,11 @@ module Yuetai
       end
 
       post do
-        user = authenticate_user_from_token!
-        if user
+        authenticate!
+        if !@current_user.nil?
           # create author
           article = Article.new(params[:article])
-          article.user_id = user.id
+          article.user_id = @current_user.id
           if article.save
             {status: 201}
           else
