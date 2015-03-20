@@ -8,13 +8,13 @@
     %section.top-bar-section
       %ul.right
         %li
-          = link_to articles_path do
+          %a{:href => "#blogs"}
             = "博客"
         %li
-          = link_to series_index_path do
+          %a{:href => "#series"}
             = "系列"
         %li
-          = link_to presentation_index_path do
+          %a{:href => "#pressentations"}
             = "演示"
         %li.has-dropdown
           = link_to new_user_session_path do

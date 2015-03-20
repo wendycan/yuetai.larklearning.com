@@ -18,8 +18,9 @@
             = "演示"
         %li.has-dropdown
           = link_to new_user_session_path do
-            - if @current_user
-              = @current_user.email
+            - if user_signed_in?
+              wendy
+              / = @current_user.email
             - else
               登录
           %ul.dropdown
