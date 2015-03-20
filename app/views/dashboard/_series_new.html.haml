@@ -1,0 +1,9 @@
+%script{type: 'text/template', id: 't-series-new'}
+  .row
+    .large-12.colulmns
+      %form#new-series-form
+        %input#newsr{type:'hidden', name:'newsr', value:'newsr'}
+        %input#series-title{type: 'text'}
+        %input#series-tag{type: 'text'}
+        %textarea#series-body{type: 'text'}
+        %button.button.tiny{type: 'submit'} 确定

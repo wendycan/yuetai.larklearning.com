@@ -1,0 +1,12 @@
+%script{type: 'text/template', id: 't-series'}
+  .row
+    .large-10.columns
+      %h4 所有系列
+    .large-2.columns
+      %a.button.tiny{:href => "#series/new"} 新建
+  %ul#series
+%script{type: 'text/template', id: 't-series-item'}
+  %li#series-item
+    %a{:href => "#series/{{= series.id }}" }
+      %h4 {{= series.title }}
+      %p {{= series.body }}

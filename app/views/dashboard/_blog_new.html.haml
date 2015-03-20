@@ -1,0 +1,9 @@
+%script{type: 'text/template', id: 't-blog-new'}
+  .row
+    .large-12.columns
+      %form#new-blog-form
+        %input#newbl{type:'hidden', name:'newbl', value:'newbl'}
+        %input#blog-title{type: 'text'}
+        %input#blog-tag{type: 'text'}
+        %textarea#blog-body{type: 'text'}
+        %button.button.tiny{type: 'submit'} 确定

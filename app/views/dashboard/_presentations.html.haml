@@ -1,0 +1,11 @@
+%script{type: 'text/template', id: 't-presentations'}
+  .row
+    .large-10.columns
+      %h4 所有演示
+    .large-2.columns
+      %a.button.tiny{:href => "#presentations/new"} 新建
+  %ul#presentations
+%script{type: 'text/template', id: 't-presentation'}
+  %a{:href => "#presentations/{{= presentation.id }}" }
+    %h4 {{= presentation.title }}
+    %p {{= presentation.body }}

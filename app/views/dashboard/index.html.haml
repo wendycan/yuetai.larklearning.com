@@ -6,80 +6,14 @@
         Backbone.history.start();
       })
 
-%script{type: 'text/template', id: 't-blogs'}
-  .row
-    .large-10.columns
-      %h4 所有博客
-    .large-2.columns
-      %a.button.tiny{:href => "#blogs/new"} 新建
-  .row
-    .large-12.columns
-      %ul#blogs
-%script{type: 'text/template', id: 't-blog'}
-  %li#blog
-    %a{:href => "#blogs/{{= blog.id }}" }
-      %h4 {{= blog.title }}
-      %p {{= blog.body }}
+= render 'dashboard/blogs'
+= render 'dashboard/blog_new'
+= render 'dashboard/blog_show'
 
-%script{type: 'text/template', id: 't-blog-show'}
-  %h4 {{= blog.title }}
-  %p {{= blog.body }}
+= render 'dashboard/series'
+= render 'dashboard/series_new'
+= render 'dashboard/series_show'
 
-%script{type: 'text/template', id: 't-blog-new'}
-  .row
-    .large-12.columns
-      %form#new-blog-form
-        %input#newbl{type:'hidden', name:'newbl', value:'newbl'}
-        %input#blog-title{type: 'text'}
-        %input#blog-tag{type: 'text'}
-        %textarea#blog-body{type: 'text'}
-        %button.button.tiny{type: 'submit'} 确定
-
-%script{type: 'text/template', id: 't-series'}
-  .row
-    .large-10.columns
-      %h4 所有系列
-    .large-2.columns
-      %a.button.tiny{:href => "#series/new"} 新建
-  %ul#series
-%script{type: 'text/template', id: 't-series-item'}
-  %li#series-item
-    %a{:href => "#series/{{= series.id }}" }
-      %h4 {{= series.title }}
-      %p {{= series.body }}
-%script{type: 'text/template', id: 't-series-show'}
-  %h4 {{= series.title }}
-  %p {{= series.body }}
-%script{type: 'text/template', id: 't-series-new'}
-  .row
-    .large-12.colulmns
-      %form#new-series-form
-        %input#newsr{type:'hidden', name:'newsr', value:'newsr'}
-        %input#series-title{type: 'text'}
-        %input#series-tag{type: 'text'}
-        %textarea#series-body{type: 'text'}
-        %button.button.tiny{type: 'submit'} 确定
-
-%script{type: 'text/template', id: 't-presentations'}
-  .row
-    .large-10.columns
-      %h4 所有演示
-    .large-2.columns
-      %a.button.tiny{:href => "#presentations/new"} 新建
-  %ul#presentations
-%script{type: 'text/template', id: 't-presentation'}
-  %a{:href => "#presentations/{{= presentation.id }}" }
-    %h4 {{= presentation.title }}
-    %p {{= presentation.body }}
-%script{type: 'text/template', id: 't-presentation-show'}
-  %h4 {{= presentation.title }}
-  %p {{= presentation.body }}
-%script{type: 'text/template', id: 't-presentation-new'}
-  .row
-    .large-12.colulmns
-      %form#new-presentation-form
-        %input#newpr{type:'hidden', name:'newpr', value:'newpr'}
-        %input#presentation-title{type: 'text'}
-        %input#presentation-tag{type: 'text'}
-        %textarea#presentation-body{type: 'text'}
-        %button.button.tiny{type: 'submit'} 确定
+= render 'dashboard/presentations'
+= render 'dashboard/presentation_new'
+= render 'dashboard/presentation_show'

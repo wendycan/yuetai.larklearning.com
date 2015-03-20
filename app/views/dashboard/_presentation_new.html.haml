@@ -1,0 +1,9 @@
+%script{type: 'text/template', id: 't-presentation-new'}
+  .row
+    .large-12.colulmns
+      %form#new-presentation-form
+        %input#newpr{type:'hidden', name:'newpr', value:'newpr'}
+        %input#presentation-title{type: 'text'}
+        %input#presentation-tag{type: 'text'}
+        %textarea#presentation-body{type: 'text'}
+        %button.button.tiny{type: 'submit'} 确定
