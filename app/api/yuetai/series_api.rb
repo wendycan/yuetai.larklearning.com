@@ -1,23 +1,23 @@
 module Yuetai
-  class Articles < Grape::API
-    resource :articles do
-      desc 'Get all articles'
+  class Series < Grape::API
+    resource :series do
+      desc 'Get all series'
       get do
-        articles = Article.order("created_at DESC").all
-        articles
+        series = Article.where(template: 'series').order("created_at DESC").all
+        series
       end
 
       route_param :id, requirements: /[^\/]+/ do
         get do
-          article = Article.find(params[:id])
-          article
+          series = Article.find(params[:id])
+          series
         end
       end
 
       post do
         user = authenticate_user_from_token!
         if user
-          # create article
+          # create author
           article = Article.new(params[:article])
           article.user_id = user.id
           if article.save

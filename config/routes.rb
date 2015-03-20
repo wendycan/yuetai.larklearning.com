@@ -15,7 +15,7 @@ YuetaiWendycanOrg::Application.routes.draw do
   get 'series/index'
   get 'series/show'
 
-  mount Api => '/apis/'
+  mount Api => '/api/'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

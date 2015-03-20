@@ -10,10 +10,8 @@ class Api < Grape::API
     {version: '1'}
   end
 
-  mount Yuetai::Books
-  mount Yuetai::Articles
-  mount Yuetai::Tags
-  mount Yuetai::Authors
-  mount Yuetai::Excerpts
+  mount Yuetai::Blogs
+  mount Yuetai::Series
+  mount Yuetai::Presentations
 
 end
