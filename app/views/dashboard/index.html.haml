@@ -8,16 +8,34 @@
       })
 
 %script{type: 'text/template', id: 't-blogs'}
-  %h4 blogs
+  %ul#blogs
 %script{type: 'text/template', id: 't-blog'}
-  %h4 blog
+  %li#blog
+    %a{:href => "#blogs/{{= blog.id }}" }
+      %h4 {{= blog.title }}
+      %p {{= blog.body }}
+
+%script{type: 'text/template', id: 't-blog-show'}
+  %h4 {{= blog.title }}
+  %p {{= blog.body }}
 
 %script{type: 'text/template', id: 't-series'}
-  %h4 series
+  %ul#series
+%script{type: 'text/template', id: 't-series-item'}
+  %li#series-item
+    %a{:href => "#series/{{= series.id }}" }
+      %h4 {{= series.title }}
+      %p {{= series.body }}
 %script{type: 'text/template', id: 't-series-show'}
-  %h4 series-show
+  %h4 {{= series.title }}
+  %p {{= series.body }}
 
 %script{type: 'text/template', id: 't-presentations'}
-  %h4 presentations
+  %ul#presentations
 %script{type: 'text/template', id: 't-presentation'}
-  %h4 presentation
+  %a{:href => "#presentations/{{= presentation.id }}" }
+    %h4 {{= presentation.title }}
+    %p {{= presentation.body }}
+%script{type: 'text/template', id: 't-presentation-show'}
+  %h4 {{= presentation.title }}
+  %p {{= presentation.body }}

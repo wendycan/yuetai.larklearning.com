@@ -6,6 +6,10 @@ class Yuetai.Models.Presentation extends Backbone.Model
     tag_id: ""
     user_id: ""
 
+  sync: Yuetai.Common.api_sync
+
+  urlRoot: "#{Yuetai.ApiPrefix}/blogs"
+
   idAttribute: "id"
 
 class Yuetai.Collections.Presentations extends Backbone.Collection

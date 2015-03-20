@@ -10,8 +10,7 @@ class Yuetai.Models.Account extends Backbone.Model
     success = opts.success
     _this = this
     $.ajax(
-      url: '/dashboard/index'
-      dataType: 'json'
+      url: '/dashboard/index.json'
       success: (data, status, xhr)->
         data.unsync = false
         _this.set(data)

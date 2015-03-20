@@ -4,7 +4,7 @@ module Yuetai
       desc 'Get all presentations'
       get do
         authenticate!
-        presentations = Article.where(template: 'presentations').order("created_at DESC").all
+        presentations = Article.where(template: 'presentation').order("created_at DESC").all
         presentations
       end
 

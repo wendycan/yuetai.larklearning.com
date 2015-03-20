@@ -14,39 +14,38 @@ class Yuetai.Routers.Engines extends Backbone.Router
     'settings' : 'show_settings'
 
   initialize: ->
-    @blogs = new Yuetai.Collections.Blogs()
     @account = new Yuetai.Models.Account()
 
   index_blogs: ->
     @blogs_view.undelegateEvents() if @blogs_view
     @blogs_view = new Yuetai.Views.Blogs.IndexView(@)
-    @blogs_view.render()
 
-  show_blog: ->
+  show_blog: (id)->
+    opts =
+      blog_id: id
     @blog_view.undelegateEvents() if @blog_view
-    @blog_view = new Yuetai.Views.Blogs.ShowView(@)
-    @blog_view.render()
+    @blog_view = new Yuetai.Views.Blogs.ShowView(@, opts)
 
   index_series: ->
     @series_view.undelegateEvents() if @series_view
     @series_view = new Yuetai.Views.Series.IndexView(@)
-    @series_view.render()
 
-  show_series: ->
+  show_series: (id)->
+    opts =
+      series_id: id
     @series_view.undelegateEvents() if @series_view
-    @series_view = new Yuetai.Views.Series.ShowView(@)
-    @series_view.render()
+    @series_view = new Yuetai.Views.Series.ShowView(@, opts)
 
 
   index_presentations: ->
     @presentations_view.undelegateEvents() if @presentations_view
-    @presentations_view = new Yuetai.Views.Presentations.ShowView(@)
-    @presentations_view.render()
+    @presentations_view = new Yuetai.Views.Presentations.IndexView(@)
 
-  show_presentation: ->
+  show_presentation: (id)->
+    opts =
+      presentation_id: id
     @presentation_view.undelegateEvents() if @presentation_view
-    @presentation_view = new Yuetai.Views.Presentations.ShowView(@)
-    @presentation_view.render()
+    @presentation_view = new Yuetai.Views.Presentations.ShowView(@, opts)
 
   show_settings: ->
 

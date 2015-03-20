@@ -6,9 +6,13 @@ class Yuetai.Models.Series extends Backbone.Model
     tag_id: ""
     user_id: ""
 
+  sync: Yuetai.Common.api_sync
+
+  urlRoot: "#{Yuetai.ApiPrefix}/blogs"
+
   idAttribute: "id"
 
-class Yuetai.Collections.Seriess extends Backbone.Collection
+class Yuetai.Collections.Series extends Backbone.Collection
   model: Yuetai.Models.Series
   url: "#{Yuetai.ApiPrefix}/series"
 

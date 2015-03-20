@@ -7,10 +7,18 @@ class Yuetai.Views.Blogs.ShowView extends Yuetai.Views.Base
     # @rm_nav()
     # @clearMsg()
     # @render_nav(@opts.section)
-    @$el.html(_.template($('#t-blog').html())())
-    # @blogs.each(@renderArticle, @)
+    @blog = new Yuetai.Models.Blog(id: @opts.blog_id)
+    @fetchBlog()
 
-  renderArticle: (blog)->
+  fetchBlog: ->
+    @blog.fetch(
+      success: =>
+        @renderBlog()
+    )
+
+  renderBlog: ->
+    @$el.html(_.template($('#t-blog-show').html())(blog: @blog.toJSON()))
+
     # snip = @strip(blog.get('body'))
     # snip = @limit(snip, 300)
     # author = @authors.get(blog.get('author_id'))

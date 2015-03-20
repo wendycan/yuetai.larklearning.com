@@ -10,4 +10,7 @@ Yuetai.Common.rails_sync = (method, model, options)->
 Yuetai.Common.api_sync = (method, model, options)->
   params =
     crossDomain: true
+    headers: {
+      'Auth-Token': Yuetai.auth_token
+    }
   Backbone.sync(method, model, _.extend(params, options))
