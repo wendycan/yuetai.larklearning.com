@@ -1,10 +1,21 @@
 class Yuetai.Views.Base extends Backbone.View
 
-  initialize: (router, @opts = {})->
+  initialize: (router, opts = {})->
     @router = router
-    @articles = router.articles
-
+    @account = router.account
     @opts = opts
+    if @account.get('unsync')
+      @account.fetch_account(
+        success: (data)=>
+          Yuetai.auth_token = @account.get('token')
+          # $('.top-bar a.user-section').html(@account.get('email'))
+          @render()
+        error: ->
+          window.location.href = '/user/sign_in'
+      )
+    else
+      Yuetai.auth_token = @account.get('token')
+      @render()
 
   render_nav: (current_section)->
     $('.sidebar li').removeClass('active')

@@ -1,6 +1,6 @@
 class Yuetai.Routers.Engines extends Backbone.Router
   routes:
-    '' : 'index'
+    '' : 'index_blogs'
 
     'blogs' : 'index_blogs'
     'blogs/:id' : 'show_blog'
@@ -14,7 +14,8 @@ class Yuetai.Routers.Engines extends Backbone.Router
     'settings' : 'show_settings'
 
   initialize: ->
-    # @blogs = new Yuetai.Collections.Articles()
+    @blogs = new Yuetai.Collections.Blogs()
+    @account = new Yuetai.Models.Account()
 
   index_blogs: ->
     @blogs_view.undelegateEvents() if @blogs_view
