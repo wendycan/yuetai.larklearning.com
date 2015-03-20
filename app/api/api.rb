@@ -25,10 +25,39 @@ class Api < Grape::API
       User.find_by(authentication_token: token) if token.present?
     end
 
-    def article_params
-      params[:blog].permit(:title, :body, :user_id, :tag_id, :template)
+    def create_article
+      # create article
+      article = Article.new()
+      article.title = params[:title]
+      article.body = params[:body]
+      article.tag_id = params[:tag_id]
+      article.template = params[:template]
+      article.user_id = @current_user.id
+      if article.save
+        {status: 201}
+      else
+        {errors: 'article create failed', status: 422}
+      end
     end
 
+    def update_article
+      article = Article.find(params[:id])
+      article.title = params[:title]
+      article.body = params[:body]
+      article.tag_id = params[:tag_id]
+      article.template = params[:template]
+      if article.save
+        {status: 200}
+      else
+        {errors: 'article update failed', status: 422}
+      end
+    end
+
+    def delete_article
+      article = Article.find(params[:id])
+      article.destroy!
+      {status: 204}
+    end
   end
   mount Yuetai::Blogs
   mount Yuetai::Series

@@ -3,31 +3,33 @@ module Yuetai
     resource :series do
       desc 'Get all series'
       get do
+        authenticate!
         series = Article.where(template: 'series').order("created_at DESC").all
         series
       end
 
       route_param :id, requirements: /[^\/]+/ do
         get do
+          authenticate!
           series = Article.find(params[:id])
           series
+        end
+
+        put do
+          authenticate!
+          update_article
+        end
+
+        desc 'Delete a series'
+        delete do
+          authenticate!
+          delete_article
         end
       end
 
       post do
         authenticate!
-        if !@current_user.nil?
-          # create author
-          article = Article.new(params[:article])
-          article.user_id = @current_user.id
-          if article.save
-            {status: 201}
-          else
-            {errors: 'article create failed'}
-          end
-        else
-          {errors: 'Access denied', status: 403}
-        end
+        create_article
       end
     end
   end
