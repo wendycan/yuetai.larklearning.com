@@ -12,6 +12,9 @@ class Yuetai.Models.Blog extends Backbone.Model
 
   idAttribute: "id"
 
+  isNew: ->
+    !!@get('newbl')
+
 class Yuetai.Collections.Blogs extends Backbone.Collection
   model: Yuetai.Models.Blog
   url: "#{Yuetai.ApiPrefix}/blogs"

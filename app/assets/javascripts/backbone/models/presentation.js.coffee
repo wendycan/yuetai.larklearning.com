@@ -8,9 +8,12 @@ class Yuetai.Models.Presentation extends Backbone.Model
 
   sync: Yuetai.Common.api_sync
 
-  urlRoot: "#{Yuetai.ApiPrefix}/blogs"
+  urlRoot: "#{Yuetai.ApiPrefix}/presentations"
 
   idAttribute: "id"
+
+  isNew: ->
+    !!@get('newpr')
 
 class Yuetai.Collections.Presentations extends Backbone.Collection
   model: Yuetai.Models.Presentation

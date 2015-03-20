@@ -8,9 +8,12 @@ class Yuetai.Models.Series extends Backbone.Model
 
   sync: Yuetai.Common.api_sync
 
-  urlRoot: "#{Yuetai.ApiPrefix}/blogs"
+  urlRoot: "#{Yuetai.ApiPrefix}/series"
 
   idAttribute: "id"
+
+  isNew: ->
+    !!@get('newsr')
 
 class Yuetai.Collections.Series extends Backbone.Collection
   model: Yuetai.Models.Series
