@@ -15,10 +15,21 @@ class Yuetai.Views.Blogs.NewView extends Yuetai.Views.Base
 
     @editor = ace.edit('blog-new-body')
     MarkdownMode = require("ace/mode/markdown").Mode
+    HtmlMode = require("ace/mode/html").Mode
     @editor.setTheme("ace/theme/ambiance")
     @editor.getSession().setMode(new MarkdownMode())
     @converter = new Showdown.converter()
     @blogs = new Yuetai.Collections.Blogs
+
+    _this = this
+
+    $('#new-blog-form input[name=language]').change( ->
+
+      if $(this).val() == 'markdown'
+        _this.editor.getSession().setMode(new MarkdownMode())
+      else
+        _this.editor.getSession().setMode(new HtmlMode())
+    )
 
   createBlog: (e)->
     e.preventDefault()

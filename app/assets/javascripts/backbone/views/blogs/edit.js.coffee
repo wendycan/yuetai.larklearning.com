@@ -18,12 +18,29 @@ class Yuetai.Views.Blogs.EditView extends Yuetai.Views.Base
   fetchBlog: ->
     @blog.fetch(
       success: =>
+        _this = this
         @$el.html(_.template($('#t-blog-edit').html())(blog: @blog.toJSON()))
-        @editor = ace.edit('blog-edit-body');
-        MarkdownMode = require("ace/mode/markdown").Mode;
-        @editor.setTheme("ace/theme/ambiance");
-        @editor.getSession().setMode(new MarkdownMode());
-        @editor.getSession().setValue(@blog.get('body'));
+
+        @editor = ace.edit('blog-edit-body')
+        MarkdownMode = require("ace/mode/markdown").Mode
+        HtmlMode = require("ace/mode/html").Mode
+        @editor.setTheme("ace/theme/ambiance")
+
+        if @blog.get('language') == 'markdown'
+          @editor.getSession().setMode(new MarkdownMode())
+          $('#edit-blog-form input#markdown').prop('checked', true)
+        else
+          @editor.getSession().setMode(new HtmlMode())
+          $('#edit-blog-form input#html').prop('checked', true)
+
+        @editor.getSession().setValue(@blog.get('body'))
+
+        $('#edit-blog-form input[name=language]').change( ->
+          if $(this).val() == 'markdown'
+            _this.editor.getSession().setMode(new MarkdownMode())
+          else
+            _this.editor.getSession().setMode(new HtmlMode())
+        )
     )
 
   updateBlog: (e)->
