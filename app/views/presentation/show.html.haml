@@ -1,4 +1,5 @@
 #main-content
+  #fullpage
 
 - presentation_json = render template: "presentation/show", formats: [:json], handlers: [:jbuilder]
 
@@ -9,5 +10,7 @@
     });
 
 %script{type: 'text/template', id: 't-presentation-page'}
-  %li.page
-    {{= page.content }}
+  .section
+    .row
+      .large-12.columns
+        {{= page.content }}
