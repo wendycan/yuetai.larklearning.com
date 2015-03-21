@@ -4,7 +4,7 @@ module Yuetai
       desc 'Get all blogs'
       get do
         authenticate!
-        blogs = Article.order("created_at DESC").all
+        blogs = Article.where(template: 'blog').order("created_at DESC").all
         blogs
       end
 

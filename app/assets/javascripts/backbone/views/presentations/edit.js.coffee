@@ -11,26 +11,25 @@ class Yuetai.Views.Presentations.EditView extends Yuetai.Views.Base
     # @rm_nav()
     # @clearMsg()
     # @render_nav(@opts.section)
-    @presentations = new Yuetai.Models.Presentations(id: @opts.presentations_id)
-    @fetchPresentations()
+    @presentation = new Yuetai.Models.Presentation(id: @opts.presentation_id)
+    @fetchPresentation()
 
-  fetchPresentations: ->
-    @presentations.fetch(
+  fetchPresentation: ->
+    @presentation.fetch(
       success: =>
-        console.log @presentations
-        @$el.html(_.template($('#t-presentations-edit').html())(presentations: @presentations.toJSON()))
+        @$el.html(_.template($('#t-presentation-edit').html())(presentation: @presentation.toJSON()))
     )
 
   updatePresentations: (e)->
     e.preventDefault()
     e.stopPropagation()
     data = {}
-    data.title = @$(e.currentTarget).find('#presentations-title').val()
-    data.body = @$(e.currentTarget).find('#presentations-body').val()
-    data.tag_id = @$(e.currentTarget).find('#presentations-tag').val()
+    data.title = @$(e.currentTarget).find('#presentation-title').val()
+    data.body = @$(e.currentTarget).find('#presentation-body').val()
+    data.tag_id = @$(e.currentTarget).find('#presentation-tag').val()
     data.user_id = @account.id
-    data.template = 'presentations'
-    @presentations.save(data,
+    data.template = 'presentation'
+    @presentation.save(data,
                   success: ->
                     window.location.href = '#presentationss'
     )
