@@ -5,6 +5,7 @@ class Yuetai.Views.Blogs.EditView extends Yuetai.Views.Base
 
   events:
     'submit #edit-blog-form' : 'updateBlog'
+    'click .cancel' : 'navBack'
 
   render: ->
     # @rm_nav()

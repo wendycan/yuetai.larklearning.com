@@ -1,8 +1,23 @@
 %script{type: 'text/template', id: 't-blog-edit'}
   .row
     .large-12.columns
-      %form#edit-blog-form
-        %input#blog-title{type: 'text', value: '{{= blog.title }}'}
-        %input#blog-tag{type: 'text', value: '{{= blog.tag }}'}
-        %textarea#blog-body{type: 'text'} {{= blog.body }}
-        %button.button.tiny{type: 'submit'} 确定
+      %h4 编辑博客
+  .row
+    .large-12.columns
+      %form#new-blog-form
+        .row
+          .large-12.columns
+            %label
+              标题
+              %input#blog-title{type: 'text', value: '{{= blog.title }}'}
+          .large-12.columns
+            %label
+              标签
+              %input#blog-tag{type: 'text', value: '{{= blog.tag }}'}
+          .large-12.columns
+            %label
+              正文
+              %textarea#blog-body{type: 'text'} {{= blog.body }}
+          .large-12.columns
+            %button.button.tiny{type: 'submit'} 确定
+            %a.cancel 取消
