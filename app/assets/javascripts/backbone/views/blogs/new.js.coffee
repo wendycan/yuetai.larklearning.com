@@ -13,11 +13,11 @@ class Yuetai.Views.Blogs.NewView extends Yuetai.Views.Base
     # @render_nav(@opts.section)
     @$el.html(_.template($('#t-blog-new').html())())
 
-    @editor = ace.edit('blog-new-body');
-    MarkdownMode = require("ace/mode/markdown").Mode;
-    @editor.setTheme("ace/theme/ambiance");
-    @editor.getSession().setMode(new MarkdownMode());
-    @converter = new Showdown.converter();
+    @editor = ace.edit('blog-new-body')
+    MarkdownMode = require("ace/mode/markdown").Mode
+    @editor.setTheme("ace/theme/ambiance")
+    @editor.getSession().setMode(new MarkdownMode())
+    @converter = new Showdown.converter()
     @blogs = new Yuetai.Collections.Blogs
 
   createBlog: (e)->
@@ -30,6 +30,7 @@ class Yuetai.Views.Blogs.NewView extends Yuetai.Views.Base
     data.user_id = @account.id
     data.newbl = @$(e.currentTarget).find('#newbl').val()
     data.template = 'blog'
+    data.language = @$(e.currentTarget).find('input[name=language]:checked').val()
     @blogs.create(data,
                   success: ->
                     window.location.href = '#blogs'

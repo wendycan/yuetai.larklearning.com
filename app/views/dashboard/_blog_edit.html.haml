@@ -15,6 +15,12 @@
               标签
               %input#blog-tag{type: 'text', value: '{{= blog.tag_id }}'}
           .large-12.columns
+            %label 语言
+            %input#html{type: 'radio', name: 'language', value: 'html', checked: true}
+              %label{:'for' => 'html'} Html
+            %input#markdown{type: 'radio', name: 'language', value: 'markdown'}
+              %label{:'for' => 'markdown'} Markdown
+          .large-12.columns
             %label
               正文
             #blog-edit-body.editor

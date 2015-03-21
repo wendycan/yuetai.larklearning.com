@@ -32,6 +32,7 @@ class Api < Grape::API
       article.body = params[:body]
       article.tag_id = params[:tag_id]
       article.template = params[:template]
+      article.language = params[:language]
       article.user_id = @current_user.id
       if article.save
         {status: 201}
@@ -45,6 +46,7 @@ class Api < Grape::API
       article.title = params[:title]
       article.body = params[:body]
       article.tag_id = params[:tag_id]
+      article.language = params[:language]
       article.template = params[:template]
       if article.save
         {status: 200}

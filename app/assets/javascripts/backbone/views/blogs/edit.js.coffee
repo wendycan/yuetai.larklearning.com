@@ -36,6 +36,7 @@ class Yuetai.Views.Blogs.EditView extends Yuetai.Views.Base
     data.tag_id = @$(e.currentTarget).find('#blog-tag').val()
     data.user_id = @account.id
     data.template = 'blog'
+    data.language = @$(e.currentTarget).find('input[name=language]:checked').val()
     @blog.save(data,
                   success: ->
                     window.location.href = '#blogs'
