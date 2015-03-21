@@ -24,7 +24,6 @@ class Yuetai.Views.Blogs.NewView extends Yuetai.Views.Base
     @editor.renderer.setPadding(10)
     @editor.renderer.setShowPrintMargin(false)
 
-    @converter = new Showdown.converter()
     @blogs = new Yuetai.Collections.Blogs
 
     _this = this
