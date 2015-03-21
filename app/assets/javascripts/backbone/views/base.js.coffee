@@ -10,8 +10,6 @@ class Yuetai.Views.Base extends Backbone.View
         success: (data)=>
           Yuetai.auth_token = @account.get('auth_token')
           # $('.top-bar a.user-section').html(@account.get('email'))
-          console.log('base')
-          console.log Yuetai.auth_token
           @render()
         error: ->
           window.location.href = '/user/sign_in'

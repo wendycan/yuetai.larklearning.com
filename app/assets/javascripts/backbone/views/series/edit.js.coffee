@@ -5,6 +5,7 @@ class Yuetai.Views.Series.EditView extends Yuetai.Views.Base
 
   events:
     'submit #edit-series-form' : 'updateSeries'
+    'click .cancel' : 'navBack'
 
   render: ->
     # @rm_nav()

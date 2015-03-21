@@ -9,13 +9,13 @@ class Yuetai.Routers.Engines extends Backbone.Router
 
     'series' : 'index_series'
     'series/new' : 'new_series'
-    'series/edit' : 'edit_series'
     'series/:id' : 'show_series'
+    'series/:id/edit' : 'edit_series'
 
     'presentations' : 'index_presentations'
     'presentations/new' : 'new_presentation'
-    'presentations/edit' : 'edit_presentation'
     'presentations/:id' : 'show_presentation'
+    'presentations/:id/edit' : 'edit_presentation'
 
     'settings' : 'show_settings'
 

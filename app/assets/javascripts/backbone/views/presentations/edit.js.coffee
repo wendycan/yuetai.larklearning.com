@@ -5,6 +5,7 @@ class Yuetai.Views.Presentations.EditView extends Yuetai.Views.Base
 
   events:
     'submit #edit-presentations-form' : 'updatePresentations'
+    'click .cancel' : 'navBack'
 
   render: ->
     # @rm_nav()

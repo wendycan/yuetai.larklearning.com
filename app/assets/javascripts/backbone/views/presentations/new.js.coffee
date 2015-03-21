@@ -5,6 +5,7 @@ class Yuetai.Views.Presentations.NewView extends Yuetai.Views.Base
 
   events:
     'submit #new-presentation-form' : 'createBlog'
+    'click .cancel' : 'navBack'
 
   render: ->
     # @rm_nav()

@@ -3,6 +3,10 @@ Yuetai.Views.Series ||= {}
 class Yuetai.Views.Series.ShowView extends Yuetai.Views.Base
   el: $('#main-content')
 
+  events:
+    'click .cancel' : 'navBack'
+    'click .delete-article' : 'deleteArticle'
+
   render: ->
     # @rm_nav()
     # @clearMsg()
@@ -18,3 +22,10 @@ class Yuetai.Views.Series.ShowView extends Yuetai.Views.Base
 
   renderSeries: ->
     @$el.html(_.template($('#t-series-show').html())(series: @series.toJSON()))
+
+  deleteArticle: ->
+    if confirm('确定删除此文章？')
+      @series.destroy(
+        success: =>
+          window.location.href = '#series'
+      )

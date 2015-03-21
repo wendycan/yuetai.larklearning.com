@@ -4,7 +4,7 @@ class Yuetai.Views.Blogs.IndexView extends Yuetai.Views.Base
   el: $('#main-content')
 
   events:
-    'click .delete' : 'deleteArticle'
+    'click .blog .delete' : 'deleteArticle'
 
   render: ->
     # @rm_nav()

@@ -1,12 +1,23 @@
 %script{type: 'text/template', id: 't-series'}
-  .row
+  .row.article-head
     .large-10.columns
       %h4 所有系列
     .large-2.columns
       %a.button.tiny{:href => "#series/new"} 新建
-  %ul#series
+  .row.article-items
+    .large-12.columns
+      %ul#series
 %script{type: 'text/template', id: 't-series-item'}
-  %li#series-item
-    %a{:href => "#series/{{= series.id }}" }
-      %h4 {{= series.title }}
-      %p {{= series.body }}
+  %li.series-item{:'data-id' => '{{= series.id }}'}
+    .row
+      .large-10.columns
+        %a{:href => "#series/{{= series.id }}" }
+          {{= series.title }}
+      .large-2.columns
+        %a{:href => "#series/{{= series.id }}/edit"}
+          .fa.fa-edit
+        .fa.fa-times-circle-o.delete
+    .row
+      .large-12.columns
+        %p {{= series.body }}
+

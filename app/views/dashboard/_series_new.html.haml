@@ -1,9 +1,24 @@
 %script{type: 'text/template', id: 't-series-new'}
   .row
-    .large-12.colulmns
+    .large-12.columns
+      %h4 创建文章
+  .row
+    .large-12.columns
       %form#new-series-form
         %input#newsr{type:'hidden', name:'newsr', value:'newsr'}
-        %input#series-title{type: 'text'}
-        %input#series-tag{type: 'text'}
-        %textarea#series-body{type: 'text'}
-        %button.button.tiny{type: 'submit'} 确定
+        .row
+          .large-12.columns
+            %label
+              标题
+              %input#series-title{type: 'text'}
+          .large-12.columns
+            %label
+              标签
+              %input#series-tag{type: 'text'}
+          .large-12.columns
+            %label
+              正文
+              %textarea#series-body{type: 'text'}
+          .large-12.columns
+            %button.button.tiny{type: 'submit'} 确定
+            %a.cancel 取消

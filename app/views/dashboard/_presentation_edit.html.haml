@@ -1,8 +1,23 @@
 %script{type: 'text/template', id: 't-presentation-edit'}
   .row
     .large-12.columns
-      %form#edit-presentation-form
-        %input#presentation-title{type: 'text', value: '{{= presentation.title }}'}
-        %input#presentation-tag{type: 'text', value: '{{= presentation.tag }}'}
-        %textarea#presentation-body{type: 'text'} {{= presentation.body }}
-        %button.button.tiny{type: 'submit'} 确定
+      %h4 编辑演示文稿
+  .row
+    .large-12.columns
+      %form#new-presentation-form
+        .row
+          .large-12.columns
+            %label
+              标题
+              %input#presentation-title{type: 'text', value: '{{= presentation.title }}'}
+          .large-12.columns
+            %label
+              标签
+              %input#presentation-tag{type: 'text', value: '{{= presentation.tag }}'}
+          .large-12.columns
+            %label
+              正文
+              %textarea#presentation-body{type: 'text'} {{= presentation.body }}
+          .large-12.columns
+            %button.button.tiny{type: 'submit'} 确定
+            %a.cancel 取消
