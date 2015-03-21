@@ -1,0 +1,8 @@
+%script{type: 'text/template', id: 't-blog-edit'}
+  .row
+    .large-12.columns
+      %form#edit-blog-form
+        %input#blog-title{type: 'text', value: '{{= blog.title }}'}
+        %input#blog-tag{type: 'text', value: '{{= blog.tag }}'}
+        %textarea#blog-body{type: 'text'} {{= blog.body }}
+        %button.button.tiny{type: 'submit'} 确定

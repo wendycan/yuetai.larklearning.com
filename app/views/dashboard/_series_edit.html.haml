@@ -1,0 +1,8 @@
+%script{type: 'text/template', id: 't-series-edit'}
+  .row
+    .large-12.columns
+      %form#edit-series-form
+        %input#series-title{type: 'text', value: '{{= series.title }}'}
+        %input#series-tag{type: 'text', value: '{{= series.tag }}'}
+        %textarea#series-body{type: 'text'} {{= series.body }}
+        %button.button.tiny{type: 'submit'} 确定

@@ -19,16 +19,15 @@
         %li.has-dropdown
           = link_to new_user_session_path do
             - if user_signed_in?
-              wendy
-              / = @current_user.email
+              = current_user.email
             - else
               登录
           %ul.dropdown
-            - if @current_user
+            - if user_signed_in?
               %li
-                %a{:href => "#"} 管理
-              %li
-                %a{:href => "#"} 设置
+                %a{:href => "/dashboard/index"} 控制台
+              / %li
+              /   %a{:href => "#"} 设置
               %li
                 = link_to '登出', destroy_user_session_path, :method => 'delete', data: { confirm: '确定登出？'}
             - else

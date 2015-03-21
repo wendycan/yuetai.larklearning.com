@@ -1,0 +1,8 @@
+%script{type: 'text/template', id: 't-presentation-edit'}
+  .row
+    .large-12.columns
+      %form#edit-presentation-form
+        %input#presentation-title{type: 'text', value: '{{= presentation.title }}'}
+        %input#presentation-tag{type: 'text', value: '{{= presentation.tag }}'}
+        %textarea#presentation-body{type: 'text'} {{= presentation.body }}
+        %button.button.tiny{type: 'submit'} 确定
