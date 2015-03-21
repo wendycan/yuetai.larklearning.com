@@ -27,7 +27,6 @@ class Yuetai.Views.Blogs.IndexView extends Yuetai.Views.Base
   renderBlog: (blog)->
     if blog.get('language') == 'markdown'
       snip = @strip(@converter.makeHtml(blog.get('body')))
-      console.log snip
     else
       snip = @strip(blog.get('body'))
     snip = @limit(snip, 300)

@@ -13,6 +13,7 @@ class Yuetai.Views.Presentations.IndexView extends Yuetai.Views.Base
     @$el.html(_.template($('#t-presentations').html())())
     @presentations = new Yuetai.Collections.Presentations
     @fetchPresentations()
+    @converter = new Showdown.converter()
 
   fetchPresentations: ->
     @presentations.fetch(
@@ -24,11 +25,20 @@ class Yuetai.Views.Presentations.IndexView extends Yuetai.Views.Base
     @presentations.each(@renderPresentation, @)
 
   renderPresentation: (presentation)->
+    content = JSON.parse(presentation.get('body'))
+    if presentation.get('language') == 'markdown'
+      snip = @strip(@converter.makeHtml(content.pages[0].content))
+    else
+      snip = @strip(content.pages[0].content)
+    snip = @limit(snip, 300)
+    presentation = presentation.toJSON()
+    presentation.body = snip
+
     # snip = @strip(blog.get('body'))
     # snip = @limit(snip, 300)
     # author = @authors.get(blog.get('author_id'))
     # article.set('created_at', @handleDate(article.get('created_at')))
-    $('#presentations').append(_.template($('#t-presentation').html())(presentation: presentation.toJSON()))
+    $('#presentations').append(_.template($('#t-presentation').html())(presentation: presentation))
 
   deleteArticle: (e)->
     $this = $(e.currentTarget).parents('li.presentation')
