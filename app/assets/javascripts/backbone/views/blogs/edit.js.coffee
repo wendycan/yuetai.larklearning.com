@@ -12,13 +12,18 @@ class Yuetai.Views.Blogs.EditView extends Yuetai.Views.Base
     # @clearMsg()
     # @render_nav(@opts.section)
     @blog = new Yuetai.Models.Blog(id: @opts.blog_id)
+    @converter = new Showdown.converter();
     @fetchBlog()
 
   fetchBlog: ->
     @blog.fetch(
       success: =>
-        console.log @blog
         @$el.html(_.template($('#t-blog-edit').html())(blog: @blog.toJSON()))
+        @editor = ace.edit('blog-edit-body');
+        MarkdownMode = require("ace/mode/markdown").Mode;
+        @editor.setTheme("ace/theme/ambiance");
+        @editor.getSession().setMode(new MarkdownMode());
+        @editor.getSession().setValue(@blog.get('body'));
     )
 
   updateBlog: (e)->
@@ -26,7 +31,8 @@ class Yuetai.Views.Blogs.EditView extends Yuetai.Views.Base
     e.stopPropagation()
     data = {}
     data.title = @$(e.currentTarget).find('#blog-title').val()
-    data.body = @$(e.currentTarget).find('#blog-body').val()
+    # data.body = @converter.makeHtml(@editor.getSession().getValue());
+    data.body = @editor.getSession().getValue();
     data.tag_id = @$(e.currentTarget).find('#blog-tag').val()
     data.user_id = @account.id
     data.template = 'blog'

@@ -12,6 +12,12 @@ class Yuetai.Views.Blogs.NewView extends Yuetai.Views.Base
     # @clearMsg()
     # @render_nav(@opts.section)
     @$el.html(_.template($('#t-blog-new').html())())
+
+    @editor = ace.edit('blog-new-body');
+    MarkdownMode = require("ace/mode/markdown").Mode;
+    @editor.setTheme("ace/theme/ambiance");
+    @editor.getSession().setMode(new MarkdownMode());
+    @converter = new Showdown.converter();
     @blogs = new Yuetai.Collections.Blogs
 
   createBlog: (e)->
@@ -19,7 +25,7 @@ class Yuetai.Views.Blogs.NewView extends Yuetai.Views.Base
     e.stopPropagation()
     data = {}
     data.title = @$(e.currentTarget).find('#blog-title').val()
-    data.body = @$(e.currentTarget).find('#blog-body').val()
+    data.body = @editor.getSession().getValue();
     data.tag_id = @$(e.currentTarget).find('#blog-tag').val()
     data.user_id = @account.id
     data.newbl = @$(e.currentTarget).find('#newbl').val()

@@ -13,11 +13,11 @@
           .large-12.columns
             %label
               标签
-              %input#blog-tag{type: 'text', value: '{{= blog.tag }}'}
+              %input#blog-tag{type: 'text', value: '{{= blog.tag_id }}'}
           .large-12.columns
             %label
               正文
-              %textarea#blog-body{type: 'text'} {{= blog.body }}
+            #blog-edit-body.editor
           .large-12.columns
             %button.button.tiny{type: 'submit'} 确定
             %a.cancel 取消
