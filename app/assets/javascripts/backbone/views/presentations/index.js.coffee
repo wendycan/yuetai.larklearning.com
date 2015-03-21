@@ -33,11 +33,6 @@ class Yuetai.Views.Presentations.IndexView extends Yuetai.Views.Base
     snip = @limit(snip, 300)
     presentation = presentation.toJSON()
     presentation.body = snip
-
-    # snip = @strip(blog.get('body'))
-    # snip = @limit(snip, 300)
-    # author = @authors.get(blog.get('author_id'))
-    # article.set('created_at', @handleDate(article.get('created_at')))
     $('#presentations').append(_.template($('#t-presentation').html())(presentation: presentation))
 
   deleteArticle: (e)->

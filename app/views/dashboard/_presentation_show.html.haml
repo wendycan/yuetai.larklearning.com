@@ -2,7 +2,9 @@
   .row
     .large-12.columns
       %h4 {{= presentation.title }}
-      %p {{= presentation.body }}
+  .row
+    .large-12.columns
+      %ul#show-presentation-pages.large-block-grid-3
   .row
     .large-12.columns.article-controls
       %a{:href => "#presentations/{{= presentation.id }}/edit"}
