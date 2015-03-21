@@ -9,9 +9,10 @@ YuetaiWendycanOrg::Application.routes.draw do
 
   resources :articles, only: [:index, :show]
   resources :tags, only: [:index, :show]
+  resources :presentation, only: [:index, :show]
 
-  get 'presentation/index'
-  get 'presentation/show'
+  # get 'presentation/index'
+  # get 'presentation/show'
   get 'series/index'
   get 'series/show'
 

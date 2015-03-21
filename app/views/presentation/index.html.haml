@@ -1,8 +1,18 @@
 .row.wrap
   .large-12.columns
-    %ul
-      - @presentations.each do |p|
-        %li
-          = link_to article_path(p.id) do
-            %h5= p.title
-          %p= p.body
+    %ul#presentations.large-block-grid-3
+
+- presentations_json = render template: "presentation/index", formats: [:json], handlers: [:jbuilder]
+
+= content_for :js_ext do
+  :javascript
+    $(document).ready(function () {
+      var presentations_view = new Yuetai.Views.Presentations.PresentationsView(#{presentations_json});
+    });
+    // $('.bsts').addClass('active');
+
+%script{type: 'text/template', id: 't-presentation'}
+  %li.presentation
+    %a{:href => "/presentation/{{= presentation.id }}"}
+      {{= presentation.title }}
+    {{= presentation.content }}

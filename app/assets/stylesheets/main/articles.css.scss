@@ -1,0 +1,21 @@
+.article-head {
+
+  }
+
+.article-items {
+  & > div > ul {
+    & > li {
+      list-style: none;
+      border-bottom: dashed 1px gray;
+      padding-top: 20px;
+
+      &:last-child {
+        border: none;
+      }
+
+      .fa {
+        padding-left: 8px;
+      }
+    }
+  }
+}

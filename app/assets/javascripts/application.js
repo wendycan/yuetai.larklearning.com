@@ -3,4 +3,5 @@
 //= require foundation
 //= require simple
 
+//= require app-backbone
 $(document).foundation();

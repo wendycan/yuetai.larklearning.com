@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
   before_create :generate_authentication_token
 
+  has_many :articles
+
   def generate_authentication_token
     loop do
       self.authentication_token = SecureRandom.hex 20
