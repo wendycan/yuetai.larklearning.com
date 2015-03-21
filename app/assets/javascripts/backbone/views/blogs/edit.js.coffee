@@ -25,6 +25,9 @@ class Yuetai.Views.Blogs.EditView extends Yuetai.Views.Base
         MarkdownMode = require("ace/mode/markdown").Mode
         HtmlMode = require("ace/mode/html").Mode
         @editor.setTheme("ace/theme/ambiance")
+        @editor.setFontSize(18)
+        @editor.renderer.setShowGutter(false)
+        @editor.renderer.setShowPrintMargin(false)
 
         if @blog.get('language') == 'markdown'
           @editor.getSession().setMode(new MarkdownMode())

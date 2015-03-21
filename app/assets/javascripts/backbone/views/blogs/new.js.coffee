@@ -16,8 +16,14 @@ class Yuetai.Views.Blogs.NewView extends Yuetai.Views.Base
     @editor = ace.edit('blog-new-body')
     MarkdownMode = require("ace/mode/markdown").Mode
     HtmlMode = require("ace/mode/html").Mode
+
     @editor.setTheme("ace/theme/ambiance")
-    @editor.getSession().setMode(new MarkdownMode())
+    @editor.getSession().setMode(new HtmlMode())
+    @editor.setFontSize(18)
+    @editor.renderer.setShowGutter(false)
+    @editor.renderer.setPadding(10)
+    @editor.renderer.setShowPrintMargin(false)
+
     @converter = new Showdown.converter()
     @blogs = new Yuetai.Collections.Blogs
 
