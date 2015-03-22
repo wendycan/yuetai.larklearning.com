@@ -8,15 +8,31 @@
     %section.top-bar-section
       %ul.right
         %li
-          %form
-            %input.ts-search-input{type: 'text', id: 'ts-search-input'}
+          = link_to articles_path do
+            = "博客"
+        / %li
+        /   = link_to series_index_path do
+        /     = "系列"
         %li
-          %a.default.tip-left{:href => "http://wendycan.org", :'data-tooltip' => true, title: "WendyCan"}
-            %i.fa.fa-home
-      %ul.left
-        %li
-          %a.default{:href => "/"}
-            文章
-        %li
-          = link_to books_path do
-            = "书籍"
+          = link_to presentation_index_path do
+            = "演示"
+        %li.has-dropdown
+          = link_to new_user_session_path do
+            - if user_signed_in?
+              = current_user.email
+            - else
+              登录
+          %ul.dropdown
+            - if user_signed_in?
+              %li
+                %a{:href => "/dashboard/index"} 控制台
+              / %li
+              /   %a{:href => "#"} 设置
+              %li
+                = link_to '登出', destroy_user_session_path, :method => 'delete', data: { confirm: '确定登出？'}
+            - else
+              %li
+                = link_to '注册', new_user_registration_path
+              %li
+                = link_to '#' do
+                  关于

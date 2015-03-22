@@ -1,18 +1,35 @@
-<h2>Sign up</h2>
+<div class="wrap">
+  <div class="row">
+    <div class="large-8 large-centered columns">
+      <h3>注册</h3>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-8 large-centered columns">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+      <div class="field">
+        <%= f.label :email, '邮箱' %>
+        <%= f.email_field :email, autofocus: true %>
+      </div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+      <div class="field">
+        <%= f.label :password, '密码' %><small>最少8个字符</small>
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
 
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
+      <div class="field">
+        <%= f.label :password_confirmation, '密码确认' %>
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
 
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+      <div class="actions">
+        <%= f.submit "注册", 'class' => 'button tiny' %>
+        &nbsp;
+        <%= link_to "登录", new_session_path(resource_name) %>
+      </div>
+    <% end %>
+  </div>
+</div>

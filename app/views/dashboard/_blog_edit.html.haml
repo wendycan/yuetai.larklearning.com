@@ -1,0 +1,29 @@
+%script{type: 'text/template', id: 't-blog-edit'}
+  .row
+    .large-12.columns
+      %h4 编辑博客
+  .row
+    .large-12.columns
+      %form#edit-blog-form
+        .row
+          .large-12.columns
+            %label
+              标题
+              %input#blog-title{type: 'text', value: '{{= blog.title }}'}
+          .large-12.columns
+            %label
+              标签
+              %input#blog-tag{type: 'text', value: '{{= blog.tag_id }}'}
+          .large-12.columns
+            %label 语言
+            %input#html{type: 'radio', name: 'language', value: 'html', checked: true}
+              %label{:'for' => 'html'} Html
+            %input#markdown{type: 'radio', name: 'language', value: 'markdown'}
+              %label{:'for' => 'markdown'} Markdown
+          .large-12.columns
+            %label
+              正文
+            #blog-edit-body.editor
+          .large-12.columns
+            %button.button.tiny{type: 'submit'} 确定
+            %a.cancel 取消

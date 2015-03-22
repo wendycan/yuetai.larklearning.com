@@ -233,6 +233,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.0.0)
   debugger
+  devise
   font-awesome-sass
   foundation-rails
   grape

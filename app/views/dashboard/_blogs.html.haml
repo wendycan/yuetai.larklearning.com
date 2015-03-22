@@ -1,0 +1,22 @@
+%script{type: 'text/template', id: 't-blogs'}
+  .row.article-head
+    .large-10.columns
+      %h4 所有博客
+    .large-2.columns
+      %a.button.tiny{:href => "#blogs/new"} 新建
+  .row.article-items
+    .large-12.columns
+      %ul#blogs
+%script{type: 'text/template', id: 't-blog'}
+  %li.blog{:'data-id' => '{{= blog.id }}'}
+    .row
+      .large-10.columns
+        %a{:href => "#blogs/{{= blog.id }}" }
+          {{= blog.title }}
+      .large-2.columns
+        %a{:href => "#blogs/{{= blog.id }}/edit"}
+          .fa.fa-edit
+        .fa.fa-times-circle-o.delete
+    .row
+      .large-12.columns
+        %p {{= blog.body }}

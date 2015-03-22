@@ -1,0 +1,39 @@
+%script{type: 'text/template', id: 't-presentation-edit'}
+  .row
+    .large-12.columns
+      %h4 编辑演示文稿
+  .row
+    .large-12.columns
+      %form#edit-presentations-form
+        .row
+          .large-12.columns
+            %label
+              标题
+              %input#presentation-title{type: 'text', value: '{{= presentation.title }}'}
+          .large-12.columns
+            %label
+              标签
+              %input#presentation-tag{type: 'text', value: '{{= presentation.tag_id }}'}
+          .large-12.columns
+            %label 语言
+            %input#html{type: 'radio', name: 'language', value: 'html', checked: true}
+              %label{:'for' => 'html'} Html
+            %input#markdown{type: 'radio', name: 'language', value: 'markdown'}
+              %label{:'for' => 'markdown'} Markdown
+          .large-12.columns
+            %label
+              页面
+            #edit-page-editor.editor
+          .large-12.columns
+            .large-10.columns
+              .button.tiny#add-page 添加
+            .large-2.columns
+              %button.button.tiny{type: 'submit'} 保存
+              %a.cancel 取消
+      .large-12.columns
+        %ul#edit-presentation-pages.pages.large-block-grid-3
+
+%script{type: 'text/template', id: 't-presentation-new-page'}
+%script{type: 'text/template', id: 't-presentation-page'}
+  %li.page
+    {{= page.content }}

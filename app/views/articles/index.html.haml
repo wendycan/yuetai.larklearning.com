@@ -1,0 +1,23 @@
+#main-content
+  .row.wrap.article-items
+    .large-12.columns
+      %ul#y-blogs
+
+- blogs_json = render template: "articles/index", formats: [:json], handlers: [:jbuilder]
+
+= content_for :js_ext do
+  :javascript
+    $(document).ready(function () {
+      var blogs_view = new Yuetai.Views.Blogs.BlogsView(#{blogs_json});
+    });
+    // $('.bsts').addClass('active');
+
+%script{type: 'text/template', id: 't-blog'}
+  %li.blog{:'data-id' => '{{= blog.id }}'}
+    .row
+      .large-12.columns
+        %a{:href => "/articles/{{= blog.id }}" }
+          {{= blog.title }}
+    .row
+      .large-12.columns
+        %p {{= blog.body }}

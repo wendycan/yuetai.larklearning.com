@@ -1,19 +1,22 @@
 YuetaiWendycanOrg::Application.routes.draw do
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'site#index'
-  get 'site/search'
-  resources :articles, only: [:index, :show]
-  resources :nodes, only: [:index, :show]
-  resources :authors, only: [:index, :show]
-  resources :books, only: [:index, :show]
-  resources :excerpts, only: [:index, :show]
+  get 'dashboard/index', as: :dashboard
 
-  mount Api => '/apis/'
+  resources :articles, only: [:index, :show]
+  resources :tags, only: [:index, :show]
+  resources :presentation, only: [:index, :show]
+
+  # get 'presentation/index'
+  # get 'presentation/show'
+  get 'series/index'
+  get 'series/show'
+
+  mount Api => '/api/'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

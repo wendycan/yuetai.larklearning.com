@@ -3,10 +3,5 @@
 //= require foundation
 //= require simple
 
-
-// This is for backbone mvc framework
-//
-//= require backbone
-//= require backbone/yuetai
-
+//= require app-backbone
 $(document).foundation();

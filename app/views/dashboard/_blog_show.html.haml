@@ -1,0 +1,19 @@
+%script{type: 'text/template', id: 't-blog-show'}
+  .row
+    .large-12.columns
+      %h4 {{= blog.title }}
+      .label {{= blog.language }}
+      %p {{= blog.body }}
+  .row
+    .large-12.columns.article-controls
+      %a{:href => "#blogs/{{= blog.id }}/edit"}
+        %i.fa.fa-edit
+        编辑
+      %a.delete-article
+        %i.fa.fa-times-circle-o.delete
+        删除
+      %a.cancel
+        %i.fa.fa-mail-reply
+        取消
+
+

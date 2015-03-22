@@ -1,0 +1,22 @@
+%script{type: 'text/template', id: 't-presentations'}
+  .row.article-head
+    .large-10.columns
+      %h4 所有演示
+    .large-2.columns
+      %a.button.tiny{:href => "#presentations/new"} 新建
+  .row.article-items
+    .large-12.columns
+      %ul#presentations
+%script{type: 'text/template', id: 't-presentation'}
+  %li.presentation{:'data-id' => '{{= presentation.id }}'}
+    .row
+      .large-10.columns
+        %a{:href => "#presentations/{{= presentation.id }}" }
+          {{= presentation.title }}
+      .large-2.columns
+        %a{:href => "#presentations/{{= presentation.id }}/edit"}
+          .fa.fa-edit
+        .fa.fa-times-circle-o.delete
+    .row
+      .large-12.columns
+        %p {{= presentation.body }}

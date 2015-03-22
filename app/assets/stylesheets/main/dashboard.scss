@@ -1,0 +1,17 @@
+.dashboard {
+  margin-top: 20px;
+
+  .article-controls {
+    border-top: solid 1px gray;
+    padding-top: 20px;
+
+    a {
+      padding-right: 8px;
+    }
+  }
+
+  .editor {
+    height: 500px;
+    margin-bottom: 10px;
+  }
+}

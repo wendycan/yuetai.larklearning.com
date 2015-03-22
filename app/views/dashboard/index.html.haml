@@ -1,0 +1,22 @@
+#main-content.dashboard
+  = content_for :js_ext do
+    :javascript
+      $(document).ready(function () {
+        var router = new Yuetai.Routers.Engines();
+        Backbone.history.start();
+      })
+
+= render 'dashboard/blogs'
+= render 'dashboard/blog_new'
+= render 'dashboard/blog_show'
+= render 'dashboard/blog_edit'
+
+= render 'dashboard/series'
+= render 'dashboard/series_new'
+= render 'dashboard/series_show'
+= render 'dashboard/series_edit'
+
+= render 'dashboard/presentations'
+= render 'dashboard/presentation_new'
+= render 'dashboard/presentation_show'
+= render 'dashboard/presentation_edit'

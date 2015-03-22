@@ -1,0 +1,29 @@
+%script{type: 'text/template', id: 't-blog-new'}
+  .row
+    .large-12.columns
+      %h4 创建博客
+  .row
+    .large-12.columns
+      %form#new-blog-form
+        %input#newbl{type:'hidden', name:'newbl', value:'newbl'}
+        .row
+          .large-12.columns
+            %label
+              标题
+              %input#blog-title{type: 'text'}
+          .large-12.columns
+            %label
+              标签
+              %input#blog-tag{type: 'text'}
+          .large-12.columns
+            %label 语言
+            %input#html{type: 'radio', name: 'language', value: 'html', checked: true}
+              %label{:'for' => 'html'} Html
+            %input#markdown{type: 'radio', name: 'language', value: 'markdown'}
+              %label{:'for' => 'markdown'} Markdown
+          .large-12.columns
+            %label 正文
+            #blog-new-body.editor
+          .large-12.columns
+            %button.button.tiny{type: 'submit'} 确定
+            %a.cancel 取消

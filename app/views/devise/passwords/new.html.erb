@@ -1,12 +1,26 @@
-<h2>Forgot your password?</h2>
+<div class="wrap">
+  <div class="row">
+    <div class="large-8 large-centered columns">
+      <h3>忘记密码</h3>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-8 large-centered columns">
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+        <div class="field">
+          <%= f.label :email, '邮箱' %><br />
+          <%= f.email_field :email, autofocus: true %>
+        </div>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+        <div class="actions">
+          <%= f.submit "发送重置密码邮件", 'class' => 'button tiny' %>
+          &nbsp;
+          <%= link_to "登录", new_session_path(resource_name) %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-  <div><%= f.submit "Send me reset password instructions" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
