@@ -20,6 +20,8 @@ class Yuetai.Views.Presentations.PresentationView extends Backbone.View
       onLeave: (index, nextIndex, direction)=>
         if nextIndex == $('.section').length && $('#back').length == 0
           @$el.append('<a id="back" class="button tiny" href="/presentation" style="position: fixed; bottom: 0; left: 0;">返回</a>')
+        else
+          $('#back').remove()
     })
 
   renderPages: ->
