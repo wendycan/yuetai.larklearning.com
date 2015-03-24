@@ -4,14 +4,14 @@ module Yuetai
       desc 'Get all presentations'
       get do
         authenticate!
-        presentations = Article.where(template: 'presentation').order("created_at DESC").all
+        presentations = current_user.articles.where(template: 'presentation').order("created_at DESC").all
         presentations
       end
 
       route_param :id, requirements: /[^\/]+/ do
         get do
           authenticate!
-          presentation = Article.find(params[:id])
+          presentation = current_user.articles.find(params[:id])
           presentation
         end
 
