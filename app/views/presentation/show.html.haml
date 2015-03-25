@@ -6,8 +6,8 @@
 = content_for :js_ext do
   :javascript
     $(document).ready(function () {
-    	$('html').css('overflow', 'hidden');
-    	$('body').css('overflow', 'hidden');
+    	$('html').css('overflow', 'hidden !important');
+    	$('body').css('overflow', 'hidden !important');
       var presentations_view = new Yuetai.Views.Presentations.PresentationView(#{presentation_json});
     });
 
