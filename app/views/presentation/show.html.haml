@@ -6,11 +6,12 @@
 = content_for :js_ext do
   :javascript
     $(document).ready(function () {
-    	$('html').css('overflow', 'hidden !important');
-    	$('body').css('overflow', 'hidden !important');
       var presentations_view = new Yuetai.Views.Presentations.PresentationView(#{presentation_json});
     });
-
+:css
+  html, body {
+    overflow: hidden;
+  }
 %script{type: 'text/template', id: 't-presentation-page'}
   .section
     .row
