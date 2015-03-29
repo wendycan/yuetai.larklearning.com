@@ -43,9 +43,9 @@ class Yuetai.Views.Presentations.EditView extends Yuetai.Views.Base
     data = JSON.parse(@presentation.get('body'))
 
     @data.language = @presentation.get('language')
-    @count = @data.pages.length
     @data.pages = data.pages
-
+    @count = @data.pages.length
+    
     @renderPages()
 
     if @presentation.get('language') == markdown
