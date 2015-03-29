@@ -13,6 +13,7 @@
 
 %script{type: 'text/template', id: 't-presentation'}
   %li.presentation
-    %a{:href => "/presentation/{{= presentation.id }}"}
-      {{= presentation.title }}
+    %h5
+      %a{:href => "/presentation/{{= presentation.id }}"}
+        {{= presentation.title }}
     {{= presentation.content }}

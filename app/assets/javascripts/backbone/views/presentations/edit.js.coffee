@@ -6,7 +6,9 @@ class Yuetai.Views.Presentations.EditView extends Yuetai.Views.Base
   events:
     'submit #edit-presentations-form' : 'updatePresentations'
     'click .cancel' : 'navBack'
+    'click .pages .page' : 'editPage'
     'click #edit-presentations-form #add-page' : 'addPage'
+    'click #edit-presentations-form #update-page' : 'updatePage'
 
   render: ->
     # @rm_nav()
@@ -84,6 +86,7 @@ class Yuetai.Views.Presentations.EditView extends Yuetai.Views.Base
       content: page_content
     }
     @data.pages.push page
+    @editor.getSession().setValue('')
     @renderPage(page)
 
   renderPages: ->
@@ -94,3 +97,27 @@ class Yuetai.Views.Presentations.EditView extends Yuetai.Views.Base
     if @data.language == 'markdown'
       page.content = @converter.makeHtml(page.content)
     $('#edit-presentation-pages').append(_.template($('#t-presentation-page').html())(page: page))
+
+  editPage: (e)->
+    $this = $(e.currentTarget)
+    if $this.hasClass('active')
+      $this.removeClass('active')
+      $('#add-page').show()
+      $('#update-page').addClass('hide')
+      @editor.getSession().setValue('')
+    else
+      $('#add-page').hide()
+      $('#update-page').removeClass('hide')
+      $('.pages .page').removeClass('active')
+      $this.addClass('active')
+      @editor.getSession().setValue(@data.pages[$this.data('id')].content)
+
+  updatePage: ->    
+    page_content = @editor.getSession().getValue()
+    $this = $('.pages .page.active')
+    page_id = $this.data('id')
+    @data.pages[page_id].content = page_content
+    if @data.language == 'markdown'
+      page_content = @converter.makeHtml(page_content)
+    $this.html(page_content)
+
