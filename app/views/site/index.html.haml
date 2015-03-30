@@ -2,7 +2,18 @@
   .page-1
     .row
       .large-12.columns.wrap
-        .header-nav
+        .header-nav.show-for-small-only
+          %ul
+            %li.logo.text-right
+              %a{:href => "/"} 
+                %h2.white 阅台
+            %li.text-center
+              %a.white{:href => "/articles"} 博客
+            -# %li.text-center
+            -#   %a.white{:href => "#"} 系列
+            %li.text-center
+              %a.white{:href => "/presentation"} 演示文稿
+        .header-nav.show-for-medium-up
           %ul
             %li.logo.text-right
               %a{:href => "/"} 
@@ -26,11 +37,11 @@
         %p.white.text-center 记录想法， 分享点滴
         %br
         .row
-          .large-6.columns.large-centered
+          .large-6.columns.large-centered.medium-10.medium-centered
             .row
-              .large-6.columns
+              .large-6.medium-6.columns
                 %a.button.full.black-bg.radius{:href => "/users/sign_up"} 注册
-              .large-6.columns
+              .large-6.medium-6.columns
                 %a.button.full.none-bg.radius{:href => "/users/sign_in"} 登录
   .page-2
     .row
@@ -49,7 +60,7 @@
         %h3.white 功能介绍
         %br
         %br
-        %ul.large-block-grid-3.small-block-grid-1
+        %ul.large-block-grid-3.medium-block-grid-3.small-block-grid-1
           %li.box
             %h4.white 博客
             %p.white 你可以创建博客，支持 markdown 和 html 两种格式的编辑。
@@ -68,7 +79,7 @@
         %h3 创作人员
         %br
         %br
-        %ul.large-block-grid-3.small-block-grid-1
+        %ul.large-block-grid-3.medium-block-grid-3.small-block-grid-1
           %li.person
             .row.collapse
               .large-4.small-3.columns
@@ -97,27 +108,27 @@
         %br
         %br
         .row
-          .large-8.columns.large-centered
+          .large-8.columns.large-centered.medium-10.medium-centered
             .row
-              .large-6.columns
+              .large-6.medium-6.columns
                 %a.button.git.full.black-bg.radius{href: 'https://github.com/wendycan/yuetai.wendycan.org', target: '_blank'} 
                   %i.fa.fa-github
                   GitHub
-              .large-6.columns
+              .large-6.medium-6.columns
                 %a.button.email.full.none-bg.radius{href: 'mailto:yuetai@wendycan.org'} 
                   %i.fa.fa-envelope-o
                   yuetai@wendycan.org
-  .page-6.footer
+  .page-6.footer.hide-for-small-only
     .row.wrap
-      .large-5.columns.large-centered
+      .large-5.columns.large-centered.medium-5.medium-centered
         .row
-          .large-6.columns.small-12
+          .large-6.columns.small-12.medium-6
             %h4.white 关于
             %p.text-left
               %a{:href => "/articles"} 博客
             %p.text-left
               %a{:href => "/articles"} 演示文稿
-          .large-6.columns.small-12
+          .large-6.columns.small-12.medium-6
             %h4.white 友情链接
             %p.text-left
               %a{:href => "http://wendycan.org", target: '_blank'} wendy

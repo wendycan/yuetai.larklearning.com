@@ -6,23 +6,23 @@
     %h1.title 阅台
 
 %aside.left-off-canvas-menu
-  %ul.off-canvas-list.small-nav
+  %ul.off-canvas-list.small-nav.text-left
     %li.index
-      %a{:href => '#'}
+      %a{:href => '/'}
         = image_tag 'logo-white.png'
         %span 阅台
     %li.articles
-      %a{:href => '#articles'}
+      %a{:href => '/articles'}
         = image_tag 'blog-white.png'
         %span 博客
     %li.books
-      %a{:href => '#books'}
+      %a{:href => '/presentation'}
         = image_tag 'book-white.png'
-        %span 书摘
-    %li.authors
-      %a{:href => '#authors'}
-        = image_tag 'author-white.png'
-        %span 作者
+        %span 演示文稿
+    /%li.authors
+    /  %a{:href => '#authors'}
+    /    = image_tag 'author-white.png'
+    /    %span 作者
     / %li.about
     /   %a.reverse{:href => "http://weibo.com/u/3260368113/home?wvr=5"}
     /     %i.fa.fa-weibo
