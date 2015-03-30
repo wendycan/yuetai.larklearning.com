@@ -6,10 +6,11 @@
     .inner-wrap
       = render :partial => 'layouts/nav'
       = render :partial => 'layouts/small_nav'
-      = if !notice.nil?
-        %p.notice= notice
-      = if !alert.nil?
-        %p.alert= alert
+      .hide
+        = if !notice.nil?
+          %p.notice= notice
+        = if !alert.nil?
+          %p.alert= alert
       .not-footer
         = yield
       .footer
