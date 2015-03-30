@@ -2,79 +2,121 @@
   .page-1
     .row
       .large-12.columns.wrap
-        .header-nav.tc
+        .header-nav
           %ul
-            %li.fl
-              %a.white{:href => "#"} 阅台
-            %li.fl
-              %a.white{:href => "#"} 博客
-            %li.fl
-              %a.white{:href => "#"} 系列
-            %li.fl
-              %a.white{:href => "#"} 演示文稿
-        .header-intro
+            %li.logo.text-right
+              %a{:href => "/"} 
+                %h2.white 阅台
+            %li.text-center
+              %a.white{:href => "/articles"} 博客
+            -# %li.text-center
+            -#   %a.white{:href => "#"} 系列
+            %li.text-center
+              %a.white{:href => "/presentation"} 演示文稿
+        %br
+        %br
+        .header-intro.show-for-large-only
           %span.spacer
-          %h3.white 分享
+          %h3.white 记录，分享
           %span.spacer
         %br
         %h2.white.text-center 阅台
-        %p.white.text-center 分享技术，实现想法
+        %p.white.text-center 记录想法， 分享点滴
+        %br
         .row
           .large-6.columns.large-centered
             .row
               .large-6.columns
-                .button.full 注册
+                %a.button.full.black-bg.radius{:href => "/users/sign_up"} 注册
               .large-6.columns
-                .button.full 登录
+                %a.button.full.none-bg.radius{:href => "/users/sign_in"} 登录
   .page-2
     .row
       .large-12.columns.wrap.text-center
-        %h2 阅台为技术而作
-        %p 阅台为技术而作阅台为技术而作阅台为技术而作阅台为技术而作阅台为技术而作阅台为技术而作阅台为技术而作阅台为技术而作阅台为技术而作阅台为技术而作阅台为技术而作阅台为技术而作阅台为技术而作阅台为技术而作阅台为技术而作阅台为技术而作阅台为技术而作阅台为技术而作阅台为技术而作
-        %button.entry 进入
+        %h3 阅台为技术而作
+        %br
+        %br
+        %p 这个一个开源的分享平台，你可以在这里创建文章，包括博客，系列和演示文稿，你只需要注册一个账号。
+        %button.entry.radius 进入
   .page-3
     .row
       .large-12.columns.wrap.text-center
-        %h2.tc 功能介绍
-        %ul.large-block-grid-3
-          %li.box.fl
-            %h3.tc 博客
-            %p 博客博客博客博客博客博客博客博客博客博客博客博客博客博客博客博客博客
-            %img{:src => "images/features-abtest.svg"}/
-          %li.box.fl
-            %h3.tc 系列
-            %p 博客博客博客博客博客博客博客博客博客博客博客博客博客博客博客博客博客
-            %img{:src => "images/features-abtest.svg"}/
-          %li.box.fl
-            %h3.tc 演示文稿
-            %p 博客博客博客博客博客博客博客博客博客博客博客博客博客博客博客博客博客
-            %img{:src => "images/features-abtest.svg"}/
+        %h3.white 功能介绍
+        %br
+        %br
+        %ul.large-block-grid-3.small-block-grid-1
+          %li.box
+            %h4.white 博客
+            %p.white 你可以创建博客，支持 markdown 和 html 两种格式的编辑。
+            = image_tag 'features-blog.png'
+          %li.box
+            %h4.white 系列
+            %p.white 你可以创建一个系列，例如 Jvascript 教程，系列会把零散的博客组织起来。
+            = image_tag 'features-series.png'
+          %li.box
+            %h4.white 演示文稿
+            %p.white 你可以创建演示文稿，并添加 page，保存后，可以看到 web 版的 PPT。
+            = image_tag 'features-presentation.png'
   .page-4
     .row
       .large-12.columns.wrap.text-center
-        %h2 创作人员
-        %ul.large-block-grid-3
+        %h3 创作人员
+        %br
+        %br
+        %ul.large-block-grid-3.small-block-grid-1
           %li.person
-            %img.fl{:src => "images/naxizu.jpg"}/
-            %p.fl 创作人员创作人员创作人员创作人员创作人员创作人员创作人员创作人员创作人员
+            .row.collapse
+              .large-4.columns
+                = image_tag 'me.png'
+              .large-8.columns
+                %p Wendy,可爱萌妹。
+                %p 阅台全栈开发负责，并长期供稿。
           %li.person
-            %img.fl{:src => "images/naxizu.jpg"}/
-            %p.fl 创作人员创作人员创作人员创作人员创作人员创作人员创作人员创作人员创作人员
+            .row.collapse
+              .large-4.columns
+                = image_tag 'roman.png'
+              .large-8.columns
+                %p Roman,帅气小伙。
+                %p 阅台产品设计，并长期供稿。
           %li.person
-            %img.fl{:src => "images/naxizu.jpg"}/
-            %p.fl 创作人员创作人员创作人员创作人员创作人员创作人员创作人员创作人员创作人员
+            .row.collapse
+              .large-4.columns
+                = image_tag 'linda.png'
+              .large-8.columns
+                %p Linda,邻家小妹。
+                %p 阅台前端开发，并长期供稿。
   .page-5
     .row
       .large-12.columns.wrap.text-center
-        %h2 加入我们
+        %h3.white 加入我们
         %br
         %br
         .row
           .large-8.columns.large-centered
             .row
               .large-5.columns
-                .button.git.full GitHub
+                .button.git.full.black-bg.radius GitHub
               .large-2.columns
                 %p or
               .large-5.columns
-                .button.email.full yuetai@wendycan.org
+                .button.email.full.none-bg.radius yuetai@wendycan.org
+  .page-6.footer
+    .row.wrap
+      .large-5.columns.large-centered
+        .row
+          .large-6.columns.small-12
+            %h4.white 关于
+            %p.text-left
+              %a{:href => "/articles"} 博客
+            %p.text-left
+              %a{:href => "/articles"} 演示文稿
+          .large-6.columns.small-12
+            %h4.white 友情链接
+            %p.text-left
+              %a{:href => "http://wendycan.org"} wendy
+            %p.text-left
+              %a{:href => "http://daodao.wendycan.org"} 刀刀故事
+            %p.text-left
+              %a{:href => "http://history.wendycan.org"} wendy 故事
+
+
