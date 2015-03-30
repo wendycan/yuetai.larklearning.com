@@ -15,6 +15,8 @@
               %a.white{:href => "/presentation"} 演示文稿
         %br
         %br
+        .text-center
+          = image_tag 'logo.png'
         .header-intro.show-for-large-only
           %span.spacer
           %h3.white 记录，分享
@@ -37,7 +39,10 @@
         %br
         %br
         %p 这个一个开源的分享平台，你可以在这里创建文章，包括博客，系列和演示文稿，你只需要注册一个账号。
-        %button.entry.radius 进入
+        %a.button.entry.radius{href: '/articles'} 
+          %i.fa.fa-arrow-right
+          &nbsp;
+          进入
   .page-3
     .row
       .large-12.columns.wrap.text-center
@@ -66,23 +71,23 @@
         %ul.large-block-grid-3.small-block-grid-1
           %li.person
             .row.collapse
-              .large-4.columns
+              .large-4.small-3.columns
                 = image_tag 'me.png'
-              .large-8.columns
+              .large-8.small-9.columns
                 %p Wendy,可爱萌妹。
-                %p 阅台全栈开发负责，并长期供稿。
+                %p 阅台全栈开发，并长期供稿。
           %li.person
             .row.collapse
-              .large-4.columns
+              .large-4.small-3.columns
                 = image_tag 'roman.png'
-              .large-8.columns
+              .large-8.small-9.columns
                 %p Roman,帅气小伙。
                 %p 阅台产品设计，并长期供稿。
           %li.person
             .row.collapse
-              .large-4.columns
+              .large-4.small-3.columns
                 = image_tag 'linda.png'
-              .large-8.columns
+              .large-8.small-9.columns
                 %p Linda,邻家小妹。
                 %p 阅台前端开发，并长期供稿。
   .page-5
@@ -94,12 +99,14 @@
         .row
           .large-8.columns.large-centered
             .row
-              .large-5.columns
-                .button.git.full.black-bg.radius GitHub
-              .large-2.columns
-                %p or
-              .large-5.columns
-                .button.email.full.none-bg.radius yuetai@wendycan.org
+              .large-6.columns
+                %a.button.git.full.black-bg.radius{href: 'https://github.com/wendycan/yuetai.wendycan.org', target: '_blank'} 
+                  %i.fa.fa-github
+                  GitHub
+              .large-6.columns
+                %a.button.email.full.none-bg.radius{href: 'mailto:yuetai@wendycan.org'} 
+                  %i.fa.fa-envelope-o
+                  yuetai@wendycan.org
   .page-6.footer
     .row.wrap
       .large-5.columns.large-centered
@@ -113,10 +120,10 @@
           .large-6.columns.small-12
             %h4.white 友情链接
             %p.text-left
-              %a{:href => "http://wendycan.org"} wendy
+              %a{:href => "http://wendycan.org", target: '_blank'} wendy
             %p.text-left
-              %a{:href => "http://daodao.wendycan.org"} 刀刀故事
+              %a{:href => "http://daodao.wendycan.org", target: '_blank'} 刀刀故事
             %p.text-left
-              %a{:href => "http://history.wendycan.org"} wendy 故事
+              %a{:href => "http://history.wendycan.org", target: '_blank'} wendy 故事
 
 

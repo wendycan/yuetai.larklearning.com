@@ -1,16 +1,18 @@
 .header-nav {
   li {
     display: inline-block;
-    width: 10%;
+    width: 14%;
   }
 }
 .home {
   .page-1 {
-    background: #47b0e2;
+    background-color: #47b0e2;
+    background-image: url(texture.png);
     padding-bottom: 60px;
   }
   .page-3 {
-    background: #47b0e2;
+    background-color: #47b0e2;
+    background-image: url(texture.png);
   }
   .page-4 {
     p {
@@ -18,10 +20,11 @@
     }    
   }
   .page-5 {
-    background: #90c695;
+    background-color: #90c695;
+    background-image: url(texture.png);
   }
   .page-6 {
-    background: #404040;
+    background-color: #404040;
   }
   h2 {
     margin-bottom: 30px;
@@ -71,6 +74,7 @@
   img {
     border-radius: 50%;
     width: 60%;
+    max-width: 65px;
     border: solid hsla(21, 100, 50, .3) 2px;
   }
 }
