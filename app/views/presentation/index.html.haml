@@ -1,6 +1,7 @@
-.row.wrap
-  .large-12.columns
-    %ul#presentations.large-block-grid-3
+#main-content
+  .row
+    .large-12.columns
+      %ul#presentations.large-block-grid-3
 
 - presentations_json = render template: "presentation/index", formats: [:json], handlers: [:jbuilder]
 

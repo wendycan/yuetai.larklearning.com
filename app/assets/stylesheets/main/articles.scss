@@ -13,6 +13,10 @@
         border: none;
       }
 
+      &:first-child {
+        padding-top: 0;
+      }
+
       .fa {
         padding-left: 8px;
       }
