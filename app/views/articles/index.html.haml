@@ -16,8 +16,9 @@
   %li.blog{:'data-id' => '{{= blog.id }}'}
     .row
       .large-12.columns
-        %a{:href => "/articles/{{= blog.id }}" }
-          {{= blog.title }}
+        %h5
+          %a{:href => "/articles/{{= blog.id }}" }
+            {{= blog.title }}
     .row
       .large-12.columns
         %p {{= blog.body }}
