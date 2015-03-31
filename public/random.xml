@@ -1,7 +1,19 @@
 <random_list>
   <blog_list>
     <blog>
-    <id>1</id>
+    <id>14</id>
+    </blog>
+    <blog>
+    <id>10</id>
+    </blog>
+    <blog>
+    <id>9</id>
+    </blog>
+    <blog>
+    <id>8</id>
+    </blog>
+    <blog>
+    <id>7</id>
     </blog>
     <blog>
     <id>6</id>
@@ -9,13 +21,34 @@
     <blog>
     <id>5</id>
     </blog>
+    <blog>
+    <id>4</id>
+    </blog>
+    <blog>
+    <id>3</id>
+    </blog>
+    <blog>
+    <id>2</id>
+    </blog>
   </blog_list>
   <result_list>
+    <blog>
+    <id>3</id>
+    </blog>
+    <blog>
+    <id>7</id>
+    </blog>
+    <blog>
+    <id>6</id>
+    </blog>
+    <blog>
+    <id>4</id>
+    </blog>
     <blog>
     <id>5</id>
     </blog>
     <blog>
-    <id>1</id>
+    <id>2</id>
     </blog>
   </result_list>
 </random_list>

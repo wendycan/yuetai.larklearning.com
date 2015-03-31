@@ -5,7 +5,6 @@ class Yuetai.Views.Blogs.RandomView extends Yuetai.Views.Base
 
   events:
     'click .random-btn' : 'randomBlog'
-    # 'click .delete-article' : 'deleteArticle'
 
   initialize: (opts)->
     @converter = new Showdown.converter()
