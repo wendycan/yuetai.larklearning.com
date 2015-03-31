@@ -5,7 +5,7 @@ module Yuetai
 
       route_param :id, requirements: /[^\/]+/ do
         get do
-          article = Article.find(params[:id])
+          article = Article.where(template: params[:template]).find(params[:id])
           article
         end
 

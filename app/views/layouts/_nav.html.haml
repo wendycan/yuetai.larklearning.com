@@ -9,12 +9,14 @@
       %ul.right
         %li
           = link_to articles_path do
+            = image_tag 'blog.png'
             = "博客"
         / %li
         /   = link_to series_index_path do
         /     = "系列"
         %li
           = link_to presentation_index_path do
+            = image_tag 'presentation.png'
             = "演示"
         %li.has-dropdown
           = link_to new_user_session_path do
@@ -26,11 +28,15 @@
             - if user_signed_in?
               %li
                 %a{:href => "/dashboard/index"} 控制台
+              %li
+                %a{:href => "/site/random"} 随便看看
               / %li
               /   %a{:href => "#"} 设置
               %li
                 = link_to '登出', destroy_user_session_path, :method => 'delete', data: { confirm: '确定登出？'}
             - else
+              %li
+                %a{:href => "/site/random"} 随便看看
               %li
                 = link_to '注册', new_user_registration_path
               %li
