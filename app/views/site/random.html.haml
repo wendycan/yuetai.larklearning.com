@@ -2,19 +2,25 @@
   .row
     .large-12.columns
       %ul.inline-block.text-right
-        %li.button.tiny#random GO
+        %li.button.tiny.random-btn GO
         %li.button.tiny
           %a.white{:href => "/"}
             首页
   .row
     .large-12.columns
       #random-blog
+  .row
+    .large-12.columns
+      %ul.inline-block.text-right
+        %li.button.tiny.random-btn GO
+        %li.button.tiny
+          %a.white{:href => "/"}
+            首页
 
 %script{type: 'text/template', id: 't-random-blog'}
-  %h4 {{= blog.title }}
+  %h3 {{= blog.title }}
   .date {{= blog.created_at }}
   .body {{= blog.body }}
-
      
 = content_for :js_ext do
   :javascript

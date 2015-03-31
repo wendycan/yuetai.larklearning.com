@@ -4,7 +4,7 @@ class Yuetai.Views.Blogs.RandomView extends Yuetai.Views.Base
   el: $('#main-content')
 
   events:
-    'click #random' : 'randomBlog'
+    'click .random-btn' : 'randomBlog'
     # 'click .delete-article' : 'deleteArticle'
 
   initialize: (opts)->
@@ -13,6 +13,7 @@ class Yuetai.Views.Blogs.RandomView extends Yuetai.Views.Base
     @result_list = []
     _this = @
     @blogs = []
+    @count = 0
 
     $.ajax(
       url: '/dashboard/index.json'
@@ -21,6 +22,7 @@ class Yuetai.Views.Blogs.RandomView extends Yuetai.Views.Base
         _this.token = data.auth_token
         $.ajax(
           url: '/random.xml'
+          # url: '/random-dev.xml'
           type: 'GET'
           dataType: "xml"
           success: (xml)->
@@ -56,3 +58,28 @@ class Yuetai.Views.Blogs.RandomView extends Yuetai.Views.Base
     $('#random-blog').html(_.template($('#t-random-blog').html())({blog: blog}))
 
   randomBlog: ->
+    index = 0
+    i = 0
+    delay = 75
+    run = =>
+      if index >= @blogs.length
+        index = index%@blogs.length
+      if @blogs[index].language == 'markdown'
+        @blogs[index].body = @converter.makeHtml(@blogs[index].body)
+      if i > 15
+        delay = delay * 1.1
+      if i > 30
+        id = @result_list[(@count++)%@result_list.length]
+        blog = @findBlogById(id)
+        $('#random-blog').html(_.template($('#t-random-blog').html())({blog: blog}))
+        return
+      $('#random-blog').html(_.template($('#t-random-blog').html())({blog: @blogs[index]}))
+      index++
+      i++
+      setTimeout(run, delay)
+    run()
+
+  findBlogById: (id)->
+    for blog in @blogs
+      if blog.id == parseInt(id)
+        return blog
