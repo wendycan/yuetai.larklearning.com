@@ -1,9 +1,6 @@
 <random_list>
   <blog_list>
     <blog>
-    <id>0</id>
-    </blog>
-    <blog>
     <id>1</id>
     </blog>
     <blog>
@@ -15,7 +12,7 @@
   </blog_list>
   <result_list>
     <blog>
-    <id>0</id>
+    <id>3</id>
     </blog>
     <blog>
     <id>2</id>
