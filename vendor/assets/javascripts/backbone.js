@@ -5,3 +5,4 @@
 //= require ace-builds/src/theme-ambiance
 //= require showdown/compressed/Showdown.min
 //= require fullpage/jquery.fullPage
+//= require async/lib/async

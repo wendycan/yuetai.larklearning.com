@@ -1,0 +1,7 @@
+%h4 random
+
+= content_for :js_ext do
+  :javascript
+    $(document).ready(function () {
+      var blogs_random_view = new Yuetai.Views.Blogs.RandomView();
+    });

@@ -6,7 +6,8 @@
     "jQuery.serializeObject": "~2.0.3",
     "ace-builds": "~1.1.8",
     "showdown": "~0.3.4",
-    "fullpage": "~2.6.2"
+    "fullpage": "~2.6.2",
+    "async": "~0.9.2"
   },
   "private": true
 }
