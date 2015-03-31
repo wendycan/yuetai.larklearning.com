@@ -15,23 +15,17 @@ class Yuetai.Views.Blogs.RandomView extends Yuetai.Views.Base
     @count = 0
 
     $.ajax(
-      url: '/dashboard/index.json'
+      url: '/random.xml'
+      # url: '/random-dev.xml'
       type: 'GET'
-      success: (data)->
-        _this.token = data.auth_token
-        $.ajax(
-          url: '/random.xml'
-          # url: '/random-dev.xml'
-          type: 'GET'
-          dataType: "xml"
-          success: (xml)->
-            $(xml).find("blog_list blog").each ->
-              _this.blog_list.push $(this).find('id').text()
-            $(xml).find("result_list blog").each ->
-              _this.result_list.push $(this).find('id').text()
-            _this.render()
-        )         
-    )
+      dataType: "xml"
+      success: (xml)->
+        $(xml).find("blog_list blog").each ->
+          _this.blog_list.push $(this).find('id').text()
+        $(xml).find("result_list blog").each ->
+          _this.result_list.push $(this).find('id').text()
+        _this.render()
+    )         
   
   render: ->
     @fetchBlogs()
@@ -41,7 +35,7 @@ class Yuetai.Views.Blogs.RandomView extends Yuetai.Views.Base
     async.filter @blog_list, 
       (id, callback)->  
         $.ajax(
-          url: "#{Yuetai.ApiPrefix}/blogs/#{id}?auth_token=#{_this.token}"
+          url: "#{Yuetai.ApiPrefix}/articles/#{id}?template=blog"
           type: 'GET'
           success: (data)->
             _this.blogs.push data
