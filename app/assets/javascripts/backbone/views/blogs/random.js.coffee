@@ -59,9 +59,9 @@ class Yuetai.Views.Blogs.RandomView extends Yuetai.Views.Base
         index = index%@blogs.length
       if @blogs[index].language == 'markdown'
         @blogs[index].body = @converter.makeHtml(@blogs[index].body)
-      if i > 15
+      if i > 10
         delay = delay * 1.1
-      if i > 30
+      if i > 20
         id = @result_list[(@count++)%@result_list.length]
         blog = @findBlogById(id)
         $('#random-blog').html(_.template($('#t-random-blog').html())({blog: blog}))
