@@ -4,14 +4,14 @@ module Yuetai
       desc 'Get all series'
       get do
         authenticate!
-        series = Article.where(template: 'series').order("created_at DESC").all
+        series = current_user.articles.where(template: 'series').order("created_at DESC").all
         series
       end
 
       route_param :id, requirements: /[^\/]+/ do
         get do
           authenticate!
-          series = Article.find(params[:id])
+          series = current_user.articles.find(params[:id])
           series
         end
 

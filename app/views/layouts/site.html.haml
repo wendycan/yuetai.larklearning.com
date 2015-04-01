@@ -4,14 +4,13 @@
 %body.home
   .off-canvas-wrap{:'data-offcanvas' => true}
     .inner-wrap
-      = if !notice.nil?
-        %p.notice= notice
-      = if !alert.nil?
-        %p.alert= alert
+      .hide
+        = if !notice.nil?
+          %p.notice= notice
+        = if !alert.nil?
+          %p.alert= alert
       .not-footer
         = yield
-      .footer
-        = render :partial => 'layouts/footer'
       .exit-off-canvas
 
   = render 'layouts/js'

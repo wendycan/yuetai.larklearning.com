@@ -27,13 +27,14 @@
           .large-12.columns
             .large-10.columns
               .button.tiny#add-page 添加
+              .hide.button.tiny#update-page 更新
             .large-2.columns
               %button.button.tiny{type: 'submit'} 保存
-              %a.cancel 取消
+              %a.cancel 返回
       .large-12.columns
         %ul#edit-presentation-pages.pages.large-block-grid-3
 
 %script{type: 'text/template', id: 't-presentation-new-page'}
 %script{type: 'text/template', id: 't-presentation-page'}
-  %li.page
+  %li.page{:'data-id' => '{{= page.id }}'}
     {{= page.content }}

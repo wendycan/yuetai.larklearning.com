@@ -5,6 +5,8 @@ class Yuetai.Views.Presentations.PresentationView extends Backbone.View
 
   initialize: (opts)->
     $('nav.top-bar').hide()
+    $('#small-nav').attr('style', 'display: none !important')
+
     @presentation = new Yuetai.Models.Presentation(opts)
     @converter = new Showdown.converter()
     @renderPresentation()

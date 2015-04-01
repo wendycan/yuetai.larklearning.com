@@ -1,6 +1,7 @@
-.row.wrap
-  .large-12.columns
-    %ul#presentations.large-block-grid-3
+#main-content
+  .row
+    .large-12.columns
+      %ul#presentations.large-block-grid-3
 
 - presentations_json = render template: "presentation/index", formats: [:json], handlers: [:jbuilder]
 
@@ -13,6 +14,7 @@
 
 %script{type: 'text/template', id: 't-presentation'}
   %li.presentation
-    %a{:href => "/presentation/{{= presentation.id }}"}
-      {{= presentation.title }}
+    %h5
+      %a{:href => "/presentation/{{= presentation.id }}"}
+        {{= presentation.title }}
     {{= presentation.content }}

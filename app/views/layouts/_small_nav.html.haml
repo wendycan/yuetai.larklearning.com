@@ -1,4 +1,4 @@
-%nav.tab-bar.show-for-small-only
+%nav.tab-bar.show-for-small-only#small-nav
   %section.left-small.text-center
     %a.left-off-canvas-toggle.menu-icon
       %span
@@ -7,22 +7,26 @@
 
 %aside.left-off-canvas-menu
   %ul.off-canvas-list.small-nav
-    %li.index
-      %a{:href => '#'}
-        = image_tag 'logo-white.png'
+    %li.index.text-left
+      %a{:href => '/'}
+        = image_tag 'home.png'
         %span 阅台
-    %li.articles
-      %a{:href => '#articles'}
-        = image_tag 'blog-white.png'
+    %li.articles.text-left
+      %a{:href => '/articles'}
+        = image_tag 'blog.png'
         %span 博客
-    %li.books
-      %a{:href => '#books'}
-        = image_tag 'book-white.png'
-        %span 书摘
-    %li.authors
-      %a{:href => '#authors'}
-        = image_tag 'author-white.png'
-        %span 作者
+    %li.books.text-left
+      %a{:href => '/presentation'}
+        = image_tag 'presentation.png'
+        %span 演示文稿
+    %li.text-left
+      %a{:href => "/site/random"} 
+        = image_tag 'random.png'
+        随便看看
+    /%li.authors
+    /  %a{:href => '#authors'}
+    /    = image_tag 'author-white.png'
+    /    %span 作者
     / %li.about
     /   %a.reverse{:href => "http://weibo.com/u/3260368113/home?wvr=5"}
     /     %i.fa.fa-weibo

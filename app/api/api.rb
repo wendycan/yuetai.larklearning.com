@@ -61,6 +61,8 @@ class Api < Grape::API
       {status: 204}
     end
   end
+
+  mount Yuetai::Articles
   mount Yuetai::Blogs
   mount Yuetai::Series
   mount Yuetai::Presentations

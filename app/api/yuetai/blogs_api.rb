@@ -4,14 +4,14 @@ module Yuetai
       desc 'Get all blogs'
       get do
         authenticate!
-        blogs = Article.where(template: 'blog').order("created_at DESC").all
+        blogs = current_user.articles.where(template: 'blog').order("created_at DESC").all
         blogs
       end
 
       route_param :id, requirements: /[^\/]+/ do
         get do
           authenticate!
-          blog = Article.find(params[:id])
+          blog = current_user.articles.find(params[:id])
           blog
         end
 

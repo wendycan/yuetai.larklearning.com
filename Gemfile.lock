@@ -1,21 +1,3 @@
-GIT
-  remote: git://github.com/gregbell/active_admin.git
-  revision: a460d8d2ab37820c6ac377f4a75fe90b203520d0
-  specs:
-    activeadmin (1.0.0.pre)
-      arbre (~> 1.0)
-      bourbon
-      coffee-rails
-      devise (~> 3.2)
-      formtastic (~> 2.3.0.rc3)
-      inherited_resources (~> 1.3)
-      jquery-rails
-      jquery-ui-rails
-      kaminari (~> 0.15)
-      rails (>= 3.2, <= 4.1)
-      ransack (~> 1.0)
-      sass-rails
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -43,17 +25,12 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
-    arbre (1.0.1)
-      activesupport (>= 3.0.0)
     arel (4.0.2)
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
     bcrypt (3.1.7)
-    bourbon (3.2.1)
-      sass (~> 3.2)
-      thor
     builder (3.1.4)
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
@@ -69,13 +46,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
-    columnize (0.8.9)
-    debugger (1.6.6)
-      columnize (>= 0.3.1)
-      debugger-linecache (~> 1.2.0)
-      debugger-ruby_core_source (~> 1.3.2)
-    debugger-linecache (1.2.0)
-    debugger-ruby_core_source (1.3.2)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     devise (3.2.4)
@@ -89,8 +59,6 @@ GEM
     execjs (2.0.2)
     font-awesome-sass (4.0.3.1)
       sass (~> 3.2)
-    formtastic (2.3.0.rc3)
-      actionpack (>= 3.0)
     foundation-rails (5.2.2.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
@@ -112,28 +80,17 @@ GEM
       activesupport (>= 4.0.1)
       haml (>= 3.1, < 5.0)
       railties (>= 4.0.1)
-    has_scope (0.6.0.rc)
-      actionpack (>= 3.2, < 5)
-      activesupport (>= 3.2, < 5)
     hashie (3.3.1)
     hike (1.2.3)
     i18n (0.6.9)
     ice_nine (0.11.0)
-    inherited_resources (1.4.1)
-      has_scope (~> 0.6.0.rc)
-      responders (~> 1.0.0.rc)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
     jquery-rails (3.1.0)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    jquery-ui-rails (4.2.1)
-      railties (>= 3.2.16)
     json (1.8.1)
-    kaminari (0.15.1)
-      actionpack (>= 3.0.0)
-      activesupport (>= 3.0.0)
     kgio (2.9.2)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -143,8 +100,6 @@ GEM
     multi_json (1.9.3)
     multi_xml (0.5.5)
     orm_adapter (0.5.0)
-    polyamorous (1.0.0)
-      activerecord (>= 3.0)
     polyglot (0.3.4)
     prerender_rails (1.1.0)
       activesupport
@@ -171,16 +126,8 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.13.0)
     rake (10.3.1)
-    ransack (1.2.2)
-      actionpack (>= 3.0)
-      activerecord (>= 3.0)
-      activesupport (>= 3.0)
-      i18n
-      polyamorous (~> 1.0.0)
     rdoc (4.1.1)
       json (~> 1.4)
-    responders (1.0.0)
-      railties (>= 3.2, < 5)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -229,10 +176,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activeadmin!
   carrierwave
   coffee-rails (~> 4.0.0)
-  debugger
   devise
   font-awesome-sass
   foundation-rails
