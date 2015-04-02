@@ -20,6 +20,7 @@ class Yuetai.Views.Blogs.BlogsView extends Backbone.View
     blog = blog.toJSON()
     blog.body = snip
     $('#y-blogs').append(_.template($('#t-blog').html())(blog: blog))
+  
   strip: (html)->
     tmp = document.createElement("DIV")
     tmp.innerHTML = html
