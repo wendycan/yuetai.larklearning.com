@@ -13,3 +13,4 @@ class Yuetai.Views.Blogs.BlogView extends Backbone.View
     if blog.language == 'markdown'
       blog.body = @converter.makeHtml(blog.body)
     @$el.html(_.template($('#t-blog-show').html())(blog: blog))
+    

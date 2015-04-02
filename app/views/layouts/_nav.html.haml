@@ -38,12 +38,14 @@
             - else
               %li
                 %a{:href => "/site/random"}
-                %i.fa.fa-support  随便看看
+                  %i.fa.fa-support  
+                  随便看看
               %li
-                %i.fa.fa-user 
-                  = link_to '注册', new_user_registration_path  
+                = link_to new_user_registration_path do   
+                  %i.fa.fa-user 
+                  注册
               %li
-                %i.fa.fa-paper-plane
                 = link_to '#' do
+                  %i.fa.fa-paper-plane
                   关于
-                / %i.fa.fa-paper-planes
+                

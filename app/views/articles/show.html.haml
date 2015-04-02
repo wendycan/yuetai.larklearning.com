@@ -16,6 +16,8 @@
     .large-12.columns
       %h4
         {{= blog.title }}
+        %p {{= blog.created_at }}          
+        %p {{= blog.user.username}}
   .row
     .large-12.columns
       %p {{= blog.body }}

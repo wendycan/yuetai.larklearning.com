@@ -19,8 +19,8 @@
         %h5
           %a{:href => "/articles/{{= blog.id }}" }
             {{= blog.title }}
+        %p {{= blog.user.username}}
         %p {{= blog.created_at }}
-        / %p {{= blog.author}}
     .row
       .large-12.columns
         %p {{= blog.body }}
