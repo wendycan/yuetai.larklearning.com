@@ -33,7 +33,7 @@ class Yuetai.Views.Blogs.IndexView extends Yuetai.Views.Base
     blog = blog.toJSON()
     blog.body = snip
     $('#blogs').append(_.template($('#t-blog').html())(blog: blog))
-  
+
   deleteArticle: (e)->
     $this = $(e.currentTarget).parents('li.blog')
     blog = @blogs.get(parseInt($this.data('id')))
