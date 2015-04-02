@@ -15,6 +15,7 @@ class Yuetai.Views.Blogs.EditView extends Yuetai.Views.Base
     @converter = new Showdown.converter();
     @fetchBlog()
 
+
   fetchBlog: ->
     @blog.fetch(
       success: =>
