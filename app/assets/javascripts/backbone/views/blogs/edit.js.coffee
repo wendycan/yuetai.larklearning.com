@@ -16,7 +16,6 @@ class Yuetai.Views.Blogs.EditView extends Yuetai.Views.Base
     @fetchBlog()
     console.log(blog)
 
-
   fetchBlog: ->
     @blog.fetch(
       success: =>

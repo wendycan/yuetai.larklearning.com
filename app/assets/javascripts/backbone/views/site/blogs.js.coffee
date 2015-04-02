@@ -18,7 +18,6 @@ class Yuetai.Views.Blogs.BlogsView extends Backbone.View
       snip = @strip(blog.get('body'))
     snip = @limit(snip, 300)
     blog = blog.toJSON()
-    console.log(blog)
     blog.body = snip
     $('#y-blogs').append(_.template($('#t-blog').html())(blog: blog))
   strip: (html)->
