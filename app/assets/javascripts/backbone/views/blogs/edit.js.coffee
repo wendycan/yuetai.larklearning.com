@@ -14,7 +14,6 @@ class Yuetai.Views.Blogs.EditView extends Yuetai.Views.Base
     @blog = new Yuetai.Models.Blog(id: @opts.blog_id)
     @converter = new Showdown.converter();
     @fetchBlog()
-    console.log(blog)
 
   fetchBlog: ->
     @blog.fetch(
