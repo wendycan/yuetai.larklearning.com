@@ -50,6 +50,4 @@ class Yuetai.Views.Blogs.NewView extends Yuetai.Views.Base
     @blogs.create(data,
                   success: ->
                     window.location.href = '#blogs'
-
-
     )

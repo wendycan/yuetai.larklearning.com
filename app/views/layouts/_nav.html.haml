@@ -30,9 +30,8 @@
                 %a{:href => "/dashboard/index"} 控制台
               %li
                 %a{:href => "/site/random"} 
-                %i.fa.fa-support  随便看看
-              / %li
-              /   %a{:href => "#"} 设置
+                  %i.fa.fa-support 
+                  随便看看
               %li
                 = link_to '登出', destroy_user_session_path, :method => 'delete', data: { confirm: '确定登出？'}
             - else

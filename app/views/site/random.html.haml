@@ -20,7 +20,6 @@
 %script{type: 'text/template', id: 't-random-blog'}
   %h3 {{= blog.title }}
   .date {{= blog.created_at }}
-  / .author {{=blog.author }}
   .body {{= blog.body }}
      
 = content_for :js_ext do

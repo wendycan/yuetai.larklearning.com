@@ -30,7 +30,6 @@ class Api < Grape::API
       article = Article.new()
       article.title = params[:title]
       article.body = params[:body]
-      # article.author = params[:author]
       article.tag_id = params[:tag_id]
       article.template = params[:template]
       article.language = params[:language]
@@ -46,7 +45,6 @@ class Api < Grape::API
       article = Article.find(params[:id])
       article.title = params[:title]
       article.body = params[:body]
-      # article.author = params[:author]
       article.tag_id = params[:tag_id]
       article.language = params[:language]
       article.template = params[:template]
