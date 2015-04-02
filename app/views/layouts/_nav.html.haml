@@ -7,14 +7,14 @@
             = image_tag("logo.png")
     %section.top-bar-section
       %ul.right
-        %li
+        %li.articles-btn
           = link_to articles_path do
             = image_tag 'blog.png'
             = "博客"
         / %li
         /   = link_to series_index_path do
         /     = "系列"
-        %li
+        %li.presentation-btn
           = link_to presentation_index_path do
             = image_tag 'presentation.png'
             = "演示"
