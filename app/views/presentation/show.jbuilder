@@ -4,4 +4,4 @@ json.body @presentation.body
 json.user @presentation.user
 json.tag @presentation.tag
 json.language @presentation.language
-json.created_at @blog.created_at
+json.created_at @presentation.created_at
