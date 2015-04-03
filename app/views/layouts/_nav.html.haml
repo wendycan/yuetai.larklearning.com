@@ -7,14 +7,14 @@
             = image_tag("logo.png")
     %section.top-bar-section
       %ul.right
-        %li
+        %li.articles-btn
           = link_to articles_path do
             = image_tag 'blog.png'
             = "博客"
         / %li
         /   = link_to series_index_path do
         /     = "系列"
-        %li
+        %li.presentation-btn
           = link_to presentation_index_path do
             = image_tag 'presentation.png'
             = "演示"
@@ -29,16 +29,22 @@
               %li
                 %a{:href => "/dashboard/index"} 控制台
               %li
-                %a{:href => "/site/random"} 随便看看
-              / %li
-              /   %a{:href => "#"} 设置
+                %a{:href => "/site/random"} 
+                  %i.fa.fa-support 
+                  随便看看
               %li
                 = link_to '登出', destroy_user_session_path, :method => 'delete', data: { confirm: '确定登出？'}
             - else
               %li
-                %a{:href => "/site/random"} 随便看看
+                %a{:href => "/site/random"}
+                  %i.fa.fa-support  
+                  随便看看
               %li
-                = link_to '注册', new_user_registration_path
+                = link_to new_user_registration_path do   
+                  %i.fa.fa-user 
+                  注册
               %li
                 = link_to '#' do
+                  %i.fa.fa-paper-plane
                   关于
+                
