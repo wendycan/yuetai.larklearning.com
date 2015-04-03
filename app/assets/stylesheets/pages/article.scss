@@ -29,3 +29,18 @@
     display: none;
   }
 }
+.blog h5,.article-page h4{
+  border-bottom: 1px solid #ccf;
+  margin-bottom: 20px;
+  padding-bottom: 25px;
+}
+.name-user,.time-user,.name-user-show,.time-user-show{
+  font-size: 1.2em;
+  color:#556677;
+}
+.time-user,.time-user-show{
+  margin-top: -15px;
+}
+.title-user{
+  font-size: 1.5em;
+}

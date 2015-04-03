@@ -12,12 +12,16 @@
     $('.articles-btn').addClass('active');
 
 %script{type: 'text/template', id: 't-blog-show'}
-  .row
+  .row.article-page
     .large-12.columns
       %h4
         {{= blog.title }}
-      %p {{= blog.created_at }}          
-      %p {{= blog.user.username}}
-  .row
+      %p.name-user-show author: &nbsp; {{= blog.user.username}}
+      %p.time-user-show Date: &nbsp; {{= blog.created_at }}
+  .row.commentshare   
     .large-12.columns
       %p {{= blog.body }}
+      <!-- UY BEGIN -->
+      #uyan_frame
+      %script{type: 'text/javascript', src:'http://v2.uyan.cc/code/uyan.js?uid=2019932'}
+      <!-- UY END -->

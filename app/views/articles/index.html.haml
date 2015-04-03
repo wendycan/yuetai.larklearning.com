@@ -17,10 +17,10 @@
     .row
       .large-12.columns
         %h5
-          %a{:href => "/articles/{{= blog.id }}" }
+          %a.title-user{:href => "/articles/{{= blog.id }}" }
             {{= blog.title }}
-        %p {{= blog.user.username}}
-        %p {{= blog.created_at }}
+        %p.name-user author: &nbsp; {{= blog.user.username}}
+        %p.time-user Date: &nbsp; {{= blog.created_at }}
     .row
       .large-12.columns
         %p {{= blog.body }}
