@@ -16,8 +16,8 @@
   %li.presentation
     %h5
       %a{:href => "/presentation/{{= presentation.id }}"}
-        {{= presentation.title }}
-      %p {{= presentation.user.username }}
-      %p {{= presentation.created_at }}
-    {{= presentation.content }}
+        %span {{= presentation.title }}
+      %p.name-user author: &nbsp; {{= presentation.user.username }}
+      %p.time-user Date: &nbsp; {{= presentation.created_at }}
+      {{= presentation.content }}
     

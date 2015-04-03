@@ -35,7 +35,7 @@
   padding-bottom: 25px;
 }
 .name-user,.time-user,.name-user-show,.time-user-show{
-  font-size: 1.2em;
+  font-size: 1.1em;
   color:#556677;
 }
 .time-user,.time-user-show{
@@ -43,4 +43,21 @@
 }
 .title-user{
   font-size: 1.5em;
+}
+li.presentation{
+  h5{
+    width:auto;
+  }
+  .name-user,.time-user{
+    font-size: 1.1em;
+  }
+  span{
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    &:after{
+      content: "";
+      display: block;
+      border-bottom: 1px solid #ccf;
+    }
+  }
 }

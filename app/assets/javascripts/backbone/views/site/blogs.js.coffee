@@ -33,4 +33,3 @@ class Yuetai.Views.Blogs.BlogsView extends Backbone.View
     else
       snip = text
     snip
-
