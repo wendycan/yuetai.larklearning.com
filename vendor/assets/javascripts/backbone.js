@@ -7,3 +7,4 @@
 //= require fullpage/jquery.fullPage
 //= require async/lib/async
 //= require timeago/jquery.timeago
+//= require timeago/locales/jquery.timeago.zh-CN.js
