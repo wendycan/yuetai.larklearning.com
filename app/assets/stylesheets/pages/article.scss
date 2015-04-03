@@ -31,27 +31,37 @@
 }
 .blog h5,.article-page h4{
   border-bottom: 1px solid #ccf;
-  margin-bottom: 20px;
-  padding-bottom: 25px;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
 }
 .name-user,.time-user,.name-user-show,.time-user-show{
   font-size: 1.1em;
   color:#556677;
+  margin-left: 15px;
 }
 .time-user,.time-user-show{
   margin-top: -15px;
+  margin-left: 15px;
 }
 .title-user{
   font-size: 1.5em;
 }
 li.presentation{
   h5{
-    width:auto;
+    max-width:1600px;
   }
-  .name-user,.time-user{
+  .name-user-1,.time-user-1{
     font-size: 1.1em;
+    color: #556677;
+  }
+  .time-user-1{
+    margin-top: -15px;
+  }
+  .name-user-1{
+    padding-top: 10px;
   }
   span{
+    padding-bottom: 10px;
     margin-bottom: 10px;
     font-size: 1.5em;
     &:after{
