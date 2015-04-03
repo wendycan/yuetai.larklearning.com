@@ -7,7 +7,8 @@
     "ace-builds": "~1.1.8",
     "showdown": "~0.3.4",
     "fullpage": "~2.6.2",
-    "async": "~0.9.2"
+    "async": "~0.9.2",
+    "timeago": "~1.4.1"
   },
   "private": true
 }

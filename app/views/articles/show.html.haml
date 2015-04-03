@@ -1,6 +1,9 @@
 #main-content
   .row.wrap
     .large-12.columns#blog
+.row.wrap
+  .large-12.columns
+    .ds-thread{:'data-thread-key' => '', :'data-title' => 'title', :'data-url' => ''}
 
 - blog_json = render template: "articles/show", formats: [:json], handlers: [:jbuilder]
 
@@ -8,9 +11,20 @@
   :javascript
     $(document).ready(function () {
       var blogs_view = new Yuetai.Views.Blogs.BlogView(#{blog_json});
+      $('.articles-btn').addClass('active');
     });
-    $('.articles-btn').addClass('active');
-
+    
+:javascript
+  var duoshuoQuery = {short_name:"wendycan"};
+  (function() {
+  var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true;
+  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8';
+  (document.getElementsByTagName('head')[0] 
+  || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+    
 %script{type: 'text/template', id: 't-blog-show'}
   .row.article-page
     .large-12.columns
@@ -18,10 +32,8 @@
         {{= blog.title }}
       %p.name-user-show author: &nbsp; {{= blog.user.username}}
       %p.time-user-show Date: &nbsp; {{= blog.created_at }}
-  .row.commentshare   
+  .row
     .large-12.columns
       %p {{= blog.body }}
-      <!-- UY BEGIN -->
-      #uyan_frame
-      %script{type: 'text/javascript', src:'http://v2.uyan.cc/code/uyan.js?uid=2019932'}
-      <!-- UY END -->
+  
+   

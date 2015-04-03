@@ -46,28 +46,3 @@
 .title-user{
   font-size: 1.5em;
 }
-li.presentation{
-  h5{
-    max-width:1600px;
-  }
-  .name-user-1,.time-user-1{
-    font-size: 1.1em;
-    color: #556677;
-  }
-  .time-user-1{
-    margin-top: -15px;
-  }
-  .name-user-1{
-    padding-top: 10px;
-  }
-  span{
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-    font-size: 1.5em;
-    &:after{
-      content: "";
-      display: block;
-      border-bottom: 1px solid #ccf;
-    }
-  }
-}

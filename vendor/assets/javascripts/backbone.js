@@ -6,3 +6,4 @@
 //= require showdown/compressed/Showdown.min
 //= require fullpage/jquery.fullPage
 //= require async/lib/async
+//= require timeago/jquery.timeago
