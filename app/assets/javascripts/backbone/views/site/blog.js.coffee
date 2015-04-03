@@ -12,4 +12,5 @@ class Yuetai.Views.Blogs.BlogView extends Backbone.View
     blog = @blog.toJSON()
     if blog.language == 'markdown'
       blog.body = @converter.makeHtml(blog.body)
-    @$el.html(_.template($('#t-blog-show').html())(blog: blog))
+    blog.date = jQuery.timeago(blog.created_at)
+    @$el.html(_.template($('#t-blog-show').html())(blog: blog)) 

@@ -29,13 +29,13 @@
     display: none;
   }
 }
-.blog h5,.article-page h4{
+.blog h5,.article-page h5{
   border-bottom: 1px solid #ccf;
   margin-bottom: 15px;
-  padding-bottom: 15px;
+  padding-bottom: 5px;
 }
 .name-user,.time-user,.name-user-show,.time-user-show{
-  font-size: 1.1em;
+  font-size: 0.9em;
   color:#556677;
   margin-left: 15px;
 }
@@ -44,5 +44,8 @@
   margin-left: 15px;
 }
 .title-user{
+  font-size: 1.5em;
+}
+.article-page h5 span{
   font-size: 1.5em;
 }

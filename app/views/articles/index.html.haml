@@ -19,8 +19,8 @@
         %h5
           %a.title-user{:href => "/articles/{{= blog.id }}" }
             {{= blog.title }}
-        %p.name-user author: &nbsp; {{= blog.user.username}}
-        %p.time-user Date: &nbsp; {{= blog.created_at }}
+        %p.name-user 作者: &nbsp; {{= blog.user.username}}
+        %p.time-user 日期: &nbsp; {{= blog.date }}
     .row
       .large-12.columns
         %p {{= blog.body }}

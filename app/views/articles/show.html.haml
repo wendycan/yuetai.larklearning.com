@@ -28,10 +28,10 @@
 %script{type: 'text/template', id: 't-blog-show'}
   .row.article-page
     .large-12.columns
-      %h4
-        {{= blog.title }}
-      %p.name-user-show author: &nbsp; {{= blog.user.username}}
-      %p.time-user-show Date: &nbsp; {{= blog.created_at }}
+      %h5
+        %span  {{= blog.title }}
+      %p.name-user-show 作者: &nbsp; {{= blog.user.username}}
+      %p.time-user-show 日期: &nbsp; {{= blog.date }}
   .row
     .large-12.columns
       %p {{= blog.body }}
