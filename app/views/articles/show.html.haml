@@ -1,6 +1,4 @@
-#main-content
-  .row.wrap
-    .large-12.columns#blog
+#main-content.article-body
 .row.wrap
   .large-12.columns
     .ds-thread{:'data-thread-key' => '', :'data-title' => 'title', :'data-url' => ''}
@@ -13,7 +11,7 @@
       var blogs_view = new Yuetai.Views.Blogs.BlogView(#{blog_json});
       $('.articles-btn').addClass('active');
     });
-    
+
 :javascript
   var duoshuoQuery = {short_name:"wendycan"};
   (function() {
@@ -21,10 +19,10 @@
   ds.type = 'text/javascript';ds.async = true;
   ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
   ds.charset = 'UTF-8';
-  (document.getElementsByTagName('head')[0] 
+  (document.getElementsByTagName('head')[0]
   || document.getElementsByTagName('body')[0]).appendChild(ds);
   })();
-    
+
 %script{type: 'text/template', id: 't-blog-show'}
   .row.article-page
     .large-12.columns
@@ -35,5 +33,5 @@
   .row
     .large-12.columns
       %p {{= blog.body }}
-  
-   
+
+
