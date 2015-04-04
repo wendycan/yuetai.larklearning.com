@@ -12,7 +12,7 @@ module Yuetai
         get do
           authenticate!
           series = current_user.articles.find(params[:id])
-          series
+          JSON.parse series.to_json(:include => :user)
         end
 
         put do

@@ -12,7 +12,7 @@ module Yuetai
         get do
           authenticate!
           presentation = current_user.articles.find(params[:id])
-          presentation
+          JSON.parse presentation.to_json(:include => :user)
         end
 
         put do
