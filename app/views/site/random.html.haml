@@ -19,7 +19,8 @@
 
 %script{type: 'text/template', id: 't-random-blog'}
   %h3 {{= blog.title }}
-  .date {{= blog.created_at }}
+  / .username 作者: &nbsp; {{= blog.user.username }}
+  .date 日期: &nbsp; {{= blog.date }}
   .body {{= blog.body }}
      
 = content_for :js_ext do
