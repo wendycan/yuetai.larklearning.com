@@ -15,8 +15,8 @@ class Yuetai.Views.Blogs.RandomView extends Yuetai.Views.Base
     @count = 0
 
     $.ajax(
-      url: '/random.xml'
-      # url: '/random-dev.xml'
+      # url: '/random.xml'
+      url: '/random-dev.xml'
       type: 'GET'
       dataType: "xml"
       success: (xml)->
@@ -48,6 +48,8 @@ class Yuetai.Views.Blogs.RandomView extends Yuetai.Views.Base
   renderBlog: (blog)->
     if blog.language == 'markdown'
       blog.body = @converter.makeHtml(blog.body)
+    blog.date = jQuery.timeago(blog.created_at)
+    console.log(blog)
     $('#random-blog').html(_.template($('#t-random-blog').html())({blog: blog}))
 
   randomBlog: ->

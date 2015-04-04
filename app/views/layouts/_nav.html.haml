@@ -23,28 +23,33 @@
             - if user_signed_in?
               = current_user.email
             - else
+              %i.fa.fa-sign-in
               登录
           %ul.dropdown
             - if user_signed_in?
               %li
-                %a{:href => "/dashboard/index"} 控制台
+                %a{:href => "/dashboard/index"} 
+                  %i.fa.fa-pencil-square-o
+                  控制台
               %li
                 %a{:href => "/site/random"} 
-                  %i.fa.fa-support 
+                  %i.fa.fa-magic 
                   随便看看
               %li
-                = link_to '登出', destroy_user_session_path, :method => 'delete', data: { confirm: '确定登出？'}
+                = link_to  destroy_user_session_path, :method => 'delete', data: { confirm: '确定登出？'} do
+                  %i.fa.fa-sign-out
+                  登出
             - else
               %li
-                %a{:href => "/site/random"}
-                  %i.fa.fa-support  
-                  随便看看
-              %li
                 = link_to new_user_registration_path do   
-                  %i.fa.fa-user 
+                  %i.fa.fa-arrow-right 
                   注册
               %li
-                = link_to '#' do
-                  %i.fa.fa-paper-plane
-                  关于
+                %a{:href => "/site/random"}
+                  %i.fa.fa-magic  
+                  随便看看
+              %li
+                = link_to '/' do
+                  %i.fa.fa-home
+                  首页
                 
