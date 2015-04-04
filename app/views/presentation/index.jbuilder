@@ -1,3 +1,9 @@
 json.array! @presentations do |presentation|
-  json.extract! presentation, :id, :title, :body, :user, :tag, :language, :created_at
+  json.id presentation.id
+  json.title presentation.title
+  json.body presentation.body
+  json.user presentation.user.username
+  json.tag presentation.tag
+  json.language presentation.language
+  json.created_at presentation.created_at
 end
