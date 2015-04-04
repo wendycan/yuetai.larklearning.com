@@ -2,7 +2,7 @@
   .row
     .large-12.columns
       %ul.inline-block.text-right
-        %li.button.tiny.random-btn.radius 
+        %li.button.tiny.random-btn.radius
           %i.fa.fa-magic.fa-lg
           GO
   .row
@@ -13,16 +13,16 @@
   .row
     .large-12.columns
       %ul.inline-block.text-right
-        %li.button.tiny.random-btn.radius 
+        %li.button.tiny.random-btn.radius
           %i.fa.fa-magic.fa-lg
           GO
 
 %script{type: 'text/template', id: 't-random-blog'}
   %h3 {{= blog.title }}
-  / .username 作者: &nbsp; {{= blog.user.username }}
-  .date 日期: &nbsp; {{= blog.date }}
-  .body {{= blog.body }}
-     
+  %p.name-user-show 作者: &nbsp; {{= blog.user.username }}
+  %p.time-user-show 时间: &nbsp; {{= blog.date }}
+  .article-body {{= blog.body }}
+
 = content_for :js_ext do
   :javascript
     $(document).ready(function () {

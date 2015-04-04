@@ -28,28 +28,47 @@
           %ul.dropdown
             - if user_signed_in?
               %li
-                %a{:href => "/dashboard/index"} 
+                %a{:href => "/dashboard/index"}
                   %i.fa.fa-pencil-square-o
                   控制台
               %li
-                %a{:href => "/site/random"} 
-                  %i.fa.fa-magic 
+                %a{:href => "/site/random"}
+                  %i.fa.fa-magic
                   随便看看
               %li
-                = link_to  destroy_user_session_path, :method => 'delete', data: { confirm: '确定登出？'} do
+                %a#logout-btn{:href => "#"}
                   %i.fa.fa-sign-out
                   登出
             - else
               %li
-                = link_to new_user_registration_path do   
-                  %i.fa.fa-arrow-right 
+                = link_to new_user_registration_path do
+                  %i.fa.fa-arrow-right
                   注册
               %li
                 %a{:href => "/site/random"}
-                  %i.fa.fa-magic  
+                  %i.fa.fa-magic
                   随便看看
               %li
                 = link_to '/' do
                   %i.fa.fa-home
                   首页
-                
+
+= content_for :js_common do
+  :javascript
+    $('#logout-btn').click(function(){
+      alertify.confirm("您确定从阅台登出？", function (e) {
+        if (e) {
+          // user clicked "ok"
+          $.ajax({
+            url: '/users/sign_out',
+            type: 'DELETE',
+            success: function () {
+              window.location.href = '/';
+            }
+          });
+        } else {
+            // user clicked "cancel"
+            alertify.success("您刚刚取消了登出。");
+        }
+      });
+    });
