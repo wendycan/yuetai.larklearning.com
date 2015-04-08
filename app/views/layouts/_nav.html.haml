@@ -7,14 +7,14 @@
             = image_tag("logo.png")
     %section.top-bar-section
       %ul.right
-        %li
+        %li.articles-btn
           = link_to articles_path do
             = image_tag 'blog.png'
             = "博客"
         / %li
         /   = link_to series_index_path do
         /     = "系列"
-        %li
+        %li.presentation-btn
           = link_to presentation_index_path do
             = image_tag 'presentation.png'
             = "演示"
@@ -23,22 +23,52 @@
             - if user_signed_in?
               = current_user.email
             - else
+              %i.fa.fa-sign-in
               登录
           %ul.dropdown
             - if user_signed_in?
               %li
-                %a{:href => "/dashboard/index"} 控制台
+                %a{:href => "/dashboard/index"}
+                  %i.fa.fa-pencil-square-o
+                  控制台
               %li
-                %a{:href => "/site/random"} 随便看看
-              / %li
-              /   %a{:href => "#"} 设置
+                %a{:href => "/site/random"}
+                  %i.fa.fa-magic
+                  随便看看
               %li
-                = link_to '登出', destroy_user_session_path, :method => 'delete', data: { confirm: '确定登出？'}
+                %a#logout-btn{:href => "#"}
+                  %i.fa.fa-sign-out
+                  登出
             - else
               %li
-                %a{:href => "/site/random"} 随便看看
+                = link_to new_user_registration_path do
+                  %i.fa.fa-arrow-right
+                  注册
               %li
-                = link_to '注册', new_user_registration_path
+                %a{:href => "/site/random"}
+                  %i.fa.fa-magic
+                  随便看看
               %li
-                = link_to '#' do
-                  关于
+                = link_to '/' do
+                  %i.fa.fa-home
+                  首页
+
+= content_for :js_common do
+  :javascript
+    $('#logout-btn').click(function(){
+      alertify.confirm("您确定从阅台登出？", function (e) {
+        if (e) {
+          // user clicked "ok"
+          $.ajax({
+            url: '/users/sign_out',
+            type: 'DELETE',
+            success: function () {
+              window.location.href = '/';
+            }
+          });
+        } else {
+            // user clicked "cancel"
+            alertify.success("您刚刚取消了登出。");
+        }
+      });
+    });

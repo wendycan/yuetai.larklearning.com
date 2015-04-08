@@ -20,6 +20,7 @@ class Yuetai.Views.Presentations.PresentationsView extends Backbone.View
     snip = @limit(snip, 300)
     presentation = presentation.toJSON()
     presentation.content = snip
+    presentation.date = jQuery.timeago(presentation.created_at)
     $('#presentations').append(_.template($('#t-presentation').html())(presentation: presentation))
 
   strip: (html)->

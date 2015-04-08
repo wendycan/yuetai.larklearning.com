@@ -10,15 +10,17 @@
     $(document).ready(function () {
       var blogs_view = new Yuetai.Views.Blogs.BlogsView(#{blogs_json});
     });
-    // $('.bsts').addClass('active');
+    $('.articles-btn').addClass('active');
 
 %script{type: 'text/template', id: 't-blog'}
   %li.blog{:'data-id' => '{{= blog.id }}'}
     .row
       .large-12.columns
         %h5
-          %a{:href => "/articles/{{= blog.id }}" }
+          %a.title-user{:href => "/articles/{{= blog.id }}" }
             {{= blog.title }}
+        %p.name-user 作者: &nbsp; {{= blog.username}}
+        %p.time-user 时间: &nbsp; {{= blog.date }}
     .row
       .large-12.columns
         %p {{= blog.body }}

@@ -63,6 +63,7 @@ class Api < Grape::API
   end
 
   mount Yuetai::Articles
+  mount Yuetai::Tags
   mount Yuetai::Blogs
   mount Yuetai::Series
   mount Yuetai::Presentations

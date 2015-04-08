@@ -1,3 +1,9 @@
 json.array! @blogs do |blog|
-  json.extract! blog, :id, :title, :body, :user, :tag, :language
+  json.id blog.id
+  json.title blog.title
+  json.body blog.body
+  json.username blog.user.username
+  json.tag blog.tag
+  json.language blog.language
+  json.created_at blog.created_at
 end

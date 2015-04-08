@@ -25,15 +25,15 @@ class Yuetai.Views.Blogs.RandomView extends Yuetai.Views.Base
         $(xml).find("result_list blog").each ->
           _this.result_list.push $(this).find('id').text()
         _this.render()
-    )         
-  
+    )
+
   render: ->
     @fetchBlogs()
 
   fetchBlogs: ->
     _this = @
-    async.filter @blog_list, 
-      (id, callback)->  
+    async.filter @blog_list,
+      (id, callback)->
         $.ajax(
           url: "#{Yuetai.ApiPrefix}/articles/#{id}?template=blog"
           type: 'GET'
@@ -41,13 +41,14 @@ class Yuetai.Views.Blogs.RandomView extends Yuetai.Views.Base
             _this.blogs.push data
             callback(true)
         )
-      , 
+      ,
         ->
           _this.renderBlog(_this.blogs[0])
 
   renderBlog: (blog)->
     if blog.language == 'markdown'
       blog.body = @converter.makeHtml(blog.body)
+    blog.date = jQuery.timeago(blog.created_at)
     $('#random-blog').html(_.template($('#t-random-blog').html())({blog: blog}))
 
   randomBlog: ->

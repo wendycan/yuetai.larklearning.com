@@ -6,7 +6,7 @@ module Yuetai
       route_param :id, requirements: /[^\/]+/ do
         get do
           article = Article.where(template: params[:template]).find(params[:id])
-          article
+          JSON.parse article.to_json(:include => :user)
         end
 
       end

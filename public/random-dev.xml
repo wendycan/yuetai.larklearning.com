@@ -1,21 +1,21 @@
 <random_list>
   <blog_list>
     <blog>
-    <id>1</id>
+    <id>52</id>
     </blog>
     <blog>
-    <id>6</id>
+    <id>51</id>
     </blog>
     <blog>
-    <id>5</id>
+    <id>52</id>
     </blog>
   </blog_list>
   <result_list>
     <blog>
-    <id>5</id>
+    <id>51</id>
     </blog>
     <blog>
-    <id>1</id>
+    <id>52</id>
     </blog>
   </result_list>
 </random_list>

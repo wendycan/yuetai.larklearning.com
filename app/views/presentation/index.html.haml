@@ -10,11 +10,14 @@
     $(document).ready(function () {
       var presentations_view = new Yuetai.Views.Presentations.PresentationsView(#{presentations_json});
     });
-    // $('.bsts').addClass('active');
+    $('.presentation-btn').addClass('active');
 
 %script{type: 'text/template', id: 't-presentation'}
   %li.presentation
     %h5
       %a{:href => "/presentation/{{= presentation.id }}"}
-        {{= presentation.title }}
+        %span {{= presentation.title }}
+    %p.name-user-1 作者: &nbsp; {{= presentation.username }}
+    %p.time-user-1 时间: &nbsp; {{= presentation.date }}
     {{= presentation.content }}
+

@@ -12,7 +12,7 @@ module Yuetai
         get do
           authenticate!
           blog = current_user.articles.find(params[:id])
-          blog
+          JSON.parse blog.to_json(:include => :user)
         end
 
         put do
