@@ -6,11 +6,14 @@
     .inner-wrap
       = render :partial => 'layouts/nav'
       = render :partial => 'layouts/small_nav'
-      .hide
-        = if !notice.nil?
-          %p.notice= notice
-        = if !alert.nil?
-          %p.alert= alert
+      - if !notice.nil?
+        .alert-box.success{:'data-alert' => true}
+          = notice
+          %a.close{:href => "#"} &times;
+      - if !alert.nil?
+        .alert-box.alert{:'data-alert' => true}
+          = alert
+        %a.close{:href => "#"} &times;
       .not-footer
         = yield
       .footer
