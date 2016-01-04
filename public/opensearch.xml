@@ -2,5 +2,5 @@
   <ShortName>Yuetai</ShortName>
   <Description>Search Yuetai</Description>
   <InputEncoding>UTF-8</InputEncoding>
-  <Url type="text/html" method="get" template="http://yuetai.wendycan.org/site/search#tsq={searchTerms}&amp;tsp=0"/>
+  <Url type="text/html" method="get" template="http://yuetai.larklearning.com/site/search#tsq={searchTerms}&amp;tsp=0"/>
 </OpenSearchDescription>
