@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150321090107) do
+ActiveRecord::Schema.define(version: 20160104132349) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -21,7 +21,8 @@ ActiveRecord::Schema.define(version: 20150321090107) do
     t.string   "tag_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "language",   default: "html"
+    t.string   "language",      default: "html"
+    t.integer  "visited_count", default: 0
   end
 
   create_table "tags", force: true do |t|

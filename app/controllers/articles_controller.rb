@@ -6,5 +6,7 @@ class ArticlesController < ApplicationController
 
   def show
     @blog = Article.find_by_id(params[:id])
+    @blog.visited_count += 1
+    @blog.save
   end
 end
