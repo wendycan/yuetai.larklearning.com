@@ -3,18 +3,13 @@
   padding: 10px 0;
   li {
     display: inline-block;
-    padding: 2px 9px;
     text-align: center;
     line-height: 26px;
     font-size: 14px;
-  }
-  input {
-    display: inline-block;
-    font-size: 16px;
-    width: 35px;
-    height: 20px;
-    outline: none;
-    margin-right: 3px;
+    &.active,
+    a {
+      padding: 2px 9px;
+    }
   }
   .pager-sum {
     width: 70px;
@@ -35,11 +30,19 @@
       a {
         color: #fff;
       }
-      background-color: #d5d5d5;
+      background-color: $primary;
     }
   }
   form {
     display: inline-block;
+    input {
+      display: inline-block;
+      font-size: 16px;
+      width: 40px;
+      height: 30px;
+      outline: none;
+      margin-right: 3px;
+    }
     button {
       border: none;
       font-size: 14px;
@@ -47,8 +50,9 @@
       outline: none;
       padding: 4px 6px;
       cursor: pointer;
+      color: $primary;
       &:hover {
-        background: #E3E3E3;
+        color: $primary-hover;
       }
     }
   }

@@ -8,7 +8,7 @@
       - l = records.current_page - 2
       - r = records.current_page + 2
       - if records.previous_page
-        %li.pager-nav-btn
+        %li.pager-nav-btn.pager-prev
           = link_to(params.merge(:page => records.previous_page), {:class => 'prev'}) do
             上一页
       - if records.current_page == 1
