@@ -1,0 +1,55 @@
+.pager {
+  font-size: 16px;
+  padding: 10px 0;
+  li {
+    display: inline-block;
+    padding: 2px 9px;
+    text-align: center;
+    line-height: 26px;
+    font-size: 14px;
+  }
+  input {
+    display: inline-block;
+    font-size: 16px;
+    width: 35px;
+    height: 20px;
+    outline: none;
+    margin-right: 3px;
+  }
+  .pager-sum {
+    width: 70px;
+    text-align: left;
+    padding-left: 0;
+  }
+  .pager-prev,
+  .pager-next {}
+  .pager-skip {
+    float: right;
+    padding: 0;
+  }
+  .pager-nav-btn {
+    cursor: pointer;
+    &:hover,
+    &.active {
+      &,
+      a {
+        color: #fff;
+      }
+      background-color: #d5d5d5;
+    }
+  }
+  form {
+    display: inline-block;
+    button {
+      border: none;
+      font-size: 14px;
+      background: none;
+      outline: none;
+      padding: 4px 6px;
+      cursor: pointer;
+      &:hover {
+        background: #E3E3E3;
+      }
+    }
+  }
+}

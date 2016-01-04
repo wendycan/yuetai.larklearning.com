@@ -2,6 +2,7 @@
   .row.article-items
     .large-12.columns
       %ul#y-blogs
+      = render "layouts/pager"
 
 - blogs_json = render template: "articles/index", formats: [:json], handlers: [:jbuilder]
 
