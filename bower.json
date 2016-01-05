@@ -9,7 +9,8 @@
     "fullpage": "~2.6.2",
     "async": "~0.9.2",
     "timeago": "~1.4.1",
-    "alertify": "~0.3.10"
+    "alertify": "~0.3.10",
+    "simditor": "~2.3.6"
   },
   "private": true
 }
