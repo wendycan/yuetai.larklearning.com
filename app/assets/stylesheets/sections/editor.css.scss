@@ -1,0 +1,31 @@
+.simditor {
+  select {
+    -webkit-appearance: initial;
+    background-color: initial;
+    background-image: initial;
+    background-repeat: initial;
+    background-position: initial;
+    border: initial;
+    padding: initial;
+    font-size: initial;
+    border-radius: initial;
+    height: initial;
+    outline: none;
+  }
+  .link-popover select {
+    width: 200px;
+  }
+  input[type=text] {
+    height: 2em;
+  }
+  .toolbar-menu table {
+    width: 108px;
+    margin: 0;
+    th {
+      padding: 0;
+    }
+    td {
+      border: none;
+    }
+  }
+}
