@@ -27,7 +27,6 @@ module Yuetai
         end
       end
 
-
       post do
         authenticate!
         create_article
