@@ -1,0 +1,41 @@
+defaults: &defaults
+  email_regexp: '\A[^@]+@[^@]+\z'
+  username_regexp: '\A[a-zA-Z][\w-]{2,19}\z'
+  common_name_regexp: '\A[\w.+-]+\z'
+  large_items_per_page: 15
+  list_items_per_page: 15
+  available_locales:
+    - en
+    - zh-CN
+  ftp_server: ''
+  ftp_username: 'garden'
+  ftp_server_name: ''
+  ftp_pass: ''
+
+development:
+  <<: *defaults
+  socket_prefix: 'http://transfer-wendycan-local.com:3002'
+  # primary_locale: zh-CN
+  # client_id: 29820114e0d6b532504a
+  # client_secret: 925a561c2bb7375f3499340f8b78a804a711b939
+
+test:
+  <<: *defaults
+  # api_prefix: http://staging-api.dotide.com/v1
+  # primary_locale: en
+  # client_id: 29820114e0d6b532504a
+  # client_secret: 925a561c2bb7375f3499340f8b78a804a711b939
+  # dotide_db: nymtek-obu-devel
+  # global_read_token: c54b2b2dc0bf09b4efa56f427ea6114f736fae1e6892051039768422a63d7f8a
+  # global_write_token: a76dcb0acf88db6ba891b6cdc34cd458913f86f9d8a874f3b288b672cca1a300
+
+production: &production
+  <<: *defaults
+  socket_prefix: 'http://transfer.larklearning.com:3002'
+  # api_prefix: http://api.dotide.com/v1
+  # primary_locale: zh-CN
+  # client_id: 4c5c42de44e89692fa5d
+  # client_secret: 97c1f0c4065d85152f5b60cf32d1a2328623e759
+  # dotide_db: nymtek-obu
+  # global_read_token: 41c4fa8258e026adb97d9988ca7920b6b6e1128e1950fc786544d269ccf8e235
+  # global_write_token: 9404fde90f5534164c4da5fd2551807c63352b48dbcb9cfde4f7cfb63da417df

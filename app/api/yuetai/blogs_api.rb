@@ -1,3 +1,5 @@
+require 'net/ftp'
+
 module Yuetai
   class Blogs < Grape::API
     resource :blogs do
@@ -25,6 +27,20 @@ module Yuetai
           authenticate!
           delete_article
         end
+      end
+
+      post :upload do
+        file = params[:upload_file][:tempfile]
+        path = '/sharing_media/images/capture/' + params[:upload_file][:filename]
+        Net::FTP.open(Settings.ftp_server, Settings.ftp_username, Settings.ftp_pass) do |ftp|
+          ftp.passive = true
+          ftp.putbinaryfile(file, path)
+        end
+        present({
+          :success => true,
+          :msg => "error",
+          :file_path => Settings.ftp_server_name + path
+        })
       end
 
       post do

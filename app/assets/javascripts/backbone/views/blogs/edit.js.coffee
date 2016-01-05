@@ -24,6 +24,12 @@ class Yuetai.Views.Blogs.EditView extends Yuetai.Views.Base
         @editor = new Simditor
           textarea: $('#blog-edit-body')
           toolbar: toolbar
+          upload:
+            url: '/api/v1/blogs/upload'
+            params: null
+            fileKey: 'upload_file'
+            connectionCount: 3
+            leaveConfirm: 'Uploading is in progress, are you sure to leave this page?'
         @editor.setValue(@blog.get('body'))
 
   updateBlog: (e)->
