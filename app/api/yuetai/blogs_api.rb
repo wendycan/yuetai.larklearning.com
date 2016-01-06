@@ -38,7 +38,7 @@ module Yuetai
         end
         present({
           :success => true,
-          :msg => "error",
+          :msg => "success",
           :file_path => Settings.ftp_server_name + path
         })
       end
