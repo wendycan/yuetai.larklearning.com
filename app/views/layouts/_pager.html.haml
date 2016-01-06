@@ -1,0 +1,57 @@
+- records ||= @blogs
+- params.delete(:show_joke_point)
+- if records && records.total_pages > 1
+  - total_pages = [records.total_pages,1000].min
+  .pager
+    %ul
+      %li.pager-sum 共 #{total_pages} 页
+      - l = records.current_page - 2
+      - r = records.current_page + 2
+      - if records.previous_page
+        %li.pager-nav-btn.pager-prev
+          = link_to(params.merge(:page => records.previous_page), {:class => 'prev'}) do
+            上一页
+      - if records.current_page == 1
+        %li.pager-nav-btn.active 1
+      - else
+        %li.pager-nav-btn= link_to '1', params.merge(:page => 1)
+      - if l > 2
+        %li …
+      - else l = 2
+      - l.upto([r,total_pages - 1].min) do |i|
+        - if i == records.current_page
+          %li.pager-nav-btn.active= i
+        - else
+          %li.pager-nav-btn= link_to i, params.merge(:page => i)
+      - if r < total_pages - 1
+        %li …
+      - if records.current_page == total_pages
+        %li.pager-nav-btn.active= total_pages
+      - else
+        %li.pager-nav-btn= link_to total_pages, params.merge({:page => total_pages})
+      - if records.next_page
+        %li.pager-nav-btn.pager-next
+          = link_to '下一页', params.merge(:page => records.next_page), {:class => "next"}
+      - if total_pages > 1
+        %li.pager-skip
+          %form.pager-skip-form
+            %input{:type => "text"}
+            %button{:type => "submit"} 跳页
+
+= content_for :js_ext do
+  :javascript
+    $(document).ready(function () {
+      $('.pager-skip-form').on('submit', function (e) {
+        e.preventDefault();
+        var page_num = $.trim($(this).find('input').val());
+        if (page_num) {
+          var href = $('.pager .pager-next a').attr('href') || $('.pager .pager-prev a').attr('href');
+          if (href) {
+            if (href.match(/page=/)) {
+              window.location.href = href.replace(/page=\d+/, "page=" + page_num);
+            }
+          }
+        }
+      });
+    });
+

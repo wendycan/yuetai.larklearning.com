@@ -1,6 +1,6 @@
 class SeriesController < ApplicationController
   def index
-    @series = Article.order("updated_at DESC").where(template: 'series')
+    @series = Article.order("created_at DESC").where(template: 'series')
   end
 
   def show

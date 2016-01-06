@@ -9,6 +9,7 @@ class Yuetai.Views.Blogs.BlogsView extends Backbone.View
     @renderBlogs()
 
   renderBlogs: ->
+    $('#y-blogs').empty()
     @blogs.each(@renderBlog, @)
 
   renderBlog: (blog)->

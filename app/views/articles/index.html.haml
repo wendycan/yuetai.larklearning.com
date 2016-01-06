@@ -2,6 +2,11 @@
   .row.article-items
     .large-12.columns
       %ul#y-blogs
+        %li.loading
+          %i.fa.fa-spinner.fa-spin
+  .row
+    .large-12.columns
+      = render "layouts/pager"
 
 - blogs_json = render template: "articles/index", formats: [:json], handlers: [:jbuilder]
 
@@ -21,6 +26,7 @@
             {{= blog.title }}
         %p.name-user 作者: &nbsp; {{= blog.username}}
         %p.time-user 时间: &nbsp; {{= blog.date }}
+        %p.time-user 阅读: &nbsp;  {{= blog.visited_count }} 次
     .row
       .large-12.columns
         %p {{= blog.body }}
