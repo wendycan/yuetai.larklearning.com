@@ -8,9 +8,10 @@ defaults: &defaults
     - en
     - zh-CN
   ftp_server: ''
-  ftp_username: 'garden'
+  ftp_username: ''
   ftp_server_name: ''
   ftp_pass: ''
+  ftp_path: '/yuetai/images/'
 
 development:
   <<: *defaults

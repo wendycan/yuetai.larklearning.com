@@ -31,7 +31,7 @@ module Yuetai
 
       post :upload do
         file = params[:upload_file][:tempfile]
-        path = '/sharing_media/images/capture/' + params[:upload_file][:filename]
+        path = Settings.ftp_path + Time.now.strftime('%Y%m%d%H%M%S') + '_'+ params[:upload_file][:filename]
         Net::FTP.open(Settings.ftp_server, Settings.ftp_username, Settings.ftp_pass) do |ftp|
           ftp.passive = true
           ftp.putbinaryfile(file, path)
