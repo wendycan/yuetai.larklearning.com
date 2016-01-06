@@ -10,12 +10,13 @@
     }
   }
 
-  .editor {
-    height: 500px;
-    margin-bottom: 10px;
+  .simditor {
+    margin-bottom: 20px;
   }
 
   .page.active {
     background-color: $primary-bg;
+  }
+  #new-blog-form, #edit-blog-form {
   }
 }
