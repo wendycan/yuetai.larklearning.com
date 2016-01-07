@@ -7,7 +7,7 @@ module Yuetai
       get do
         authenticate!
         blogs = current_user.articles.where(template: 'blog').order("created_at DESC").all
-        blogs
+        present blogs, with: Entities::Blog
       end
 
       route_param :id, requirements: /[^\/]+/ do

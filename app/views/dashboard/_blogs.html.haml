@@ -13,6 +13,7 @@
       .large-10.columns
         %a{:href => "#blogs/{{= blog.id }}" }
           {{= blog.title }}
+        %span.pull-right {{= blog.tag_list }}
       .large-2.columns
         %a{:href => "#blogs/{{= blog.id }}/edit"}
           .fa.fa-edit

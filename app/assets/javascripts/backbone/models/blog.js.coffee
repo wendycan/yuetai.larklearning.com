@@ -3,7 +3,7 @@ class Yuetai.Models.Blog extends Backbone.Model
     title: ""
     body: ""
     id : ""
-    tag_id: ""
+    tag_list: ""
     user_id: ""
 
   sync: Yuetai.Common.api_sync

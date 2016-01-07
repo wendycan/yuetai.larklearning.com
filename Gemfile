@@ -9,6 +9,7 @@ gem 'settingslogic'
 gem 'sqlite3'
 
 gem 'grape'
+gem 'grape-entity', '~> 0.4.4'
 
 gem 'devise'
 # Use SCSS for stylesheets
