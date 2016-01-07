@@ -17,6 +17,28 @@ class Yuetai.Views.Blogs.EditView extends Yuetai.Views.Base
 
   fetchBlog: ->
     toolbar = ['title', 'bold', 'italic', 'underline', 'strikethrough', 'fontScale', 'color', '|', 'ol', 'ul', 'blockquote', 'code', 'table', '|', 'link', 'image', 'hr', '|', 'indent', 'outdent', 'alignment']
+    language = [
+      { name: 'Bash', value: 'bash' }
+      { name: 'C++', value: 'c++' }
+      { name: 'C#', value: 'cs' }
+      { name: 'CSS', value: 'css' }
+      { name: 'Erlang', value: 'erlang' }
+      { name: 'Less', value: 'less' }
+      { name: 'Sass', value: 'sass' }
+      { name: 'Diff', value: 'diff' }
+      { name: 'CoffeeScript', value: 'coffeescript' }
+      { name: 'HTML,XML', value: 'html' }
+      { name: 'JSON', value: 'json' }
+      { name: 'Java', value: 'java' }
+      { name: 'JavaScript', value: 'js' }
+      { name: 'Markdown', value: 'markdown' }
+      { name: 'Objective C', value: 'objc' }
+      { name: 'PHP', value: 'php' }
+      { name: 'Perl', value: 'parl' }
+      { name: 'Python', value: 'python' }
+      { name: 'Ruby', value: 'ruby' }
+      { name: 'SQL', value: 'sql'}
+    ]
     @blog.fetch
       success: =>
         _this = this
@@ -24,12 +46,13 @@ class Yuetai.Views.Blogs.EditView extends Yuetai.Views.Base
         @editor = new Simditor
           textarea: $('#blog-edit-body')
           toolbar: toolbar
+          language: language
           upload:
             url: '/api/v1/blogs/upload'
             params: null
             fileKey: 'upload_file'
             connectionCount: 3
-            leaveConfirm: 'Uploading is in progress, are you sure to leave this page?'
+            leaveConfirm: '正在上传中，确定离开?'
         @editor.setValue(@blog.get('body'))
 
   updateBlog: (e)->

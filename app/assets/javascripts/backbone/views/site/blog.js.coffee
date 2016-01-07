@@ -7,10 +7,11 @@ class Yuetai.Views.Blogs.BlogView extends Backbone.View
     @blog = new Yuetai.Models.Blog(opts)
     @converter = new Showdown.converter()
     @renderBlog()
+    hljs.initHighlightingOnLoad()
 
   renderBlog: ->
     blog = @blog.toJSON()
     if blog.language == 'markdown'
       blog.body = @converter.makeHtml(blog.body)
     blog.date = jQuery.timeago(blog.created_at)
-    @$el.html(_.template($('#t-blog-show').html())(blog: blog)) 
+    @$el.html(_.template($('#t-blog-show').html())(blog: blog))

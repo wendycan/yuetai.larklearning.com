@@ -7,6 +7,7 @@ class Yuetai.Views.Blogs.BlogsView extends Backbone.View
     @blogs = new Yuetai.Collections.Blogs(opts)
     @converter = new Showdown.converter()
     @renderBlogs()
+    hljs.initHighlightingOnLoad()
 
   renderBlogs: ->
     $('#y-blogs').empty()

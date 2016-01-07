@@ -3,3 +3,4 @@
 //= require simple-hotkeys/lib/hotkeys
 //= require simple-uploader/lib/uploader
 //= require simditor/lib/simditor
+//= require highlightjs/highlight.pack

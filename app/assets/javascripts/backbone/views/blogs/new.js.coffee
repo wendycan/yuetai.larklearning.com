@@ -9,9 +9,38 @@ class Yuetai.Views.Blogs.NewView extends Yuetai.Views.Base
 
   renderSimdEditor: ->
     toolbar = ['title', 'bold', 'italic', 'underline', 'strikethrough', 'fontScale', 'color', '|', 'ol', 'ul', 'blockquote', 'code', 'table', '|', 'link', 'image', 'hr', '|', 'indent', 'outdent', 'alignment']
+    language = [
+      { name: 'Bash', value: 'bash' }
+      { name: 'C++', value: 'c++' }
+      { name: 'C#', value: 'cs' }
+      { name: 'CSS', value: 'css' }
+      { name: 'Erlang', value: 'erlang' }
+      { name: 'Less', value: 'less' }
+      { name: 'Sass', value: 'sass' }
+      { name: 'Diff', value: 'diff' }
+      { name: 'CoffeeScript', value: 'coffeescript' }
+      { name: 'HTML,XML', value: 'html' }
+      { name: 'JSON', value: 'json' }
+      { name: 'Java', value: 'java' }
+      { name: 'JavaScript', value: 'js' }
+      { name: 'Markdown', value: 'markdown' }
+      { name: 'Objective C', value: 'objc' }
+      { name: 'PHP', value: 'php' }
+      { name: 'Perl', value: 'parl' }
+      { name: 'Python', value: 'python' }
+      { name: 'Ruby', value: 'ruby' }
+      { name: 'SQL', value: 'sql'}
+    ]
     @editor = new Simditor
       textarea: $('#blog-new-body')
       toolbar: toolbar
+      language: language
+      upload:
+        url: '/api/v1/blogs/upload'
+        params: null
+        fileKey: 'upload_file'
+        connectionCount: 3
+        leaveConfirm: '正在上传中，确定离开?'
 
   render: ->
     # @rm_nav()
