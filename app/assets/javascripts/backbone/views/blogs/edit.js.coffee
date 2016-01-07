@@ -61,7 +61,7 @@ class Yuetai.Views.Blogs.EditView extends Yuetai.Views.Base
     data = {}
     data.title = @$(e.currentTarget).find('#blog-title').val()
     data.body = @editor.getValue();
-    data.tag_id = @$(e.currentTarget).find('#blog-tag').val()
+    data.tag_list = @$(e.currentTarget).find('#blog-tag').val()
     data.user_id = @account.id
     data.template = 'blog'
     @blog.save data

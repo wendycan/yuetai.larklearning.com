@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  # attr_accessible :content, :name, :tag_list
+  # attr_accessible :body, :title, :tag_list, :template, :language
 
   belongs_to :user
   has_many :taggings

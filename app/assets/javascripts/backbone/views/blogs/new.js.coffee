@@ -59,7 +59,7 @@ class Yuetai.Views.Blogs.NewView extends Yuetai.Views.Base
     data = {}
     data.title = @$(e.currentTarget).find('#blog-title').val()
     data.body = @getValue()
-    data.tag_id = @$(e.currentTarget).find('#blog-tag').val()
+    data.tag_list = @$(e.currentTarget).find('#blog-tag').val()
     data.user_id = @account.id
     data.newbl = @$(e.currentTarget).find('#newbl').val()
     data.template = 'blog'
