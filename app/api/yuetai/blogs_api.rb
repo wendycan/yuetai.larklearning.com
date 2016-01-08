@@ -14,13 +14,7 @@ module Yuetai
         get do
           authenticate!
           blog = current_user.articles.find(params[:id])
-          present({
-            :body => blog.body,
-            :title => blog.title,
-            :tag_list => blog.tag_list,
-            :template => blog.template,
-            :language => blog.language
-            })
+          present blog, with: Entities::Blog
         end
 
         put do
