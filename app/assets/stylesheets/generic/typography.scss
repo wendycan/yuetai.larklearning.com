@@ -2,9 +2,9 @@ body{
   font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !important;
 }
 a, .primary-color {
-  color: $primary;
+  color: $primary-color;
   &:hover{
-    color: $primary-hover;
+    color: $primary-color;
   }
 }
 hr{
@@ -21,13 +21,13 @@ hr{
   color: white;
   font-weight: normal;
   &:hover{
-    color: $primary;
+    color: $primary-color;
   }
 }
 .reverse{
-  color: $primary-hover;
+  color: $primary-color;
   &:hover{
-    color: $primary;
+    color: $primary-color;
   }
 }
 body pre {
@@ -105,7 +105,7 @@ ul.list{
   margin: 6px;
 }
 .label.primary{
-  background-color: $primary;
+  background-color: $primary-color;
 }
 .limit-width{
   white-space: nowrap;
@@ -116,21 +116,21 @@ ul.list{
 .lists {
   list-style-type: none;
 }
-.brown-color{
-  color: $brown;
-}
-.green-color{
-  color: $green;
-}
-.blue-color{
-  color: $blue;
-}
-.orange-color{
-  color: $orange;
-}
-.gray-dark-bg{
-  background-color: $gray-darkest;
-}
+// .brown-color{
+//   color: $brown;
+// }
+// .green-color{
+//   color: $green;
+// }
+// .blue-color{
+//   color: $blue;
+// }
+// .orange-color{
+//   color: $orange;
+// }
+// .gray-dark-bg{
+//   background-color: $gray-darkest;
+// }
 
 .wide {
   width: 100%;

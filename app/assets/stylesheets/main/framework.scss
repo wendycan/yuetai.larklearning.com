@@ -50,7 +50,7 @@
 // $default-float: left;
 
 // We use these as default colors throughout
-$primary-color: $primary;
+$primary-color: $primary-color;
 // $secondary-color: #e7e7e7;
 $alert-color: #ee5f5b;
 $success-color: #57a957;
@@ -860,8 +860,8 @@ $sub-nav-font-weight: normal;
 // We use these to control the active item styles
 
 // $sub-nav-active-font-weight: normal;
-$sub-nav-active-bg: $gray-bg;
-$sub-nav-active-bg-hover: $gray-bg;
+$sub-nav-active-bg: $gray-bg-color;
+$sub-nav-active-bg-hover: $gray-bg-color;
 $sub-nav-active-color: black;
 // $sub-nav-active-padding: rem-calc(3 16);
 // $sub-nav-active-cursor: default;
@@ -1011,8 +1011,8 @@ $sub-nav-active-color: black;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: $gray-bg;
-// $topbar-bg: $gray-bg;
+// $topbar-bg-color: $gray-bg-color;
+// $topbar-bg: $gray-bg-color;
 
 // Height and margin
 // $topbar-height: 60px;
@@ -1038,9 +1038,9 @@ $sub-nav-active-color: black;
 // $topbar-link-weight: bold;
 // $topbar-link-font-size: rem-calc(17);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
-// $topbar-link-bg-hover: $gray-bg;
-// $topbar-link-bg-active: $gray-bg;
-// $topbar-link-bg-active-hover: $gray-bg;
+// $topbar-link-bg-hover: $gray-bg-color;
+// $topbar-link-bg-active: $gray-bg-color;
+// $topbar-link-bg-active-hover: $gray-bg-color;
 // $topbar-link-font-family: $body-font-family;
 
 // $topbar-button-font-size: 0.75rem;

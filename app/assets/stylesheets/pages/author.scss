@@ -5,13 +5,13 @@
       margin-top: 20px;
       li{
         padding: 20px 5px 20px 5px;
-        background-color: $gray-bg;
+        background-color: $gray-bg-color;
         &:hover{
           opacity: 0.8;
         }
       }
       a:hover{
-        color: $primary;
+        color: $primary-color;
       }
     }
   }

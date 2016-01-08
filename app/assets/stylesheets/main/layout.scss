@@ -6,7 +6,7 @@ html, body {
   padding-bottom: 50px;
 }
 .gray-bg{
-  background-color: $gray-bg;
+  background-color: $gray-bg-color;
 }
 .content-body{
   padding-top: 45px;
@@ -22,15 +22,15 @@ html, body {
 }
 .content-box {
   border: solid 1px $gray-border;
-  box-shadow: 1px 0 3px $gray-bg, -1px 0 3px $gray-bg;
+  box-shadow: 1px 0 3px $gray-bg-color, -1px 0 3px $gray-bg-color;
   .content-box-head {
-    background-color: $gray-bg;
+    background-color: $gray-bg-color;
     vertical-align: middle;
     padding: 5px 0 3px 10px;
   }
   &.warning-box {
     .content-box-head {
-      background-color: $alert-color;
+      background-color: $warnning-color;
       h1, h2, h3, h4, h5 {
         color: white;
       }
