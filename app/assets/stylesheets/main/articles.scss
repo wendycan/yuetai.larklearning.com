@@ -1,6 +1,18 @@
-.article-head {}
+.main-content {
+  padding: 60px 0 0 220px;
+  .sidebar {
+    box-sizing: border-box;
+    padding: 10px;
+    width: 200px;
+    position: fixed;
+    left: 0;
+    top: 50px;
+    bottom: 0;
+    border-right: solid 1px $gray-border;
+  }
+}
 
-.article-items {
+.articles {
   min-height: 80vh;
   .loading {
     text-align: center;
@@ -10,7 +22,7 @@
       color: $primary-color;
     }
   }
-   & > div > ul {
+  & > div > ul {
     & > li {
       list-style: none;
       padding-top: 20px;

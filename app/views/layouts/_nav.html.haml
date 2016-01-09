@@ -1,57 +1,52 @@
-.show-for-medium-up
-  %nav.top-bar{:'data-topbar' => true}
-    %ul.title-area
-      %li.name
-        %h1
-          = link_to '/' do
-            = image_tag("logo.png")
-    %section.top-bar-section
-      %ul.right
-        %li.articles-btn
-          = link_to articles_path do
-            = image_tag 'blog.png'
-            = "博客"
-        / %li
-        /   = link_to series_index_path do
-        /     = "系列"
-        %li.presentation-btn
-          = link_to presentation_index_path do
-            = image_tag 'presentation.png'
-            = "演示"
-        %li.has-dropdown
-          = link_to new_user_session_path do
-            - if user_signed_in?
-              = current_user.email
-            - else
-              %i.fa.fa-sign-in
-              登录
-          %ul.dropdown
-            - if user_signed_in?
-              %li
-                %a{:href => "/dashboard/index"}
-                  %i.fa.fa-pencil-square-o
-                  控制台
-              %li
-                %a{:href => "/site/random"}
-                  %i.fa.fa-magic
-                  随便看看
-              %li
-                %a#logout-btn{:href => "#"}
-                  %i.fa.fa-sign-out
-                  登出
-            - else
-              %li
-                = link_to new_user_registration_path do
-                  %i.fa.fa-arrow-right
-                  注册
-              %li
-                %a{:href => "/site/random"}
-                  %i.fa.fa-magic
-                  随便看看
-              %li
-                = link_to '/' do
-                  %i.fa.fa-home
-                  首页
+.show-for-small-up
+  %nav.clearfix
+    %ul.left
+      %li
+        = link_to '/' do
+          = image_tag("logo.png")
+    %ul.right
+      %li
+        = link_to new_user_session_path do
+          - if user_signed_in?
+            = current_user.email
+          - else
+            %i.fa.fa-sign-in
+            登录
+      %li
+        = link_to new_user_registration_path do
+          - if user_signed_in?
+            = current_user.email
+          - else
+            %i.fa.fa-arrow-right
+            注册
+
+/ %ul.dropdown
+/   - if user_signed_in?
+/     %li
+/       %a{:href => "/dashboard/index"}
+/         %i.fa.fa-pencil-square-o
+/         控制台
+/     %li
+/       %a{:href => "/site/random"}
+/         %i.fa.fa-magic
+/         随便看看
+/     %li
+/       %a#logout-btn{:href => "#"}
+/         %i.fa.fa-sign-out
+/         登出
+/   - else
+/     %li
+/       = link_to new_user_registration_path do
+/         %i.fa.fa-arrow-right
+/         注册
+/     %li
+/       %a{:href => "/site/random"}
+/         %i.fa.fa-magic
+/         随便看看
+/     %li
+/       = link_to '/' do
+/         %i.fa.fa-home
+/         首页
 
 = content_for :js_common do
   :javascript
