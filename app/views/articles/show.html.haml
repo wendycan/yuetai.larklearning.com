@@ -1,14 +1,8 @@
 .container.article-wrap
   .sidebar.pull-left
     .author-summary
-      %h6 热门作者
-      %ul
-        %li hi
-        %li hi
-        %li hi
-        %li hi
-        %li hi
-        %li hi
+      = link_to '#' do
+        = image_tag 'wendy.png'
   .article#main-content
 
 - blog_json = render template: "articles/show", formats: [:json], handlers: [:jbuilder]
