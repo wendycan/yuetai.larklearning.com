@@ -4,22 +4,18 @@ nav {
   right: 0;
   height: 50px;
   background-color: #fff;
+  padding: 0 20px;
   ul {
     margin: 0;
   }
   img {
     height: 35px;
-    margin-left: 10px;
   }
   li {
     height: 50px;
     list-style: none;
     display: inline-block;
     line-height: 50px;
-    a {
-      height: 50px;
-      display: inline-block;
-    }
   }
   border-bottom: solid 1px $gray-border;
 }

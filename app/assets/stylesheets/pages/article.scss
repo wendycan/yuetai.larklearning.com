@@ -1,51 +1,11 @@
-.article{
-  .meta{
-    p{
-      margin-bottom: 10px;
+.article-wrap {
+  h4 {
+    margin: 0;
+  }
+  .article-meta {
+    padding: 10px 0;
+    span {
+      font-size: 12px;
     }
-    small{
-      vertical-align: bottom;
-    }
-    a:hover{
-      img{
-        opacity: 0.8;
-      }
-    }
-    margin-bottom: 30px;
-    margin-top: 20px;
   }
-  .body p{
-    text-indent: 2rem;
-  }
-  p.remove-indent{
-    text-indent: 0;
-  }
-}
-.articles{
-  p{
-    margin-bottom: 0.8rem;
-  }
-  hr:last-child{
-    display: none;
-  }
-}
-.blog h5,.article-page h5{
-  border-bottom: 1px solid $gray-border;
-  margin-bottom: 15px;
-  padding-bottom: 5px;
-}
-.name-user,.time-user,.name-user-show,.time-user-show{
-  font-size: 0.9em;
-  color:#556677;
-  margin-left: 15px;
-}
-.time-user,.time-user-show{
-  margin-top: -15px;
-  margin-left: 15px;
-}
-.title-user{
-  font-size: 1.5em;
-}
-.article-page h5 span{
-  font-size: 1.5em;
 }

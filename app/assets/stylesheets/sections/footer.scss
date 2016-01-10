@@ -1,6 +1,6 @@
 .footer{
   h5{
-    color: $gray-border;
+    color: $gray-text;
   }
   hr{
     color: $gray-border;
@@ -8,7 +8,7 @@
     margin-bottom: 10px;
   }
   small, .reverse{
-    color: $gray-border;
+    color: $gray-text;
   }
   .reverse:hover{
     color: $primary-color;
@@ -21,7 +21,7 @@
   }
   .static{
     a{
-      color: $gray-border;
+      color: $gray-text;
       font-size: 0.8rem;
     }
   }

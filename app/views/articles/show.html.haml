@@ -1,7 +1,15 @@
-#main-content.article-body
-.row.wrap
-  .large-12.columns
-    .ds-thread{:'data-thread-key' => '', :'data-title' => 'title', :'data-url' => ''}
+.container.article-wrap
+  .sidebar.pull-left
+    .author-summary
+      %h6 热门作者
+      %ul
+        %li hi
+        %li hi
+        %li hi
+        %li hi
+        %li hi
+        %li hi
+  .article#main-content
 
 - blog_json = render template: "articles/show", formats: [:json], handlers: [:jbuilder]
 
@@ -12,28 +20,14 @@
       $('.articles-btn').addClass('active');
     });
 
-:javascript
-  var duoshuoQuery = {short_name:"wendycan"};
-  (function() {
-  var ds = document.createElement('script');
-  ds.type = 'text/javascript';ds.async = true;
-  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-  ds.charset = 'UTF-8';
-  (document.getElementsByTagName('head')[0]
-  || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-
 %script{type: 'text/template', id: 't-blog-show'}
-  .row.article-page
-    .large-12.columns
-      %h5
-        %span  {{= blog.title }}
-        %span.pull-right {{= blog.tag_list }}
-      %p.name-user-show 作者: &nbsp; {{= blog.username}}
-      %p.time-user-show 时间: &nbsp; {{= blog.date }}
-      %p 阅读: &nbsp;  {{= blog.visited_count }} 次
-  .row
-    .large-12.columns
-      %p {{= blog.body }}
+  .article
+    %h4 {{= blog.title }}
+    .article-meta
+      %span {{= blog.date }}
+      %span {{= blog.visited_count }} 次阅读
+      %span {{= blog.tag_list }}
+    .aritcle-body
+      {{= blog.body }}
 
 

@@ -1,4 +1,4 @@
-#main-content.main-content
+#main-content.articles-wrap.container
   .sidebar.pull-left
     .hot-tags
       %h6 热门书签
@@ -18,10 +18,9 @@
         %li hi
         %li hi
         %li hi
-  .articles
-    #y-blogs
-      .loading
-        %i.fa.fa-spinner.fa-spin
+  #y-blogs.articles
+    .loading
+      %i.fa.fa-spinner.fa-spin
 
   = render "layouts/pager"
 
@@ -35,12 +34,18 @@
     $('.articles-btn').addClass('active');
 
 %script{type: 'text/template', id: 't-blog'}
-  .blog{:'data-id' => '{{= blog.id }}'}
-    %h5
-      %a.title-user{:href => "/articles/{{= blog.id }}" }
+  .article{:'data-id' => '{{= blog.id }}'}
+    %h4
+      %a{:href => "/articles/{{= blog.id }}" }
         {{= blog.title }}
-      %span.pull-right {{= blog.tag_list }}
-    %p.name-user 作者: &nbsp; {{= blog.username}}
-    %p.time-user 时间: &nbsp; {{= blog.date }}
-    %p.time-user 阅读: &nbsp;  {{= blog.visited_count }} 次
-    %p {{= blog.body }}
+    .article-meta
+      %p
+        %a.article-author-name {{= blog.username}}
+        %span.article-date {{= blog.date}}
+        %strong {{= blog.visited_count}}
+        %span 次阅读
+      %p.tag-list {{= blog.tag_list }}
+    .article-body
+      %p {{= blog.body }}
+    %hr
+
