@@ -15,5 +15,30 @@
       border-radius: 50%;
       width: 75%;
     }
+    p {
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+    h5 {
+      margin-bottom: 0.2rem;
+    }
+  }
+  .author-count {
+    padding: 5px 0;
+    p {
+      margin: 0;
+      line-height: 1.3;
+    }
+  }
+  .author-links {
+    i {
+      font-size: 1.5rem;
+    }
+    a {
+      color: $gray-text;
+      &:hover {
+        color: $primary-color;
+      }
+    }
   }
 }

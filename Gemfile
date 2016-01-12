@@ -33,7 +33,7 @@ gem 'carrierwave'
 gem 'jquery-rails'
 
 # Front-end framework
-gem 'foundation-rails'
+gem 'foundation-rails', '5.4.3.1'
 
 # Icons
 gem 'font-awesome-sass'

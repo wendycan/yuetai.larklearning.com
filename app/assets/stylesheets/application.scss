@@ -11,10 +11,11 @@
  *= require vendor
  *= require_self
  */
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "main/variables";
 @import "main/framework";
 @import "main/mixins";
-@import "main/fonts";
 @import "main/layout";
 @import "main/account";
 @import "main/main";

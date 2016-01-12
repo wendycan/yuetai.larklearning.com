@@ -3,6 +3,25 @@
     .author-summary
       = link_to '#' do
         = image_tag 'wendy.png'
+      %h5
+        = link_to 'wendy', '#'
+      .author-count
+        %p
+          %span
+            文章数
+            %strong 12
+        %p
+          %span
+            总字数
+            %strong 12
+      %p= '一个大胆，新奇，激情的姑娘，热爱生活的点点滴滴'
+      .author-links
+        %a{:href => '#'}
+          %i.fa.fa-github
+        %a{:href => '#'}
+          %i.fa.fa-weixin
+        %a{:href => '#'}
+          %i.fa.fa-weibo
   .article#main-content
 
 - blog_json = render template: "articles/show", formats: [:json], handlers: [:jbuilder]
