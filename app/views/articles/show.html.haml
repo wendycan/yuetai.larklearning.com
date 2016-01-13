@@ -33,6 +33,8 @@
       $('.articles-btn').addClass('active');
     });
 
+= content_for :title, @blog.title
+
 %script{type: 'text/template', id: 't-blog-show'}
   .article
     %h4 {{= blog.title }}
