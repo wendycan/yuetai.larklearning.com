@@ -1,0 +1,53 @@
+.login {
+  .auth_providers {
+    margin-bottom: 30px;
+  }
+}
+
+.setting-content {
+  .edit {
+    margin-top: 20px;
+  }
+  .btn-primary {
+    margin-right: 10px;
+  }
+  ul {
+    list-style: none;
+    margin-left: 0;
+    font-size: 14px;
+  }
+}
+
+.account-form.columns {
+  p {
+    font-size: 15px;
+  }
+  .form-info {
+    font-size: 30px;
+    i {
+      padding-right: 5px;
+    }
+    p {
+      margin-bottom: 3px;
+    }
+  }
+  .button.btn-default {
+    box-shadow: 0 1px 3px 1px $gray-bg-color;
+    margin-right: 10px;
+    font-size: 18px;
+  }
+  .field {
+    input,
+    textarea {
+      border: solid 2px $gray-border;
+      padding: 5px 10px 5px 10px;
+      border-color: $gray-border;
+      box-shadow: none !important;
+      height: 45px;
+      border-radius: 3px;
+      &:focus {
+        border-color: red;
+      }
+    }
+  }
+}

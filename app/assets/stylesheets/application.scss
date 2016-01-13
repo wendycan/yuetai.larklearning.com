@@ -1,46 +1,35 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
  *= require vendor
  *= require_self
  */
+
+/**
+ * Vendor css (forms, nav etc):
+ */
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "main/variables";
-@import "main/framework";
-@import "main/mixins";
-@import "main/layout";
-@import "main/account";
-@import "main/main";
-@import "main/dashboard";
-@import "main/articles";
-@import "main/home";
+
+/**
+ * Settings css:
+ */
+@import "settings/variables";
+@import "settings/framework";
 
 /**
  * Generic css (forms, nav etc):
  */
+@import "generic/mixins";
+@import "generic/normalize";
+@import "generic/utils";
 @import "generic/alert";
-@import "generic/buttons";
-@import "generic/forms";
-@import "generic/links";
-@import "generic/typography";
-@import "generic/table";
-@import "generic/tags";
-@import "generic/markdown";
+@import "generic/layout";
+// @import "generic/markdown";
 
 /**
- * Page specific styles:
+ * Sections styles:
  */
 @import "sections/nav";
 @import "sections/footer";
-@import "sections/sidebar";
 @import "sections/pager";
 @import "sections/editor";
 
@@ -49,5 +38,8 @@
  */
 @import "pages/home";
 @import "pages/author";
-@import "pages/article";
 @import "pages/presentation";
+@import "pages/account";
+@import "pages/dashboard";
+@import "pages/article";
+@import "pages/articles";

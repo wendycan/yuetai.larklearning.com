@@ -1,28 +1,28 @@
-.author{
-  .articles{
+.author {
+  .articles {
     margin-bottom: 20px;
-    ul{
+    ul {
       margin-top: 20px;
-      li{
+      li {
         padding: 20px 5px 20px 5px;
         background-color: $gray-bg-color;
-        &:hover{
+        &:hover {
           opacity: 0.8;
         }
       }
-      a:hover{
+      a:hover {
         color: $primary-color;
       }
     }
   }
-  .meta{
-    img{
+  .meta {
+    img {
       margin-bottom: 20px;
     }
-    p{
+    p {
       margin-bottom: 5px;
     }
-    .label{
+    .label {
       margin-right: 10px;
     }
   }

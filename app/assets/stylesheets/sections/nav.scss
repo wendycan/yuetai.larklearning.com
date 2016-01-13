@@ -20,3 +20,18 @@ nav {
   }
   border-bottom: solid 1px $gray-border;
 }
+
+ul.small-nav {
+  li {
+    text-align: center;
+  }
+  li.about a {
+    display: inline;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  img {
+    width: 30px;
+    padding-right: 10px;
+  }
+}

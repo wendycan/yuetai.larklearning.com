@@ -1,0 +1,33 @@
+html,
+body {
+  overflow: visible;
+}
+
+body {
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif !important;
+}
+
+a {
+  color: $primary-color;
+  &:hover {
+    color: $primary-dark-color;
+  }
+}
+
+hr {
+  margin: 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+  th,
+  td {
+    background-color: white;
+    border: solid 1px $gray-border;
+  }
+  th {
+    background-color: $gray-bg-color;
+  }
+}
