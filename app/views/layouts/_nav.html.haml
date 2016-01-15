@@ -3,57 +3,57 @@
     %ul.left
       %li
         = link_to '/articles' do
-          = image_tag("logo.png")
+          = image_tag('logo.png')
     %ul.right
-      %li
-        = link_to new_user_session_path do
-          - if user_signed_in?
+      - if user_signed_in?
+        %li.nav-user-btn
+          %a{:href => '#'}
+            %i.fa.fa-user
             = current_user.email
-          - else
+            %i.fa.fa-angle-down
+          %ul.children-nav
+            %li
+              %a{:href => '/dashboard/index'}
+                %i.fa.fa-file-text-o
+                我的博客
+            %li
+              %a{:href => '/dashboard/index#presentations'}
+                %i.fa.fa-caret-square-o-right
+                我的演示文稿
+            %li
+              %a{:href => '#'}
+                %i.fa.fa-wrench
+                设置
+            %li
+              %a{:href => '#'}
+                %i.fa.fa-user-secret
+                管理
+            %li
+              %a#logout-btn{:href => '#'}
+                %i.fa.fa-sign-out
+                退出
+      - else
+        %li
+          = link_to new_user_session_path do
             %i.fa.fa-sign-in
             登录
-      %li
-        = link_to new_user_registration_path do
-          - if user_signed_in?
-            = current_user.email
-          - else
+        %li
+          = link_to new_user_registration_path do
             %i.fa.fa-arrow-right
             注册
 
 / %ul.dropdown
-/   - if user_signed_in?
 /     %li
-/       %a{:href => "/dashboard/index"}
-/         %i.fa.fa-pencil-square-o
-/         控制台
-/     %li
-/       %a{:href => "/site/random"}
+/       %a{:href => '/site/random'}
 /         %i.fa.fa-magic
 /         随便看看
-/     %li
-/       %a#logout-btn{:href => "#"}
-/         %i.fa.fa-sign-out
-/         登出
-/   - else
-/     %li
-/       = link_to new_user_registration_path do
-/         %i.fa.fa-arrow-right
-/         注册
-/     %li
-/       %a{:href => "/site/random"}
-/         %i.fa.fa-magic
-/         随便看看
-/     %li
-/       = link_to '/' do
-/         %i.fa.fa-home
-/         首页
 
 = content_for :js_common do
   :javascript
     $('#logout-btn').click(function(){
-      alertify.confirm("您确定从阅台登出？", function (e) {
+      alertify.confirm('您确定从阅台登出？', function (e) {
         if (e) {
-          // user clicked "ok"
+          // user clicked 'ok'
           $.ajax({
             url: '/users/sign_out',
             type: 'DELETE',
@@ -62,8 +62,8 @@
             }
           });
         } else {
-            // user clicked "cancel"
-            alertify.success("您刚刚取消了登出。");
+            // user clicked 'cancel'
+            alertify.success('您刚刚取消了登出。');
         }
       });
     });

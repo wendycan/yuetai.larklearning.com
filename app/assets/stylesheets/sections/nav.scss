@@ -35,3 +35,32 @@ ul.small-nav {
     padding-right: 10px;
   }
 }
+
+.children-nav {
+  display: none;
+  border: solid 1px $gray-border;
+  padding: 0 10px;
+  background-color: #fff;
+  position: absolute;
+  top: 49px;
+  right: 0;
+  left: 0;
+  li {
+    display: block;
+    height: 25px;
+    line-height: 25px;
+    font-size: 14px;
+    i {
+      padding-right: 2px;
+    }
+  }
+}
+
+.nav-user-btn {
+  position: relative;
+  &:hover {
+    .children-nav {
+      display: block;
+    }
+  }
+}
