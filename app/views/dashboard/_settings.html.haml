@@ -8,8 +8,10 @@
         .row
           .large-2.columns
             %label.right.inline{for: 'username'} 用户名
-          .large-10.columns
+          .large-8.columns
             %input#username{type: 'text', placeholder: 'lily', value: '{{= username }}'}
+          .large-2.columns.text-right
+            %span.label.secondary.round {{= level_name }}
         .row
           .large-2.columns
             %label.right.inline{for: 'email'} 邮箱
