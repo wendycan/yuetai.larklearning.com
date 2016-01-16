@@ -4,7 +4,7 @@
       %h4 设置
   .row.dashboard-content-wrap
     .large-10.columns.large-centered
-      %form
+      %form#user-setting
         .row
           .large-2.columns
             %label.right.inline{for: 'username'} 用户名
@@ -21,7 +21,7 @@
           .large-2.columns
             %label.right.inline{for: 'github'} Github
           .large-10.columns
-            %input#github{type: 'text', placeholder: 'http://github.com/example'}
+            %input#github{type: 'text', placeholder: 'http://github.com/example', value: '{{= github }}'}
         .row
           .large-2.columns
             %label.right.inline{for: 'webchat'} 微信
@@ -32,7 +32,7 @@
           .large-2.columns
             %label.right.inline{for: 'desc'} 描述
           .large-10.columns
-            %textarea#desc{type: 'text', placeholder: '有志者，事竟成'}
+            %textarea#desc{type: 'text', placeholder: '有志者，事竟成'} {{= desc }}
         .row
           .large-2.columns
             %label.right.inline{for: 'photo'} 头像

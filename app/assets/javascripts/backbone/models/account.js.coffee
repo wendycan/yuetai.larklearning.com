@@ -6,6 +6,10 @@ class Yuetai.Models.Account extends Backbone.Model
     unsync: true
     username: ''
 
+  sync: Yuetai.Common.api_sync
+
+  urlRoot: "#{Yuetai.ApiPrefix}/users"
+
   fetch_account: (opts)->
     success = opts.success
     _this = this

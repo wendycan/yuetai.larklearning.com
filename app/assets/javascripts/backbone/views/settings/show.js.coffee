@@ -4,14 +4,12 @@ class Yuetai.Views.Settings.ShowView extends Yuetai.Views.Base
   el: $('#main-content')
 
   events:
-    'click .cancel' : 'navBack'
-    'click .delete-article' : 'deleteArticle'
+    'submit #user-setting' : 'updateUser'
 
   render: ->
     # @rm_nav()
     # @clearMsg()
     # @render_nav(@opts.section)
-    console.log @account.toJSON()
     level_name = '普通用户'
     switch @account.get('level')
       when 2
@@ -21,3 +19,19 @@ class Yuetai.Views.Settings.ShowView extends Yuetai.Views.Base
     data = @account.toJSON()
     data.level_name = level_name
     @$el.html(_.template($('#t-settings-show').html())(data))
+
+  updateUser: (e)->
+    form = $(e.currentTarget)
+    data = {
+      username: form.find('#username').val()
+      desc: form.find('#desc').val()
+      github: form.find('#github').val()
+      webchat: form.find('#webchat').val()
+      email: form.find('#email').val()
+      avator: form.find('#avator').val()
+    }
+    @account.save data
+    , success: ->
+        alertify.success('保存成功。')
+      error: ->
+        alertify.error('保存失败，稍后重试。')

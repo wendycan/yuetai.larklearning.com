@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160108082702) do
+ActiveRecord::Schema.define(version: 20160116135141) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -58,6 +58,10 @@ ActiveRecord::Schema.define(version: 20160108082702) do
     t.string   "username"
     t.string   "authentication_token"
     t.integer  "level",                  default: 0
+    t.text     "desc",                   default: ""
+    t.string   "github",                 default: ""
+    t.string   "webchat",                default: ""
+    t.string   "avator",                 default: ""
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true
