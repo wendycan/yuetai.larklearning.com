@@ -85,14 +85,9 @@ class Yuetai.Routers.Engines extends Backbone.Router
 
   show_settings: ->
     @settings_view = new Yuetai.Views.Settings.ShowView(@)
-    console.log 'show_settings'
-    console.log @account
 
   show_manage: ->
     @manage_view = new Yuetai.Views.Manage.ShowView(@)
-    console.log 'show_manage'
-    console.log @account
-
 
   # index : ->
   #   opts =

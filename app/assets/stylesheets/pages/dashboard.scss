@@ -27,3 +27,15 @@
     list-style: none;
   }
 }
+
+.dashboard-content-wrap {
+  background-color: $gray-bg;
+  border-radius: 5px;
+  padding: 20px 0;
+  input[type="file"] {
+    padding-top: 8px;
+  }
+  button {
+    margin: 0;
+  }
+}
