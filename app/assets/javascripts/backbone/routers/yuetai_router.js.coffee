@@ -18,6 +18,7 @@ class Yuetai.Routers.Engines extends Backbone.Router
     'presentations/:id/edit' : 'edit_presentation'
 
     'settings' : 'show_settings'
+    'manage' : 'show_manage'
 
   initialize: ->
     @account = new Yuetai.Models.Account()
@@ -83,6 +84,15 @@ class Yuetai.Routers.Engines extends Backbone.Router
     @presentation_view = new Yuetai.Views.Presentations.ShowView(@, opts)
 
   show_settings: ->
+    @settings_view = new Yuetai.Views.Settings.ShowView(@)
+    console.log 'show_settings'
+    console.log @account
+
+  show_manage: ->
+    @manage_view = new Yuetai.Views.Manage.ShowView(@)
+    console.log 'show_manage'
+    console.log @account
+
 
   # index : ->
   #   opts =

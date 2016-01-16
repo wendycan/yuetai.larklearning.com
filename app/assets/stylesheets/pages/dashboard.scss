@@ -1,5 +1,5 @@
 .dashboard {
-  margin-top: 20px;
+  margin-top: 60px;
 
   .article-controls {
     border-top: solid 1px gray;
@@ -18,5 +18,12 @@
     background-color: $primary-color;
   }
   #new-blog-form, #edit-blog-form {
+  }
+}
+
+#blogs,
+#presentations {
+  & > li {
+    list-style: none;
   }
 }
