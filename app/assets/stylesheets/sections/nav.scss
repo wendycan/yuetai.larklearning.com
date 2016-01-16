@@ -19,6 +19,9 @@ nav {
     line-height: 50px;
   }
   border-bottom: solid 1px $gray-border;
+  ul.right > li {
+    padding-left: 10px;
+  }
 }
 
 ul.small-nav {

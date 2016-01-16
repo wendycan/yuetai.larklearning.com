@@ -5,6 +5,14 @@
         = link_to '/articles' do
           = image_tag('logo.png')
     %ul.right
+      %li
+        = link_to articles_path do
+          %i.fa.fa-file-text-o
+          博客
+      %li
+        = link_to presentation_index_path do
+          %i.fa.fa-caret-square-o-right
+          演示文稿
       - if user_signed_in?
         %li.nav-user-btn
           %a{:href => '#'}
