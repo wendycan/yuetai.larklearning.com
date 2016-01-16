@@ -16,27 +16,32 @@
           .large-2.columns
             %label.right.inline{for: 'email'} 邮箱
           .large-10.columns
-            %input#email{type: 'text', placeholder: 'lily', value: '{{= email }}'}
+            %input#email{type: 'text', placeholder: 'demo@example.com', value: '{{= email }}'}
         .row
           .large-2.columns
             %label.right.inline{for: 'github'} Github
           .large-10.columns
-            %input#github{type: 'text', placeholder: 'lily'}
+            %input#github{type: 'text', placeholder: 'http://github.com/example'}
         .row
           .large-2.columns
             %label.right.inline{for: 'webchat'} 微信
           .large-10.columns
-            %input#webchat{type: 'text', placeholder: 'lily'}
+            %input#webchat{type: 'file'}
+            .label.input-layer 上传文件
         .row
           .large-2.columns
             %label.right.inline{for: 'desc'} 描述
           .large-10.columns
-            %textarea#desc{type: 'text', placeholder: 'lily'}
+            %textarea#desc{type: 'text', placeholder: '有志者，事竟成'}
         .row
           .large-2.columns
             %label.right.inline{for: 'photo'} 头像
           .large-10.columns
             %input#photo{type: 'file'}
+            .label.input-layer 上传文件
+        .row
+          .large-12.columns
+            %hr
         .row
           .large-2.columns
           .large-10.columns

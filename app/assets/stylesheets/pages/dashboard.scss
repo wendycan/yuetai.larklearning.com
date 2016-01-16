@@ -31,9 +31,24 @@
 .dashboard-content-wrap {
   background-color: $gray-bg;
   border-radius: 5px;
-  padding: 20px 0;
+  padding: 30px 0;
   input[type="file"] {
     padding-top: 8px;
+    position: relative;
+    opacity: 0;
+    z-index: 10;
+    width: 100px;
+    height: 25px;
+  }
+  .input-layer {
+    position: absolute;
+    display: inline-block;
+    top: 8px;
+    left: 15px;
+    width: 100px;
+    height: 25px;
+    padding: 0;
+    line-height: 25px !important;
   }
   button {
     margin: 0;
@@ -42,6 +57,9 @@
     .label {
       color: #fff;
       line-height: 12px;
+    }
+    hr {
+      margin: 15px 15px 15px 60px;
     }
   }
 }
