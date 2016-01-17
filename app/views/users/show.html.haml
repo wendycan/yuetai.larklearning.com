@@ -8,7 +8,7 @@
           - if @user.username.blank?
             匿名
           - else
-            = author.username
+            = @user.username
       .author-count
         %p
           %span
