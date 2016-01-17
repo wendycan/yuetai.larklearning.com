@@ -19,6 +19,9 @@
   }
   #new-blog-form, #edit-blog-form {
   }
+  .delete {
+    color: $alert-color;
+  }
 }
 
 #blogs,
