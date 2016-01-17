@@ -13,11 +13,13 @@
       %span.label.round roman
       %span.label.round linda
 
-  #y-blogs.articles
+  #y-articles.articles
     .loading
       %i.fa.fa-spinner.fa-spin
 
   = render "layouts/pager"
+
+= render "layouts/article"
 
 - blogs_json = render template: "articles/index", formats: [:json], handlers: [:jbuilder]
 
@@ -29,20 +31,3 @@
     $('.articles-btn').addClass('active');
 
 = content_for :title, '阅台 · 记录想法 分享点滴'
-
-%script{type: 'text/template', id: 't-blog'}
-  .article{:'data-id' => '{{= blog.id }}'}
-    %h4
-      %a{:href => "/articles/{{= blog.id }}" }
-        {{= blog.title }}
-    .article-meta
-      %p
-        %a.article-author-name {{= blog.username}}
-        %span.article-date {{= blog.date}}
-        %strong {{= blog.visited_count}}
-        %span 次阅读
-      %p.tag-list {{= blog.tag_list }}
-    .article-body
-      %p {{= blog.body }}
-    %hr
-

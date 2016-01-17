@@ -16,26 +16,29 @@
             %strong 39
       %p= @user.desc
       .author-links
-        = link_to @user.email do
+        = mail_to @user.email do
           %i.fa.fa-envelope
         = link_to @user.github do
           %i.fa.fa-github
         %a.author-webchat{:href => '#'}
           %i.fa.fa-weixin
           = image_tag(@user.webchat)
-  .author-articles
-    - @user.articles.each do |article|
-      .article
-        %h4
-          = link_to article.title, article
-        .article-meta
-          %p
-            %a.article-author-name= article.user.username
-            %span.article-date= article.created_at
-            %strong= article.visited_count
-            %span 次阅读
-          %p.tag-list= article.tag_list
-        .article-body
-          = article.title
-        %hr
+  .author-articles.articles-wrap
+    #y-articles.articles
+      .loading
+        %i.fa.fa-spinner.fa-spin
 
+  = render "layouts/pager"
+
+= render "layouts/article"
+
+- blogs_json = render template: "users/show", formats: [:json], handlers: [:jbuilder]
+
+= content_for :js_ext do
+  :javascript
+    $(document).ready(function () {
+      var blogs_view = new Yuetai.Views.Blogs.BlogsView(#{blogs_json});
+    });
+    $('.articles-btn').addClass('active');
+
+= content_for :title, '阅台 · 记录想法 分享点滴'

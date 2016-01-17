@@ -1,0 +1,15 @@
+%script{type: 'text/template', id: 't-blog'}
+  .article{:'data-id' => '{{= blog.id }}'}
+    %h4
+      %a{:href => "/articles/{{= blog.id }}" }
+        {{= blog.title }}
+    .article-meta
+      %p
+        %a.article-author-name {{= blog.username}}
+        %span.article-date {{= blog.date}}
+        %strong {{= blog.visited_count}}
+        %span 次阅读
+      %p.tag-list {{= blog.tag_list }}
+    .article-body
+      %p {{= blog.body }}
+    %hr

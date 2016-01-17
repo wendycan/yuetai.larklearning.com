@@ -16,7 +16,7 @@
             %strong 39
       %p= @user.desc
       .author-links
-        = link_to @user.email do
+        = mail_to @user.email do
           %i.fa.fa-envelope
         = link_to @user.github do
           %i.fa.fa-github
