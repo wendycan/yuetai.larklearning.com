@@ -17,7 +17,7 @@ class Api < Grape::API
 
     def authenticate!
       error!('401 Unauthorized', 401) unless current_user
-      error!('400 Not found', 400) unless current_user.level > 0
+      error!('405 Method Not Allowed', 405) unless current_user.level > 0
     end
 
     def locate_user
