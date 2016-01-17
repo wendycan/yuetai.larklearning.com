@@ -1,6 +1,9 @@
 .pager {
   font-size: 16px;
   padding: 10px 0;
+  ul {
+    margin: 0;
+  }
   li {
     display: inline-block;
     text-align: center;
