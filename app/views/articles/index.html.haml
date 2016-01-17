@@ -9,9 +9,12 @@
       %span.label.round 读书
       %span.label.round 生活
     .hot-authors
-      %span.label.round wendy
-      %span.label.round roman
-      %span.label.round linda
+      - @authors.each do |author|
+        = link_to author do
+          - if author.username.blank?
+            %span.label.round 匿名
+          - else
+            %span.label.round= author.username
 
   #y-articles.articles
     .loading

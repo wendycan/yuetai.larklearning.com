@@ -4,7 +4,11 @@
       = link_to @user do
         = image_tag @user.avator
       %h5
-        = link_to @user.username, @user
+        = link_to @user do
+          - if @user.username.blank?
+            匿名
+          - else
+            = author.username
       .author-count
         %p
           %span
