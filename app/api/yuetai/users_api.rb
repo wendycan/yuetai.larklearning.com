@@ -13,6 +13,7 @@ module Yuetai
         put do
           authenticate!
           user = current_user
+          user.email = params[:email]
           user.desc = params[:desc]
           user.github = params[:github]
           user.webchat = params[:webchat]
