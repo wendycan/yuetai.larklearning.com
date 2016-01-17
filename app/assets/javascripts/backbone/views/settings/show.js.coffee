@@ -23,6 +23,7 @@ class Yuetai.Views.Settings.ShowView extends Yuetai.Views.Base
     @$el.html(_.template($('#t-settings-show').html())(data))
 
   updateUser: (e)->
+    e.preventDefault()
     form = $(e.currentTarget)
     data = {
       username: form.find('#username').val()
