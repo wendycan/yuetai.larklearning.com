@@ -69,4 +69,19 @@ class Api < Grape::API
   mount Yuetai::Presentations
   mount Yuetai::Users
 
+  post :upload do
+    authenticate!
+    file = params[:upload_file][:tempfile]
+    path = Settings.ftp_path + Time.now.strftime('%Y%m%d%H%M%S') + '_'+ params[:upload_file][:filename]
+    Net::FTP.open(Settings.ftp_server, Settings.ftp_username, Settings.ftp_pass) do |ftp|
+      ftp.passive = true
+      ftp.putbinaryfile(file, path)
+    end
+    present({
+      :success => true,
+      :msg => "success",
+      :file_path => Settings.ftp_server_name + path
+    })
+  end
+
 end

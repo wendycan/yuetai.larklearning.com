@@ -5,6 +5,8 @@ class Yuetai.Views.Settings.ShowView extends Yuetai.Views.Base
 
   events:
     'submit #user-setting' : 'updateUser'
+    'change #webchat' : 'updateWebchat'
+    'change #avator' : 'updateAvator'
 
   render: ->
     # @rm_nav()
@@ -26,12 +28,34 @@ class Yuetai.Views.Settings.ShowView extends Yuetai.Views.Base
       username: form.find('#username').val()
       desc: form.find('#desc').val()
       github: form.find('#github').val()
-      webchat: form.find('#webchat').val()
+      webchat: form.find('.settings-webchat img').attr('src')
       email: form.find('#email').val()
-      avator: form.find('#avator').val()
+      avator: form.find('.settings-avator img').attr('src')
     }
     @account.save data
     , success: ->
         alertify.success('保存成功。')
       error: ->
         alertify.error('保存失败，稍后重试。')
+
+  updateWebchat: (e)->
+    file = e.currentTarget.files[0]
+    @uploadImg(file, $('.settings-webchat img'))
+
+  updateAvator: (e)->
+    file = e.currentTarget.files[0]
+    @uploadImg(file, $('.settings-avator img'))
+
+  uploadImg: (file, elImg)->
+    formData = new FormData()
+    formData.append('upload_file', file)
+    $.ajax
+      type: 'POST'
+      url: "/api/v1/upload"
+      data: formData
+      processData: false
+      contentType: false
+      headers:
+        'Auth-Token': @account.get('auth_token')
+      success: (data)->
+        elImg.attr('src', data.file_path)
