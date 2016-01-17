@@ -1,0 +1,41 @@
+.container
+  .sidebar.pull-left
+    .author-summary
+      = link_to @user do
+        = image_tag @user.avator
+      %h5
+        = link_to @user.username, @user
+      .author-count
+        %p
+          %span
+            文章数
+            %strong 12
+        %p
+          %span
+            总字数
+            %strong 39
+      %p= @user.desc
+      .author-links
+        = link_to @user.email do
+          %i.fa.fa-envelope
+        = link_to @user.github do
+          %i.fa.fa-github
+        %a.author-webchat{:href => '#'}
+          %i.fa.fa-weixin
+          = image_tag(@user.webchat)
+  .author-articles
+    - @user.articles.each do |article|
+      .article
+        %h4
+          = link_to article.title, article
+        .article-meta
+          %p
+            %a.article-author-name= article.user.username
+            %span.article-date= article.created_at
+            %strong= article.visited_count
+            %span 次阅读
+          %p.tag-list= article.tag_list
+        .article-body
+          = article.title
+        %hr
+

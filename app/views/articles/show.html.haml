@@ -1,10 +1,10 @@
 .container.article-wrap
   .sidebar.pull-left
     .author-summary
-      = link_to '#' do
-        = image_tag 'wendy.png'
+      = link_to @user do
+        = image_tag @user.avator
       %h5
-        = link_to 'wendy', '#'
+        = link_to @user.username, @user
       .author-count
         %p
           %span
@@ -14,14 +14,15 @@
           %span
             总字数
             %strong 39
-      %p= '一个大胆，新奇，激情的姑娘，热爱生活的点点滴滴'
+      %p= @user.desc
       .author-links
-        %a{:href => '#'}
+        = link_to @user.email do
           %i.fa.fa-envelope
-        %a{:href => '#'}
+        = link_to @user.github do
           %i.fa.fa-github
-        %a{:href => '#'}
+        %a.author-webchat{:href => '#'}
           %i.fa.fa-weixin
+          = image_tag(@user.webchat)
   .article#main-content
 
 - blog_json = render template: "articles/show", formats: [:json], handlers: [:jbuilder]
