@@ -23,7 +23,14 @@
         %a.author-webchat{:href => '#'}
           %i.fa.fa-weixin
           = image_tag(@user.webchat)
-  .article#main-content
+  #main-content
+  .article-category
+    .article-category-btn.text-right
+      %a{:href => "#"}
+        %i.fa.fa-list
+    .article-category-content.hide
+
+
 
 - blog_json = render template: "articles/show", formats: [:json], handlers: [:jbuilder]
 

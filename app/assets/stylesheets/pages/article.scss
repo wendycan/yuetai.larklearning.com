@@ -8,4 +8,25 @@
       font-size: 12px;
     }
   }
+  position: relative;
+}
+
+.article-category {
+  position: fixed;
+  right: 20px;
+  top: 75px;
+  width: 220px;
+  i {
+    font-size: 20px;
+  }
+  li {
+    list-style: none;
+  }
+}
+.article-category-btn a {
+  background-color: #fff;
+}
+.article-category-content {
+  background-color: #fff;
+  border: solid 1px $gray-border;
 }
