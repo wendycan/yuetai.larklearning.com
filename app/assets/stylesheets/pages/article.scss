@@ -15,7 +15,7 @@
   position: fixed;
   right: 20px;
   top: 75px;
-  width: 220px;
+  width: 200px;
   i {
     font-size: 20px;
   }
@@ -31,6 +31,8 @@
   background-color: #fff;
   padding: 10px;
   border: solid 1px $gray-border;
+  height: 250px;
+  overflow-y: scroll;
   & > ul {
     margin: 0;
   }
