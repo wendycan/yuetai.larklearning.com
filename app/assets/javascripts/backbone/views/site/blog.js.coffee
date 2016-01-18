@@ -38,13 +38,13 @@ class Yuetai.Views.Blogs.BlogView extends Backbone.View
           if subItem instanceof Array
             html += '<li><ul>'
             for subSubItem in subItem
-              html += "<li>#{subSubItem}</li>"
+              html += "<li><a href=''>#{subSubItem}</a></li>"
             html += '</ul></li>'
           else
-            html += "<li>#{subItem}</li>"
+            html += "<li><a href=''>#{subItem}</a></li>"
         html += '</ul></li>'
       else
-        html += "<li>#{item}</li>"
+        html += "<li><a href=''>#{item}</a></li>"
     html += '</ul>'
 
     $('.article-category-content').html html
