@@ -30,8 +30,6 @@
         %i.fa.fa-list
     .article-category-content.hide
 
-
-
 - blog_json = render template: "articles/show", formats: [:json], handlers: [:jbuilder]
 
 = content_for :js_ext do
@@ -50,7 +48,7 @@
       %span {{= blog.date }}
       %span {{= blog.visited_count }} 次阅读
       %span {{= blog.tag_list }}
-    .aritcle-body
+    .article-body
       {{= blog.body }}
 
 
