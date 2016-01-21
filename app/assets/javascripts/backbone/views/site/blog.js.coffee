@@ -50,8 +50,6 @@ class Yuetai.Views.Blogs.BlogView extends Backbone.View
         o_subHeaders = subHeaders.concat([])
         subFlag = 0
         for j, l in o_subHeaders
-          $(j).attr 'id', "header-#{k}-#{l}"
-          $(j).addClass 'article-anchor'
           if !header_tags[2] then break
           if l + 1 >= o_subHeaders.length
             subberHeaders = $(j).nextUntil(o_headers[k+1], header_tags[2]).toArray()
@@ -64,13 +62,15 @@ class Yuetai.Views.Blogs.BlogView extends Backbone.View
               $(g).addClass 'article-anchor'
             subHeaders.splice(l+subFlag, 0, subberHeaders)
         flag++
+        for s, t in subHeaders
+          $(s).attr 'id', "header-#{k}-#{t}"
+          $(s).addClass 'article-anchor'
         headers.splice(k+flag, 0, subHeaders)
     headers
 
   updateCategory: ->
     data = @extractCategory()
     if data.length <= 0
-      $('.article-category').hide()
       return
     html = ''
     html += '<ul>'
@@ -91,3 +91,4 @@ class Yuetai.Views.Blogs.BlogView extends Backbone.View
     html += '</ul>'
 
     $('.article-category-content').html html
+    $('.article-category').show()
