@@ -44,6 +44,7 @@ class Yuetai.Views.Blogs.BlogView extends Backbone.View
     for h, k in o_headers
       $(h).attr 'id', "header-#{k}"
       $(h).addClass 'article-anchor'
+      if !header_tags[1] then break
       subHeaders = $(h).nextUntil(o_headers[k+1], header_tags[1]).toArray()
       if subHeaders.length > 0
         o_subHeaders = subHeaders.concat([])
@@ -51,6 +52,7 @@ class Yuetai.Views.Blogs.BlogView extends Backbone.View
         for j, l in o_subHeaders
           $(j).attr 'id', "header-#{k}-#{l}"
           $(j).addClass 'article-anchor'
+          if !header_tags[2] then break
           if l + 1 >= o_subHeaders.length
             subberHeaders = $(j).nextUntil(o_headers[k+1], header_tags[2]).toArray()
           else
@@ -67,6 +69,9 @@ class Yuetai.Views.Blogs.BlogView extends Backbone.View
 
   updateCategory: ->
     data = @extractCategory()
+    if data.length <= 0
+      $('.article-category').hide()
+      return
     html = ''
     html += '<ul>'
     for item in data
