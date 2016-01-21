@@ -40,21 +40,22 @@ class Yuetai.Views.Blogs.BlogView extends Backbone.View
     headers = $el.find(header_tags[0]).toArray()
 
     o_headers = headers.concat([])
+    flag = 0
     for h, k in o_headers
-      delta = headers.length - o_headers
-      if k + 1 > o_headers.length
-        subHeaders = $(h).nextAll(o_headers[k+1], header_tags[1]).toArray()
-      else
-        subHeaders = $(h).nextUntil(o_headers[k+1], header_tags[1]).toArray()
+      subHeaders = $(h).nextUntil(o_headers[k+1], header_tags[1]).toArray()
       if subHeaders.length > 0
-        # o_subHeaders = subHeaders.concat([])
-        # o_subHeaders.reduce (preSubHeader, currSubHeader, m)->
-        #   subberHeaders = $(preSubHeader).nextUntil(currSubHeader, header_tags[2]).toArray()
-        #   if subberHeaders.length > 0
-        #     subHeaders.splice(m, 0, subberHeaders)
-        headers.splice(k, 0, subHeaders)
-    console.log headers
-    # ['h1', 'h1', ['h2', 'h2', ['h3', 'h3', 'h3'], 'h2'], 'h1', 'h1', ['h2', 'h2']]
+        o_subHeaders = subHeaders.concat([])
+        subFlag = 0
+        for j, l in o_subHeaders
+          if l + 1 >= o_subHeaders.length
+            subberHeaders = $(j).nextUntil(o_headers[k+1], header_tags[2]).toArray()
+          else
+            subberHeaders = $(j).nextUntil(o_subHeaders[l+1], header_tags[2]).toArray()
+          if subberHeaders.length > 0
+            subFlag++
+            subHeaders.splice(l+subFlag, 0, subberHeaders)
+        flag++
+        headers.splice(k+flag, 0, subHeaders)
     headers
 
   updateCategory: ->
