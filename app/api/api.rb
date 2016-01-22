@@ -34,7 +34,9 @@ class Api < Grape::API
       article.template = params[:template]
       article.language = params[:language]
       article.user_id = @current_user.id
+      @current_user.words_count += HTML::FullSanitizer.new.sanitize(article.body).length
       if article.save
+        @current_user.save
         {status: 201}
       else
         {errors: 'article create failed', status: 422}
@@ -43,12 +45,16 @@ class Api < Grape::API
 
     def update_article
       article = Article.find(params[:id])
+      old_count = HTML::FullSanitizer.new.sanitize(article.body).length
       article.title = params[:title]
       article.body = params[:body]
       article.tag_list = params[:tag_list]
       article.language = params[:language]
       article.template = params[:template]
+      delta = HTML::FullSanitizer.new.sanitize(article.body).length - old_count
+      @current_user.words_count += delta
       if article.save
+        @current_user.save
         {status: 200}
       else
         {errors: 'article update failed', status: 422}
@@ -57,7 +63,10 @@ class Api < Grape::API
 
     def delete_article
       article = Article.find(params[:id])
+      count = HTML::FullSanitizer.new.sanitize(article.body).length
       article.destroy!
+      @current_user.words_count -= count
+      @current_user.save
       {status: 204}
     end
   end

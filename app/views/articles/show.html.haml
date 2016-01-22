@@ -13,7 +13,7 @@
         %p
           %span
             总字数
-            %strong 39
+            %strong= @user.words_count
       %p= @user.desc
       .author-links
         = mail_to @user.email do

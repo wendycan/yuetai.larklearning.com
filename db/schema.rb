@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160117035955) do
+ActiveRecord::Schema.define(version: 20160122142117) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20160117035955) do
     t.string   "github",                 default: "https://github.com/"
     t.string   "webchat",                default: "http://g0.ftp.larklearning.com/yuetai/images/default_user_webchat.png"
     t.string   "avator",                 default: "http://g0.ftp.larklearning.com/yuetai/images/default_user_avator.png"
+    t.integer  "words_count",            default: 0
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true
