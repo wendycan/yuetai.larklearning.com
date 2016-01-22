@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
   def update_user_words_count
     count = 0
-    self.articles.each do |article|
+    self.articles.where(template: 'blog').each do |article|
       count += HTML::FullSanitizer.new.sanitize(article.body).length
     end
     self.words_count = count
