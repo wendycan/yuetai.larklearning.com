@@ -1,11 +1,19 @@
 %script{type: 'text/template', id: 't-blog-show'}
   .row
-    .large-12.columns
+    .large-8.columns
       %h4
         {{= blog.title }}
         %span.pull-right {{= blog.tag_list }}
       .label {{= blog.language }}
-      %p {{= blog.body }}
+    .large-4.columns.text-right
+      %h4
+        %a{:href => "#blogs/{{= blog.id }}/edit"}
+          %i.fa.fa-edit
+  .row
+    .large-12.columns
+      %br
+      {{= blog.body }}
+      %hr
   .row
     .large-12.columns.article-controls
       %a{:href => "#blogs/{{= blog.id }}/edit"}
