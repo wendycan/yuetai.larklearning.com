@@ -20,6 +20,11 @@ class Api < Grape::API
       error!('405 Method Not Allowed', 405) unless current_user.level > 0
     end
 
+    def authenticateSuper!
+      error!('401 Unauthorized', 401) unless current_user
+      error!('405 Method Not Allowed', 405) unless current_user.level > 1
+    end
+
     def locate_user
       token = params['auth_token'] || headers['Auth-Token']
       User.find_by(authentication_token: token) if token.present?

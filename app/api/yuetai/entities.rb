@@ -8,5 +8,9 @@ module Yuetai
       expose :username, :desc, :github, :webchat, :email, :avator, :level
     end
 
+    class Tag < Grape::Entity
+      expose :name, :created_at, :articles, :id
+    end
+
   end
 end

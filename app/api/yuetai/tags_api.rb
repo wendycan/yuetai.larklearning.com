@@ -6,9 +6,15 @@ module Yuetai
       get do
         authenticate!
         tags = Tag.all
-        tags
+        present tags, with: Entities::Tag
       end
 
+      delete do
+        authenticateSuper!
+        tag = Article.find(params[:id])
+        tag.destroy!
+        {status: 204}
+      end
     end
   end
 end

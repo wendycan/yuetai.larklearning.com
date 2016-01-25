@@ -4,4 +4,31 @@
       %h4 管理
   .row.dashboard-content-wrap
     .large-12.columns
+      .text-right
+        %a{:href => "javascript:;"}
+          %i.fa.fa-plus
+      %table
+        %thead
+          %tr
+            %th Id
+            %th 名称
+            %th 文章数
+            %th 创建日期
+            %th 管理
+        %tbody
+
+%script{type: 'text/template', id: 't-manage-tag'}
+  %tr
+    %td {{= id }}
+    %td
+      %a{:href => "#", :target => "_blank"} {{= name }}
+    %td {{= articles.length }}
+    %td {{= created_at }}
+    %td.manage-controls{:'data-id' => '{{= id}}'}
+      %a.tag-edit{:href => 'javascript:;'}
+        %i.fa.fa-pencil
+      %a.tag-remove{:href => 'javascript:;'}
+        %i.fa.fa-remove
+      %a.tag-save{:href => 'javascript:;'}
+        %i.fa.fa-check
 

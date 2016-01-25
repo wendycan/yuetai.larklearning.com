@@ -4,13 +4,34 @@ class Yuetai.Views.Manage.ShowView extends Yuetai.Views.Base
   el: $('#main-content')
 
   events:
-    'click .cancel' : 'navBack'
-    'click .delete-article' : 'deleteArticle'
+    'click .tag-edit' : 'editTag'
+    'click .tag-remove' : 'removeTag'
+    'click .tag-save' : 'saveTag'
 
   render: ->
-    # @rm_nav()
-    # @clearMsg()
-    # @render_nav(@opts.section)
     @$el.html(_.template($('#t-manage-show').html())())
+    @tags = new Yuetai.Collections.Tags
+    @fetchTags()
 
+  editTag: ->
+
+  removeTag: ->
+
+  saveTag: ->
+
+  fetchTags: ->
+    @tags.fetch
+      success: =>
+        @renderTags()
+
+  renderTags: ->
+    @tags.each @renderTag, @
+
+  renderTag: (tag)->
+    html = _.template($('#t-manage-tag').html()) tag.toJSON()
+    $(@el).find('tbody').append html
+
+  createTag: ->
+
+  deleteTag: ->
 

@@ -21,6 +21,49 @@
   .delete {
     color: $alert-color;
   }
+  table {
+    border: none;
+    thead tr th {
+      color: $secondary-color;
+      background-color: #fff;
+      font-weight: normal;
+    }
+    .manage-controls {
+      a {
+        padding-right: 5px;
+      }
+      i {
+        font-size: 16px;
+      }
+      .fa-remove {
+        color: $alert-color;
+      }
+      .fa-check {
+        color: $info-color;
+      }
+    }
+    td, th {
+      text-align: center;
+      border-right: none;
+      border-left: none;
+    }
+    th:first-child {
+      width: 10%;
+    }
+    th:nth-child(2) {
+      width: 25%;
+    }
+    th:nth-child(3) {
+      width: 25%;
+    }
+    th:nth-child(4) {
+      width: 25%;
+    }
+    th:last-child {
+      width: 15%;
+    }
+
+  }
 }
 
 #blogs,
