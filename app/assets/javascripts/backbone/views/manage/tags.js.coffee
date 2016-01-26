@@ -1,6 +1,6 @@
 Yuetai.Views.Manage ||= {}
 
-class Yuetai.Views.Manage.ShowView extends Yuetai.Views.Base
+class Yuetai.Views.Manage.TagsView extends Yuetai.Views.Base
   el: $('#main-content')
 
   events:
@@ -9,7 +9,7 @@ class Yuetai.Views.Manage.ShowView extends Yuetai.Views.Base
     'click .tag-save' : 'saveTag'
 
   render: ->
-    @$el.html(_.template($('#t-manage-show').html())())
+    @$el.html(_.template($('#t-manage-tags').html())())
     @tags = new Yuetai.Collections.Tags
     @fetchTags()
 

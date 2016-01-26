@@ -1,7 +1,11 @@
-%script{type: 'text/template', id: 't-manage-show'}
-  .row
-    .large-12.columns
+%script{type: 'text/template', id: 't-manage-tags'}
+  .row.manage-header
+    .large-8.columns
       %h4 管理
+    .large-4.columns.text-right
+      %a.label.round{:href => "#manage/tags"} 标签
+      %a.label.round{:href => "#manage/users"} 用户
+      %a.label.round{:href => "#manage/articles"} 文章
   .row.dashboard-content-wrap
     .large-12.columns
       .text-right
@@ -32,3 +36,62 @@
       %a.tag-save{:href => 'javascript:;'}
         %i.fa.fa-check
 
+%script{type: 'text/template', id: 't-manage-articles'}
+  .row.manage-header
+    .large-8.columns
+      %h4 管理文章
+    .large-4.columns.text-right
+      %a.label.round{:href => "#manage/tags"} 标签
+      %a.label.round{:href => "#manage/users"} 用户
+      %a.label.round{:href => "#manage/articles"} 文章
+  .row.dashboard-content-wrap
+    .large-12.columns
+      %table
+        %thead
+          %tr
+            %th Id
+            %th 标题
+            %th 标签
+            %th 访问量
+            %th.one-third 内容
+            %th 创建日期
+            %th 管理
+        %tbody
+
+%script{type: 'text/template', id: 't-manage-article'}
+  %tr
+    %td {{= id }}
+    %td
+      %a{:href => "#", :target => "_blank"} {{= title }}
+    %td {{= tag_list }}
+    %td {{= visited_count }}
+    %td {{= snipBody }}
+    %td {{= created_at }}
+    %td.manage-controls{:'data-id' => '{{= id}}'}
+      %a.article-unpublish{:href => 'javascript:;'}
+        %i.fa.fa-eye
+      %a.article-publish{:href => 'javascript:;'}
+        %i.fa.fa-eye-slash
+
+%script{type: 'text/template', id: 't-manage-users'}
+  .row.manage-header
+    .large-8.columns
+      %h4 管理用户
+    .large-4.columns.text-right
+      %a.label.round{:href => "#manage/tags"} 标签
+      %a.label.round{:href => "#manage/users"} 用户
+      %a.label.round{:href => "#manage/articles"} 文章
+  .row.dashboard-content-wrap
+    .large-12.columns
+      .text-right
+        %a{:href => "javascript:;"}
+          %i.fa.fa-plus
+      %table
+        %thead
+          %tr
+            %th Id
+            %th 名称
+            %th 文章数
+            %th 创建日期
+            %th 管理
+        %tbody
