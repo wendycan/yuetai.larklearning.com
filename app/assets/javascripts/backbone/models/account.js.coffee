@@ -21,3 +21,16 @@ class Yuetai.Models.Account extends Backbone.Model
         if (success)
           success(data, status, xhr)
     )
+
+
+class Yuetai.Collections.Accounts extends Backbone.Collection
+  model: Yuetai.Models.Account
+  url: "#{Yuetai.ApiPrefix}/users"
+
+  sync: Yuetai.Common.api_sync
+
+  initialize: ->
+    @unsync = true
+    mute_unsync = ->
+      @unsync = false
+    @once('sync', mute_unsync, @)

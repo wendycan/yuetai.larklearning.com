@@ -14,7 +14,8 @@
       %table
         %thead
           %tr
-            %th Id
+            %th.w-five-hundredth 序号
+            %th.w-five-hundredth Id
             %th 名称
             %th 文章数
             %th 创建日期
@@ -23,6 +24,7 @@
 
 %script{type: 'text/template', id: 't-manage-tag'}
   %tr
+    %td {{= index }}
     %td {{= id }}
     %td
       %a{:href => "#", :target => "_blank"} {{= name }}
@@ -49,17 +51,19 @@
       %table
         %thead
           %tr
-            %th Id
+            %th.w-five-hundredth 序号
+            %th.w-five-hundredth Id
             %th 标题
             %th 标签
             %th 访问量
-            %th.one-third 内容
+            %th.w-three-tenth 内容
             %th 创建日期
             %th 管理
         %tbody
 
 %script{type: 'text/template', id: 't-manage-article'}
   %tr
+    %td {{= index }}
     %td {{= id }}
     %td
       %a{:href => "#", :target => "_blank"} {{= title }}
@@ -83,15 +87,32 @@
       %a.label.round{:href => "#manage/articles"} 文章
   .row.dashboard-content-wrap
     .large-12.columns
-      .text-right
-        %a{:href => "javascript:;"}
-          %i.fa.fa-plus
       %table
         %thead
           %tr
-            %th Id
-            %th 名称
-            %th 文章数
-            %th 创建日期
-            %th 管理
+            %th.w-five-hundredth 序号
+            %th.w-five-hundredth Id
+            %th 图像
+            %th 用户名
+            %th 微信
+            %th.w-two-tenth 描述
+            %th 用户级别
+            %th 链接
         %tbody
+
+%script{type: 'text/template', id: 't-manage-user'}
+  %tr
+    %td {{= index }}
+    %td {{= id }}
+    %td
+      %img{:src => '{{= avator }}'}
+    %td {{= username }}
+    %td
+      %img{:src => '{{= webchat }}'}
+    %td {{= desc }}
+    %td {{= level }}
+    %td
+      %a{:href => '{{= github }}' }
+        %i.fa.fa-github
+      %a{:href => '{{= email }}' }
+        %i.fa.fa-envelope

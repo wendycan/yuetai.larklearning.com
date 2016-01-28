@@ -27,8 +27,8 @@ class Yuetai.Views.Manage.TagsView extends Yuetai.Views.Base
   renderTags: ->
     @tags.each @renderTag, @
 
-  renderTag: (tag)->
-    html = _.template($('#t-manage-tag').html()) tag.toJSON()
+  renderTag: (tag, i)->
+    html = _.template($('#t-manage-tag').html()) _.extend(tag.toJSON(), {index: i+1})
     $(@el).find('tbody').append html
 
   createTag: ->

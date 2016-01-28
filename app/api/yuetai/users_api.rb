@@ -4,9 +4,9 @@ module Yuetai
       desc 'Get all users'
 
       get do
-        authenticate!
-        user = current_user
-        present user, with: Entities::User
+        authenticateSuper!
+        users = User.all
+        present users, with: Entities::User
       end
 
       route_param :id, requirements: /[^\/]+/ do

@@ -19,8 +19,8 @@ class Yuetai.Views.Manage.ArticlesView extends Yuetai.Views.Base
   renderBlogs: ->
     @articles.each @renderBlog, @
 
-  renderBlog: (blog)->
-    html = _.template($('#t-manage-article').html()) _.extend(blog.toJSON(), {snipBody: @limit(@strip(blog.get('body')), 50)})
+  renderBlog: (blog, i)->
+    html = _.template($('#t-manage-article').html()) _.extend(blog.toJSON(), {snipBody: @limit(@strip(blog.get('body')), 50), index: i})
     $(@el).find('tbody').append html
 
   strip: (html)->

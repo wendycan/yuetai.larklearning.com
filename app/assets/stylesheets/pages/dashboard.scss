@@ -28,6 +28,10 @@
       background-color: #fff;
       font-weight: normal;
     }
+    img {
+      width: 45px;
+      height: 45px;
+    }
     .manage-controls {
       a {
         padding-right: 5px;
@@ -46,15 +50,6 @@
       text-align: center;
       border-right: none;
       border-left: none;
-    }
-    th:first-child {
-      width: 10%;
-    }
-    th:last-child {
-      width: 15%;
-    }
-    th.one-third {
-      width: 30%;
     }
   }
   .manage-header {

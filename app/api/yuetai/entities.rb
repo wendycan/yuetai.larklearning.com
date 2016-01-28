@@ -5,7 +5,7 @@ module Yuetai
     end
 
     class User < Grape::Entity
-      expose :username, :desc, :github, :webchat, :email, :avator, :level
+      expose :id, :username, :desc, :github, :webchat, :email, :avator, :level, :created_at
     end
 
     class Tag < Grape::Entity
