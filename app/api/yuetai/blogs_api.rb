@@ -6,7 +6,7 @@ module Yuetai
       desc 'Get all blogs'
       get do
         authenticate!
-        blogs = current_user.articles.where(template: 'blog').order("created_at DESC").all
+        blogs = current_user.articles.where(template: 'blog').order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
         present blogs, with: Entities::Blog
       end
 

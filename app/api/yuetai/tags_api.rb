@@ -5,7 +5,7 @@ module Yuetai
 
       get do
         authenticate!
-        tags = Tag.order("created_at DESC").all
+        tags = Tag.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
         present tags, with: Entities::Tag
       end
 
