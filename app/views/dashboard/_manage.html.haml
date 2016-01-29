@@ -8,9 +8,16 @@
       %a.label.round.articles-nav{:href => "#manage/articles"} 文章
   .row.dashboard-content-wrap
     .large-12.columns
-      .text-right
-        %a{:href => "javascript:;"}
+      .header-nav.text-right
+        %a.add-tag{:href => "javascript:;"}
           %i.fa.fa-plus
+        .header-nav-right-popup
+          %form
+            %input#newbl{type:'hidden', name:'newbl', value:'newbl'}
+            %label.text-left
+              创建标签
+              %input{type: 'text', name: 'name', placeholder: '输入标签名'}
+            %button.label{type: 'submit'} 保存
       %table
         %thead
           %tr

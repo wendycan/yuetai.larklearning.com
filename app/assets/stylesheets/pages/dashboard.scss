@@ -1,6 +1,40 @@
 .dashboard {
   margin-top: 60px;
 
+  .header-nav {
+    position: relative;
+  }
+  .header-nav-right-popup {
+    display: none;
+    position: absolute;
+    top: -4px;
+    right: -225px;
+    width: 200px;
+    background-color: #fff;
+    border: solid 1px $gray-border;
+    border-radius: 4px;
+    padding: 15px;
+    input {
+      height: 2em;
+      margin-bottom: 5px;
+      margin-top: 3px
+    }
+    &:before, &:after {
+      content: '';
+      position: absolute;
+      border-style: solid;
+      border-width: 5px 10px;
+      left: -20px;
+      top: 10px;
+    }
+    &:after {
+      border-color: transparent #fff transparent transparent;
+      left: -18px;
+    }
+    &:before {
+      border-color: transparent $gray-border transparent transparent;
+    }
+  }
   .article-controls {
     padding-top: 10px;
     padding-bottom: 10px;

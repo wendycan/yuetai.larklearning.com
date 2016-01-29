@@ -7,12 +7,17 @@ class Yuetai.Views.Manage.TagsView extends Yuetai.Views.Base
     'click .tag-edit' : 'editTag'
     'click .tag-remove' : 'removeTag'
     'click .tag-save' : 'saveTag'
+    'click .add-tag' : 'toggleAddTag'
+    'submit .header-nav-right-popup form' : 'createTag'
 
   render: ->
     @$el.html(_.template($('#t-manage-tags').html())())
     $('.tags-nav').addClass('active').siblings().removeClass('active')
     @tags = new Yuetai.Collections.Tags
     @fetchTags()
+
+  toggleAddTag: ->
+    $('.header-nav-right-popup').toggle()
 
   editTag: ->
 
@@ -26,13 +31,29 @@ class Yuetai.Views.Manage.TagsView extends Yuetai.Views.Base
         @renderTags()
 
   renderTags: ->
-    @tags.each @renderTag, @
+    @tags.each (tag, i)=>
+      @renderTag tag, i
 
-  renderTag: (tag, i)->
-    html = _.template($('#t-manage-tag').html()) _.extend(tag.toJSON(), {index: i+1})
-    $(@el).find('tbody').append html
+  renderTag: (tag, i, isForward)->
+    html = _.template($('#t-manage-tag').html()) _.extend(tag.toJSON(), {index: i + 1})
+    if isForward
+      $(@el).find('tbody').prepend html
+    else
+      $(@el).find('tbody').append html
 
-  createTag: ->
+  createTag: (e)->
+    e.preventDefault()
+    value = $(e.currentTarget).find('[name=name]').val()
+    if !value then return
+    data = {
+      name: value
+      newbl: $(e.currentTarget).find('#newbl').val()
+    }
+    @tags.create data,
+      success: (tag)=>
+        @renderTag(tag, @tags.length - 1, true)
+        @toggleAddTag()
+        $(e.currentTarget).find('[name=name]').val('')
 
   deleteTag: ->
 

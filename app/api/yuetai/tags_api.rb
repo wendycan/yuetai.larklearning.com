@@ -5,8 +5,30 @@ module Yuetai
 
       get do
         authenticate!
-        tags = Tag.all
+        tags = Tag.order("created_at DESC").all
         present tags, with: Entities::Tag
+      end
+
+      post do
+        authenticateSuper!
+        tag = Tag.new()
+        tag.name = params[:name]
+        if tag.save
+          present tag, with: Entities::Tag
+        else
+          {errors: 'tag created failed', status: 422}
+        end
+      end
+
+      put do
+        authenticateSuper!
+        tag = Tag.find(params[:id])
+        tag.name = params[:name]
+        if tag.save
+          {status: 200}
+        else
+          {errors: 'tag update failed', status: 422}
+        end
       end
 
       delete do
