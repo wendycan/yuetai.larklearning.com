@@ -8,6 +8,7 @@ class Yuetai.Views.Manage.UsersView extends Yuetai.Views.Base
 
   render: ->
     @$el.html(_.template($('#t-manage-users').html())())
+    $('.users-nav').addClass('active').siblings().removeClass('active')
     @users = new Yuetai.Collections.Accounts
     @fetchUser()
 

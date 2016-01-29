@@ -70,3 +70,9 @@
 .w-four-tenth {
   width: 40%;
 }
+
+.label {
+  &:hover, &.active {
+    background-color: #1c85b5;
+  }
+}

@@ -10,6 +10,7 @@ class Yuetai.Views.Manage.TagsView extends Yuetai.Views.Base
 
   render: ->
     @$el.html(_.template($('#t-manage-tags').html())())
+    $('.tags-nav').addClass('active').siblings().removeClass('active')
     @tags = new Yuetai.Collections.Tags
     @fetchTags()
 

@@ -8,6 +8,7 @@ class Yuetai.Views.Manage.ArticlesView extends Yuetai.Views.Base
 
   render: ->
     @$el.html(_.template($('#t-manage-articles').html())())
+    $('.articles-nav').addClass('active').siblings().removeClass('active')
     @articles = new Yuetai.Collections.Blogs
     @fetchBlogs()
 
