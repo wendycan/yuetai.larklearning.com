@@ -11,7 +11,8 @@
     "timeago": "~1.4.1",
     "alertify": "~0.3.10",
     "simditor": "~2.3.6",
-    "highlightjs": "~9.0.0"
+    "highlightjs": "~9.0.0",
+    "backbone.paginator": "~2.0.2"
   },
   "private": true
 }

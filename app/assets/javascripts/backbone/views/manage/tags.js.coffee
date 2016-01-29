@@ -16,6 +16,12 @@ class Yuetai.Views.Manage.TagsView extends Yuetai.Views.Base
     @tags = new Yuetai.Collections.Tags
     @fetchTags()
 
+  renderPagination: ()->
+    paginator = new Paginator(
+      collection: @tags
+    )
+    $("#paginator").append(paginator.render().$el)
+
   toggleAddTag: ->
     $('.header-nav-right-popup').toggle()
 
@@ -29,6 +35,7 @@ class Yuetai.Views.Manage.TagsView extends Yuetai.Views.Base
     @tags.fetch
       success: =>
         @renderTags()
+        @renderPagination()
 
   renderTags: ->
     @tags.each (tag, i)=>
