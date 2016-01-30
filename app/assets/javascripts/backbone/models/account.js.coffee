@@ -23,11 +23,21 @@ class Yuetai.Models.Account extends Backbone.Model
     )
 
 
-class Yuetai.Collections.Accounts extends Backbone.Collection
+class Yuetai.Collections.Accounts extends Backbone.PageableCollection
   model: Yuetai.Models.Account
   url: "#{Yuetai.ApiPrefix}/users"
 
   sync: Yuetai.Common.api_sync
+
+  state:
+    pageSize: 10
+
+  parseState: (resp, queryParams, state, options)->
+    totalRecords: resp.total_entries
+    totalPages: resp.total_pages
+
+  parseRecords: (resp, options)->
+    resp.users
 
   initialize: ->
     @unsync = true

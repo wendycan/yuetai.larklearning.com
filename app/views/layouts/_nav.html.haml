@@ -30,6 +30,10 @@
                   %i.fa.fa-caret-square-o-right
                   我的演示文稿
               %li
+                = link_to user_path(current_user) do
+                  %i.fa.fa-file-text-o
+                  我的主页
+              %li
                 %a{:href => '/dashboard/index#settings'}
                   %i.fa.fa-wrench
                   设置

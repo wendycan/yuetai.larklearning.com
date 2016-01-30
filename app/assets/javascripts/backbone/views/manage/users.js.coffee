@@ -16,8 +16,18 @@ class Yuetai.Views.Manage.UsersView extends Yuetai.Views.Base
     @users.fetch
       success: =>
         @renderUsers()
+        @renderPagination()
+
+  renderPagination: ()->
+    paginator = new Paginator
+      collection: @users
+
+    $("#paginator").append paginator.render().$el
+    @listenTo @users, "reset", =>
+      @renderUsers()
 
   renderUsers: ->
+    $(@el).find('tbody').empty()
     @users.each @renderUser, @
 
   renderUser: (user, i)->

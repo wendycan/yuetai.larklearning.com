@@ -17,10 +17,10 @@ class Yuetai.Views.Manage.TagsView extends Yuetai.Views.Base
     @fetchTags()
 
   renderPagination: ()->
-    paginator = new Paginator(
+    paginator = new Paginator
       collection: @tags
-    )
-    $("#paginator").append(paginator.render().$el)
+
+    $("#paginator").append paginator.render().$el
     @listenTo @tags, "reset", =>
       @renderTags()
 

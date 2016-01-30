@@ -14,10 +14,22 @@ class Yuetai.Views.Manage.ArticlesView extends Yuetai.Views.Base
 
   fetchBlogs: ->
     @articles.fetch
+      data:
+        all: 'true'
       success: (blogs)=>
         @renderBlogs(blogs)
+        @renderPagination()
+
+  renderPagination: ->
+    paginator = new Paginator
+      collection: @articles
+
+    $("#paginator").append paginator.render().$el
+    @listenTo @articles, "reset", =>
+      @renderArticles()
 
   renderBlogs: ->
+    $(@el).find('tbody').empty()
     @articles.each @renderBlog, @
 
   renderBlog: (blog, i)->

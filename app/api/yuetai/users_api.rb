@@ -6,7 +6,11 @@ module Yuetai
       get do
         authenticateSuper!
         users = User.paginate(:page => params[:page], :per_page => 10)
-        present users, with: Entities::User
+        present :users, users, with: Entities::User
+        present :per_page, users.per_page
+        present :page, users.current_page
+        present :total_pages, users.total_pages
+        present :total_entries, users.total_entries
       end
 
       route_param :id, requirements: /[^\/]+/ do
