@@ -21,6 +21,7 @@ class Yuetai.Views.Manage.ArticlesView extends Yuetai.Views.Base
         @renderPagination()
 
   renderPagination: ->
+    @articles.queryParams.all = 'true'
     paginator = new Paginator
       collection: @articles
 

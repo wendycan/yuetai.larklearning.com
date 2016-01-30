@@ -24,9 +24,6 @@ class Yuetai.Collections.Blogs extends Backbone.PageableCollection
   state:
     pageSize: 10
 
-  queryParams:
-    all: 'true'
-
   parseState: (resp, queryParams, state, options)->
     totalRecords: resp.total_entries
     totalPages: resp.total_pages

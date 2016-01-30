@@ -6,8 +6,7 @@ module Yuetai
       desc 'Get all blogs'
       get do
         authenticate!
-        if params[:all] == 'true'
-          authenticateSuper!
+        if params[:all] == 'true' && current_user.level > 1
           blogs = Article.where(template: 'blog').order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
         else
           blogs = current_user.articles.where(template: 'blog').order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
@@ -18,7 +17,6 @@ module Yuetai
         present :total_pages, blogs.total_pages
         present :total_entries, blogs.total_entries
       end
-
 
       route_param :id, requirements: /[^\/]+/ do
         get do
