@@ -21,9 +21,11 @@ class Yuetai.Collections.Blogs extends Backbone.PageableCollection
   url: "#{Yuetai.ApiPrefix}/blogs"
 
   sync: Yuetai.Common.api_sync
-
   state:
     pageSize: 10
+
+  queryParams:
+    all: 'true'
 
   parseState: (resp, queryParams, state, options)->
     totalRecords: resp.total_entries
