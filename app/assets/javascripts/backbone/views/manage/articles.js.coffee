@@ -26,7 +26,7 @@ class Yuetai.Views.Manage.ArticlesView extends Yuetai.Views.Base
 
     $("#paginator").append paginator.render().$el
     @listenTo @articles, "reset", =>
-      @renderArticles()
+      @renderBlogs()
 
   renderBlogs: ->
     $(@el).find('tbody').empty()
