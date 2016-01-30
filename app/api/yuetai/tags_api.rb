@@ -6,7 +6,11 @@ module Yuetai
       get do
         authenticate!
         tags = Tag.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
-        present tags, with: Entities::Tag
+        present :tags, tags, with: Entities::Tag
+        present :per_page, tags.per_page
+        present :page, tags.current_page
+        present :total_pages, tags.total_pages
+        present :total_entries, tags.total_entries
       end
 
       post do

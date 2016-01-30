@@ -21,19 +21,12 @@ class Yuetai.Collections.Tags extends Backbone.PageableCollection
   state:
     pageSize: 10
 
-  queryParams:
-    q: ''
+  parseState: (resp, queryParams, state, options)->
+    totalRecords: resp.total_entries
+    totalPages: resp.total_pages
 
-  # parseState: (resp, queryParams, state, options)->
-  #   console.log resp
-  #   totalRecords: resp.info.total
-  #   totalPages: resp.info.total_pages
-
-  # parseRecords: (resp, options)->
-  #   docs = []
-  #   for r in resp.records
-  #     docs.push r.document
-  #   docs
+  parseRecords: (resp, options)->
+    resp.tags
 
   initialize: ->
     @unsync = true

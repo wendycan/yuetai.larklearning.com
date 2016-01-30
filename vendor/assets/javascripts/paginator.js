@@ -363,7 +363,6 @@
        @return {Array.<Object>} an array of page handle objects hashes
     */
     makeHandles: function () {
-
       var handles = [];
       var collection = this.collection;
 
@@ -411,7 +410,6 @@
       }
 
       var handles = this.handles = this.makeHandles();
-
       var ul = document.createElement("ul");
       ul.className = "pagination";
       for (var i = 0; i < handles.length; i++) {
