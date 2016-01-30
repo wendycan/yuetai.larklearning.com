@@ -20,7 +20,7 @@ class Yuetai.Views.Manage.TagsView extends Yuetai.Views.Base
     paginator = new Paginator
       collection: @tags
 
-    $("#paginator").append paginator.render().$el
+    $("#paginator").html paginator.render().$el
     @listenTo @tags, "reset", =>
       @renderTags()
 

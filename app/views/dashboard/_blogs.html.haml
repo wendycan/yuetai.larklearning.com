@@ -7,6 +7,8 @@
   .row.article-items.dashboard-content-wrap
     .large-12.columns
       %ul#blogs
+      #paginator
+
 %script{type: 'text/template', id: 't-blog'}
   %li.blog{:'data-id' => '{{= blog.id }}'}
     .row

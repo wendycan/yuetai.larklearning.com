@@ -22,7 +22,7 @@ class Yuetai.Views.Manage.UsersView extends Yuetai.Views.Base
     paginator = new Paginator
       collection: @users
 
-    $("#paginator").append paginator.render().$el
+    $("#paginator").html paginator.render().$el
     @listenTo @users, "reset", =>
       @renderUsers()
 

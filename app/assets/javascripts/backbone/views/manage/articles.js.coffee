@@ -24,7 +24,7 @@ class Yuetai.Views.Manage.ArticlesView extends Yuetai.Views.Base
     paginator = new Paginator
       collection: @articles
 
-    $("#paginator").append paginator.render().$el
+    $("#paginator").html paginator.render().$el
     @listenTo @articles, "reset", =>
       @renderBlogs()
 
@@ -33,7 +33,7 @@ class Yuetai.Views.Manage.ArticlesView extends Yuetai.Views.Base
     @articles.each @renderBlog, @
 
   renderBlog: (blog, i)->
-    html = _.template($('#t-manage-article').html()) _.extend(blog.toJSON(), {snipBody: @limit(@strip(blog.get('body')), 50), index: i})
+    html = _.template($('#t-manage-article').html()) _.extend(blog.toJSON(), {snipBody: @limit(@strip(blog.get('body')), 50), index: i + 1})
     $(@el).find('tbody').append html
 
   strip: (html)->
