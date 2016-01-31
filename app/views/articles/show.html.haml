@@ -13,7 +13,7 @@
         %p
           %span
             总字数
-            %strong= @user.words_count
+            %strong#user-word-count= @user.words_count
       %p= @user.desc
       .author-links
         = mail_to @user.email do
@@ -39,6 +39,7 @@
     $(document).ready(function () {
       var blogs_view = new Yuetai.Views.Blogs.BlogView(#{blog_json});
       $('.articles-btn').addClass('active');
+      $('#user-word-count').text(formatNumberByTenThousand($('#user-word-count').text()))
     });
 
 = content_for :title, @blog.title
