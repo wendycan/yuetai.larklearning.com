@@ -7,7 +7,6 @@ class Yuetai.Views.Manage.ArticlesView extends Yuetai.Views.Base
     'click .tag-edit' : 'editTag'
 
   render: ->
-    @$el.html(_.template($('#t-manage-articles').html())())
     $('.articles-nav').addClass('active').siblings().removeClass('active')
     @articles = new Yuetai.Collections.Blogs
     @fetchBlogs()
@@ -16,8 +15,9 @@ class Yuetai.Views.Manage.ArticlesView extends Yuetai.Views.Base
     @articles.fetch
       data:
         all: 'true'
-      success: (blogs)=>
-        @renderBlogs(blogs)
+      success: =>
+        @$el.html _.template($('#t-manage-articles').html())({articles_count: @articles.state.totalRecords})
+        @renderBlogs()
         @renderPagination()
 
   renderPagination: ->

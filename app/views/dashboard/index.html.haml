@@ -1,10 +1,13 @@
 #main-content.dashboard
-  = content_for :js_ext do
-    :javascript
-      $(document).ready(function () {
-        var router = new Yuetai.Routers.Engines();
-        Backbone.history.start();
-      })
+  .loading
+    %i.fa.fa-spinner.fa-spin
+
+= content_for :js_ext do
+  :javascript
+    $(document).ready(function () {
+      var router = new Yuetai.Routers.Engines();
+      Backbone.history.start();
+    })
 
 = render 'dashboard/blogs'
 = render 'dashboard/blog_new'

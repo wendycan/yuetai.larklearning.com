@@ -8,16 +8,21 @@
       %a.label.round.articles-nav{:href => "#manage/articles"} 文章
   .row.dashboard-content-wrap
     .large-12.columns
-      .header-nav.text-right
-        %a.add-tag{:href => "javascript:;"}
-          %i.fa.fa-plus
-        .header-nav-right-popup
-          %form
-            %input#newbl{type:'hidden', name:'newbl', value:'newbl'}
-            %label.text-left
-              创建标签
-              %input{type: 'text', name: 'name', placeholder: '输入标签名'}
-            %button.label{type: 'submit'} 保存
+      .row
+        .large-8.columns.text-left
+          %span  共 {{= tags_count }} 条标签
+        .large-4.columns
+          .header-nav.text-right
+            %a.add-tag{:href => "javascript:;"}
+              %i.fa.fa-plus
+            .header-nav-right-popup
+              %form
+                %input#newbl{type:'hidden', name:'newbl', value:'newbl'}
+                %label.text-left
+                  创建标签
+                  %input{type: 'text', name: 'name', placeholder: '输入标签名'}
+                %button.label{type: 'submit'} 保存
+    .large-12.columns
       %table
         %thead
           %tr
@@ -29,8 +34,6 @@
             %th 管理
         %tbody
       #paginator
-        .loading
-          %i.fa.fa-spinner.fa-spin
 
 %script{type: 'text/template', id: 't-manage-tag'}
   %tr
@@ -57,6 +60,8 @@
       %a.label.round.users-nav{:href => "#manage/users"} 用户
       %a.label.round.articles-nav{:href => "#manage/articles"} 文章
   .row.dashboard-content-wrap
+    .large-12.columns.text-left
+      %span  共 {{= articles_count }} 篇文章
     .large-12.columns
       %table
         %thead
@@ -71,8 +76,6 @@
             %th 管理
         %tbody
       #paginator
-        .loading
-          %i.fa.fa-spinner.fa-spin
 
 %script{type: 'text/template', id: 't-manage-article'}
   %tr
@@ -99,6 +102,8 @@
       %a.label.round.users-nav{:href => "#manage/users"} 用户
       %a.label.round.articles-nav{:href => "#manage/articles"} 文章
   .row.dashboard-content-wrap
+    .large-12.columns.text-left
+      %span  共 {{= users_count }} 个用户
     .large-12.columns
       %table
         %thead
@@ -113,8 +118,6 @@
             %th 链接
         %tbody
       #paginator
-        .loading
-          %i.fa.fa-spinner.fa-spin
 
 %script{type: 'text/template', id: 't-manage-user'}
   %tr

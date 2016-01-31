@@ -7,7 +7,6 @@ class Yuetai.Views.Manage.UsersView extends Yuetai.Views.Base
     'click .tag-edit' : 'editTag'
 
   render: ->
-    @$el.html(_.template($('#t-manage-users').html())())
     $('.users-nav').addClass('active').siblings().removeClass('active')
     @users = new Yuetai.Collections.Accounts
     @fetchUser()
@@ -15,6 +14,7 @@ class Yuetai.Views.Manage.UsersView extends Yuetai.Views.Base
   fetchUser: ->
     @users.fetch
       success: =>
+        @$el.html _.template($('#t-manage-users').html())({users_count: @users.state.totalRecords})
         @renderUsers()
         @renderPagination()
 
