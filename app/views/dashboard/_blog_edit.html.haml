@@ -10,10 +10,11 @@
             %label
               标题
               %input#blog-title{type: 'text', value: '{{= blog.title }}'}
-          .large-12.columns
+          .large-9.columns
             %label
               标签
-              %input#blog-tag{type: 'text', value: '{{= blog.tag_list }}'}
+            .tags-content
+          .large-3.columns
           .large-12.columns
             %textarea#blog-edit-body.editor
           .large-12.columns

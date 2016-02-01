@@ -11,12 +11,16 @@
             %label
               标题
               %input#blog-title{type: 'text'}
-          .large-12.columns
+          .large-9.columns
             %label
               标签
-              %input#blog-tag{type: 'text'}
+            .tags-content
+          .large-3.columns
           .large-12.columns
             %textarea#blog-new-body.editor
           .large-12.columns
             %button.button.tiny{type: 'submit'} 确定
             %a.cancel 取消
+
+%script{type: 'text/template', id: 't-blog-tag'}
+  %a.label.primary.round{:href => "javascript:;", :'data-tag-id' => '{{= id }}', :'data-tag-name' => '{{= name }}'} {{= name }}
