@@ -28,7 +28,17 @@ class Yuetai.Views.Manage.TagsView extends Yuetai.Views.Base
 
   editTag: ->
 
-  removeTag: ->
+  removeTag: (e)->
+    alertify.confirm '确定删除这个标签？', (isOk)=>
+      if isOk
+        $tr = $(e.currentTarget).closest('tr')
+        tag_id = $tr.data('tag-id')
+        tag = @tags.findWhere({id: tag_id})
+        tag.destroy
+          success: ->
+            $tr.remove()
+            alertify.success('删除成功')
+
 
   saveTag: ->
 

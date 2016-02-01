@@ -28,23 +28,24 @@ module Yuetai
           {errors: 'tag created failed', status: 422}
         end
       end
-
-      put do
-        authenticateSuper!
-        tag = Tag.find(params[:id])
-        tag.name = params[:name]
-        if tag.save
-          {status: 200}
-        else
-          {errors: 'tag update failed', status: 422}
+      route_param :id, requirements: /[^\/]+/ do
+        put do
+          authenticateSuper!
+          tag = Tag.find(params[:id])
+          tag.name = params[:name]
+          if tag.save
+            {status: 200}
+          else
+            {errors: 'tag update failed', status: 422}
+          end
         end
-      end
 
-      delete do
-        authenticateSuper!
-        tag = Article.find(params[:id])
-        tag.destroy!
-        {status: 204}
+        delete do
+          authenticateSuper!
+          tag = Tag.find(params[:id])
+          tag.destroy!
+          {status: 204}
+        end
       end
     end
   end

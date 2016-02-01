@@ -36,7 +36,7 @@
       #paginator
 
 %script{type: 'text/template', id: 't-manage-tag'}
-  %tr
+  %tr{:'data-tag-id' => '{{= id }}'}
     %td {{= index }}
     %td {{= id }}
     %td

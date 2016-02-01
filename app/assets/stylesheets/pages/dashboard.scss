@@ -1,6 +1,14 @@
+.manage-controls {
+  a:focus {
+    outline: none;
+  }
+}
 .dashboard {
   .tags-content {
     margin-bottom: 5px;
+    .label:hover, .label.active {
+      background-color: $secondary-color;
+    }
   }
   .loading {
     margin: 100px 0 30px;
