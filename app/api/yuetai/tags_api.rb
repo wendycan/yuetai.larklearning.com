@@ -9,7 +9,7 @@ module Yuetai
           tags = Tag.order("created_at DESC")
           present tags, with: Entities::Tag
         else
-          tags = Tag.order("created_at DESC").paginate(:page => params[:page], :per_page => 10)
+          tags = Tag.order("created_at DESC").paginate(:page => params[:page], :per_page => 15)
           present :tags, tags, with: Entities::Tag
           present :per_page, tags.per_page
           present :page, tags.current_page
