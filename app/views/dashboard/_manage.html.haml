@@ -1,4 +1,4 @@
-%script{type: 'text/template', id: 't-manage-tags'}
+%script{type: 'text/template', id: 't-manage'}
   .row.manage-header
     .large-8.columns
       %h4 管理
@@ -7,21 +7,23 @@
       %a.label.round.users-nav{:href => "#manage/users"} 用户
       %a.label.round.articles-nav{:href => "#manage/articles"} 文章
   .row.dashboard-content-wrap
-    .large-12.columns
-      .row
-        .large-8.columns.text-left
-          %span  共 {{= tags_count }} 条标签
-        .large-4.columns
-          .header-nav.text-right
-            %a.add-tag{:href => "javascript:;"}
-              %i.fa.fa-plus
-            .header-nav-right-popup
-              %form
-                %input#newbl{type:'hidden', name:'newbl', value:'newbl'}
-                %label.text-left
-                  创建标签
-                  %input{type: 'text', name: 'name', placeholder: '输入标签名'}
-                %button.label{type: 'submit'} 保存
+
+%script{type: 'text/template', id: 't-manage-tags'}
+  .large-12.columns
+    .row
+      .large-8.columns.text-left
+        %span 共 {{= tags_count }} 条标签
+      .large-4.columns
+        .header-nav.text-right
+          %a.add-tag{:href => "javascript:;"}
+            %i.fa.fa-plus
+          .header-nav-right-popup
+            %form
+              %input#newbl{type:'hidden', name:'newbl', value:'newbl'}
+              %label.text-left
+                创建标签
+                %input{type: 'text', name: 'name', placeholder: '输入标签名'}
+              %button.label{type: 'submit'} 保存
     .large-12.columns
       %table
         %thead
@@ -52,30 +54,22 @@
         %i.fa.fa-check
 
 %script{type: 'text/template', id: 't-manage-articles'}
-  .row.manage-header
-    .large-8.columns
-      %h4 管理文章
-    .large-4.columns.text-right
-      %a.label.round.tags-nav{:href => "#manage/tags"} 标签
-      %a.label.round.users-nav{:href => "#manage/users"} 用户
-      %a.label.round.articles-nav{:href => "#manage/articles"} 文章
-  .row.dashboard-content-wrap
-    .large-12.columns.text-left
-      %span  共 {{= articles_count }} 篇文章
-    .large-12.columns
-      %table
-        %thead
-          %tr
-            %th.w-five-hundredth 序号
-            %th.w-five-hundredth Id
-            %th 标题
-            %th 标签
-            %th 访问量
-            %th.w-three-tenth 内容
-            %th 创建日期
-            %th 管理
-        %tbody
-      #paginator
+  .large-12.columns.text-left
+    %span  共 {{= articles_count }} 篇文章
+  .large-12.columns
+    %table
+      %thead
+        %tr
+          %th.w-five-hundredth 序号
+          %th.w-five-hundredth Id
+          %th 标题
+          %th 标签
+          %th 访问量
+          %th.w-three-tenth 内容
+          %th 创建日期
+          %th 管理
+      %tbody
+    #paginator
 
 %script{type: 'text/template', id: 't-manage-article'}
   %tr
@@ -94,30 +88,22 @@
         %i.fa.fa-eye-slash
 
 %script{type: 'text/template', id: 't-manage-users'}
-  .row.manage-header
-    .large-8.columns
-      %h4 管理用户
-    .large-4.columns.text-right
-      %a.label.round.tags-nav{:href => "#manage/tags"} 标签
-      %a.label.round.users-nav{:href => "#manage/users"} 用户
-      %a.label.round.articles-nav{:href => "#manage/articles"} 文章
-  .row.dashboard-content-wrap
-    .large-12.columns.text-left
-      %span  共 {{= users_count }} 个用户
-    .large-12.columns
-      %table
-        %thead
-          %tr
-            %th.w-five-hundredth 序号
-            %th.w-five-hundredth Id
-            %th 图像
-            %th 用户名
-            %th 微信
-            %th.w-two-tenth 描述
-            %th 用户级别
-            %th 链接
-        %tbody
-      #paginator
+  .large-12.columns.text-left
+    %span  共 {{= users_count }} 个用户
+  .large-12.columns
+    %table
+      %thead
+        %tr
+          %th.w-five-hundredth 序号
+          %th.w-five-hundredth Id
+          %th 图像
+          %th 用户名
+          %th 微信
+          %th.w-two-tenth 描述
+          %th 用户级别
+          %th 链接
+      %tbody
+    #paginator
 
 %script{type: 'text/template', id: 't-manage-user'}
   %tr

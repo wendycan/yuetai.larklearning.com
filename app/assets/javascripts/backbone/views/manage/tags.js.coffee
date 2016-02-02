@@ -11,7 +11,6 @@ class Yuetai.Views.Manage.TagsView extends Yuetai.Views.Base
     'submit .header-nav-right-popup form' : 'createTag'
 
   render: ->
-    $('.tags-nav').addClass('active').siblings().removeClass('active')
     @tags = new Yuetai.Collections.Tags
     @fetchTags()
 
@@ -39,13 +38,13 @@ class Yuetai.Views.Manage.TagsView extends Yuetai.Views.Base
             $tr.remove()
             alertify.success('删除成功')
 
-
   saveTag: ->
 
   fetchTags: ->
     @tags.fetch
       success: =>
         @$el.html _.template($('#t-manage-tags').html())({tags_count: @tags.state.totalRecords})
+        $('.tags-nav').addClass('active').siblings().removeClass('active')
         @renderTags()
         @renderPagination()
 
