@@ -7,9 +7,10 @@ class Yuetai.Views.Blogs.BlogsView extends Backbone.View
     @blogs = new Yuetai.Collections.Blogs(opts)
     @converter = new Showdown.converter()
     @renderBlogs()
+    hljs.initHighlightingOnLoad()
 
   renderBlogs: ->
-    $('#y-blogs').empty()
+    $('#y-articles').empty()
     @blogs.each(@renderBlog, @)
 
   renderBlog: (blog)->
@@ -21,7 +22,7 @@ class Yuetai.Views.Blogs.BlogsView extends Backbone.View
     blog = blog.toJSON()
     blog.date = jQuery.timeago(blog.created_at)
     blog.body = snip
-    $('#y-blogs').append(_.template($('#t-blog').html())(blog: blog))
+    $('#y-articles').append(_.template($('#t-blog').html())(blog: blog))
 
   strip: (html)->
     tmp = document.createElement("DIV")

@@ -18,6 +18,8 @@ YuetaiWendycanOrg::Application.routes.draw do
   get 'series/index'
   get 'series/show'
 
+  resources :users
+
   mount Api => '/api/'
 
   # Example of regular route:

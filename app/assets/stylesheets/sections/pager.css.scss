@@ -1,6 +1,9 @@
 .pager {
   font-size: 16px;
   padding: 10px 0;
+  ul {
+    margin: 0;
+  }
   li {
     display: inline-block;
     text-align: center;
@@ -30,7 +33,7 @@
       a {
         color: #fff;
       }
-      background-color: $primary;
+      background-color: $primary-color;
     }
   }
   form {
@@ -50,9 +53,9 @@
       outline: none;
       padding: 4px 6px;
       cursor: pointer;
-      color: $primary;
+      color: $primary-color;
       &:hover {
-        color: $primary-hover;
+        color: $primary-color;
       }
     }
   }

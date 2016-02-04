@@ -1,0 +1,53 @@
+%script{type: 'text/template', id: 't-settings-show'}
+  .user-settings
+    .row
+      .large-12.columns
+        %h4 设置
+    .row.dashboard-content-wrap
+      .large-10.columns.large-centered
+        %form#user-setting
+          .row
+            .large-2.columns
+              %label.right.inline{for: 'username'} 用户名
+            .large-8.columns
+              %input#username{type: 'text', placeholder: 'lily', value: '{{= username }}'}
+            .large-2.columns.text-right
+              %span.label.secondary.round {{= level_name }}
+          .row
+            .large-2.columns
+              %label.right.inline{for: 'email'} 邮箱
+            .large-10.columns
+              %input#email{type: 'text', placeholder: 'demo@example.com', value: '{{= email }}'}
+          .row
+            .large-2.columns
+              %label.right.inline{for: 'github'} Github
+            .large-10.columns
+              %input#github{type: 'text', placeholder: 'http://github.com/example', value: '{{= github }}'}
+          .row.settings-webchat
+            .large-2.columns
+              %label.right.inline{for: 'webchat'} 微信
+            .large-2.columns
+              %img{src: '{{= webchat }}'}
+            .large-8.columns
+              %input#webchat{type: 'file'}
+              .label.input-layer 上传文件
+          .row
+            .large-2.columns
+              %label.right.inline{for: 'desc'} 描述
+            .large-10.columns
+              %textarea#desc{type: 'text', placeholder: '有志者，事竟成'} {{= desc }}
+          .row.settings-avator
+            .large-2.columns
+              %label.right.inline{for: 'avator'} 头像
+            .large-2.columns
+              %img{src: '{{= avator }}'}
+            .large-8.columns
+              %input#avator{type: 'file'}
+              .label.input-layer 上传文件
+          .row
+            .large-12.columns
+              %hr
+          .row
+            .large-2.columns
+            .large-10.columns
+              %button.btn.tiny{type: 'submit'} 保存

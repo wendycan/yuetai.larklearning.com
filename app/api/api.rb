@@ -17,7 +17,12 @@ class Api < Grape::API
 
     def authenticate!
       error!('401 Unauthorized', 401) unless current_user
-      error!('400 Not found', 400) unless current_user.editable
+      error!('405 Method Not Allowed', 405) unless current_user.level > 0
+    end
+
+    def authenticateSuper!
+      error!('401 Unauthorized', 401) unless current_user
+      error!('405 Method Not Allowed', 405) unless current_user.level > 1
     end
 
     def locate_user
@@ -30,11 +35,13 @@ class Api < Grape::API
       article = Article.new()
       article.title = params[:title]
       article.body = params[:body]
-      article.tag_id = params[:tag_id]
+      article.tag_list = params[:tag_list]
       article.template = params[:template]
       article.language = params[:language]
       article.user_id = @current_user.id
+      @current_user.words_count += HTML::FullSanitizer.new.sanitize(article.body).length
       if article.save
+        @current_user.save
         {status: 201}
       else
         {errors: 'article create failed', status: 422}
@@ -43,12 +50,16 @@ class Api < Grape::API
 
     def update_article
       article = Article.find(params[:id])
+      old_count = HTML::FullSanitizer.new.sanitize(article.body).length
       article.title = params[:title]
       article.body = params[:body]
-      article.tag_id = params[:tag_id]
+      article.tag_list = params[:tag_list]
       article.language = params[:language]
       article.template = params[:template]
+      delta = HTML::FullSanitizer.new.sanitize(article.body).length - old_count
+      @current_user.words_count += delta
       if article.save
+        @current_user.save
         {status: 200}
       else
         {errors: 'article update failed', status: 422}
@@ -57,7 +68,10 @@ class Api < Grape::API
 
     def delete_article
       article = Article.find(params[:id])
+      count = HTML::FullSanitizer.new.sanitize(article.body).length
       article.destroy!
+      @current_user.words_count -= count
+      @current_user.save
       {status: 204}
     end
   end
@@ -67,5 +81,21 @@ class Api < Grape::API
   mount Yuetai::Blogs
   mount Yuetai::Series
   mount Yuetai::Presentations
+  mount Yuetai::Users
+
+  post :upload do
+    authenticate!
+    file = params[:upload_file][:tempfile]
+    path = Settings.ftp_path + Time.now.strftime('%Y%m%d%H%M%S') + '_'+ params[:upload_file][:filename]
+    Net::FTP.open(Settings.ftp_server, Settings.ftp_username, Settings.ftp_pass) do |ftp|
+      ftp.passive = true
+      ftp.putbinaryfile(file, path)
+    end
+    present({
+      :success => true,
+      :msg => "success",
+      :file_path => Settings.ftp_server_name + path
+    })
+  end
 
 end

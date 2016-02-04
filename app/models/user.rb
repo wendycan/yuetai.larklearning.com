@@ -9,6 +9,14 @@ class User < ActiveRecord::Base
 
   has_many :articles
 
+  def update_user_words_count
+    count = 0
+    self.articles.where(template: 'blog').each do |article|
+      count += HTML::FullSanitizer.new.sanitize(article.body).length
+    end
+    self.words_count = count
+  end
+
   def generate_authentication_token
     loop do
       self.authentication_token = SecureRandom.hex 20

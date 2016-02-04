@@ -19,6 +19,10 @@ class Yuetai.Routers.Engines extends Backbone.Router
 
     'settings' : 'show_settings'
 
+    'manage/tags' : 'show_manage_tags'
+    'manage/users' : 'show_manage_users'
+    'manage/articles' : 'show_manage_articles'
+
   initialize: ->
     @account = new Yuetai.Models.Account()
 
@@ -83,6 +87,16 @@ class Yuetai.Routers.Engines extends Backbone.Router
     @presentation_view = new Yuetai.Views.Presentations.ShowView(@, opts)
 
   show_settings: ->
+    @settings_view = new Yuetai.Views.Settings.ShowView(@)
+
+  show_manage_tags: ->
+    @manage_view = new Yuetai.Views.Manage.TagsView(@)
+
+  show_manage_users: ->
+    @manage_view = new Yuetai.Views.Manage.UsersView(@)
+
+  show_manage_articles: ->
+    @manage_view = new Yuetai.Views.Manage.ArticlesView(@)
 
   # index : ->
   #   opts =

@@ -1,28 +1,9 @@
-.footer{
-  h5{
+.footer {
+  h5 {
     color: $gray-text;
   }
-  hr{
+  hr {
     color: $gray-border;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-  small, .reverse{
-    color: $gray-text;
-  }
-  .reverse:hover{
-    color: $primary;
-  }
-  i{
-    font-size: 2rem;
-  }
-  img{
-    width: 75%;
-  }
-  .static{
-    a{
-      color: $gray-text;
-      font-size: 0.8rem;
-    }
+    margin: 10px 0;
   }
 }

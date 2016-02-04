@@ -1,0 +1,162 @@
+.manage-controls {
+  a:focus {
+    outline: none;
+  }
+}
+.dashboard {
+  .tags-content {
+    margin-bottom: 5px;
+    .label:hover, .label.active {
+      background-color: $secondary-color;
+    }
+  }
+  .loading {
+    margin: 100px 0 30px;
+  }
+  margin-top: 60px;
+  .paginator {
+    margin-top: 10px;
+  }
+  .header-nav {
+    position: relative;
+  }
+  .header-nav-right-popup {
+    display: none;
+    position: absolute;
+    top: -4px;
+    right: -225px;
+    width: 200px;
+    background-color: #fff;
+    border: solid 1px $gray-border;
+    border-radius: 4px;
+    padding: 15px;
+    input {
+      height: 2em;
+      margin-bottom: 5px;
+      margin-top: 3px
+    }
+    &:before, &:after {
+      content: '';
+      position: absolute;
+      border-style: solid;
+      border-width: 5px 10px;
+      left: -20px;
+      top: 10px;
+    }
+    &:after {
+      border-color: transparent #fff transparent transparent;
+      left: -18px;
+    }
+    &:before {
+      border-color: transparent $gray-border transparent transparent;
+    }
+  }
+  .article-controls {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    a {
+      padding-right: 8px;
+    }
+  }
+
+  .simditor {
+    margin-bottom: 20px;
+  }
+
+  .page.active {
+    background-color: $primary-color;
+  }
+  #new-blog-form, #edit-blog-form {
+  }
+  .delete {
+    color: $alert-color;
+  }
+  table {
+    border: none;
+    thead tr th {
+      color: $secondary-color;
+      background-color: #fff;
+      font-weight: normal;
+    }
+    img {
+      width: 45px;
+      height: 45px;
+    }
+    .manage-controls {
+      a {
+        padding-right: 5px;
+      }
+      i {
+        font-size: 16px;
+      }
+      .fa-remove {
+        color: $alert-color;
+      }
+      .fa-check {
+        color: $info-color;
+      }
+    }
+    td, th {
+      text-align: center;
+      border-right: none;
+      border-left: none;
+    }
+  }
+  .manage-header {
+    .label {
+      margin-top: 10px;
+      padding: 0.25rem 0.5rem;
+    }
+    a:hover, a:focus {
+      color: #fff;
+    }
+  }
+  table {
+    margin-bottom: 0;
+  }
+}
+
+#blogs,
+#presentations {
+  & > li {
+    list-style: none;
+  }
+  margin: 0;
+}
+
+.dashboard-content-wrap {
+  background-color: $gray-bg;
+  border-radius: 5px;
+  padding: 30px 0;
+  input[type="file"] {
+    padding-top: 8px;
+    position: relative;
+    opacity: 0;
+    z-index: 10;
+    width: 100px;
+    height: 25px;
+  }
+  .input-layer {
+    position: absolute;
+    display: inline-block;
+    top: 8px;
+    left: 15px;
+    width: 100px;
+    height: 25px;
+    padding: 0;
+    line-height: 25px !important;
+  }
+  button {
+    margin: 0;
+    outline: none;
+  }
+  form {
+    .label {
+      color: #fff;
+      line-height: 12px;
+    }
+    hr {
+      margin: 15px 15px 15px 60px;
+    }
+  }
+}

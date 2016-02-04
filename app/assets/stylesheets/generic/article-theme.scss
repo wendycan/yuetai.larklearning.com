@@ -1,0 +1,30 @@
+.article-primary-theme {
+  .article-body {
+    h1 {
+      font-size: 1.6rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+    }
+    h3 {
+      font-size: 1.4rem;
+    }
+    h4 {
+      font-size: 1.3rem;
+    }
+    h5 {
+      font-size: 1.2rem;
+    }
+    h6 {
+      font-size: 1.1rem;
+    }
+    p {
+      margin-bottom: 0.25rem;
+    }
+    pre code {
+      border: none;
+      margin: 8px 0;
+      max-width: 800px;
+    }
+  }
+}

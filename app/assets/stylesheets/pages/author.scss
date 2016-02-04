@@ -1,29 +1,85 @@
-.author{
-  .articles{
+.author {
+  .articles {
     margin-bottom: 20px;
-    ul{
+    ul {
       margin-top: 20px;
-      li{
+      li {
         padding: 20px 5px 20px 5px;
-        background-color: $gray-bg;
-        &:hover{
+        background-color: $gray-bg-color;
+        &:hover {
           opacity: 0.8;
         }
       }
-      a:hover{
-        color: $primary;
+      a:hover {
+        color: $primary-color;
       }
     }
   }
-  .meta{
-    img{
+  .meta {
+    img {
       margin-bottom: 20px;
     }
-    p{
+    p {
       margin-bottom: 5px;
     }
-    .label{
+    .label {
       margin-right: 10px;
+    }
+  }
+}
+.author-links {
+  position: relative;
+}
+.author-summary {
+  padding: 20px 0;
+  text-align: center;
+  img {
+    border-radius: 50%;
+    width: 75%;
+  }
+  p {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+  strong {
+    color: $secondary-color;
+    font-weight: normal;
+    font-size: 0.95rem;
+  }
+  h5 {
+    margin-bottom: 0.2rem;
+  }
+  .author-webchat {
+    img {
+      display: none;
+      position: absolute;
+      top: 25px;
+      right: 0;
+      width: 120px;
+      height: 120px;
+      border-radius: 0;
+      border: solid 1px $gray-border;
+    }
+    &:hover img {
+      display: block;
+    }
+  }
+}
+.author-count {
+  padding: 5px 0;
+  p {
+    margin: 0;
+    line-height: 1.3;
+  }
+}
+.author-links {
+  i {
+    font-size: 1.5rem;
+  }
+  a {
+    color: $gray-text;
+    &:hover {
+      color: $primary-color;
     }
   }
 }

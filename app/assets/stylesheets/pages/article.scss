@@ -1,51 +1,44 @@
-.article{
-  .meta{
-    p{
-      margin-bottom: 10px;
+.article-wrap {
+  h4 {
+    margin: 0;
+  }
+  .article-meta {
+    padding: 10px 0;
+    span {
+      font-size: 12px;
     }
-    small{
-      vertical-align: bottom;
-    }
-    a:hover{
-      img{
-        opacity: 0.8;
-      }
-    }
-    margin-bottom: 30px;
-    margin-top: 20px;
   }
-  .body p{
-    text-indent: 2rem;
-  }
-  p.remove-indent{
-    text-indent: 0;
-  }
+  position: relative;
 }
-.articles{
-  p{
-    margin-bottom: 0.8rem;
+
+.article-category {
+  position: fixed;
+  right: 20px;
+  top: 75px;
+  width: 200px;
+  i {
+    font-size: 20px;
   }
-  hr:last-child{
-    display: none;
+  li {
+    list-style: none;
+    font-size: 14px;
   }
 }
-.blog h5,.article-page h5{
-  border-bottom: 1px solid $gray-border;
-  margin-bottom: 15px;
-  padding-bottom: 5px;
+.article-category-btn a {
+  background-color: #fff;
 }
-.name-user,.time-user,.name-user-show,.time-user-show{
-  font-size: 0.9em;
-  color:#556677;
-  margin-left: 15px;
+.article-category-content {
+  background-color: #fff;
+  padding: 10px;
+  border: solid 1px $gray-border;
+  height: 250px;
+  overflow-y: scroll;
+  & > ul {
+    margin: 0;
+  }
 }
-.time-user,.time-user-show{
-  margin-top: -15px;
-  margin-left: 15px;
-}
-.title-user{
-  font-size: 1.5em;
-}
-.article-page h5 span{
-  font-size: 1.5em;
+
+.article-anchor {
+  margin-top: -55px !important;
+  padding-top: 55px !important;
 }

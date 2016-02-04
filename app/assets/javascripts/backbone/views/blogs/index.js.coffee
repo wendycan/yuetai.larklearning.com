@@ -19,9 +19,19 @@ class Yuetai.Views.Blogs.IndexView extends Yuetai.Views.Base
     @blogs.fetch(
       success: =>
         @renderBlogs()
+        @renderPagination()
     )
 
+  renderPagination: ->
+    paginator = new Paginator
+      collection: @blogs
+
+    $("#paginator").html paginator.render().$el
+    @listenTo @blogs, "reset", =>
+      @renderBlogs()
+
   renderBlogs: ->
+    $('#blogs').empty()
     @blogs.each(@renderBlog, @)
 
   renderBlog: (blog)->

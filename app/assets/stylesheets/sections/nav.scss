@@ -1,36 +1,69 @@
-.top-bar{
-  a{
-    font-weight: bold !important;
+.y-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: #fefefe;
+  padding: 0 20px;
+  z-index: 10;
+  ul {
+    margin: 0;
   }
-  .title-area{
-    a{
-      img{
-        height: 30px;
-        width: auto;
-        margin-left: 5px;
-      }
-      &:hover{
-        opacity: 0.8;
-      }
-    }
+  img {
+    height: 35px;
   }
-  ul.right{
-    a{
-      // font-size: 1.7rem;
-    }
-
-    img {
-      width: 25px;
-    }
+  li {
+    height: 50px;
+    list-style: none;
+    display: inline-block;
+    line-height: 50px;
   }
-
+  border-bottom: solid 1px $gray-border;
+  ul.right > li {
+    padding-left: 10px;
+  }
 }
 
-nav {
-  margin-bottom: 2rem !important;
+ul.small-nav {
+  li {
+    text-align: center;
+  }
+  li.about a {
+    display: inline;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  img {
+    width: 30px;
+    padding-right: 10px;
+  }
 }
-// .off-canvas-list{
-//   li i{
-//     padding-right: 15px;
-//   }
-// }
+
+.children-nav {
+  display: none;
+  border: solid 1px $gray-border;
+  padding: 0 10px;
+  background-color: #fff;
+  position: absolute;
+  top: 49px;
+  right: 0;
+  width: 130px;
+  li {
+    display: block;
+    height: 25px;
+    line-height: 25px;
+    font-size: 14px;
+    i {
+      padding-right: 2px;
+    }
+  }
+}
+
+.nav-user-btn {
+  position: relative;
+  &:hover {
+    .children-nav {
+      display: block;
+    }
+  }
+}

@@ -1,7 +1,36 @@
-#main-content.article-body
-.row.wrap
-  .large-12.columns
-    .ds-thread{:'data-thread-key' => '', :'data-title' => 'title', :'data-url' => ''}
+.container.article-wrap
+  .sidebar.pull-left
+    .author-summary
+      = link_to @user do
+        = image_tag @user.avator
+      %h5
+        = link_to @user.username, @user
+      .author-count
+        %p
+          %span
+            文章数
+            %strong= @user.articles.length
+        %p
+          %span
+            总字数
+            %strong#user-word-count= @user.words_count
+      %p= @user.desc
+      .author-links
+        = mail_to @user.email do
+          %i.fa.fa-envelope
+        = link_to @user.github do
+          %i.fa.fa-github
+        %a.author-webchat{:href => '#'}
+          %i.fa.fa-weixin
+          = image_tag(@user.webchat)
+  #main-content.article-primary-theme
+    .loading
+      %i.fa.fa-spinner.fa-spin
+  .article-category.hide
+    .article-category-btn.text-right
+      %a{:href => "javascript:;"}
+        %i.fa.fa-list
+    .article-category-content.hide
 
 - blog_json = render template: "articles/show", formats: [:json], handlers: [:jbuilder]
 
@@ -10,29 +39,19 @@
     $(document).ready(function () {
       var blogs_view = new Yuetai.Views.Blogs.BlogView(#{blog_json});
       $('.articles-btn').addClass('active');
+      $('#user-word-count').text(formatNumberByTenThousand($('#user-word-count').text()))
     });
 
-:javascript
-  var duoshuoQuery = {short_name:"wendycan"};
-  (function() {
-  var ds = document.createElement('script');
-  ds.type = 'text/javascript';ds.async = true;
-  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-  ds.charset = 'UTF-8';
-  (document.getElementsByTagName('head')[0]
-  || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
+= content_for :title, @blog.title
 
 %script{type: 'text/template', id: 't-blog-show'}
-  .row.article-page
-    .large-12.columns
-      %h5
-        %span  {{= blog.title }}
-      %p.name-user-show 作者: &nbsp; {{= blog.username}}
-      %p.time-user-show 时间: &nbsp; {{= blog.date }}
-      %p 阅读: &nbsp;  {{= blog.visited_count }} 次
-  .row
-    .large-12.columns
-      %p {{= blog.body }}
+  .article
+    %h4 {{= blog.title }}
+    .article-meta
+      %span {{= blog.date }}
+      %span {{= blog.visited_count }} 次阅读
+      %span {{= blog.tag_list }}
+    .article-body
+      {{= blog.body }}
 
 

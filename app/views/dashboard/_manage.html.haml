@@ -1,0 +1,123 @@
+%script{type: 'text/template', id: 't-manage'}
+  .row.manage-header
+    .large-8.columns
+      %h4 管理
+    .large-4.columns.text-right
+      %a.label.round.tags-nav{:href => "#manage/tags"} 标签
+      %a.label.round.users-nav{:href => "#manage/users"} 用户
+      %a.label.round.articles-nav{:href => "#manage/articles"} 文章
+  .row.dashboard-content-wrap
+
+%script{type: 'text/template', id: 't-manage-tags'}
+  .large-12.columns
+    .row
+      .large-8.columns.text-left
+        %span 共 {{= tags_count }} 条标签
+      .large-4.columns
+        .header-nav.text-right
+          %a.add-tag{:href => "javascript:;"}
+            %i.fa.fa-plus
+          .header-nav-right-popup
+            %form
+              %input#newbl{type:'hidden', name:'newbl', value:'newbl'}
+              %label.text-left
+                创建标签
+                %input{type: 'text', name: 'name', placeholder: '输入标签名'}
+              %button.label{type: 'submit'} 保存
+    .large-12.columns
+      %table
+        %thead
+          %tr
+            %th.w-five-hundredth 序号
+            %th.w-five-hundredth Id
+            %th 名称
+            %th 文章数
+            %th 创建日期
+            %th 管理
+        %tbody
+      #paginator
+
+%script{type: 'text/template', id: 't-manage-tag'}
+  %tr{:'data-tag-id' => '{{= id }}'}
+    %td {{= index }}
+    %td {{= id }}
+    %td
+      %a{:href => "#", :target => "_blank"} {{= name }}
+    %td {{= articles.length }}
+    %td {{= created_at }}
+    %td.manage-controls{:'data-id' => '{{= id}}'}
+      %a.tag-edit{:href => 'javascript:;'}
+        %i.fa.fa-pencil
+      %a.tag-remove{:href => 'javascript:;'}
+        %i.fa.fa-remove
+      %a.tag-save{:href => 'javascript:;'}
+        %i.fa.fa-check
+
+%script{type: 'text/template', id: 't-manage-articles'}
+  .large-12.columns.text-left
+    %span  共 {{= articles_count }} 篇文章
+  .large-12.columns
+    %table
+      %thead
+        %tr
+          %th.w-five-hundredth 序号
+          %th.w-five-hundredth Id
+          %th 标题
+          %th 标签
+          %th 访问量
+          %th.w-three-tenth 内容
+          %th 创建日期
+          %th 管理
+      %tbody
+    #paginator
+
+%script{type: 'text/template', id: 't-manage-article'}
+  %tr
+    %td {{= index }}
+    %td {{= id }}
+    %td
+      %a{:href => "#", :target => "_blank"} {{= title }}
+    %td {{= tag_list }}
+    %td {{= visited_count }}
+    %td {{= snipBody }}
+    %td {{= created_at }}
+    %td.manage-controls{:'data-id' => '{{= id}}'}
+      %a.article-unpublish{:href => 'javascript:;'}
+        %i.fa.fa-eye
+      %a.article-publish{:href => 'javascript:;'}
+        %i.fa.fa-eye-slash
+
+%script{type: 'text/template', id: 't-manage-users'}
+  .large-12.columns.text-left
+    %span  共 {{= users_count }} 个用户
+  .large-12.columns
+    %table
+      %thead
+        %tr
+          %th.w-five-hundredth 序号
+          %th.w-five-hundredth Id
+          %th 图像
+          %th 用户名
+          %th 微信
+          %th.w-two-tenth 描述
+          %th 用户级别
+          %th 链接
+      %tbody
+    #paginator
+
+%script{type: 'text/template', id: 't-manage-user'}
+  %tr
+    %td {{= index }}
+    %td {{= id }}
+    %td
+      %img{:src => '{{= avator }}'}
+    %td {{= username }}
+    %td
+      %img{:src => '{{= webchat }}'}
+    %td {{= desc }}
+    %td {{= level }}
+    %td
+      %a{:href => '{{= github }}' }
+        %i.fa.fa-github
+      %a{:href => '{{= email }}' }
+        %i.fa.fa-envelope
