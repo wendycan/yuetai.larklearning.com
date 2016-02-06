@@ -23,7 +23,7 @@ class Yuetai.Views.Blogs.EditView extends Yuetai.Views.Base
         for tag in tags
           @renderTag(tag)
         for tag in @blog.get('tag_list').split(',')
-          @$el.find('.tags-content').find('[data-tag-name=' + tag + ']').addClass('active')
+          if tag.length > 0 then @$el.find('.tags-content').find('[data-tag-name=' + tag + ']').addClass('active')
 
   renderTag: (tag)->
     @$el.find('.tags-content').append _.template($('#t-blog-tag').html())(tag)
