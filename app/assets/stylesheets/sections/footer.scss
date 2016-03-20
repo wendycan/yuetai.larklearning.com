@@ -1,6 +1,9 @@
 .footer {
   h5 {
     color: $gray-text;
+    a{
+    	vertical-align: middle;
+    }
   }
   hr {
     color: $gray-border;
