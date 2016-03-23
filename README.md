@@ -6,10 +6,12 @@ YueTai [![Stories in Ready](https://badge.waffle.io/wendycan/yuetai.wendycan.org
 
 技术栈
 ---------
-* HTML5/Haml + CSS3/Scss + Javascript/CoffeeScript
+* HTML5/Haml + CSS3/Scss + Javascript/CoffeeScript + Ruby
 * Foundation
-* Backbone
-* Grape
+* Backbone: 单页应用框架
+* Rails: 后端框架
+* Grape: API 框架
+* Devise: 用户认证
 
 Requirements
 ---------
