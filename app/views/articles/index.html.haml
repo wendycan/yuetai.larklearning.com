@@ -10,8 +10,8 @@
       %span.label.round 生活
     .hot-authors
       - @authors.each do |author|
-        = link_to author do
-          - if !author.username.blank? && !author.articles.empty?
+        - if !author.username.blank? && !author.articles.empty?
+          = link_to author do
             %span.label.round= author.username
 
   #y-articles.articles
