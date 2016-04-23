@@ -5,10 +5,20 @@
         = link_to tag_path(tag.id) do
           %span.label.round= tag.name
     .hot-authors
-      - @authors.each do |author|
-        = link_to author do
-          - if !author.username.blank? && !author.articles.empty?
-            %span.label.round= author.username
+      %table
+        %thead
+          %tr
+            %th 作者
+            %th 文章
+            %th 字数
+        %tbody
+          - @authors.each do |author|
+            %tr
+              %td
+                = link_to author do
+                  = author.username
+              %td= author.articles.length
+              %td= author.words_count
   #y-articles.articles
     .loading
       %i.fa.fa-spinner.fa-spin
