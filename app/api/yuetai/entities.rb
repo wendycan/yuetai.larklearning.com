@@ -6,6 +6,12 @@ module Yuetai
 
     class User < Grape::Entity
       expose :id, :username, :desc, :github, :webchat, :email, :avator, :level, :created_at
+      expose :articles_count
+
+      private
+      def articles_count
+        object.articles.length
+      end
     end
 
     class Tag < Grape::Entity
