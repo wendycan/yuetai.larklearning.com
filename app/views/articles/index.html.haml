@@ -1,19 +1,14 @@
 #main-content.articles-wrap.container
   .sidebar.pull-left.hide-for-small-only
     .hot-tags
-      %span.label.round 前端
-      %span.label.round 后端
-      %span.label.round 工具
-      %span.label.round 随想
-      %span.label.round 游记
-      %span.label.round 读书
-      %span.label.round 生活
+      - @tags.each do |tag|
+        = link_to tag_path(tag.id) do
+          %span.label.round= tag.name
     .hot-authors
       - @authors.each do |author|
         = link_to author do
           - if !author.username.blank? && !author.articles.empty?
             %span.label.round= author.username
-
   #y-articles.articles
     .loading
       %i.fa.fa-spinner.fa-spin
