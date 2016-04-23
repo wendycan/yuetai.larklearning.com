@@ -1,6 +1,6 @@
 .hot-authors {
   position: absolute;
-  bottom: 30px;
+  bottom: 15px;
   width: 180px;
   margin: auto;
   table {
@@ -11,6 +11,7 @@
   td, th {
     text-align: center;
     background: $gray-light-bg-color;
+    padding: 10px 5px;
   }
   th {
     font-weight: normal;

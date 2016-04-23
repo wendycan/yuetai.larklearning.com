@@ -18,7 +18,8 @@
                 = link_to author do
                   = author.username
               %td= author.articles.length
-              %td= author.words_count
+              %td
+                = (author.words_count/10000).to_s + '.' + (author.words_count%10000/100).to_s + '万'
   #y-articles.articles
     .loading
       %i.fa.fa-spinner.fa-spin
