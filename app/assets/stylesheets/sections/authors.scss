@@ -17,7 +17,10 @@
     font-weight: normal;
     color: $secondary-color;
   }
-  th:nth-child(2), th:last-child {
-    width: 30%
+  th:nth-child(2){
+    width: 25%
+  }
+  th:last-child {
+    width: 35%;
   }
 }
