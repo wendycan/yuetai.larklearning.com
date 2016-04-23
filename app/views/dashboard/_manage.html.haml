@@ -87,7 +87,7 @@
   .large-12.columns.text-left
     %span  共 {{= users_count }} 个用户
   .large-12.columns
-    %table
+    %table.manage-user
       %thead
         %tr
           %th.w-five-hundredth Id
@@ -113,7 +113,7 @@
     %td {{= articles_count }}
     %td {{= level }}
     %td
-      %a{:href => '{{= github }}' }
+      %a{:href => '{{= github }}', target: '_blank' }
         %i.fa.fa-github
-      %a{:href => '{{= email }}' }
+      %a{:href => 'mailto:{{= email }}' }
         %i.fa.fa-envelope
