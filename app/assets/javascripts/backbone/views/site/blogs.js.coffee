@@ -25,9 +25,7 @@ class Yuetai.Views.Blogs.BlogsView extends Backbone.View
     $('#y-articles').append(_.template($('#t-blog').html())(blog: blog))
 
   strip: (html)->
-    tmp = document.createElement("DIV")
-    tmp.innerHTML = html
-    tmp.textContent || tmp.innerText || ""
+    html.replace(/<\/?[^>]+(>|$)/g, "")
 
   limit: (text, num)->
     if text.length >= num
