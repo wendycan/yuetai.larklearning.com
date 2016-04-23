@@ -8,6 +8,22 @@
         - else
           = link_to tag_path(tag.id), class: 'tag', id: tag.id do
             %span.label.round= tag.name
+    .hot-authors
+      %table
+        %thead
+          %tr
+            %th 作者
+            %th 文章
+            %th 字数
+        %tbody
+          - @authors.each do |author|
+            %tr
+              %td
+                = link_to author do
+                  = author.username
+              %td= author.articles.length
+              %td
+                = (author.words_count/10000).to_s + '.' + (author.words_count%10000/100).to_s + '万'
   .tag-info{:'data-id' => @tag.id}
     %span.tag-name= @tag.name
     - if @tag.articles.length < 1
