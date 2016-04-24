@@ -7,6 +7,7 @@ class ArticlesController < ApplicationController
 
   def show
     @blog = Article.find_by_id(params[:id])
+    @comments = @blog.comments
     @user = @blog.user
     @blog.visited_count += 1
     @blog.save

@@ -26,6 +26,9 @@
   #main-content.article-primary-theme
     .loading
       %i.fa.fa-spinner.fa-spin
+  #comments.comments
+    .loading
+      %i.fa.fa-spinner.fa-spin
   .article-category.hide
     .article-category-btn.text-right
       %a{:href => "javascript:;"}
@@ -33,11 +36,13 @@
     .article-category-content.hide
 
 - blog_json = render template: "articles/show", formats: [:json], handlers: [:jbuilder]
+- comments_json = render template: "articles/comments", formats: [:json], handlers: [:jbuilder]
 
 = content_for :js_ext do
   :javascript
     $(document).ready(function () {
       var blogs_view = new Yuetai.Views.Blogs.BlogView(#{blog_json});
+      var comments_view = new Yuetai.Views.Comments.CommentsView(#{comments_json});
       $('.articles-btn').addClass('active');
       $('#user-word-count').text(formatNumberByTenThousand($('#user-word-count').text()))
     });
@@ -54,4 +59,8 @@
     .article-body
       {{= blog.body }}
 
-
+%script{type: 'text/template', id: 't-comment'}
+  .comment
+    %h5 {{= text }}
+    {{= username }}
+    {{= date }}
