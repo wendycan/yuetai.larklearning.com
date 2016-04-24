@@ -49,7 +49,8 @@ class Api < Grape::API
     end
 
     def update_article
-      article = Article.find(params[:id])
+      article = current_user.articles.find(params[:id])
+
       old_count = HTML::FullSanitizer.new.sanitize(article.body).length
       article.title = params[:title]
       article.body = params[:body]
@@ -67,7 +68,7 @@ class Api < Grape::API
     end
 
     def delete_article
-      article = Article.find(params[:id])
+      article = current_user.articles.find(params[:id])
       count = HTML::FullSanitizer.new.sanitize(article.body).length
       article.destroy!
       @current_user.words_count -= count

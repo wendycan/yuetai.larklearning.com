@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   before_create :generate_authentication_token
 
   has_many :articles
+  has_many :comments
 
   def update_user_words_count
     count = 0
