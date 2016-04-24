@@ -26,6 +26,7 @@
   #main-content.article-primary-theme
     .loading
       %i.fa.fa-spinner.fa-spin
+  #comment-form.comment-form
   #comments.comments
     .loading
       %i.fa.fa-spinner.fa-spin
@@ -60,7 +61,16 @@
       {{= blog.body }}
 
 %script{type: 'text/template', id: 't-comment'}
-  .comment
-    %h5 {{= text }}
-    {{= username }}
-    {{= date }}
+  .comment.clearfix
+    .comment-user
+      %a{href: '/users/{{= user_id }}', target: '_blank'}
+        %img{src: '{{= avator}}'}
+    .comment-content
+      .comment-header.clearfix
+        .comment-info
+          %a.username{href: '/users/{{= user_id }}', target: '_blank'} {{= username }}
+          %span.date {{= date }}
+        .comment-controls
+          %a 编辑
+      .comment-body
+        %p {{= text }}
