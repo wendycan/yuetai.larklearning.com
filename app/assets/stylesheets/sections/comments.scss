@@ -1,3 +1,7 @@
+.comments, .comment-no-login, .comment-form {
+  width: 970px;
+}
+
 .comments {
   .loading {
     margin-top: 20px;
@@ -5,7 +9,37 @@
   }
 }
 
+.comment-no-login {
+  background: $gray-light-bg-color;
+  padding: 20px;
+  margin-bottom: 20px;
+  color: $gray-text;
+  p, .button {
+    margin: 0;
+  }
+}
+
+.comment-form {
+  border-top: solid 1px $gray-border;
+  margin-top: 30px;
+  padding-top: 30px;
+  textarea {
+    resize: none;
+    outline: none;
+    height: 60px;
+    &:focus {
+      box-shadow: none;
+      background: $gray-lightest-bg-color;
+    }
+  }
+  button {
+    margin: 0;
+    border-radius: 3px;
+  }
+}
+
 .comment {
+  margin-bottom: 15px;
 }
 
 .comment-user {
@@ -42,6 +76,8 @@
 .comment-info {
   float: left;
   .username {
+    font-weight: bold;
+    font-size: 14px;
   }
 
   .date {
@@ -51,6 +87,10 @@
 
 .comment-controls {
   float: right;
+  a {
+    margin-left: 3px;
+    display: inline-block;
+  }
 }
 
 .comment-body {

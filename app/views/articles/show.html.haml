@@ -1,4 +1,4 @@
-.container.article-wrap
+.container.article-wrap#content
   .sidebar.pull-left.hide-for-small-only
     .author-summary
       = link_to @user do
@@ -43,7 +43,10 @@
   :javascript
     $(document).ready(function () {
       var blogs_view = new Yuetai.Views.Blogs.BlogView(#{blog_json});
-      var comments_view = new Yuetai.Views.Comments.CommentsView(#{comments_json});
+      var comments_view = new Yuetai.Views.Comments.CommentsView({
+        comments: #{comments_json},
+        currentUser: #{current_user.to_json}
+      });
       $('.articles-btn').addClass('active');
       $('#user-word-count').text(formatNumberByTenThousand($('#user-word-count').text()))
     });
@@ -69,8 +72,33 @@
       .comment-header.clearfix
         .comment-info
           %a.username{href: '/users/{{= user_id }}', target: '_blank'} {{= username }}
-          %span.date {{= date }}
+          %span.date 发表于{{= date }}
         .comment-controls
-          %a 编辑
+          %a.fa.fa-pencil.reverse
+          %a.fa.fa-times.reverse
       .comment-body
         %p {{= text }}
+
+%script{type: 'text/template', id: 't-comment-form-empty'}
+  .comment-no-login
+    %p
+      你还未登录，登录后才可发表评论。
+      请先
+      %a.button.tiny.success 登录
+      或者
+      %a.button.tiny 注册
+
+%script{type: 'text/template', id: 't-comment-form'}
+  %form
+    .form-field.comment.clearfix
+      .comment-user
+        %img{src: '{{= avator }}'}
+      .comment-content
+        .comment-header.clearfix
+          .comment-info
+            %a.username{href: '/users/{{= id }}', target: '_blank'} {{= username }}
+          .comment-controls
+            %a.fa.fa-at.reverse
+        .comment-body
+          %textarea
+          %button.button.tiny.success 发布

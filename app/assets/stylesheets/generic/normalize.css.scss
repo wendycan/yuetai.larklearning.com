@@ -31,3 +31,16 @@ table {
     background-color: $gray-bg-color;
   }
 }
+
+a.reverse {
+  color: #000;
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+.button {
+  &.tiny {
+    padding: 5px 10px !important;
+  }
+}
