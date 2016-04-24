@@ -27,7 +27,7 @@ module Yuetai
           get do
             blog = Article.all.find(params[:id])
             comments = blog.comments
-            comments
+            present :comments, comments, with: Entities::Comment
           end
 
           post do
@@ -40,7 +40,7 @@ module Yuetai
             if article.nil?
               {status: 404}
             elsif comment.save
-              {status: 201}
+              present :comment, comment, with: Entities::Comment
             else
               {errors: 'comment create failed', status: 422}
             end

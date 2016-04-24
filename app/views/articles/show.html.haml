@@ -44,6 +44,7 @@
     $(document).ready(function () {
       var blogs_view = new Yuetai.Views.Blogs.BlogView(#{blog_json});
       var comments_view = new Yuetai.Views.Comments.CommentsView({
+        article: #{blog_json},
         comments: #{comments_json},
         currentUser: #{current_user.to_json}
       });
