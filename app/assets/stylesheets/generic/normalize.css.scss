@@ -40,6 +40,7 @@ a.reverse {
 }
 
 .button {
+  outline: none;
   &.tiny {
     padding: 5px 10px !important;
   }
