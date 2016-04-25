@@ -65,7 +65,7 @@
       {{= blog.body }}
 
 %script{type: 'text/template', id: 't-comment'}
-  .comment.clearfix
+  .comment.clearfix{:'data-id' => '{{= id }}' }
     .comment-user
       %a{href: '/users/{{= user_id }}', target: '_blank'}
         %img{src: '{{= avator}}'}
@@ -75,8 +75,10 @@
           %a.username{href: '/users/{{= user_id }}', target: '_blank'} {{= username }}
           %span.date 发表于{{= date }}
         .comment-controls
+          {{ if (current_user_id === user_id) { }}
           -# %a.fa.fa-pencil.reverse
-          -# %a.fa.fa-times.reverse
+          %a.fa.fa-times.reverse.remove-btn
+          {{ } }}
       .comment-body
         %p {{= text }}
 

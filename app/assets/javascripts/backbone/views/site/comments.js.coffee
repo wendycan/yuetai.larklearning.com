@@ -5,6 +5,7 @@ class Yuetai.Views.Comments.CommentsView extends Yuetai.Views.Base
 
   events:
     'submit #comment-form form' : 'submitForm'
+    'click .remove-btn' : 'removeComment'
 
   initialize: (opts)->
     @currentUser = opts.currentUser
@@ -26,6 +27,7 @@ class Yuetai.Views.Comments.CommentsView extends Yuetai.Views.Base
   renderComment: (comment)->
     comment = comment
     comment.date = jQuery.timeago(comment.created_at)
+    comment.current_user_id = @currentUser.id
     $('#comments').prepend(_.template($('#t-comment').html())(comment))
 
   submitForm: (e)->
@@ -44,3 +46,16 @@ class Yuetai.Views.Comments.CommentsView extends Yuetai.Views.Base
       success: (data)=>
         @renderComment(data.comment)
         $textarea.val('')
+
+  removeComment: (e)->
+    $comment = $(e.currentTarget).closest('.comment')
+    commentId = $comment.data 'id'
+    status = confirm('确定删除这条评论？')
+    if status
+      $.ajax
+        url: "#{Yuetai.ApiPrefix}/articles/#{@article.id}/comments/#{commentId}"
+        type: 'DELETE'
+        headers:
+          'Auth-Token': @currentUser.authentication_token
+        success: (data)=>
+          $comment.remove()
