@@ -75,8 +75,8 @@
           %a.username{href: '/users/{{= user_id }}', target: '_blank'} {{= username }}
           %span.date 发表于{{= date }}
         .comment-controls
-          %a.fa.fa-pencil.reverse
-          %a.fa.fa-times.reverse
+          -# %a.fa.fa-pencil.reverse
+          -# %a.fa.fa-times.reverse
       .comment-body
         %p {{= text }}
 
@@ -99,7 +99,7 @@
           .comment-info
             %a.username{href: '/users/{{= id }}', target: '_blank'} {{= username }}
           .comment-controls
-            %a.fa.fa-at.reverse
+            -# %a.fa.fa-at.reverse
         .comment-body
           %textarea
           %button.button.tiny.success 发布
