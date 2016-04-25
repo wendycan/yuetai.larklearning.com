@@ -5,7 +5,10 @@ class Yuetai.Views.Comments.CommentsView extends Yuetai.Views.Base
 
   events:
     'submit #comment-form form' : 'submitForm'
+    'submit .comment-body form' : 'updateForm'
     'click .remove-btn' : 'removeComment'
+    'click .edit-btn' : 'editComment'
+    'click .cancel-edit-btn' : 'cancelEdit'
 
   initialize: (opts)->
     @currentUser = opts.currentUser
@@ -20,7 +23,7 @@ class Yuetai.Views.Comments.CommentsView extends Yuetai.Views.Base
 
   renderNewComment: ->
     if @currentUser
-      $('#comment-form').html(_.template($('#t-comment-form').html())(@currentUser))
+      $('#comment-form').html(_.template($('#t-comment-form').html())(Object.assign({}, @currentUser, {text: ''})))
     else
       $('#comment-form').html(_.template($('#t-comment-form-empty').html())())
 
@@ -59,3 +62,33 @@ class Yuetai.Views.Comments.CommentsView extends Yuetai.Views.Base
           'Auth-Token': @currentUser.authentication_token
         success: (data)=>
           $comment.remove()
+
+  editComment: (e)->
+    $comment = $(e.currentTarget).closest('.comment')
+    commentId = $comment.data 'id'
+    text = $comment.find('.comment-body .text').text()
+    $comment.find('.comment-body .text').hide()
+    $comment.find('.comment-body .comment-edit').show().html(_.template($('#t-comment-edit-form').html())({
+      text: text
+    }))
+
+  cancelEdit: (e)->
+    $(e.currentTarget).closest('.comment-edit').hide()
+    $(e.currentTarget).closest('.comment-body').find('.text').show()
+
+  updateForm: (e)->
+    e.preventDefault()
+    $comment = $(e.currentTarget).closest('.comment')
+    commentId = $comment.data('id')
+    text = $(e.currentTarget).find('textarea').val()
+    if !text then return
+    $.ajax
+      url: "#{Yuetai.ApiPrefix}/articles/#{@article.id}/comments/#{commentId}"
+      type: 'PUT'
+      headers:
+        'Auth-Token': @currentUser.authentication_token
+      data:
+        text: text
+      success: (data)=>
+        $comment.find('.comment-body .comment-edit').hide()
+        $comment.find('.comment-body .text').text(text).show()

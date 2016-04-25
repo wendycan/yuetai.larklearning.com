@@ -76,11 +76,12 @@
           %span.date 发表于{{= date }}
         .comment-controls
           {{ if (current_user_id === user_id) { }}
-          -# %a.fa.fa-pencil.reverse
+          %a.fa.fa-pencil.reverse.edit-btn
           %a.fa.fa-times.reverse.remove-btn
           {{ } }}
       .comment-body
-        %p {{= text }}
+        %p.text {{= text }}
+        .comment-edit.hide
 
 %script{type: 'text/template', id: 't-comment-form-empty'}
   .comment-no-login
@@ -103,5 +104,12 @@
           .comment-controls
             -# %a.fa.fa-at.reverse
         .comment-body
-          %textarea
+          %textarea {{= text }}
           %button.button.tiny.success 发布
+
+%script{type: 'text/template', id: 't-comment-edit-form'}
+  %form
+    .form-field
+      %textarea {{= text }}
+      %button.button.tiny.success 保存
+      %button.button.tiny.cancel-edit-btn 取消
