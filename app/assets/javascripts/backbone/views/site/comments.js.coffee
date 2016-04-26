@@ -30,7 +30,7 @@ class Yuetai.Views.Comments.CommentsView extends Yuetai.Views.Base
   renderComment: (comment)->
     comment = comment
     comment.date = jQuery.timeago(comment.created_at)
-    comment.current_user_id = @currentUser.id
+    comment.current_user_id = @currentUser && @currentUser.id
     $('#comments').prepend(_.template($('#t-comment').html())(comment))
 
   submitForm: (e)->
