@@ -20,7 +20,7 @@ module Yuetai
           comments.each do |comment|
             users.push comment.user.username
           end
-          users
+          users.uniq
         end
 
         resource :comments do
