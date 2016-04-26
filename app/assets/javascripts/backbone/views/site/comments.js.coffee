@@ -10,6 +10,7 @@ class Yuetai.Views.Comments.CommentsView extends Yuetai.Views.Base
     'click .edit-btn' : 'editComment'
     'click .cancel-edit-btn' : 'cancelEdit'
     'click .at-user-btn' : 'toggleUserList'
+    'click #at-user-list li' : 'selectAtUser'
 
   initialize: (opts)->
     @currentUser = opts.currentUser
@@ -22,6 +23,17 @@ class Yuetai.Views.Comments.CommentsView extends Yuetai.Views.Base
   toggleUserList: ->
     $('#at-user-list').toggle()
 
+  selectAtUser: (e)->
+    $form = $(e.currentTarget).closest('.comment-form')
+    $textarea = $form.find('textarea')
+    value = $textarea.val()
+    name = $(e.currentTarget).text()
+    if value.length > 0
+      value += ' @#{name} '
+    else
+      value += "@#{name} "
+    $textarea.val(value)
+
   renderAtUserList: ->
     $.ajax
       url: "#{Yuetai.ApiPrefix}/articles/#{@article.id}/comment_users"
@@ -33,7 +45,7 @@ class Yuetai.Views.Comments.CommentsView extends Yuetai.Views.Base
           @renderAtUser(user)
 
   renderAtUser: (user)->
-    # if user == @currentUser.username then return
+    if user == @currentUser.username then return
     $('#at-user-list').append("<li>#{user}</li>")
 
   renderComments: ->
@@ -50,6 +62,9 @@ class Yuetai.Views.Comments.CommentsView extends Yuetai.Views.Base
     comment = comment
     comment.date = jQuery.timeago(comment.created_at)
     comment.current_user_id = @currentUser && @currentUser.id
+    text = comment.text
+    username = text.match(/@[\w\d_\u4e00-\u9fa5]+/)
+    comment.text = text.replace(/@[\w\d_\u4e00-\u9fa5]+/, "<span>#{username}</span>")
     $('#comments').prepend(_.template($('#t-comment').html())(comment))
 
   submitForm: (e)->

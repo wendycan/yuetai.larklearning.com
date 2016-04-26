@@ -121,5 +121,9 @@
   padding: 8px 10px;
   p {
     margin: 0;
+    span {
+      color: $secondary-color;
+      font-size: 14px;
+    }
   }
 }
