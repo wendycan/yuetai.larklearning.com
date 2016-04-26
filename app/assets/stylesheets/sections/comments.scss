@@ -41,6 +41,25 @@
   border-top: solid 1px $gray-border;
   margin-top: 30px;
   padding-top: 30px;
+  .comment-controls {
+    position: relative;
+    ul {
+      position: absolute;
+      background: #fff;
+      z-index: 10;
+      left: -10px;
+      border: solid 1px $gray-border;
+      li {
+        list-style: none;
+        padding: 3px 10px;
+        cursor: default;
+        &:hover {
+          background: $primary-color;
+          color: #fff;
+        }
+      }
+    }
+  }
 }
 
 .comment {

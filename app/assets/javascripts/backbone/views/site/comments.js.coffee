@@ -9,13 +9,32 @@ class Yuetai.Views.Comments.CommentsView extends Yuetai.Views.Base
     'click .remove-btn' : 'removeComment'
     'click .edit-btn' : 'editComment'
     'click .cancel-edit-btn' : 'cancelEdit'
+    'click .at-user-btn' : 'toggleUserList'
 
   initialize: (opts)->
     @currentUser = opts.currentUser
     @article = opts.article
     @comments = new Yuetai.Collections.Comments(opts.comments)
+    @renderAtUserList()
     @renderNewComment()
     @renderComments()
+
+  toggleUserList: ->
+    $('#at-user-list').toggle()
+
+  renderAtUserList: ->
+    $.ajax
+      url: "#{Yuetai.ApiPrefix}/articles/#{@article.id}/comment_users"
+      type: 'GET'
+      headers:
+        'Auth-Token': @currentUser.authentication_token
+      success: (users)=>
+        for user in users
+          @renderAtUser(user)
+
+  renderAtUser: (user)->
+    # if user == @currentUser.username then return
+    $('#at-user-list').append("<li>#{user}</li>")
 
   renderComments: ->
     $('#comments').empty()
