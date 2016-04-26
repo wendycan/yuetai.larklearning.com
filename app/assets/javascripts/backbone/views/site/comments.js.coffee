@@ -33,6 +33,7 @@ class Yuetai.Views.Comments.CommentsView extends Yuetai.Views.Base
     else
       value += "@#{name} "
     $textarea.val(value)
+    $textarea.focus()
 
   renderAtUserList: ->
     $.ajax
@@ -45,7 +46,7 @@ class Yuetai.Views.Comments.CommentsView extends Yuetai.Views.Base
           @renderAtUser(user)
 
   renderAtUser: (user)->
-    if user == @currentUser.username then return
+    if @currentUser && (user == @currentUser.username) then return
     $('#at-user-list').append("<li>#{user}</li>")
 
   renderComments: ->
