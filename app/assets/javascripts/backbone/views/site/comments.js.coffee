@@ -39,8 +39,6 @@ class Yuetai.Views.Comments.CommentsView extends Yuetai.Views.Base
     $.ajax
       url: "#{Yuetai.ApiPrefix}/articles/#{@article.id}/comment_users"
       type: 'GET'
-      headers:
-        'Auth-Token': @currentUser.authentication_token
       success: (users)=>
         for user in users
           @renderAtUser(user)
