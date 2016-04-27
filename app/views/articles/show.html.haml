@@ -60,7 +60,10 @@
     .article-meta
       %span {{= blog.date }}
       %span {{= blog.visited_count }} 次阅读
-      %span {{= blog.tag_list }}
+      {{ _.each(blog.tags, function(tag) { }}
+      %a{href: '/tags/{{= tag.id}}'}
+        .label.round {{= tag.name }}
+      {{ }) }}
     .article-body
       {{= blog.body }}
 

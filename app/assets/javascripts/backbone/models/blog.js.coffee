@@ -6,6 +6,7 @@ class Yuetai.Models.Blog extends Backbone.Model
     tag_list: ""
     user_id: ""
     visited_count: ""
+    tags: []
 
   sync: Yuetai.Common.api_sync
 
