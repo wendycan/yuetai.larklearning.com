@@ -1,0 +1,30 @@
+body {
+  .alertify-cover {
+    background-color: #000;
+    opacity: .5;
+  }
+
+  .alertify-dialog {
+    border-radius: 0;
+    border: 1px solid #999;
+    box-shadow: 0 3px 9px rgba(0,0,0,.5);
+    button {
+      border: none !important;
+    }
+    .alertify-button {
+      text-shadow: none;
+      box-shadow: none;
+      border-radius: 0;
+      font-weight: normal;
+    }
+  }
+
+  .alertify-button-cancel {
+    background: none !important;
+    color: @success-color;
+  }
+
+  .alertify-button-ok, .alertify-button-ok:hover {
+    background: @success-color;
+  }
+}

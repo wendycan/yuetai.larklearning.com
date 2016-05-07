@@ -2,8 +2,11 @@ class Article < ActiveRecord::Base
   # attr_accessible :body, :title, :tag_list, :template, :language
 
   belongs_to :user
+
   has_many :taggings
   has_many :tags, through: :taggings
+
+  has_many :comments
 
   validates :title, presence: true
   validates :body, presence: true

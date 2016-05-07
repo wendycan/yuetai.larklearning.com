@@ -34,6 +34,9 @@
 @import "sections/footer";
 @import "sections/pager";
 @import "sections/editor";
+@import "sections/tags";
+@import "sections/authors";
+@import "sections/comments";
 
 /**
   * Specified styles:
@@ -46,5 +49,6 @@
 @import "pages/article";
 @import "pages/articles";
 @import "pages/settings";
+@import "pages/tags";
 
 @import "mobile";

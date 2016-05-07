@@ -1,4 +1,4 @@
-.container.article-wrap
+.container.article-wrap#content
   .sidebar.pull-left.hide-for-small-only
     .author-summary
       = link_to @user do
@@ -26,6 +26,10 @@
   #main-content.article-primary-theme
     .loading
       %i.fa.fa-spinner.fa-spin
+  #comment-form.comment-form
+  #comments.comments
+    .loading
+      %i.fa.fa-spinner.fa-spin
   .article-category.hide
     .article-category-btn.text-right
       %a{:href => "javascript:;"}
@@ -33,11 +37,17 @@
     .article-category-content.hide
 
 - blog_json = render template: "articles/show", formats: [:json], handlers: [:jbuilder]
+- comments_json = render template: "articles/comments", formats: [:json], handlers: [:jbuilder]
 
 = content_for :js_ext do
   :javascript
     $(document).ready(function () {
       var blogs_view = new Yuetai.Views.Blogs.BlogView(#{blog_json});
+      var comments_view = new Yuetai.Views.Comments.CommentsView({
+        article: #{blog_json},
+        comments: #{comments_json},
+        currentUser: #{current_user.to_json}
+      });
       $('.articles-btn').addClass('active');
       $('#user-word-count').text(formatNumberByTenThousand($('#user-word-count').text()))
     });
@@ -50,8 +60,60 @@
     .article-meta
       %span {{= blog.date }}
       %span {{= blog.visited_count }} 次阅读
-      %span {{= blog.tag_list }}
+      {{ _.each(blog.tags, function(tag) { }}
+      %a{href: '/tags/{{= tag.id}}'}
+        .label.round {{= tag.name }}
+      {{ }) }}
     .article-body
       {{= blog.body }}
 
+%script{type: 'text/template', id: 't-comment'}
+  .comment.clearfix{:'data-id' => '{{= id }}' }
+    .comment-user
+      %a{href: '/users/{{= user_id }}', target: '_blank'}
+        %img{src: '{{= avator}}'}
+    .comment-content
+      .comment-header.clearfix
+        .comment-info
+          %a.username{href: '/users/{{= user_id }}', target: '_blank'} {{= username }}
+          %span.date 发表于{{= date }}
+        .comment-controls
+          {{ if (current_user_id === user_id) { }}
+          %a.fa.fa-pencil.reverse.edit-btn
+          %a.fa.fa-times.reverse.remove-btn
+          {{ } }}
+      .comment-body
+        %p.text {{= text }}
+        .comment-edit.hide
 
+%script{type: 'text/template', id: 't-comment-form-empty'}
+  .comment-no-login
+    %p
+      你还未登录，登录后才可发表评论。
+      请先
+      %a.button.tiny.success{href: '/users/sign_in'} 登录
+      或者
+      %a.button.tiny{href: '/users/sign_up'} 注册
+
+%script{type: 'text/template', id: 't-comment-form'}
+  %form
+    .form-field.comment.clearfix
+      .comment-user
+        %img{src: '{{= avator }}'}
+      .comment-content
+        .comment-header.clearfix
+          .comment-info
+            %a.username{href: '/users/{{= id }}', target: '_blank'} {{= username }}
+          .comment-controls
+            %a.fa.fa-at.reverse.at-user-btn
+            %ul.hide#at-user-list
+        .comment-body
+          %textarea {{= text }}
+          %button.button.tiny.success 发布
+
+%script{type: 'text/template', id: 't-comment-edit-form'}
+  %form
+    .form-field
+      %textarea {{= text }}
+      %button.button.tiny.success 保存
+      %button.button.tiny.cancel-edit-btn{type: 'button'} 取消

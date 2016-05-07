@@ -65,9 +65,7 @@ class Yuetai.Views.Base extends Backbone.View
     window.history.back()
 
   strip: (html)->
-    tmp = document.createElement("DIV")
-    tmp.innerHTML = html
-    tmp.textContent || tmp.innerText || ""
+    html.replace(/<\/?[^>]+(>|$)/g, "")
 
   limit: (text, num)->
     if text.length >= num

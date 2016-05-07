@@ -24,9 +24,7 @@ class Yuetai.Views.Presentations.PresentationsView extends Backbone.View
     $('#presentations').append(_.template($('#t-presentation').html())(presentation: presentation))
 
   strip: (html)->
-    tmp = document.createElement("DIV")
-    tmp.innerHTML = html
-    tmp.textContent || tmp.innerText || ""
+    html.replace(/<\/?[^>]+(>|$)/g, "")
 
   limit: (text, num)->
     if text.length >= num

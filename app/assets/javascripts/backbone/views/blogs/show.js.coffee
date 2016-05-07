@@ -33,4 +33,3 @@ class Yuetai.Views.Blogs.ShowView extends Yuetai.Views.Base
         success: =>
           window.location.href = '#blogs'
       )
-

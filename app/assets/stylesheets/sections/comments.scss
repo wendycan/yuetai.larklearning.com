@@ -1,0 +1,129 @@
+.comments, .comment-no-login, .comment-form {
+  width: 970px;
+}
+
+.comments {
+  .loading {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+.comment-no-login {
+  background: $gray-light-bg-color;
+  padding: 20px;
+  margin-bottom: 20px;
+  color: $gray-text;
+  p, .button {
+    margin: 0;
+  }
+}
+
+.comment-form, .comments {
+  textarea {
+    resize: none;
+    outline: none;
+    height: 60px;
+    margin-bottom: 10px;
+    &:focus {
+      box-shadow: none;
+      background: $gray-lightest-bg-color;
+    }
+  }
+  button {
+    margin: 0;
+    outline: none;
+    border-radius: 3px;
+  }
+}
+
+.comment-form {
+  border-top: solid 1px $gray-border;
+  margin-top: 30px;
+  padding-top: 30px;
+  .comment-controls {
+    position: relative;
+    ul {
+      position: absolute;
+      background: #fff;
+      z-index: 10;
+      left: -10px;
+      border: solid 1px $gray-border;
+      li {
+        list-style: none;
+        padding: 3px 10px;
+        cursor: default;
+        &:hover {
+          background: $primary-color;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.comment {
+  margin-bottom: 15px;
+}
+
+.comment-user {
+  float: left;
+  width: 50px;
+}
+
+.comment-content {
+  float: left;
+  margin-left: 20px;
+  border: solid 1px $gray-border;
+  width: 900px;
+  position: relative;
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: -15px;
+    border: 7px solid transparent;
+    border-right-color: $gray-border;
+  }
+
+  &:after {
+    left: -14px;
+    border-right-color: $gray-light-bg-color;
+  }
+}
+
+.comment-header {
+  background: $gray-light-bg-color;
+  padding: 8px 10px;
+}
+
+.comment-info {
+  float: left;
+  .username {
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .date {
+    font-size: 12px;
+  }
+}
+
+.comment-controls {
+  float: right;
+  a {
+    margin-left: 3px;
+    display: inline-block;
+  }
+}
+
+.comment-body {
+  padding: 8px 10px;
+  p {
+    margin: 0;
+    span {
+      color: $secondary-color;
+      font-size: 14px;
+    }
+  }
+}

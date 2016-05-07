@@ -1,0 +1,26 @@
+.hot-authors {
+  position: absolute;
+  bottom: 15px;
+  width: 180px;
+  margin: auto;
+  table {
+    margin: 0;
+    border-style: hidden;
+    background: $gray-lightest-bg-color;
+  }
+  td, th {
+    text-align: center;
+    background: $gray-lightest-bg-color;
+    padding: 10px 5px;
+  }
+  th {
+    font-weight: normal;
+    color: $secondary-color;
+  }
+  th:nth-child(2){
+    width: 25%
+  }
+  th:last-child {
+    width: 35%;
+  }
+}

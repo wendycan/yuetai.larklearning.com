@@ -5,6 +5,7 @@ class Yuetai.Models.Account extends Backbone.Model
     auth_token: ''
     unsync: true
     username: ''
+    articles_count: ''
 
   sync: Yuetai.Common.api_sync
 

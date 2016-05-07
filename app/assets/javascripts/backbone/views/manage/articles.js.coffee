@@ -39,9 +39,7 @@ class Yuetai.Views.Manage.ArticlesView extends Yuetai.Views.Base
     $(@el).find('tbody').append html
 
   strip: (html)->
-    tmp = document.createElement("DIV")
-    tmp.innerHTML = html
-    tmp.textContent || tmp.innerText || ""
+    html.replace(/<\/?[^>]+(>|$)/g, "")
 
   limit: (text, num)->
     if text.length >= num

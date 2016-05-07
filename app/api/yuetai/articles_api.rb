@@ -13,6 +13,60 @@ module Yuetai
           JSON.parse article.to_json(:include => :user)
         end
 
+        get :comment_users do
+          article = Article.all.find(params[:id])
+          comments = article.comments
+          users = []
+          comments.each do |comment|
+            users.push comment.user.username
+          end
+          users.uniq
+        end
+
+        resource :comments do
+          get do
+            blog = Article.all.find(params[:id])
+            comments = blog.comments
+            present :comments, comments, with: Entities::Comment
+          end
+
+          post do
+            authenticate!
+            article = Article.find(params[:id])
+            comment = Comment.new()
+            comment.article = article
+            comment.user = @current_user
+            comment.text = params[:text]
+            if article.nil?
+              {status: 404}
+            elsif comment.save
+              present :comment, comment, with: Entities::Comment
+            else
+              {errors: 'comment create failed', status: 422}
+            end
+          end
+
+          route_param :comment_id, requirements: /[^\/]+/ do
+            put do
+              authenticate!
+              comment = current_user.comments.find(params[:comment_id])
+
+              comment.text = params[:text]
+              if comment.save
+                {status: 200}
+              else
+                {errors: 'comment update failed', status: 422}
+              end
+            end
+
+            delete do
+              authenticate!
+              comment = current_user.comments.find(params[:comment_id])
+              comment.destroy!
+              {status: 204}
+            end
+          end
+        end
       end
     end
   end

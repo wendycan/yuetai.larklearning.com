@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160122142117) do
+ActiveRecord::Schema.define(version: 20160424015501) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 20160122142117) do
     t.datetime "updated_at"
     t.string   "language",      default: "html"
     t.integer  "visited_count", default: 0
+  end
+
+  create_table "comments", force: true do |t|
+    t.string   "text"
+    t.integer  "article_id"
+    t.integer  "user_id"
+    t.integer  "liked_count", default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "taggings", force: true do |t|
