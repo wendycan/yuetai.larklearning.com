@@ -1,4 +1,6 @@
 class TagsController < ApplicationController
+  layout 'article', :only => [:show]
+
   def show
     @tag = Tag.find_by_id(params[:id])
     @tags = Tag.joins('LEFT JOIN (select count(id) alength, tag_id from taggings a group by a.tag_id ) ac on ac.tag_id = tags.id').order('ac.alength desc')

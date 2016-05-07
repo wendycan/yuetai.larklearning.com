@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  layout 'article', :only => [:show]
 
   def show
     @user = User.find_by_id(params[:id])

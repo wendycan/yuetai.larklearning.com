@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  layout 'article', :only => [:index, :show]
+
   def index
     @articles = Article.order('created_at DESC').where(template: 'blog').paginate(:page => params[:page], :per_page => 10)
     @authors = User.joins('JOIN (select count(id) alength, user_id from articles a group by a.user_id ) ac on ac.user_id = users.id').order('ac.alength desc').limit(5)

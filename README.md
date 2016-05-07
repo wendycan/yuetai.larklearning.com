@@ -10,6 +10,7 @@ YueTai [![Stories in Ready](https://badge.waffle.io/wendycan/yuetai.wendycan.org
 * Foundation
 * Backbone: 单页应用框架
 * Rails: 后端框架
+* jBuilder: generate JSON objects with a Builder-style DSL
 * Grape: API 框架
 * Devise: 用户认证
 

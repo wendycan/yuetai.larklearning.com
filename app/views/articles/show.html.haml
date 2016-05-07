@@ -1,4 +1,4 @@
-.container.article-wrap#content
+.article-wrap#content
   .sidebar.pull-left.hide-for-small-only
     .author-summary
       = link_to @user do
@@ -29,7 +29,7 @@
   #comment-form.comment-form
   #comments.comments
     .loading
-      %i.fa.fa-spinner.fa-spin
+      = image_tag 'funny_loading.gif'
   .article-category.hide
     .article-category-btn.text-right
       %a{:href => "javascript:;"}
@@ -91,9 +91,9 @@
     %p.hide-for-small-only
       你还未登录，登录后才可发表评论。
       请先
-      %a.button.tiny.success{href: '/users/sign_in'} 登录
+      %a.button.tiny.success{href: '/users/sign_in', target: '_blank'} 登录
       或者
-      %a.button.tiny{href: '/users/sign_up'} 注册
+      %a.button.tiny{href: '/users/sign_up', target: '_blank'} 注册
     %p.show-for-small-only.mobile-comment
       你还未登录，登录后才可发表评论。
       请先
@@ -101,6 +101,7 @@
       %a.button.tiny.success{href: '/users/sign_in'} 登录
       或者
       %a.button.tiny{href: '/users/sign_up'} 注册
+
 %script{type: 'text/template', id: 't-comment-form'}
   %form
     .form-field.comment.clearfix
