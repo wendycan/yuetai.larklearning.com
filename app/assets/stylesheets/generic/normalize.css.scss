@@ -43,5 +43,7 @@ a.reverse {
   outline: none;
   &.tiny {
     padding: 5px 10px !important;
+    vertical-align: middle;
+    margin-top: -3px !important;
   }
 }

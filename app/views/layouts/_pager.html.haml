@@ -33,7 +33,7 @@
         %li.pager-nav-btn.pager-next
           = link_to '下一页', params.merge(:page => records.next_page), {:class => "next"}
       - if total_pages > 1
-        %li.pager-skip
+        %li.pager-skip.hide-for-small-only
           %form.pager-skip-form
             %input{:type => "text"}
             %button{:type => "submit"} 跳页
