@@ -1,6 +1,6 @@
 .alert-box {
-  margin-top: 50px;
-  margin-left: 220px;
+  padding: 5px 10px;
+  margin: 50px auto 0;
   &.success {
     background-color: #f4fbe5;
     color: #718453;
@@ -20,5 +20,11 @@
     background-color: #fbf7e5;
     color: #998649;
     border-color: #f6e58d;
+  }
+}
+
+.article-layout {
+  .alert-box {
+    margin: -10px 0 20px 0;
   }
 }

@@ -1,0 +1,24 @@
+!!!5
+%head
+  = render :partial => 'layouts/head'
+%body
+  .off-canvas-wrap{:'data-offcanvas' => true}
+    .inner-wrap
+      = render :partial => 'layouts/nav'
+      = render :partial => 'layouts/small_nav'
+      .not-footer.article-layout
+        .container
+          - if !notice.nil?
+            .alert-box.success{:'data-alert' => true}
+              = notice
+              %a.close{:href => "#"} &times;
+          - if !alert.nil?
+            .alert-box.alert{:'data-alert' => true}
+              = alert
+            %a.close{:href => "#"} &times;
+          = yield
+      .footer
+        = render :partial => 'layouts/footer'
+      .exit-off-canvas
+
+  = render 'layouts/js'
