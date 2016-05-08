@@ -69,10 +69,10 @@
 
 %script{type: 'text/template', id: 't-comment'}
   .comment.clearfix{:'data-id' => '{{= id }}' }
-    .comment-user
+    .comment-user.hide-for-small-only
       %a{href: '/users/{{= user_id }}', target: '_blank'}
         %img{src: '{{= avator}}'}
-    .comment-content
+    .comment-content.mobile-reply
       .comment-header.clearfix
         .comment-info
           %a.username{href: '/users/{{= user_id }}', target: '_blank'} {{= username }}
@@ -88,20 +88,27 @@
 
 %script{type: 'text/template', id: 't-comment-form-empty'}
   .comment-no-login
-    %p
+    %p.hide-for-small-only
       你还未登录，登录后才可发表评论。
       请先
       %a.button.tiny.success{href: '/users/sign_in', target: '_blank'} 登录
       或者
       %a.button.tiny{href: '/users/sign_up', target: '_blank'} 注册
+    %p.show-for-small-only.mobile-comment
+      你还未登录，登录后才可发表评论。
+      请先
+      %br
+      %a.button.tiny.success{href: '/users/sign_in'} 登录
+      或者
+      %a.button.tiny{href: '/users/sign_up'} 注册
 
 %script{type: 'text/template', id: 't-comment-form'}
   %form
     .form-field.comment.clearfix
-      .comment-user
+      .comment-user.hide-for-small-only
         %img{src: '{{= avator }}'}
       .comment-content
-        .comment-header.clearfix
+        .comment-header.clearfix.hide-for-small-only
           .comment-info
             %a.username{href: '/users/{{= id }}', target: '_blank'} {{= username }}
           .comment-controls

@@ -2,4 +2,22 @@
   .container {
     padding: 15px 15px;
   }
+  .comment-body{
+  	padding: 0;
+  	width: 100%;
+  }
+  .comment-content{
+  	width: 100%;
+  	border: none;
+  	margin: 0;
+  }
+}
+.mobile-comment{
+	text-align: center;
+}
+.comment-content.mobile-reply{
+	border: 1px solid #e6e6e6;
+	.comment-body{
+		padding: 4px 10px;
+	}
 }
