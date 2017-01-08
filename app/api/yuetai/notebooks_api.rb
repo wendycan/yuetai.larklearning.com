@@ -1,3 +1,5 @@
+require 'mail'
+
 module Yuetai
   class Notebooks < Grape::API
     resource :notebooks do
@@ -18,6 +20,15 @@ module Yuetai
       end
 
       put :import do
+        Mail.defaults do
+          retriever_method :pop3, :address    => "pop.exmail.qq.com",
+                                  :port       => 995,
+                                  :user_name  => 'test@larklearning.com',
+                                  :password   => '111111Lark',
+                                  :enable_ssl => true
+        end
+        email = Mail.last
+        {status: 200, email: email.attachments.last.body.to_s.force_encoding('utf-8')}
       end
 
       route_param :id, requirements: /[^\/]+/ do
