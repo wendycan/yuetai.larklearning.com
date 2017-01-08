@@ -33,5 +33,9 @@ module Yuetai
       end
     end
 
+    class Notebook < Grape::Entity
+      expose :title, :authors, :citation, :notes, :id, :updated_at, :created_at
+    end
+
   end
 end

@@ -83,6 +83,7 @@ class Api < Grape::API
   mount Yuetai::Series
   mount Yuetai::Presentations
   mount Yuetai::Users
+  mount Yuetai::Notebooks
 
   post :upload do
     authenticate!
