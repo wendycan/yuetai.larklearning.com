@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160424015501) do
+ActiveRecord::Schema.define(version: 20170108122032) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 20160424015501) do
     t.integer  "article_id"
     t.integer  "user_id"
     t.integer  "liked_count", default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notebooks", force: true do |t|
+    t.string   "title"
+    t.text     "notes"
+    t.string   "citation"
+    t.string   "authors"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
