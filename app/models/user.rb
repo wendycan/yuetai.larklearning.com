@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
   has_many :articles
   has_many :comments
+  has_many :notebooks
 
   def update_user_words_count
     count = 0
