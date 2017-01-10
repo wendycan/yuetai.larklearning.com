@@ -9,9 +9,12 @@ YuetaiWendycanOrg::Application.routes.draw do
 
   get 'dashboard/index', as: :dashboard
 
+  get 'articles/feed' => 'articles#feed'
+
   resources :articles, only: [:index, :show]
   resources :tags, only: [:index, :show]
   resources :presentation, only: [:index, :show]
+
 
   # get 'presentation/index'
   # get 'presentation/show'

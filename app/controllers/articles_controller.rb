@@ -14,4 +14,12 @@ class ArticlesController < ApplicationController
     @blog.visited_count += 1
     @blog.save
   end
+
+  def feed
+    @articles = Article.all
+    respond_to do |format|
+      format.rss { render :layout => false }
+    end
+  end
+
 end
