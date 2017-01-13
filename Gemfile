@@ -14,6 +14,8 @@ gem 'grape-entity', '~> 0.4.4'
 
 gem 'devise'
 gem 'email'
+gem 'nokogiri'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

@@ -1,4 +1,6 @@
 require 'mail'
+require 'nokogiri'
+require 'open-uri'
 
 module Yuetai
   class Notebooks < Grape::API
@@ -30,7 +32,25 @@ module Yuetai
         end
         unread_emails = Mail.find(keys: ['NOT','SEEN'])
         from = 'wendycaner@icloud.com'
-        attachments = unread_emails.select{|email| email.from[0] == from}.map {|email| email.attachments.last.body.to_s.force_encoding('utf-8')}
+        unread_emails_from_kindle_email = unread_emails.select{|email| email.from[0] == from}
+        attachments = unread_emails_from_kindle_email.map {|email| email.attachments.last.body.to_s.force_encoding('utf-8')}
+
+        # parse attachments and save to notebook
+        attachments.each { |html|
+          doc = Nokogiri::HTML(html)
+
+          title = doc.at_css('.bookTitle').text.strip
+          notebook = Notebook.where(title: title).first || Notebook.new(title: title)
+          notebook.citation = doc.at_css('.citation').text.strip
+          notebook.authors = doc.at_css('.authors').text.strip
+          notebook.user_id = current_user.id
+          notebook.save
+        }
+
+        # make unread emails as read status
+        # Mail.find(keys: ['NOT','SEEN']) do |email, imap, uid|
+        #   imap.uid_store( uid, "+FLAGS", [Net::IMAP::SEEN] )
+        # end
         {status: 200, count: attachments.length, attachments: attachments}
       end
 
