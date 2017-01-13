@@ -20,15 +20,18 @@ module Yuetai
       end
 
       put :import do
+        authenticate!
         Mail.defaults do
-          retriever_method :pop3, :address    => "pop.exmail.qq.com",
-                                  :port       => 995,
+          retriever_method :imap, :address    => "imap.exmail.qq.com",
+                                  :port       => 993,
                                   :user_name  => 'test@larklearning.com',
                                   :password   => '111111Lark',
                                   :enable_ssl => true
         end
-        email = Mail.last
-        {status: 200, email: email.attachments.last.body.to_s.force_encoding('utf-8')}
+        unread_emails = Mail.find(keys: ['NOT','SEEN'])
+        from = 'wendycaner@icloud.com'
+        attachments = unread_emails.select{|email| email.from[0] == from}.map {|email| email.attachments.last.body.to_s.force_encoding('utf-8')}
+        {status: 200, count: attachments.length, attachments: attachments}
       end
 
       route_param :id, requirements: /[^\/]+/ do
