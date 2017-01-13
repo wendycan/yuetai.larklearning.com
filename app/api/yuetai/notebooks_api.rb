@@ -81,6 +81,10 @@ module Yuetai
             end
 
             # FIXME: merge note、highlight
+            doc.css('.sectionHeading').each_with_index do |item, i|
+              chapters.push item.text.strip
+            end
+
             doc.css('.noteHeading').each_with_index do |item, i|
               text = item.text.strip
 
