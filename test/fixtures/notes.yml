@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  location: 1
+  chapter: MyString
+  section: MyString
+  type: 
+  highlight_type: MyString
+  content: MyText
+  note: MyText
+  notebook_id: 1
+  user_id: 1
+
+two:
+  location: 1
+  chapter: MyString
+  section: MyString
+  type: 
+  highlight_type: MyString
+  content: MyText
+  note: MyText
+  notebook_id: 1
+  user_id: 1
