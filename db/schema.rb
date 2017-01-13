@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170113163500) do
+ActiveRecord::Schema.define(version: 20170113172127) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 20170113163500) do
     t.integer  "location"
     t.string   "chapter"
     t.string   "section"
-    t.string   "type"
+    t.string   "content_type"
     t.string   "color_type"
     t.text     "content"
     t.text     "note"
