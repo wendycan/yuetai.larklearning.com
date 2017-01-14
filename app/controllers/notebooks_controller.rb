@@ -8,7 +8,8 @@ class NotebooksController < ApplicationController
 
   def show
     @user = User.find_by_id(params[:user_id])
-    @notebook = @user.notebooks.find_by_id(params[:notebook_id])
+    @notebook = @user.notebooks.find_by_id(params[:id])
+    @articles = @notebook.notes.paginate(:page => params[:page], :per_page => 10)
   end
 end
 

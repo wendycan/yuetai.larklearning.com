@@ -1,36 +1,27 @@
-.sidebar.pull-left.hide-for-small-only
-  .author-summary
-    = link_to @user do
-      = image_tag @user.avator
-    %h5
-      = link_to @user do
-        - if @user.username.blank?
-          匿名
-        - else
-          = @user.username
-    .author-count
+= content_for :title, '阅台 · 记录想法 分享点滴'
+= render "layouts/user_sidebar"
+
+.notebooks-wrap
+  .notebook
+    %h4
+      = @notebook.title
       %p
-        %span
-          文章数
-          %strong= @user.articles.length
+        = @notebook.authors
+        %small= @notebook.citation.split(':')[1]
+    .meta
       %p
-        %span
-          总字数
-          %strong#user-word-count= @user.words_count
-    %p= @user.desc
-    .author-links
-      = mail_to @user.email do
-        %i.fa.fa-envelope
-      = link_to @user.github do
-        %i.fa.fa-github
-      %a.author-webchat{:href => '#'}
-        %i.fa.fa-weixin
-        = image_tag(@user.webchat)
-.author-articles.articles-wrap
-  #y-articles.articles
+        = link_to user_path(id: @user.id), class: 'author-name' do
+          = @notebook.user.username
+        %span 创建于
+        = format_date @notebook.created_at
+        %span ，上次更新于
+        = format_date @notebook.updated_at
+        %span ，共
+        = @notebook.notes.length
+        %span 条笔记
+    %hr
+    .notes
+      - @articles.each_with_index do |item, i|
+        .note
 
   = render "layouts/pager"
-
-= render "layouts/article"
-
-= content_for :title, '阅台 · 记录想法 分享点滴'
