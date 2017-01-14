@@ -30,7 +30,10 @@
             第
             = item.location
             页
-          %p.content= item.content
+          - if item.content_type == 'note'
+            %p.note= item.content
+          - else
+            %p.content= item.content
           - if !item.note.empty?
             %p.note= item.note
 
