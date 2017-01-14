@@ -69,6 +69,7 @@ module Yuetai
           if notebook.nil?
             Notebook.new(title: title)
           else
+            # 更新 notebook 时，先删除已有 notes
             notebook.notes.each do |note|
               note.destroy!
             end
@@ -78,20 +79,20 @@ module Yuetai
           notebook.user_id = current_user.id
           if notebook.save
             notes = extract_notes(doc)
-            debugger
-            # notes.each_with_index do |item, i|
-            #   note = Note.new
-            #   note.chapter = chapters[i]
-            #   note.section = sections[i]
-            #   note.location = locations[i]
-            #   note.content_type = types[i]
-            #   note.color_type = color_types[i]
-            #   note.content = contents[i]
-            #   note.note = notes[i]
-            #   note.user_id = current_user.id
-            #   note.notebook_id = notebook.id
-            #   note.save
-            # end
+            notes.each do |item|
+              note = Note.new
+              note.chapter = item[:chapter]
+              note.section = item[:section]
+              note.location = item[:location]
+              # FIXME: content_type 可以不需要，标记出错的 note
+              note.content_type = item[:content_type]
+              note.color_type = item[:color_type]
+              note.content = item[:content]
+              note.note = item[:note]
+              note.user_id = current_user.id
+              note.notebook_id = notebook.id
+              note.save
+            end
           end
         }
 
@@ -115,7 +116,7 @@ module Yuetai
 end
 
 def escape_str(str)
-  return str && str.gsub(/['>'|-]/, '').strip
+  return str && str.gsub(/[>|-|)]/, '').strip
 end
 
 def extract_notes(doc)
@@ -138,16 +139,18 @@ def extract_notes(doc)
     data[:section] = escape_str no_location_text.split('-')[1]
 
     type_text = no_section_text.split('(').first
-    data[:type] = (escape_str type_text).downcase
-    data[:color_type] = escape_str no_section_text.split('(')[1]
+    data[:content_type] = (escape_str type_text).downcase
 
-    data[:content] = escape_str item.next_element.text
-    data[:note] = escape_str item.next_element.text
-    # if data[:type] == 'note'
-    #   notes[i-1][:note] && (notes[i-1][:note] = escape_str item.next_element.text)
-    # else
-    # end
-    notes.push data
+    data[:note] = ''
+    prev_note = notes[i-1]
+    # FIXME: prev_note 会为 nil
+    if data[:content_type] == 'note' && prev_note
+      prev_note[:note] = escape_str item.next_element.text
+    else
+      data[:color_type] = escape_str no_section_text.split('(')[1]
+      data[:content] = escape_str item.next_element.text
+      notes.push data
+    end
   end
 
   return notes
