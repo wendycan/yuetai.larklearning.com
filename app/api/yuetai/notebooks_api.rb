@@ -39,6 +39,7 @@ module Yuetai
 
       put :import do
         authenticate!
+        notes = []
         Mail.defaults do
           retriever_method :imap, :address    => "imap.exmail.qq.com",
                                   :port       => 993,
@@ -69,7 +70,7 @@ module Yuetai
           notebook.user_id = current_user.id
           if notebook.save
             notes = extract_notes(doc)
-            print notes
+            # print notes
             # sections.each_with_index do |item, i|
             #   note = Note.new
             #   note.chapter = chapters[i]
@@ -90,7 +91,7 @@ module Yuetai
         # Mail.find(keys: ['NOT','SEEN']) do |email, imap, uid|
         #   imap.uid_store( uid, "+FLAGS", [Net::IMAP::SEEN] )
         # end
-        {status: 200}
+        {status: 200, notes: notes}
       end
 
       route_param :id, requirements: /[^\/]+/ do
@@ -118,7 +119,6 @@ def extract_notes(doc)
     chapters.push item.text.strip
   end
 
-  # FIXME: merge note、highlight
   doc.css('.noteHeading').each_with_index do |item, i|
     data = {}
     text = item.text.strip
@@ -135,6 +135,10 @@ def extract_notes(doc)
 
     data[:content] = escape_str item.next_element.text
     data[:note] = escape_str item.next_element.text
+    # if data[:type] == 'note'
+    #   notes[i-1][:note] && (notes[i-1][:note] = escape_str item.next_element.text)
+    # else
+    # end
     notes.push data
   end
 
