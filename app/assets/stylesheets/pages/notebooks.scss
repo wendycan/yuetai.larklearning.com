@@ -1,0 +1,36 @@
+.notebooks-wrap {
+  min-height: 80vh;
+  h4 {
+    margin: 0;
+    p {
+      font-size: 14px;
+      margin: 2px 0 5px;
+    }
+    small {
+      font-size: 10px;
+    }
+  }
+  hr {
+    border-style: dashed;
+    margin: 25px auto;
+  }
+  .meta {
+    padding: 5px 0;
+    span {
+      font-size: 12px;
+    }
+    strong {
+      color: $secondary-color;
+      font-weight: normal;
+      font-size: 12px;
+    }
+    p {
+      margin-bottom: 0;
+    }
+  }
+  .author-name {
+    font-size: 12px;
+    color: $secondary-color;
+  }
+
+}

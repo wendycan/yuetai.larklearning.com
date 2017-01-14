@@ -21,7 +21,9 @@ YuetaiWendycanOrg::Application.routes.draw do
   get 'series/index'
   get 'series/show'
 
-  resources :users
+  resources :users do
+    resources :notebooks, only: [:index, :show]
+  end
 
   mount Api => '/api/'
 
