@@ -23,32 +23,40 @@ module Yuetai
 
       get :import do
         authenticate!
+        from = current_user.notebook_email_from
+        user_notebooks_email = 'user_' + current_user.id.to_s + '_notebooks@larklearning.com'
+
         Mail.defaults do
           retriever_method :imap, :address    => "imap.exmail.qq.com",
                                   :port       => 993,
-                                  :user_name  => 'test@larklearning.com',
+                                  :user_name  => user_notebooks_email,
                                   :password   => '111111Lark',
                                   :enable_ssl => true
         end
         unread_emails = Mail.find(keys: ['NOT','SEEN'])
-        from = 'wendycaner@icloud.com'
         unread_emails_from_kindle_email = unread_emails.select{|email| email.from[0] == from}
+        attachments = unread_emails_from_kindle_email.map {|email| email.attachments.last.body.to_s.force_encoding('utf-8')}
 
-        {status: 200, count: unread_emails_from_kindle_email.length}
+        {
+          status: 200,
+          unread_emails: unread_emails_from_kindle_email.length,
+          attachments_emails: attachments.count
+        }
       end
 
       put :import do
         authenticate!
+        from = current_user.notebook_email_from
         notes = []
+        user_notebooks_email = 'user_' + current_user.id.to_s + '_notebooks@larklearning.com'
         Mail.defaults do
           retriever_method :imap, :address    => "imap.exmail.qq.com",
                                   :port       => 993,
-                                  :user_name  => 'test@larklearning.com',
+                                  :user_name  => user_notebooks_email,
                                   :password   => '111111Lark',
                                   :enable_ssl => true
         end
         unread_emails = Mail.find(keys: ['NOT','SEEN'])
-        from = 'wendycaner@icloud.com'
         unread_emails_from_kindle_email = unread_emails.select{|email| email.from[0] == from}
         attachments = unread_emails_from_kindle_email.map {|email| email.attachments.last.body.to_s.force_encoding('utf-8')}
 
@@ -70,8 +78,8 @@ module Yuetai
           notebook.user_id = current_user.id
           if notebook.save
             notes = extract_notes(doc)
-            # print notes
-            # sections.each_with_index do |item, i|
+            debugger
+            # notes.each_with_index do |item, i|
             #   note = Note.new
             #   note.chapter = chapters[i]
             #   note.section = sections[i]
@@ -113,7 +121,7 @@ end
 def extract_notes(doc)
   chapters = []
   notes = []
-  # debugger
+
   # FIXME: chapter field
   doc.css('.sectionHeading').each_with_index do |item, i|
     chapters.push item.text.strip
