@@ -68,53 +68,21 @@ module Yuetai
           notebook.authors = doc.at_css('.authors').text.strip
           notebook.user_id = current_user.id
           if notebook.save
-            chapters = []
-            sections = []
-            locations = []
-            types = []
-            color_types = []
-            contents = []
-            notes = []
-            # FIXME: chapter field
-            doc.css('.sectionHeading').each_with_index do |item, i|
-              chapters.push item.text.strip
-            end
-
-            # FIXME: merge note、highlight
-            doc.css('.sectionHeading').each_with_index do |item, i|
-              chapters.push item.text.strip
-            end
-
-            doc.css('.noteHeading').each_with_index do |item, i|
-              text = item.text.strip
-
-              no_location_text = text.split('Location ').first
-              locations.push text.split('Location ')[1]
-
-              no_section_text = no_location_text.split('-').first
-              sections.push no_location_text.split('-')[1]
-
-              type_text = no_section_text.split('(').first
-              types.push type_text
-              color_types.push no_section_text.split('(')[1]
-            end
-            doc.css('.noteText').each_with_index do |item, i|
-              contents.push item.text.strip
-              notes.push item.text.strip
-            end
-            sections.each_with_index do |item, i|
-              note = Note.new
-              note.chapter = chapters[i]
-              note.section = sections[i]
-              note.location = locations[i]
-              note.content_type = types[i]
-              note.color_type = color_types[i]
-              note.content = contents[i]
-              note.note = notes[i]
-              note.user_id = current_user.id
-              note.notebook_id = notebook.id
-              note.save
-            end
+            notes = extract_notes(doc)
+            print notes
+            # sections.each_with_index do |item, i|
+            #   note = Note.new
+            #   note.chapter = chapters[i]
+            #   note.section = sections[i]
+            #   note.location = locations[i]
+            #   note.content_type = types[i]
+            #   note.color_type = color_types[i]
+            #   note.content = contents[i]
+            #   note.note = notes[i]
+            #   note.user_id = current_user.id
+            #   note.notebook_id = notebook.id
+            #   note.save
+            # end
           end
         }
 
@@ -135,4 +103,40 @@ module Yuetai
       end
     end
   end
+end
+
+def escape_str(str)
+  return str && str.gsub(/['>'|-]/, '').strip
+end
+
+def extract_notes(doc)
+  chapters = []
+  notes = []
+  # debugger
+  # FIXME: chapter field
+  doc.css('.sectionHeading').each_with_index do |item, i|
+    chapters.push item.text.strip
+  end
+
+  # FIXME: merge note、highlight
+  doc.css('.noteHeading').each_with_index do |item, i|
+    data = {}
+    text = item.text.strip
+
+    no_location_text = text.split('Location ').first
+    data[:location] = escape_str text.split('Location ')[1]
+
+    no_section_text = no_location_text.split('-').first
+    data[:section] = escape_str no_location_text.split('-')[1]
+
+    type_text = no_section_text.split('(').first
+    data[:type] = (escape_str type_text).downcase
+    data[:color_type] = escape_str no_section_text.split('(')[1]
+
+    data[:content] = escape_str item.next_element.text
+    data[:note] = escape_str item.next_element.text
+    notes.push data
+  end
+
+  return notes
 end
