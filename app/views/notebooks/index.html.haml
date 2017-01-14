@@ -6,7 +6,7 @@
     - @articles.each_with_index do |item, i|
       .notebook
         %h4
-          = link_to user_notebook_path(id: @user.id) do
+          = link_to user_notebook_path(id: item.id) do
             = item.title
           %p
             = item.authors

@@ -67,7 +67,7 @@ module Yuetai
           title = doc.at_css('.bookTitle').text.strip
           notebook = Notebook.where(title: title).first
           if notebook.nil?
-            Notebook.new(title: title)
+            notebook = Notebook.new(title: title)
           else
             # 更新 notebook 时，先删除已有 notes
             notebook.notes.each do |note|
@@ -97,9 +97,9 @@ module Yuetai
         }
 
         # make unread emails as read status
-        # Mail.find(keys: ['NOT','SEEN']) do |email, imap, uid|
-        #   imap.uid_store( uid, "+FLAGS", [Net::IMAP::SEEN] )
-        # end
+        Mail.find(keys: ['NOT','SEEN']) do |email, imap, uid|
+          imap.uid_store( uid, "+FLAGS", [Net::IMAP::SEEN] )
+        end
         {status: 200, notes: notes}
       end
 
