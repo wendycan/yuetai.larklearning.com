@@ -31,5 +31,29 @@
     font-size: 12px;
     color: $secondary-color;
   }
-
+  .book-notes {
+    h4 {
+      text-align: right;
+    }
+    hr {
+      margin: 5px 0;
+    }
+  }
+  .book-note {
+    margin: 20px 0;
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 4px;
+    .location {
+      text-align: right;
+      margin-bottom: 15px;
+    }
+    .note {
+      padding: 10px;
+      background: #ffebe5;
+      border-radius: 4px;
+      color: #661800;
+      margin-top: -10px;
+    }
+  }
 }

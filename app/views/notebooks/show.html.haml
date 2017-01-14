@@ -20,8 +20,18 @@
         = @notebook.notes.length
         %span 条笔记
     %hr
-    .notes
+    .book-notes
       - @articles.each_with_index do |item, i|
-        .note
+        .book-note
+          %h4= item.section
+          - if item.section
+            %hr
+          %p.location
+            第
+            = item.location
+            页
+          %p.content= item.content
+          - if !item.note.empty?
+            %p.note= item.note
 
-  = render "layouts/pager"
+= render "layouts/pager"
