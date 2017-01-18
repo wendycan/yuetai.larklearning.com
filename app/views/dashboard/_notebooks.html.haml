@@ -1,0 +1,26 @@
+%script{type: 'text/template', id: 't-notebooks'}
+  .row.article-head
+    .large-8.columns
+      %h4 所有笔记书
+    .large-4.columns.text-right
+      %span 有 5 本笔记待导入
+      %a.button.tiny{:href => "javascript:;"} 导入
+  .row.article-items.dashboard-content-wrap
+    .large-12.columns
+      %ul#notebooks
+      #paginator
+
+%script{type: 'text/template', id: 't-notebook'}
+  %li.notebook{:'data-id' => '{{= notebook.id }}'}
+    .row
+      .large-10.columns
+        %a{:href => "#notebooks/{{= notebook.id }}" }
+          {{= notebook.title }}
+        %span.pull-right {{= notebook.tag_list }}
+      .large-2.columns.text-right
+        %a{:href => "#notebooks/{{= notebook.id }}/edit"}
+          .fa.fa-edit
+        %span.fa.fa-times-circle-o.delete
+    .row
+      .large-12.columns
+        %p {{= notebook.body }}

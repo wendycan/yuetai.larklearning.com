@@ -7,6 +7,8 @@ class Yuetai.Routers.Engines extends Backbone.Router
     'blogs/:id' : 'show_blog'
     'blogs/:id/edit' : 'edit_blog'
 
+    'notebooks' : 'index_notebooks'
+
     'series' : 'index_series'
     'series/new' : 'new_series'
     'series/:id' : 'show_series'
@@ -45,6 +47,10 @@ class Yuetai.Routers.Engines extends Backbone.Router
       blog_id: id
     @blog_view.undelegateEvents() if @blog_view
     @blog_view = new Yuetai.Views.Blogs.ShowView(@, opts)
+
+  index_notebooks: ->
+    @notebooks_view.undelegateEvents() if @notebooks_view
+    @notebooks_view = new Yuetai.Views.Notebooks.IndexView(@)
 
   index_series: ->
     @series_view.undelegateEvents() if @series_view
