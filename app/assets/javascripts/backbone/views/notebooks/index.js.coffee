@@ -12,8 +12,8 @@ class Yuetai.Views.Notebooks.IndexView extends Yuetai.Views.Base
     # @clearMsg()
     # @render_nav(@opts.section)
     @$el.html(_.template($('#t-notebooks').html())())
-    # @notebooks = new Yuetai.Collections.Notebooks
-    # @fetchNotebooks()
+    @notebooks = new Yuetai.Collections.Notebooks
+    @fetchNotebooks()
     @fetchUnImportedNotebooks()
 
   fetchUnImportedNotebooks: ->
@@ -38,33 +38,24 @@ class Yuetai.Views.Notebooks.IndexView extends Yuetai.Views.Base
         setTimeout (-> window.location.reload()), 1000
     });
 
-  # fetchNotebooks: ->
-  #   @notebooks.fetch(
-  #     success: =>
-  #       @renderNotebooks()
-  #       @renderPagination()
-  #   )
-  #
-  # renderPagination: ->
-  #   paginator = new Paginator
-  #     collection: @notebooks
-  #
-  #   $("#paginator").html paginator.render().$el
-  #   @listenTo @notebooks, "reset", =>
-  #     @renderNotebooks()
-  #
-  # renderNotebooks: ->
-  #   $('#notebooks').empty()
-  #   @notebooks.each(@renderNotebook, @)
-  #
-  # renderNotebook: (notebook)->
-  #   $('#notebooks').append(_.template($('#t-notebook').html())(notebook: notebook))
-  #
-  # deleteNotebook: (e)->
-  #   $this = $(e.currentTarget).parents('li.notebook')
-  #   notebook = @notebooks.get(parseInt($this.data('id')))
-  #   if confirm('确定删除选中此博客？')
-  #     notebook.destroy(
-  #       success: =>
-  #         $this.remove()
-  #     )
+  fetchNotebooks: ->
+    @notebooks.fetch(
+      success: =>
+        @renderNotebooks()
+        @renderPagination()
+    )
+
+  renderPagination: ->
+    paginator = new Paginator
+      collection: @notebooks
+
+    $("#paginator").html paginator.render().$el
+    @listenTo @notebooks, "reset", =>
+      @renderNotebooks()
+
+  renderNotebooks: ->
+    $('#notebooks').empty()
+    @notebooks.each(@renderNotebook, @)
+
+  renderNotebook: (notebook)->
+    $('#notebooks').append(_.template($('#t-notebook').html())(notebook: notebook.toJSON()))

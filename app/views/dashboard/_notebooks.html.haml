@@ -10,20 +10,23 @@
       %a.button.tiny#import-btn{:href => "javascript:;"} 导入
   .row.article-items.dashboard-content-wrap
     .large-12.columns
-      %ul#notebooks
+      #notebooks.notebooks
       #paginator
 
 %script{type: 'text/template', id: 't-notebook'}
-  %li.notebook{:'data-id' => '{{= notebook.id }}'}
-    .row
-      .large-10.columns
-        %a{:href => "#notebooks/{{= notebook.id }}" }
-          {{= notebook.title }}
-        %span.pull-right {{= notebook.tag_list }}
-      .large-2.columns.text-right
-        %a{:href => "#notebooks/{{= notebook.id }}/edit"}
-          .fa.fa-edit
-        %span.fa.fa-times-circle-o.delete
-    .row
-      .large-12.columns
-        %p {{= notebook.body }}
+  .notebook{:'data-id' => '{{= notebook.id }}'}
+    %h4
+      %a{:href => "javascript:;" } {{= notebook.title }}
+      %p
+        {{= notebook.authors }}
+        %small {{= notebook.citation }}
+    .meta
+      %p
+        %span 创建于
+        {{= jQuery.timeago(notebook.created_at) }}
+        %span ，上次更新于
+        {{= jQuery.timeago(notebook.updated_at) }}
+        %span ，共
+        {{= notebook.notes.length }}
+        %span 条笔记
+  %hr

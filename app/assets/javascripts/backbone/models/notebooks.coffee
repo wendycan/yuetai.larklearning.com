@@ -1,25 +1,20 @@
 class Yuetai.Models.Notebook extends Backbone.Model
   defaults:
     title: ""
-    body: ""
+    authors: ""
+    citation : ""
+    notes: []
     id : ""
-    tag_list: ""
-    user_id: ""
-    visited_count: ""
-    tags: []
 
   sync: Yuetai.Common.api_sync
 
-  urlRoot: "#{Yuetai.ApiPrefix}/blogs"
+  urlRoot: "#{Yuetai.ApiPrefix}/notebooks"
 
   idAttribute: "id"
 
-  isNew: ->
-    !!@get('newbl')
-
 class Yuetai.Collections.Notebooks extends Backbone.PageableCollection
   model: Yuetai.Models.Notebook
-  url: "#{Yuetai.ApiPrefix}/blogs"
+  url: "#{Yuetai.ApiPrefix}/notebooks"
 
   sync: Yuetai.Common.api_sync
   state:
@@ -30,7 +25,7 @@ class Yuetai.Collections.Notebooks extends Backbone.PageableCollection
     totalPages: resp.total_pages
 
   parseRecords: (resp, options)->
-    resp.blogs
+    resp.notebooks
 
   initialize: ->
     @unsync = true
