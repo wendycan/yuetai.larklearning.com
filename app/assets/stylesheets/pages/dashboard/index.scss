@@ -1,63 +1,15 @@
-.manage-user {
-  i {
-    font-size: 20px;
-    padding-right: 5px;
-  }
-}
-
-.manage-controls {
-  a:focus {
-    outline: none;
-  }
-}
 .dashboard {
-  .tags-content {
-    margin-bottom: 5px;
-    .label:hover, .label.active {
-      background-color: $secondary-color;
-    }
-  }
+  margin-top: 60px;
   .loading {
     margin: 100px 0 30px;
   }
-  margin-top: 60px;
   .paginator {
     margin-top: 10px;
   }
   .header-nav {
     position: relative;
   }
-  .header-nav-right-popup {
-    display: none;
-    position: absolute;
-    top: -4px;
-    right: -225px;
-    width: 200px;
-    background-color: #fff;
-    border: solid 1px $gray-border;
-    border-radius: 4px;
-    padding: 15px;
-    input {
-      height: 2em;
-      margin-bottom: 5px;
-      margin-top: 3px
-    }
-    &:before, &:after {
-      content: '';
-      position: absolute;
-      border-style: solid;
-      border-width: 5px 10px;
-      left: -20px;
-      top: 10px;
-    }
-    &:after {
-      border-color: transparent #fff transparent transparent;
-      left: -18px;
-    }
-    &:before {
-      border-color: transparent $gray-border transparent transparent;
-    }
-  }
+
   .article-controls {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -65,15 +17,28 @@
       padding-right: 8px;
     }
   }
-
+  .article-head {
+    padding: 10px;
+    strong {
+      color: $secondary-color;
+      font-size: 22px;
+      font-weight: normal;
+    }
+    span {
+      color: #666;
+      line-height: 30px;
+      vertical-align: middle;
+    }
+    a {
+      padding: 7px 20px !important;
+    }
+  }
   .simditor {
     margin-bottom: 20px;
   }
 
   .page.active {
     background-color: $primary-color;
-  }
-  #new-blog-form, #edit-blog-form {
   }
   .delete {
     color: $alert-color;
