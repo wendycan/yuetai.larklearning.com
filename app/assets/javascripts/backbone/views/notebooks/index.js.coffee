@@ -34,8 +34,7 @@ class Yuetai.Views.Notebooks.IndexView extends Yuetai.Views.Base
         'Auth-Token': Yuetai.auth_token
       }
       success: (res) =>
-        alert('导入成功')
-        setTimeout (-> window.location.reload()), 1000
+        @fetchNotebooks()
     });
 
   fetchNotebooks: ->
