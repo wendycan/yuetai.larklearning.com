@@ -4,7 +4,7 @@ rails_root = ENV['RAILS_ROOT'] || File.expand_path('../', __FILE__)
 worker_processes rails_env == 'production' ? 2 : 2
 working_directory rails_root
 
-user 'wendy','staff'
+user 'wendy', 'wendy'
 
 listen '/tmp/unicorn.yuetai.sock'
 

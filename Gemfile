@@ -16,6 +16,8 @@ gem 'devise'
 gem 'email'
 gem 'nokogiri'
 
+gem 'puma'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -39,6 +41,8 @@ gem 'jquery-rails'
 # Front-end framework
 gem 'foundation-rails', '5.4.3.1'
 
+gem "bower-rails"
+
 # Icons
 gem 'font-awesome-sass'
 
@@ -51,9 +55,17 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'will_paginate', '~> 3.0.6'
 
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+group :development do
+  gem 'capistrano', '~> 3.6'
+  gem 'capistrano-rails', '~> 1.2'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rvm'
 end
 
 group :production do
