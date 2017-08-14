@@ -15,11 +15,11 @@
       .large-10.columns
         %a{:href => "#blogs/{{= blog.id }}" }
           {{= blog.title }}
-        %span.pull-right {{= blog.tag_list }}
       .large-2.columns.text-right
         %a{:href => "#blogs/{{= blog.id }}/edit"}
           .fa.fa-edit
         %span.fa.fa-times-circle-o.delete
+    %span {{= blog.tag_list }}
     .row
       .large-12.columns
         %p {{= blog.body }}
