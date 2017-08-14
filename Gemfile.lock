@@ -25,13 +25,34 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
+    airbrussh (1.1.2)
+      sshkit (>= 1.6.1, != 1.7.0)
     arel (4.0.2)
     axiom-types (0.1.1)
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
     bcrypt (3.1.11)
+    bower-rails (0.11.0)
     builder (3.1.4)
+    capistrano (3.8.0)
+      airbrussh (>= 1.0.0)
+      i18n
+      rake (>= 10.0.0)
+      sshkit (>= 1.9.0)
+    capistrano-bundler (1.2.0)
+      capistrano (~> 3.1)
+      sshkit (~> 1.2)
+    capistrano-rails (1.2.3)
+      capistrano (~> 3.1)
+      capistrano-bundler (~> 1.1)
+    capistrano-rvm (0.1.2)
+      capistrano (~> 3.0)
+      sshkit (~> 1.2)
+    capistrano3-puma (3.1.0)
+      capistrano (~> 3.7)
+      capistrano-bundler
+      puma (~> 3.4)
     carrierwave (1.0.0)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
@@ -122,6 +143,9 @@ GEM
       tool (~> 0.2)
     mustermann-grape (0.4.0)
       mustermann (= 0.4.0)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (4.1.0)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
@@ -130,6 +154,7 @@ GEM
       activesupport
       rack
     public_suffix (2.0.5)
+    puma (3.8.2)
     rack (1.5.5)
     rack-accept (0.4.5)
       rack (>= 0.4)
@@ -176,6 +201,9 @@ GEM
       activesupport (>= 3.0)
       sprockets (~> 2.8)
     sqlite3 (1.3.13)
+    sshkit (1.13.1)
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
     thor (0.19.4)
     thread_safe (0.3.5)
     tilt (1.4.1)
@@ -207,6 +235,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bower-rails
+  capistrano (~> 3.6)
+  capistrano-rails (~> 1.2)
+  capistrano-rvm
+  capistrano3-puma
   carrierwave
   coffee-rails (~> 4.0.0)
   debugger
@@ -223,6 +256,7 @@ DEPENDENCIES
   jquery-rails
   nokogiri
   prerender_rails
+  puma
   rails (= 4.0.3)
   sass-rails (~> 4.0.0)
   sdoc
